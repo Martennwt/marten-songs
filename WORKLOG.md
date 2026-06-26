@@ -2,6 +2,33 @@
 
 ---
 
+## 2026-06-26 (2): Player-Ausbau + LIVE auf GitHub Pages
+
+**Erledigt:**
+- **Lautstärke** als Lautsprecher-Button mit aufklappbarem **vertikalem Regler** (Popover, schließt
+  beim Rausklicken).
+- **Sprache** als kleines **Menü** (Español / Deutsch) statt Umschalter; steuert Zeilen-Übersetzung,
+  Info-Panel und Songtext-Ansicht gemeinsam.
+- **Ganzer Songtext** als Player-Button („Letra/Text") -> Modal mit allen Zeilen (EN + Übersetzung),
+  plus **PDF-Download** (jsPDF via CDN: Titel, dann je Zeile Englisch größer + Übersetzung darunter).
+- Prominenter Button oben rechts „Was steckt dahinter?" (ES/DE), Info-Panel mit Intro + Bibelstellen
+  + Erklärung pro Strophe und eigenem Sprach-Schalter.
+- Wort-Schimmer ohne Flackern (gesungen/aktuell gleicher Render-Weg), SVG-Flaggen, Übersetzung etwas
+  transparenter.
+- **LIVE gestellt:** öffentliches Repo **github.com/Martennwt/marten-songs**, GitHub Pages aktiv:
+  **https://martennwt.github.io/marten-songs/** (Quelle main/root). Updates künftig: commit + `git push`.
+- Ordnername hat Leerzeichen + Apostroph -> beim Öffnen via Chrome IMMER URL-kodieren (`%20`,`%27`),
+  sonst „Datei nicht gefunden". (Repo/Build betroffen nicht, da pfad-relativ.)
+
+**Offen / als Nächstes:**
+1. **Hintergrund-Bilder pro Abschnitt** (4-5/Song): Modell vorauss. Gemini 3 Pro Image; erst 1 Test-
+   Bild für Stil, dann Rest; leicht transparent hinter dem Text mit langsamem Drift.
+2. **Übersetzungs-v2** (pro Satz statt pro Doppelzeile) als zweite Variante zum Vergleich.
+3. **Zwei weitere Songs** von Marten.
+4. Button-Copy oben rechts evtl. final wählen (Vorschläge gegeben).
+
+---
+
 ## 2026-06-26: Projekt aufgesetzt, "The Sower" reingeholt, Pipeline gebaut
 
 **Erledigt:**
