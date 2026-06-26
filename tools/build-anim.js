@@ -15,22 +15,44 @@ const ROOT = path.resolve(__dirname, '..');
 const SONGS = path.join(ROOT, 'songs');
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
-function buildSong(id) {
+function buildSong(id, opts) {
+  opts = opts || {};
   const dir = path.join(SONGS, id);
   const meta = JSON.parse(fs.readFileSync(path.join(dir, 'song.json'), 'utf8'));
   const data = JSON.parse(fs.readFileSync(path.join(dir, 'timing.json'), 'utf8'));
   const words = data.words || [];
   const segs = data.segments || [];
-  const ES = meta.es || [], DE = meta.de || [];
+  const ES = meta.es || [], DE = meta.de || [], imageMap = meta.imageMap || [];
+  const useImages = !!(opts.images && meta.images && meta.images.length);
+  const variant = opts.variant || 'v1';
 
-  const lines = segs.map((s, i) => {
+  let lines = segs.map((s, i) => {
     const win = words.filter(w => w.start >= s.start - 0.06 && w.start < s.end + 0.25);
     const tokens = s.text.trim().split(/\s+/).filter(Boolean);
     let wobj;
     if (win.length === tokens.length) wobj = tokens.map((t, k) => ({ t, s: +win[k].start.toFixed(2) }));
     else { const dur = Math.max(0.4, s.end - s.start) / tokens.length; wobj = tokens.map((t, k) => ({ t, s: +(s.start + k * dur).toFixed(2) })); }
-    return { start: +s.start.toFixed(2), end: +s.end.toFixed(2), es: ES[i] || '', de: DE[i] || '', w: wobj };
+    return { start: +s.start.toFixed(2), end: +s.end.toFixed(2), es: ES[i] || '', de: DE[i] || '', w: wobj, seg: i, img: (imageMap[i] != null ? imageMap[i] : 0) };
   });
+
+  if (opts.fine) {
+    const fine = [];
+    lines.forEach((ln, i) => {
+      const enS = segs[i].text.trim().split(/(?<=[.!?])\s+/).filter(Boolean);
+      if (enS.length <= 1) { fine.push(ln); return; }
+      const esS = (ln.es || '').split(/(?<=[.!?])\s+/);
+      const deS = (ln.de || '').split(/(?<=[.!?])\s+/);
+      let wi = 0;
+      enS.forEach((sent, k) => {
+        const cnt = sent.trim().split(/\s+/).filter(Boolean).length;
+        const ws = ln.w.slice(wi, wi + cnt); wi += cnt;
+        if (!ws.length) return;
+        const endT = (wi < ln.w.length) ? ln.w[wi].s : ln.end;
+        fine.push({ start: +ws[0].s.toFixed(2), end: +endT.toFixed(2), es: (esS[k] || '').trim(), de: (deS[k] || '').trim(), w: ws, seg: i, img: ln.img });
+      });
+    });
+    lines = fine;
+  }
 
   const linesHtml = lines.map((ln, i) => {
     const spans = ln.w.map(w => '<span class="w" data-s="' + w.s + '">' + esc(w.t) + '</span>').join(' ');
@@ -48,7 +70,7 @@ function buildSong(id) {
   const infoSvg = '<svg class="vi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.2" stroke-linecap="round"/><circle cx="12" cy="7.6" r="0.7" fill="currentColor" stroke="none"/></svg>';
   const listSvg = '<svg class="vi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg>';
 
-  const head = '<!doctype html><html lang="en" data-tlang="es"><head><meta charset="utf-8">' +
+  const head = '<!doctype html><html lang="en" data-tlang="es" data-variant="' + variant + '"><head><meta charset="utf-8">' +
     '<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">' +
     '<title>' + esc(meta.title) + " &middot; Marten's Songs</title>" +
     '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' +
@@ -58,9 +80,12 @@ function buildSong(id) {
 
   const body =
     '<canvas id="bg"></canvas>' +
+    (useImages ? ('<div id="imgbg">' + meta.images.map((f, i) => '<div class="iml" data-i="' + i + '" style="background-image:url(\'' + esc(f) + '\')"></div>').join('') + '</div><div id="imgveil"></div>') : '') +
     '<a id="home" href="../../index.html">&#8592; Songs</a>' +
     '<button id="aboutBtn" class="about-btn" onclick="openAbout()"><span class="spark">&#10022;</span> <span id="aboutBtnLabel"></span></button>' +
-    '<div id="title"><div class="t-eyebrow">' + esc(meta.subtitle || '') + '</div><h1>' + esc(meta.title) + '</h1>' +
+    '<div id="title"' + (meta.cover ? (' style="--hero:url(\'' + esc(meta.cover) + '\')"') : '') + '>' +
+    '<a class="gate-x" href="../../index.html" aria-label="Back to songs">&times;</a>' +
+    '<div class="t-eyebrow">' + esc(meta.subtitle || '') + '</div><h1>' + esc(meta.title) + '</h1>' +
     '<button id="startBtn" onclick="startPlay()">&#9654;&nbsp; Play</button>' +
     '<div class="t-hint">The words light up as they are sung &middot; translation below</div></div>' +
     '<div id="lyrics"><div id="scroll">' + linesHtml + '<div class="line end-pad"></div></div></div>' +
@@ -94,7 +119,7 @@ function buildSong(id) {
     ';var VOL=' + JSON.stringify({ on: volOn, low: volLow, mute: volMute }) +
     ';var SONG=' + JSON.stringify({ id: id, title: meta.title, refs: meta.subtitle || '' }) + ';</script>';
   const app = '<script>' + songJS() + '</script>';
-  fs.writeFileSync(path.join(dir, 'index.html'), head + body + dataScript + app + '</body></html>');
+  fs.writeFileSync(path.join(dir, opts.out || 'index.html'), head + body + dataScript + app + '</body></html>');
   return { id, lineCount: lines.length };
 }
 
@@ -109,7 +134,11 @@ function songCSS() {
     '.about-btn:hover{transform:translateY(-1px);background:linear-gradient(180deg,rgba(255,231,173,.28),rgba(233,184,92,.2));border-color:rgba(243,196,108,.85)}',
     '.about-btn .spark{color:#ffd87a}',
     /* title / play gate */
-    '#title{position:fixed;inset:0;z-index:60;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:.5rem;padding:1rem;background:radial-gradient(80% 60% at 50% 40%,rgba(12,22,38,.55),rgba(7,13,24,.92));backdrop-filter:blur(2px);transition:opacity .8s,visibility .8s}',
+    '#title{position:fixed;inset:0;z-index:60;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:.5rem;padding:1rem;overflow:hidden;background:#070d18;backdrop-filter:blur(2px);transition:opacity .8s,visibility .8s}',
+    '#title::before{content:"";position:absolute;inset:0;background:var(--hero,none) center/cover no-repeat;opacity:.32;transform:scale(1.06);z-index:0}',
+    '#title::after{content:"";position:absolute;inset:0;background:radial-gradient(85% 70% at 50% 42%,rgba(7,13,24,.5),rgba(7,13,24,.9));z-index:1}',
+    '#title>*{position:relative;z-index:2}',
+    '#title .gate-x{position:absolute;top:12px;left:18px;z-index:3;color:#cdd8e8;text-decoration:none;font-size:1.7rem;line-height:1;opacity:.85}', '#title .gate-x:hover{color:#ffe39a}',
     '#title.hide{opacity:0;visibility:hidden}',
     '.t-eyebrow{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#caa45a}',
     "#title h1{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(3rem,12vw,7rem);margin:.2rem 0;line-height:1;background:linear-gradient(180deg,#fff,#f3d79a);-webkit-background-clip:text;background-clip:text;color:transparent}",
@@ -176,6 +205,13 @@ function songCSS() {
     '.lyrics-card .ll{padding:.55rem 0;border-bottom:1px solid rgba(255,255,255,.06)}',
     ".lyrics-card .ll-en{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:#eef2f8;line-height:1.3}",
     '.lyrics-card .ll-tr{font-style:italic;font-size:.86rem;color:rgba(158,201,182,.85);margin-top:.18rem}',
+    /* background images (v2) */
+    '#imgbg{position:fixed;inset:0;z-index:1;pointer-events:none}',
+    '.iml{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.8s ease;animation:imgdrift 32s ease-in-out infinite alternate}',
+    '.iml.on{opacity:.26}',
+    '@keyframes imgdrift{from{transform:scale(1.05)}to{transform:scale(1.15)}}',
+    '#imgveil{position:fixed;inset:0;z-index:2;pointer-events:none;background:radial-gradient(95% 80% at 50% 45%,rgba(7,13,24,.42),rgba(7,13,24,.82))}',
+    'html[data-variant="v2"] .tline{color:rgba(178,186,198,.55)}', 'html[data-variant="v2"] .line.active .tline{color:rgba(204,212,224,.8)}',
     /* mobile: bigger lyrics, comfy player */
     '@media(max-width:640px){',
     '  #lyrics{bottom:132px}', 'body.pl-collapsed #lyrics{bottom:46px}',
@@ -193,6 +229,8 @@ function songJS() {
   return [
     'var au=document.getElementById("au"),scroll=document.getElementById("scroll");',
     'var lineEls=[].slice.call(document.querySelectorAll(".line[data-s]"));',
+    'var imls=[].slice.call(document.querySelectorAll(".iml"));var curImg=-1;',
+    'function setImg(n){if(!imls.length||n===curImg)return;curImg=n;for(var z=0;z<imls.length;z++)imls[z].classList.toggle("on",z===n);}',
     'var curLine=-1,started=false,aboutOpen=false,lyricsOpen=false,lastVol=1;',
     'function fmt(t){t=Math.max(0,t|0);return (t/60|0)+":"+("0"+(t%60)).slice(-2);}',
     'function startPlay(){document.getElementById("title").classList.add("hide");started=true;au.play();}',
@@ -230,7 +268,7 @@ function songJS() {
     '  document.getElementById("cur").textContent=fmt(t);',
     '  document.getElementById("fill").style.width=((au.duration?t/au.duration:0)*100)+"%";',
     '  var idx=-1;for(var i=0;i<LINES.length;i++){if(t>=LINES[i].start-0.15){idx=i;}else break;}',
-    '  setActive(idx);',
+    '  setActive(idx);if(imls.length)setImg(idx>=0?(LINES[idx].img||0):0);',
     '  if(idx>=0){var el=lineEls[idx],ws=el.querySelectorAll(".w"),L=LINES[idx].w,endT=LINES[idx].end;',
     '    for(var k=0;k<ws.length;k++){var st=L[k]?L[k].s:0;var nx=(L[k+1]?L[k+1].s:endT);',
     '      if(t>=nx){if(ws[k].className!=="w sung"){ws[k].className="w sung";ws[k].style.removeProperty("--p");}}',
@@ -247,9 +285,13 @@ function buildHub() {
   const ids = fs.readdirSync(SONGS).filter(d => fs.existsSync(path.join(SONGS, d, 'song.json')));
   const metas = ids.map(id => Object.assign({ id }, JSON.parse(fs.readFileSync(path.join(SONGS, id, 'song.json'), 'utf8'))));
   const cards = metas.map(m =>
-    '<a class="card" href="songs/' + m.id + '/index.html"><div class="c-theme">' + esc(m.theme || 'song') + '</div>' +
+    '<div class="card">' +
+    (m.cover ? '<div class="c-img" style="background-image:url(\'songs/' + m.id + '/' + esc(m.cover) + '\')"></div>' : '') +
+    '<div class="c-body"><div class="c-theme">' + esc(m.theme || 'song') + '</div>' +
     '<div class="c-title">' + esc(m.title) + '</div><div class="c-sub">' + esc(m.subtitle || '') + '</div>' +
-    '<div class="c-play">&#9654; Play</div></a>'
+    '<div class="c-btns"><a class="c-play" href="songs/' + m.id + '/index.html">&#9654; Version 1</a>' +
+    '<a class="c-play alt" href="songs/' + m.id + '/v2.html">&#10022; Version 2 &middot; Bilder</a></div>' +
+    '</div></div>'
   ).join('\n');
   const html = '<!doctype html><html lang="en"><head><meta charset="utf-8">' +
     '<meta name="viewport" content="width=device-width,initial-scale=1">' +
@@ -272,13 +314,21 @@ function hubCSS() {
     'header{position:relative;z-index:1;text-align:center;padding:14vh 1rem 2rem}',
     '.eyebrow{font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:#caa45a}',
     "header h1{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(2.6rem,9vw,5.5rem);margin:.3rem 0 0;background:linear-gradient(180deg,#fff,#f3d79a);-webkit-background-clip:text;background-clip:text;color:transparent}",
-    '.grid{position:relative;z-index:1;max-width:880px;margin:0 auto;padding:1rem 1.2rem 4rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.1rem}',
-    '.card{display:block;text-decoration:none;color:inherit;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);border-radius:18px;padding:1.4rem 1.4rem 1.2rem;transition:transform .18s,border-color .18s,background .18s}',
-    '.card:hover{transform:translateY(-4px);border-color:rgba(243,196,108,.5);background:rgba(255,255,255,.07)}',
+    '.grid{position:relative;z-index:1;max-width:920px;margin:0 auto;padding:1rem 1.2rem 4rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.3rem}',
+    '.card{position:relative;display:block;overflow:hidden;text-decoration:none;color:inherit;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);border-radius:18px;transition:transform .2s,border-color .2s,box-shadow .2s}',
+    '.card:hover{transform:translateY(-5px);border-color:rgba(243,196,108,.7);box-shadow:0 18px 44px rgba(0,0,0,.45)}',
+    '.card::after{content:"";position:absolute;inset:0;border-radius:18px;background:radial-gradient(130% 80% at 50% 0%,rgba(243,196,108,.18),transparent 55%);opacity:0;transition:opacity .25s;pointer-events:none}',
+    '.card:hover::after{opacity:1}',
+    '.c-img{height:152px;background-size:cover;background-position:center;position:relative;transition:transform .35s}',
+    '.card:hover .c-img{transform:scale(1.04)}',
+    '.c-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,20,36,0) 35%,rgba(11,20,36,.92) 100%)}',
+    '.c-body{position:relative;padding:1.1rem 1.3rem 1.3rem}',
     '.c-theme{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:#caa45a}',
     ".c-title{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.9rem;margin:.25rem 0}",
     '.c-sub{color:#9fb0c6;font-size:.82rem;min-height:1.2em}',
-    '.c-play{margin-top:1rem;display:inline-block;color:#0c1626;background:linear-gradient(180deg,#ffe7ad,#e9b85c);border-radius:999px;padding:.4rem 1.1rem;font-weight:600;font-size:.85rem}',
+    '.c-btns{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}',
+    '.c-play{display:inline-block;color:#0c1626;background:linear-gradient(180deg,#ffe7ad,#e9b85c);border-radius:999px;padding:.4rem 1rem;font-weight:600;font-size:.82rem}',
+    '.c-play.alt{color:#ffe7ad;background:transparent;border:1px solid rgba(243,196,108,.5)}',
     'footer{position:relative;z-index:1;text-align:center;color:#7e90a8;font-size:.8rem;padding:0 1rem 3rem}'
   ].join('');
 }
@@ -295,5 +345,9 @@ if (!arg) { console.error('usage: node tools/build-anim.js <song-id> | --all'); 
 const ids = arg === '--all'
   ? fs.readdirSync(SONGS).filter(d => fs.existsSync(path.join(SONGS, d, 'song.json')))
   : [arg];
-ids.forEach(id => { const r = buildSong(id); console.log('built song ' + r.id + ' (' + r.lineCount + ' lines)'); });
+ids.forEach(id => {
+  const r = buildSong(id);
+  buildSong(id, { fine: true, images: true, variant: 'v2', out: 'v2.html' });
+  console.log('built song ' + r.id + ' (v1 ' + r.lineCount + ' lines, + v2 with images)');
+});
 console.log('rebuilt hub index.html (' + buildHub() + ' song(s))');
