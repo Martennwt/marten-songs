@@ -2,6 +2,38 @@
 
 ---
 
+## 2026-06-26 (4): Stand für Wiedereinstieg (Kontext-Cut)
+
+**LIVE = nur „The Sower" (Original)** auf https://martennwt.github.io/marten-songs/ . Spanisch auf
+Top-Castellano verfeinert (Reina-Valera-Anklang). Default-Sprache DE.
+
+**Player-Features alle drin (über `tools/build-anim.js`):** Wort-Schimmer mit **LEAD 0.18s** Vorlauf
+(gegen Whisper-Verzug), Lautstärke-Popover (vertikal), Sprachmenü ES/DE, Intro-Cover mit Bild + X (kein
+Play-Button: Tippen/Autoplay, ~1,5s Cover dann Song), Countdown-Ring im Intro, Info-Panel „Die Idee
+hinter dem Lied" mit ES|DE-Schalter + Vorlesen (Guillermo-Stimme, nur The Sower), Letra-Ansicht + PDF,
+Genre-Filter (Indie Folk Pop aktiv; Blues/HipHop/R&B „bald"), Hub-Karten mit Bild + Gold-Hover, deutscher
+Titel auf Cover, Hintergrundbilder heller (.34) + **Mobil-Schwenk `imgpan`** (Bild läuft auf dem Handy
+links→rechts durch, kein 16:9-Beschnitt). 8 Bilder für The Sower. Alles in `BRANDING.md` (Standards) dokumentiert.
+
+**Geparkt, NICHT live (lokal, `songs/<id>/` mit `song.json.off`):**
+- `mustard-seed` und `the-word-that-found-me`: Whisper-Transkript passte NICHT (Zeilen verschluckt, z. B.
+  fehlte „There was nothing in my hands…"; Timing schief). mp3/timing/Bilder/Übersetzungen liegen bereit.
+  **FIX:** Marten schickt die **echten Lyrics** → Anzeigetext aus den Lyrics neu bauen + Timing daran
+  ausrichten, dann lokal zeigen, erst dann pushen. (`song.json.off` → zurück zu `song.json` zum Aktivieren.)
+- `the-sower-remastered`: mp3+timing da, Transkript verwürfelt (anderer Beat/Melodie). Eigener Song,
+  sauberer Re-Time nötig, Bilder von The Sower wiederverwenden.
+
+**Offen / Entscheidungen für die nächste Session:**
+1. Echte Lyrics für die 2 neuen Songs (+ ggf. Remaster-Lyrics = The-Sower-Lyrics) → fixen.
+2. Genre der neuen Songs bestätigen (vorerst Indie Folk Pop).
+3. Optional: Single-Page-Umbau (echtes Auto-Start ohne Klick), `flash-image` als Bild-Default (4 Cent
+   statt Pro ~13 Cent), Forced-Alignment für perfekte Wort-Sync, mp4-Renderer fürs YouTube-Video.
+
+**Regel gelernt:** MP3 **+ Lyrics** zusammen schicken = sicherster Weg. Nur-MP3 klappt, wenn Whisper den
+Song gut hört, verschluckt aber bei manchen Beats Zeilen → Text/Timing stimmen dann nicht.
+
+---
+
 ## 2026-06-26 (3): Bilder, Version 2, Hub mit Bildern, Intro-Fenster, Bugfixes
 
 **Erledigt:**
