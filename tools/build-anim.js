@@ -358,7 +358,7 @@ function buildHub() {
     '<style>' + hubCSS() + '</style></head><body><canvas id="bg"></canvas>' +
     '<div class="promo" id="promo"><div class="promo-in">' +
       '<span class="promo-eye">New</span>' +
-      '<span>Learn to build your own faith-driven AI music channel and this dashboard, with <b>The Sower System</b>.</span>' +
+      '<span>Learn to build your own AI music channel and a dashboard like this, in any niche, with <b>The Sower System</b>.</span>' +
       '<a class="promo-cta" href="course/index.html">Join the waitlist &rarr;</a>' +
       '<button class="bar-x" onclick="closeBar(\'promo\')" aria-label="Dismiss">&times;</button>' +
     '</div></div>' +

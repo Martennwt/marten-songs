@@ -1,0 +1,741 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Sower System, turn any idea into a song</title>
+<meta name="description" content="A plug-and-play system to turn any idea, story or memory into a cinematic, bilingual music video and build a YouTube channel in any niche. Join the waitlist.">
+<meta property="og:title" content="The Sower System">
+<meta property="og:description" content="Turn any idea into a song the world remembers. The plug-and-play system for AI music channels, in any niche.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>document.documentElement.className+=' js';</script>
+<style>
+:root{
+  --navy0:#16243a; --navy1:#0c1626; --navy2:#070d18;
+  --gold:#e9b85c; --gold-soft:#ffe7ad; --gold-bright:#ffe39a; --gold-eye:#caa45a;
+  --ink:#eaf0f7; --muted:#9fb0c6; --dim:#7e90a8;
+  --card:rgba(255,255,255,.045); --card-2:rgba(255,255,255,.03); --line:rgba(255,255,255,.09);
+  --glass:rgba(9,16,28,.72);
+  --maxw:1140px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{
+  font-family:'Inter',system-ui,sans-serif;color:var(--ink);
+  background:var(--navy2);
+  min-height:100vh;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;
+}
+/* fixed background field so it does not scroll-jank with lenis */
+.field{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(120% 90% at 50% -10%,var(--navy0) 0%,var(--navy1) 45%,var(--navy2) 100%)}
+.aurora{position:fixed;inset:-20% -10% auto -10%;height:90vh;z-index:0;pointer-events:none;filter:blur(60px);opacity:.6}
+.aurora b{position:absolute;border-radius:50%;display:block}
+.aurora .a1{width:46vw;height:46vw;left:6%;top:-6%;background:radial-gradient(closest-side,rgba(233,184,92,.22),transparent 70%);animation:floatA 16s ease-in-out infinite}
+.aurora .a2{width:40vw;height:40vw;right:4%;top:8%;background:radial-gradient(closest-side,rgba(86,140,170,.22),transparent 70%);animation:floatB 19s ease-in-out infinite}
+.aurora .a3{width:34vw;height:34vw;left:38%;top:18%;background:radial-gradient(closest-side,rgba(255,227,154,.14),transparent 70%);animation:floatA 22s ease-in-out infinite reverse}
+@keyframes floatA{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(4%,6%) scale(1.12)}}
+@keyframes floatB{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-5%,4%) scale(1.1)}}
+#dots{position:fixed;inset:0;z-index:1;pointer-events:none}
+
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:600;line-height:1.04;margin:0;letter-spacing:-.01em}
+.serif{font-family:'Cormorant Garamond',serif}
+.wrap{position:relative;z-index:3;max-width:var(--maxw);margin:0 auto;padding:0 1.4rem}
+.eyebrow{font-size:.76rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-eye);font-weight:600}
+.gold-text{background:linear-gradient(180deg,#fff,#f3d79a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--muted);font-size:1.12rem;max-width:42rem}
+.center{text-align:center}.mx{margin-left:auto;margin-right:auto}
+
+.btn{display:inline-flex;align-items:center;gap:.5rem;border-radius:999px;font-weight:600;font-size:.95rem;
+  padding:.85rem 1.6rem;cursor:pointer;border:0;transition:transform .18s,box-shadow .25s,border-color .2s,color .2s;font-family:inherit;position:relative;overflow:hidden}
+.btn-gold{color:#0c1626;background:linear-gradient(180deg,var(--gold-soft),var(--gold));box-shadow:0 10px 30px rgba(233,184,92,.28)}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 16px 44px rgba(233,184,92,.45)}
+.btn-gold::after{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-18deg);transition:left .6s}
+.btn-gold:hover::after{left:140%}
+.btn-ghost{color:var(--ink);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.18)}
+.btn-ghost:hover{border-color:rgba(243,196,108,.7);color:var(--gold-bright)}
+.btn-sm{padding:.55rem 1.1rem;font-size:.84rem}
+
+/* announcement + nav */
+.promo{position:relative;z-index:40;background:linear-gradient(90deg,rgba(233,184,92,.16),rgba(9,16,28,.6) 60%);
+  border-bottom:1px solid rgba(243,196,108,.22);font-size:.83rem}
+.promo .in{max-width:var(--maxw);margin:0 auto;padding:.5rem 1.4rem;display:flex;gap:.7rem;align-items:center;justify-content:center;flex-wrap:wrap;text-align:center}
+.promo b{color:var(--gold-bright)}
+.promo a.lk{color:var(--gold-bright);font-weight:600;border-bottom:1px solid rgba(243,196,108,.5)}
+.nav{position:sticky;top:0;z-index:45;transition:background .3s,border-color .3s,box-shadow .3s;border-bottom:1px solid transparent}
+.nav.solid{background:var(--glass);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);box-shadow:0 10px 34px rgba(0,0,0,.4)}
+.nav .row{max-width:var(--maxw);margin:0 auto;padding:.75rem 1.4rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.brand{display:flex;align-items:center;gap:.55rem;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.22rem}
+.brand .seed{width:22px;height:22px;flex:none}
+.nav-links{display:flex;gap:1.7rem;font-size:.9rem;color:var(--muted)}
+.nav-links a{position:relative}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:1px;background:var(--gold);transition:width .25s}
+.nav-links a:hover{color:var(--gold-bright)}.nav-links a:hover::after{width:100%}
+@media(max-width:820px){.nav-links{display:none}}
+
+/* hero */
+.hero{position:relative;z-index:3;min-height:96vh;display:flex;align-items:center;padding:5rem 0 4rem;overflow:hidden}
+.hero-bg{position:absolute;inset:-8% 0 -8% 0;z-index:-1;background-image:url('img/hero.png');background-size:cover;background-position:center 30%;opacity:.9;will-change:transform}
+.hero-veil{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(7,13,24,.35) 0%,rgba(7,13,24,.55) 45%,rgba(7,13,24,.82) 78%,var(--navy2) 100%)}
+.hero .wrap{text-align:center}
+.hero h1{font-size:clamp(2.6rem,7.6vw,6.4rem);font-weight:700;margin:.7rem auto 0;max-width:15ch}
+.rot{display:inline-block;position:relative;min-width:6ch}
+.rot .w{display:inline-block;background:linear-gradient(180deg,#ffe7ad,#e9b85c);-webkit-background-clip:text;background-clip:text;color:transparent;transition:opacity .4s,transform .4s}
+.rot .w.out{opacity:0;transform:translateY(-.35em)}
+.hero .sub{color:#d3dded;font-size:clamp(1.05rem,2.2vw,1.32rem);max-width:42rem;margin:1.5rem auto 0}
+.hero .cta{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin-top:2.2rem}
+.hero .micro{margin-top:1.1rem;font-size:.8rem;color:var(--dim)}
+.kicker{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;color:var(--gold-bright);opacity:.9}
+.scrolldown{position:absolute;left:50%;bottom:1.6rem;transform:translateX(-50%);color:var(--dim);font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;z-index:3}
+.scrolldown::after{content:"";display:block;width:1px;height:34px;margin:.6rem auto 0;background:linear-gradient(180deg,var(--gold),transparent);animation:drop 2s ease-in-out infinite}
+@keyframes drop{0%{transform:scaleY(.2);transform-origin:top;opacity:.3}50%{transform:scaleY(1);opacity:1}100%{transform:scaleY(.2);transform-origin:bottom;opacity:.3}}
+
+/* marquee */
+.marquee{position:relative;z-index:3;padding:1.6rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(7,13,24,.4);overflow:hidden}
+.mrow{display:flex;gap:0;white-space:nowrap;width:max-content;animation:scrollx 38s linear infinite}
+.mrow.rev{animation-direction:reverse;animation-duration:46s;margin-top:.5rem;opacity:.6}
+.marquee:hover .mrow{animation-play-state:paused}
+.mrow .it{font-family:'Cormorant Garamond',serif;font-size:1.7rem;padding:0 1.4rem;color:#cdd8e8;display:inline-flex;align-items:center;gap:1.4rem}
+.mrow .it::after{content:"\2726";color:var(--gold);font-size:.7rem}
+@keyframes scrollx{to{transform:translateX(-50%)}}
+
+/* sections */
+section{position:relative;z-index:3;padding:6rem 0}
+.sec-head{max-width:46rem}
+.sec-head.center{margin-inline:auto}
+.sec-head h2{font-size:clamp(2.1rem,5.2vw,3.6rem);margin:.5rem 0 0}
+.sec-head p{color:var(--muted);font-size:1.1rem;margin:1.1rem 0 0}
+
+/* showcase */
+.show{display:grid;gap:1.6rem;margin-top:2.6rem;align-items:stretch}
+@media(min-width:900px){.show{grid-template-columns:1.05fr 1fr}}
+.show-media{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--line);min-height:360px;background:#0a1322}
+.show-media .im{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity .8s ease,transform 8s ease;transform:scale(1.05)}
+.show-media .im.on{opacity:1;transform:scale(1.12)}
+.show-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,13,24,.1),rgba(7,13,24,.55))}
+.show-media .cap{position:absolute;left:1.4rem;bottom:1.2rem;z-index:2;font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.6)}
+.show-panel{display:flex;flex-direction:column;justify-content:center}
+.tabs{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.4rem}
+.tab{background:rgba(255,255,255,.05);border:1px solid var(--line);color:#cdd8e8;border-radius:999px;padding:.45rem 1rem;font:inherit;font-size:.85rem;font-weight:600;cursor:pointer;transition:.2s}
+.tab:hover{border-color:rgba(243,196,108,.5)}
+.tab.on{background:linear-gradient(180deg,#ffe7ad,#e9b85c);color:#0c1626;border-color:transparent}
+.show-panel .st{min-height:9rem}
+.show-panel .st h3{font-size:2rem;margin-bottom:.6rem}
+.show-panel .st p{color:var(--muted);font-size:1.02rem;margin:0;transition:opacity .35s}
+
+/* karaoke demo */
+.demo{display:grid;gap:1.6rem;margin-top:2.6rem}
+@media(min-width:900px){.demo{grid-template-columns:1.2fr .8fr}}
+.kbox{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));border:1px solid var(--line);border-radius:20px;padding:2.4rem 2rem;display:flex;flex-direction:column;justify-content:center;min-height:300px}
+.klines{font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,3.3vw,2.3rem);line-height:1.5}
+.kw{color:rgba(159,176,198,.5);transition:color .25s,text-shadow .25s}
+.kw.on{color:#ffe6a6;text-shadow:0 0 18px rgba(243,196,108,.45)}
+.kw.done{color:#f1d489}
+.ksub{margin-top:1rem;color:rgba(178,186,198,.7);font-size:1.02rem;font-style:italic}
+.story-card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:1.8rem}
+.story-card .tag{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-eye);font-weight:600}
+.story-card h3{font-size:1.6rem;margin:.5rem 0 .6rem}
+.story-card p{color:var(--muted);font-size:.96rem;margin:0}
+
+/* proof songs */
+.songs{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.2rem;margin-top:2.4rem}
+.song{position:relative;display:block;overflow:hidden;border-radius:16px;border:1px solid var(--line);background:var(--card);transition:transform .22s,border-color .22s,box-shadow .25s}
+.song:hover{transform:translateY(-6px);border-color:rgba(243,196,108,.7);box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.song .ph{height:158px;background-size:cover;background-position:center;transition:transform .4s}
+.song:hover .ph{transform:scale(1.06)}
+.song .ph::after{content:"";position:absolute;left:0;right:0;top:0;height:158px;background:linear-gradient(180deg,rgba(11,20,36,0) 35%,rgba(11,20,36,.92) 100%)}
+.song .meta{padding:.9rem 1.1rem 1.1rem;position:relative}
+.song .meta .t{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.5rem}
+.song .meta .e{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-eye)}
+.song .meta .w{margin-top:.4rem;font-size:.82rem;color:var(--gold-bright);font-weight:600}
+.livebadge{display:inline-flex;align-items:center;gap:.45rem;font-size:.74rem;color:var(--muted)}
+.dot-live{width:8px;height:8px;border-radius:50%;background:#6fe3a0;animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(111,227,160,.55)}70%{box-shadow:0 0 0 8px rgba(111,227,160,0)}100%{box-shadow:0 0 0 0 rgba(111,227,160,0)}}
+
+/* bento */
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:1.1rem;margin-top:2.6rem}
+.tile{position:relative;overflow:hidden;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:1.6rem;grid-column:span 2;transition:transform .2s,border-color .2s,box-shadow .25s}
+.tile:hover{transform:translateY(-4px);border-color:rgba(243,196,108,.5);box-shadow:0 16px 44px rgba(0,0,0,.42)}
+.tile::after{content:"";position:absolute;inset:0;border-radius:18px;background:radial-gradient(120% 80% at 50% 0%,rgba(243,196,108,.14),transparent 55%);opacity:0;transition:opacity .25s;pointer-events:none}
+.tile:hover::after{opacity:1}
+.ic{width:50px;height:50px;display:inline-flex;align-items:center;justify-content:center;border-radius:14px;background:linear-gradient(155deg,rgba(243,196,108,.18),rgba(255,255,255,.02));border:1px solid rgba(243,196,108,.28);box-shadow:inset 0 1px 0 rgba(255,255,255,.07);margin-bottom:.45rem;transition:border-color .2s,transform .2s}
+.ic svg{width:25px;height:25px;display:block;fill:none;stroke:url(#icgrad);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.tile:hover .ic{border-color:rgba(243,196,108,.55);transform:translateY(-2px)}
+.tile h3{font-size:1.4rem;margin:.6rem 0 .35rem}
+.tile p{color:var(--muted);font-size:.93rem;margin:0}
+.tile.wide{grid-column:span 3}
+.tile.big{grid-column:span 3}
+.tile.full{grid-column:span 6}
+@media(max-width:820px){.bento{grid-template-columns:repeat(2,1fr)}.tile,.tile.wide,.tile.big{grid-column:span 2}.tile.full{grid-column:span 2}}
+@media(max-width:520px){.bento{grid-template-columns:1fr}.tile,.tile.wide,.tile.big,.tile.full{grid-column:span 1}}
+
+/* solution band */
+.band{position:relative;border-radius:26px;overflow:hidden;border:1px solid rgba(243,196,108,.24)}
+.band .bg{position:absolute;inset:0;z-index:0;opacity:.45;background-image:url('img/harvest.png');background-size:cover;background-position:center;will-change:transform}
+.band::after{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,rgba(7,13,24,.72),rgba(7,13,24,.9))}
+.band .inner{position:relative;z-index:1;padding:3.4rem 2.2rem}
+.cols{display:grid;gap:1.2rem;margin-top:2.4rem}
+@media(min-width:780px){.cols{grid-template-columns:1fr 1fr}}
+.col{border-radius:16px;padding:1.7rem;border:1px solid var(--line)}
+.col.bad{background:rgba(255,255,255,.025)}
+.col.good{background:linear-gradient(180deg,rgba(243,196,108,.12),rgba(255,255,255,.03));border-color:rgba(243,196,108,.4)}
+.col h3{font-size:1.35rem;margin-bottom:.9rem}
+.col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.7rem}
+.col li{display:flex;gap:.6rem;font-size:.95rem;color:var(--muted)}
+.col li .m{flex:none;font-weight:700}
+.col.bad li .m{color:#d98a8a}.col.good li{color:#dbe6f2}.col.good li .m{color:var(--gold-bright)}
+
+/* steps */
+.steps{display:grid;gap:1.1rem;margin-top:2.6rem}
+@media(min-width:900px){.steps{grid-template-columns:repeat(4,1fr)}}
+.step{position:relative;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:1.7rem 1.4rem;overflow:hidden}
+.step .n{font-family:'Cormorant Garamond',serif;font-size:3rem;color:rgba(243,196,108,.5);line-height:.9}
+.step h3{font-size:1.3rem;margin:.5rem 0 .4rem}
+.step p{color:var(--muted);font-size:.9rem;margin:0}
+
+/* who */
+.who{display:grid;gap:.8rem;margin-top:2.2rem}
+@media(min-width:780px){.who{grid-template-columns:repeat(2,1fr)}}
+.who div{display:flex;gap:.7rem;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1rem 1.2rem;font-size:.95rem}
+.who .ck{color:var(--gold-bright);font-weight:700;flex:none}
+
+/* waitlist */
+.signup{position:relative;border-radius:26px;overflow:hidden;border:1px solid rgba(243,196,108,.32);
+  background:radial-gradient(120% 120% at 50% 0%,rgba(243,196,108,.16),rgba(9,16,28,.4) 55%),rgba(9,16,28,.55)}
+.signup .glow{position:absolute;inset:auto 0 -40% 0;height:80%;background:radial-gradient(closest-side,rgba(243,196,108,.18),transparent 70%);filter:blur(40px)}
+.signup .inner{position:relative;z-index:1;padding:3.6rem 1.6rem;text-align:center}
+.form{display:flex;gap:.6rem;max-width:31rem;margin:1.9rem auto 0;flex-wrap:wrap;justify-content:center}
+.form input{flex:1;min-width:210px;background:rgba(7,13,24,.6);border:1px solid rgba(255,255,255,.18);color:var(--ink);
+  border-radius:999px;padding:.9rem 1.4rem;font:inherit;font-size:.95rem;outline:none;transition:border-color .2s}
+.form input:focus{border-color:rgba(243,196,108,.75)}
+.form input::placeholder{color:var(--dim)}
+.perks{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-top:1.7rem;font-size:.85rem;color:var(--muted)}
+.perks span{display:inline-flex;align-items:center;gap:.4rem}.perks .ck{color:var(--gold-bright)}
+.formnote{margin-top:1rem;font-size:.76rem;color:var(--dim)}
+.success{display:none;margin-top:1.6rem;padding:1rem 1.3rem;border-radius:14px;border:1px solid rgba(111,227,160,.4);background:rgba(111,227,160,.08);color:#bfead1;font-size:.95rem}
+.success.show{display:block}
+
+/* faq */
+.faq{margin-top:2.4rem;max-width:48rem}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:1.2rem 2.4rem 1.2rem 0;position:relative;font-weight:600;font-size:1.08rem;color:var(--ink)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:.3rem;top:1.05rem;color:var(--gold);font-size:1.5rem;transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq p{color:var(--muted);margin:0 0 1.2rem;font-size:.95rem;max-width:44rem}
+
+/* final */
+.final{text-align:center}
+.final h2{font-size:clamp(2.2rem,6vw,4.2rem)}
+
+/* footer */
+footer.ft{position:relative;z-index:3;border-top:1px solid var(--line);margin-top:2rem;padding:3.6rem 0 4rem;background:rgba(7,13,24,.55)}
+.ft-grid{display:grid;gap:2rem;grid-template-columns:1.5fr 1fr 1fr}
+@media(max-width:760px){.ft-grid{grid-template-columns:1fr 1fr}}
+.ft-grid h4{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-eye);margin:0 0 .9rem;font-weight:600}
+.ft-grid a{display:block;color:var(--muted);font-size:.9rem;padding:.25rem 0}
+.ft-grid a:hover{color:var(--gold-bright)}
+.ft-brand .serif{font-size:1.7rem;font-weight:700}
+.ft-brand .kicker{display:block;margin:.3rem 0 .6rem}
+.ft-brand p{color:var(--dim);font-size:.88rem;max-width:24rem;margin:0}
+.ft-bottom{border-top:1px solid var(--line);margin-top:2.6rem;padding-top:1.5rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;color:var(--dim);font-size:.78rem}
+
+/* scroll reveal (only hides when JS is active, so no-JS users always see content) */
+html.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+html.js .reveal.in{opacity:1;transform:none}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .show-media .im.on{opacity:1}
+  .reveal{opacity:1!important;transform:none!important}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+  <linearGradient id="icgrad" x1="4" y1="3" x2="20" y2="21" gradientUnits="userSpaceOnUse"><stop stop-color="#ffe7ad"/><stop offset="1" stop-color="#e9b85c"/></linearGradient>
+  <symbol id="ic-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M15.6 8.4l-2 5.2-5.2 2 2-5.2z"/><circle cx="12" cy="12" r="0.6"/></symbol>
+  <symbol id="ic-rules" viewBox="0 0 24 24"><path d="M12 3.2l7 2.6v5.1c0 4.4-3 7.4-7 8.9-4-1.5-7-4.5-7-8.9V5.8z"/><path d="M12 8.3v3.9"/><path d="M12 15.1h0.01"/></symbol>
+  <symbol id="ic-wrench" viewBox="0 0 24 24"><path d="M12 3.5l8.5 4.5-8.5 4.5L3.5 8z"/><path d="M5 11.2l-1.5.8 8.5 4.5 8.5-4.5-1.5-.8"/><path d="M5 14.7l-1.5.8 8.5 4.5 8.5-4.5-1.5-.8"/></symbol>
+  <symbol id="ic-chat" viewBox="0 0 24 24"><path d="M20 4.5H4a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h3.5V19l4-3.5H20a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z"/><path d="M8 9.2h8M8 12h5"/></symbol>
+  <symbol id="ic-wall" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="14" rx="1.2"/><path d="M3.5 9.7h17M3.5 14.3h17"/><path d="M9 5v4.7M15 5v4.7"/><path d="M6.2 9.7v4.6M12 9.7v4.6M17.8 9.7v4.6"/><path d="M9 14.3V19M15 14.3V19"/></symbol>
+  <symbol id="ic-time" viewBox="0 0 24 24"><path d="M6.5 3.5h11M6.5 20.5h11"/><path d="M8 3.5V6.5L12 11 16 6.5V3.5"/><path d="M8 20.5V17.5L12 13 16 17.5V20.5"/></symbol>
+  <symbol id="ic-doc" viewBox="0 0 24 24"><path d="M13.5 3.5H7a1 1 0 0 0-1 1v15a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V8z"/><path d="M13.5 3.5V8H18"/><path d="M9 12.5h6M9 15.5h6M9 9.5h2"/></symbol>
+  <symbol id="ic-video" viewBox="0 0 24 24"><rect x="3.5" y="6" width="17" height="12" rx="2.2"/><path d="M10.3 9.4l4.2 2.6-4.2 2.6z"/></symbol>
+  <symbol id="ic-spark" viewBox="0 0 24 24"><path d="M11.5 3.3l1.7 5.3 5.3 1.7-5.3 1.7-1.7 5.3-1.7-5.3-5.3-1.7 5.3-1.7z"/><path d="M18.3 14.2l.6 2 2 .6-2 .6-.6 2-.6-2-2-.6 2-.6z"/></symbol>
+  <symbol id="ic-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.2"/><circle cx="12" cy="12" r="4.6"/><circle cx="12" cy="12" r="1.1"/></symbol>
+  <symbol id="ic-book" viewBox="0 0 24 24"><path d="M12 6.5C10.3 5.4 7.7 4.8 5.3 5a1 1 0 0 0-1 1v10.6a1 1 0 0 0 1.1 1c2.2-.2 4.4.4 6 1.4"/><path d="M12 6.5c1.7-1.1 4.3-1.7 6.7-1.5a1 1 0 0 1 1 1v10.6a1 1 0 0 1-1.1 1c-2.2-.2-4.4.4-6 1.4"/><path d="M12 6.5v12.4"/></symbol>
+  <symbol id="ic-shield-check" viewBox="0 0 24 24"><path d="M12 3.2l7 2.6v5.1c0 4.4-3 7.4-7 8.9-4-1.5-7-4.5-7-8.9V5.8z"/><path d="M8.8 11.7l2.2 2.2 4.2-4.4"/></symbol>
+  <symbol id="ic-palette" viewBox="0 0 24 24"><path d="M12 3.5a8.5 8.5 0 1 0 0 17c1 0 1.6-.8 1.6-1.7 0-.4-.2-.8-.5-1.1-.3-.3-.5-.7-.5-1.1 0-.9.7-1.6 1.6-1.6H16a4.5 4.5 0 0 0 4.5-4.5c0-3.7-3.8-6.5-8.5-6.5z"/><circle cx="7.6" cy="11.3" r="1"/><circle cx="10.4" cy="7.9" r="1"/><circle cx="14" cy="7.9" r="1"/><circle cx="16.6" cy="11" r="1"/></symbol>
+  <symbol id="ic-badge-check" viewBox="0 0 24 24"><path d="M9 5H6.5A1.5 1.5 0 0 0 5 6.5V19a1.5 1.5 0 0 0 1.5 1.5h11A1.5 1.5 0 0 0 19 19V6.5A1.5 1.5 0 0 0 17.5 5H15"/><rect x="9" y="3.3" width="6" height="3" rx="1"/><path d="M8.8 13.2l2.1 2.1 4.2-4.4"/></symbol>
+  <symbol id="ic-dashboard" viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="12" rx="1.6"/><path d="M3.5 8.3h17"/><path d="M9 20h6M12 16.5V20"/><circle cx="5.9" cy="6.4" r="0.5"/></symbol>
+</defs></svg>
+<div class="field"></div>
+<div class="aurora"><b class="a1"></b><b class="a2"></b><b class="a3"></b></div>
+<canvas id="dots"></canvas>
+
+<div class="promo">
+  <div class="in">
+    <span>Now in <b>pre-launch</b>. Founding members lock the lowest price we will ever offer.</span>
+    <a class="lk" href="#waitlist">Join the waitlist &rarr;</a>
+  </div>
+</div>
+
+<nav class="nav" id="nav">
+  <div class="row">
+    <a class="brand" href="#top">
+      <svg class="seed" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21c5-1 8-5 8-10 0-1.5-.3-3-.9-4.3C16 7 13 9.5 12 13 11 9.5 8 7 4.9 6.7 4.3 8 4 9.5 4 11c0 5 3 9 8 10Z" fill="url(#g)"/><defs><linearGradient id="g" x1="4" y1="6" x2="20" y2="21"><stop stop-color="#ffe7ad"/><stop offset="1" stop-color="#e9b85c"/></linearGradient></defs></svg>
+      The Sower System
+    </a>
+    <div class="nav-links">
+      <a href="#niches">Any niche</a>
+      <a href="#how">How it works</a>
+      <a href="#inside">What's inside</a>
+      <a href="#examples">Examples</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <a class="btn btn-gold btn-sm" href="#waitlist">Join the waitlist</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-veil"></div>
+  <div class="wrap">
+    <div class="eyebrow">The plug-and-play system for AI music channels</div>
+    <h1>Turn <span class="rot" id="rot"><span class="w">a memory</span></span><br>into a song the world remembers.</h1>
+    <p class="sub">Bring an idea, a story or a single moment. The system turns it into a cinematic, bilingual music video with the meaning behind it explained, ready for a YouTube channel in any niche you can dream up.</p>
+    <div class="cta">
+      <a class="btn btn-gold" href="#waitlist">Join the waitlist</a>
+      <a class="btn btn-ghost" href="../index.html">See it live &rarr;</a>
+    </div>
+    <div class="micro">Pre-launch. Free to join the list. No spam, just the launch.</div>
+  </div>
+  <a class="scrolldown" href="#niches">Scroll</a>
+</header>
+
+<!-- niche marquee -->
+<div class="marquee" aria-hidden="true">
+  <div class="mrow" id="mrowA"></div>
+  <div class="mrow rev" id="mrowB"></div>
+</div>
+
+<!-- showcase: any idea becomes a song -->
+<section id="niches">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">One system, every niche</div>
+      <h2 class="gold-text">If you can feel it, you can sing it</h2>
+      <p>This is the whole point. The system does not care what your topic is. Travel, love, learning, fantasy, your own imagination. You bring the idea, it builds the video.</p>
+    </div>
+    <div class="show reveal">
+      <div class="show-media" id="showMedia"></div>
+      <div class="show-panel">
+        <div class="tabs" id="tabs"></div>
+        <div class="st">
+          <h3 id="stTitle"></h3>
+          <p id="stText"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- differentiator -->
+<section id="more">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">More than a lyric video</div>
+      <h2 class="gold-text">Every song carries a story. Every story carries wisdom.</h2>
+      <p>You are not just entertaining. The words light up in time with the music, in two languages, and each song comes with the idea behind it explained. People learn while they feel. That is the kind of video they replay and share.</p>
+    </div>
+    <div class="demo">
+      <div class="kbox reveal">
+        <div class="klines" id="klines"></div>
+        <div class="ksub" id="ksub">Y cada palabra que cantas se vuelve una luz que alguien sigue a casa.</div>
+      </div>
+      <div class="story-card reveal">
+        <div class="tag">The idea behind the song</div>
+        <h3>Teaching, through music</h3>
+        <p>Each song ships with a short, switchable panel: the story, the meaning, the lesson. How you met. What a journey taught you. Why a truth matters. Wisdom lands deeper when it is sung, and stays longer when it is explained.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- proof -->
+<section id="examples">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="livebadge"><span class="dot-live"></span> Live right now</div>
+      <h2 class="gold-text">See the engine running</h2>
+      <p class="mx">These happen to be faith songs. Yours can be about anything at all. Same engine, your world. Press play and watch the words light up.</p>
+    </div>
+    <div class="songs reveal">
+      <a class="song" href="../songs/the-sower/index.html?play=1">
+        <div class="ph" style="background-image:url('../songs/the-sower/img/1-sower.png')"></div>
+        <div class="meta"><div class="e">Example</div><div class="t">The Sower</div><div class="w">Watch live &#9654;</div></div>
+      </a>
+      <a class="song" href="../songs/mustard-seed/index.html?play=1">
+        <div class="ph" style="background-image:url('../songs/mustard-seed/img/1-seed.png')"></div>
+        <div class="meta"><div class="e">Example</div><div class="t">Mustard Seed</div><div class="w">Watch live &#9654;</div></div>
+      </a>
+      <a class="song" href="../songs/the-word-that-found-me/index.html?play=1">
+        <div class="ph" style="background-image:url('../songs/the-word-that-found-me/img/3-word.png')"></div>
+        <div class="meta"><div class="e">Example</div><div class="t">The Word That Found Me</div><div class="w">Watch live &#9654;</div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- problem -->
+<section id="problem">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">The honest part</div>
+      <h2 class="gold-text">The gap between a great idea and a finished channel</h2>
+      <p>It is never the idea that stops people. It is everything between the idea and a video that YouTube will actually pay you for.</p>
+    </div>
+    <div class="bento">
+      <div class="tile big reveal"><div class="ic"><svg><use href="#ic-compass"/></svg></div><h3>Which niche, which angle?</h3><p>Pick too broad and you drown. Pick wrong and nobody cares. Finding a topic with real demand and a fresh angle is where most channels die before the first upload.</p></div>
+      <div class="tile big reveal"><div class="ic"><svg><use href="#ic-rules"/></svg></div><h3>The 2026 AI rules</h3><p>YouTube now makes you disclose synthetic content and demotes mass-produced, repetitive, low-effort AI uploads. Faceless slideshow channels get demonetized every week. You need real transformation and value.</p></div>
+      <div class="tile reveal"><div class="ic"><svg><use href="#ic-wrench"/></svg></div><h3>The tool maze</h3><p>A dozen tools to wire together. Weeks of dead ends and broken output.</p></div>
+      <div class="tile reveal"><div class="ic"><svg><use href="#ic-chat"/></svg></div><h3>The blank chat</h3><p>A new chat every time means a different result every time. No system, no brand.</p></div>
+      <div class="tile reveal"><div class="ic"><svg><use href="#ic-wall"/></svg></div><h3>The technical wall</h3><p>Word-perfect timing, two languages, a clean export. Most people quit right here.</p></div>
+      <div class="tile full reveal"><div class="ic"><svg><use href="#ic-time"/></svg></div><h3>And then the months are gone</h3><p>By the time you have figured it all out alone, the motivation is gone with the time. The world never got the songs only you could make. The whole job of this system is to delete that gap.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- solution -->
+<section id="solution">
+  <div class="wrap">
+    <div class="band reveal">
+      <div class="bg" id="bandBg"></div>
+      <div class="inner">
+        <div class="sec-head">
+          <div class="eyebrow">The shortcut you actually want</div>
+          <h2 class="gold-text">Meet The Sower System</h2>
+          <p>Instead of building the whole pipeline over weeks across a hundred single chats, you install it once. One markdown skill file turns Claude into your music studio, and a short Set up Claude course gets you there even if you have never opened a terminal. After that, you just bring an idea.</p>
+        </div>
+        <div class="cols">
+          <div class="col bad">
+            <h3>Doing it alone</h3>
+            <ul>
+              <li><span class="m">&times;</span> Weeks of gluing tools together that keep breaking</li>
+              <li><span class="m">&times;</span> A different, inconsistent result from every new chat</li>
+              <li><span class="m">&times;</span> Guessing at YouTube's AI rules and risking demonetization</li>
+              <li><span class="m">&times;</span> No clear niche and no idea how to add real value</li>
+              <li><span class="m">&times;</span> Songs that never become videos</li>
+            </ul>
+          </div>
+          <div class="col good">
+            <h3>With The Sower System</h3>
+            <ul>
+              <li><span class="m">&check;</span> Install one skill file once, with the setup course holding your hand</li>
+              <li><span class="m">&check;</span> The same on-brand, premium result every single time</li>
+              <li><span class="m">&check;</span> A compliance playbook that keeps your channel monetized</li>
+              <li><span class="m">&check;</span> A niche and angle method that works in any topic</li>
+              <li><span class="m">&check;</span> A finished, bilingual music video ready to publish</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- inside (bento) -->
+<section id="inside">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="eyebrow">Everything in one place</div>
+      <h2 class="gold-text">What's inside</h2>
+      <p class="mx">Not another pile of tutorials. A complete, almost plug-and-play system, delivered as one skill file and a short course, so your first upload is days away instead of months.</p>
+    </div>
+    <div class="bento">
+      <div class="tile wide reveal"><div class="ic"><svg><use href="#ic-doc"/></svg></div><h3>The Skill File</h3><p>The entire pipeline as a single Claude skill. Transcribe, time, translate, paint, animate and verify. Drop it in and Claude already knows your whole studio.</p></div>
+      <div class="tile wide reveal"><div class="ic"><svg><use href="#ic-video"/></svg></div><h3>The Set up Claude course</h3><p>Short, no-fluff videos that get Claude installed and running on your machine, even if you have never opened a terminal in your life.</p></div>
+      <div class="tile reveal"><div class="ic"><svg><use href="#ic-spark"/></svg></div><h3>Bilingual karaoke engine</h3><p>Lyrics that light up word by word, with a second language underneath.</p></div>
+      <div class="tile reveal"><div class="ic"><svg><use href="#ic-target"/></svg></div><h3>Niche and angle playbook</h3><p>Find a topic with real demand and a fresh angle, in any field.</p></div>
+      <div class="tile reveal"><div class="ic"><svg><use href="#ic-book"/></svg></div><h3>Story and meaning framework</h3><p>Turn any song into a lesson with the idea-behind-it panel.</p></div>
+      <div class="tile reveal"><div class="ic"><svg><use href="#ic-shield-check"/></svg></div><h3>2026 compliance guide</h3><p>Disclose AI right, add value, stay monetizable.</p></div>
+      <div class="tile reveal"><div class="ic"><svg><use href="#ic-palette"/></svg></div><h3>Branding and prompt spec</h3><p>Locked look so every upload feels like one premium brand.</p></div>
+      <div class="tile reveal"><div class="ic"><svg><use href="#ic-badge-check"/></svg></div><h3>Self-checking build</h3><p>A verify step that refuses to ship a broken video.</p></div>
+      <div class="tile reveal"><div class="ic"><svg><use href="#ic-dashboard"/></svg></div><h3>Dashboard and examples</h3><p>The elegant hub you see here, plus finished songs to reskin.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- how -->
+<section id="how">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="eyebrow">From idea to upload</div>
+      <h2 class="gold-text">How it works</h2>
+      <p class="mx">Four steps. The first one you do once. The rest you repeat for every song you ever release.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="n">01</div><h3>Install once</h3><p>Set up Claude and drop in the skill file, guided by the short course. One evening, done forever.</p></div>
+      <div class="step reveal"><div class="n">02</div><h3>Bring an idea</h3><p>A song, a story, a memory or just a theme, in any niche or language you want to serve.</p></div>
+      <div class="step reveal"><div class="n">03</div><h3>The system builds it</h3><p>Timing, translation, painted backgrounds, the animation and the meaning panel, all on brand.</p></div>
+      <div class="step reveal"><div class="n">04</div><h3>Publish and grow</h3><p>Export, disclose, upload. A finished, compliant video ready for YouTube and ready to reach people.</p></div>
+    </div>
+    <div class="center reveal" style="margin-top:2.8rem">
+      <a class="btn btn-ghost" href="../songs/the-sower/index.html?play=1">Watch a finished one in action &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- who -->
+<section id="who">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Made for you</div>
+      <h2 class="gold-text">Who this is for</h2>
+    </div>
+    <div class="who reveal">
+      <div><span class="ck">&check;</span> Creators and storytellers who want reach without a studio or a film crew.</div>
+      <div><span class="ck">&check;</span> Musicians and songwriters sitting on songs nobody has heard yet.</div>
+      <div><span class="ck">&check;</span> Teachers and coaches who want their message to actually stick.</div>
+      <div><span class="ck">&check;</span> Beginners who want a finished channel, not a hard drive full of tutorials.</div>
+    </div>
+  </div>
+</section>
+
+<!-- waitlist -->
+<section id="waitlist">
+  <div class="wrap">
+    <div class="signup reveal">
+      <div class="glow"></div>
+      <div class="inner">
+        <div class="eyebrow">Founding access</div>
+        <h2 class="gold-text" style="font-size:clamp(2rem,5vw,3.4rem);margin-top:.4rem">Get in before the doors open</h2>
+        <p class="lead mx center" style="margin-top:1rem">Join the waitlist and you are first in line, at the lowest price we will ever offer, with founding-member bonuses. We will only email you about the launch.</p>
+        <!--
+          WAITLIST FORM, swap-ready.
+          To go live, replace this form with your provider's embed:
+            - MailerLite: paste the embedded form.
+            - Tally: replace with the Tally embed, or set action to your Tally endpoint.
+            - Formspree: set action="https://formspree.io/f/XXXX" method="POST" and delete the JS handler.
+          Right now it shows a local success state so the page is fully demoable.
+        -->
+        <form class="form" id="waitForm" novalidate>
+          <input type="email" name="email" id="waitEmail" placeholder="you@email.com" autocomplete="email" required>
+          <button class="btn btn-gold" type="submit">Join the waitlist</button>
+        </form>
+        <div class="perks">
+          <span><span class="ck">&check;</span> Lowest launch price, locked in</span>
+          <span><span class="ck">&check;</span> First access to the skill file</span>
+          <span><span class="ck">&check;</span> Founding-member bonuses</span>
+        </div>
+        <div class="formnote">No spam. Unsubscribe in one click. We will only write when there is something real to share.</div>
+        <div class="success" id="waitOk">You are on the list. Watch your inbox, the seed is planted.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- faq -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Before you ask</div>
+      <h2 class="gold-text">Frequently asked</h2>
+    </div>
+    <div class="faq reveal">
+      <details><summary>Do I need to know how to code?</summary><p>No. The Set up Claude course walks you through every step, click by click. If you can install an app on your computer, you can run this.</p></details>
+      <details><summary>Do I need to make music or be able to sing?</summary><p>No. You bring a song, your own or an AI-generated one, together with the lyrics or just an idea. The system turns it into the video, and we point you to the music tools so you are never stuck.</p></details>
+      <details><summary>Which niche does it work for?</summary><p>Any niche. Travel, love and relationships, learning and study, fantasy and storytelling, motivation, history, kids, mindfulness, your brand, your own life. If you can feel it, you can turn it into a song.</p></details>
+      <details><summary>Is AI content even allowed on YouTube in 2026?</summary><p>Yes, when it is transparent and adds value. Faceless slideshow spam gets demonetized. The compliance guide shows you how to disclose AI properly and add the transformation and originality YouTube rewards, so your channel stays monetizable.</p></details>
+      <details><summary>What exactly do I get?</summary><p>One markdown skill file that holds the whole studio, the Set up Claude video course, the niche and angle playbook, the story and meaning framework, the 2026 compliance guide, the branding spec, ready-made examples, and the dashboard template.</p></details>
+      <details><summary>What will it cost to actually run?</summary><p>The tools are cheap at this scale. A finished song costs from a few cents to about one euro in AI usage. You will need a Claude plan and a few low-cost API keys, all explained in the setup.</p></details>
+      <details><summary>When does it launch, and what does it cost?</summary><p>We are in pre-launch right now. Join the waitlist and founding members hear the launch date and the price first, before anyone else, at the best price we will offer.</p></details>
+      <details><summary>What language is the course in?</summary><p>The course is in English. The system itself produces videos with translations in multiple languages, the way the live examples show.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- final -->
+<section class="final">
+  <div class="wrap reveal">
+    <div class="eyebrow">The fields are ready</div>
+    <h2 class="gold-text" style="margin-top:.5rem">The world is waiting<br>for your songs.</h2>
+    <div class="kicker" style="margin-top:1rem">Scatter the seed. Reap the channel.</div>
+    <div class="cta" style="display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin-top:2rem">
+      <a class="btn btn-gold" href="#waitlist">Join the waitlist</a>
+      <a class="btn btn-ghost" href="../index.html">See it live &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-grid">
+      <div class="ft-brand">
+        <div class="serif gold-text">The Sower System</div>
+        <span class="kicker">Scatter the seed. Reap the channel.</span>
+        <p>The plug-and-play system to turn any idea into a cinematic music video and grow a YouTube channel in any niche.</p>
+      </div>
+      <div>
+        <h4>The system</h4>
+        <a href="#niches">Any niche</a>
+        <a href="#how">How it works</a>
+        <a href="#inside">What's inside</a>
+        <a href="#faq">FAQ</a>
+        <a href="#waitlist">Join the waitlist</a>
+      </div>
+      <div>
+        <h4>See it live</h4>
+        <a href="../index.html">The dashboard</a>
+        <a href="../songs/the-sower/index.html?play=1">The Sower</a>
+        <a href="../songs/mustard-seed/index.html?play=1">Mustard Seed</a>
+        <a href="../songs/the-word-that-found-me/index.html?play=1">The Word That Found Me</a>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <span>&copy; 2026 The Sower System.</span>
+      <span>Videos are created with AI. The system teaches transparent, policy-compliant creation.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script>
+var REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* gold seed particles */
+(function(){
+  var c=document.getElementById('dots'),x=c.getContext('2d'),P=[];
+  function rs(){c.width=innerWidth;c.height=innerHeight;}rs();addEventListener('resize',rs);
+  var N=Math.min(64,Math.round(innerWidth/24));
+  for(var i=0;i<N;i++){P.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.8+0.4,v:Math.random()*0.25+0.05,a:Math.random()*0.5+0.18});}
+  function d(){x.clearRect(0,0,c.width,c.height);for(var i=0;i<P.length;i++){var p=P[i];p.y-=p.v;if(p.y<-5){p.y=c.height+5;p.x=Math.random()*c.width;}x.beginPath();x.arc(p.x,p.y,p.r,0,7);x.fillStyle='rgba(243,205,130,'+p.a+')';x.fill();}requestAnimationFrame(d);}
+  if(!REDUCED)d();
+})();
+
+/* nav solid on scroll */
+(function(){var n=document.getElementById('nav');function s(){n.classList.toggle('solid',scrollY>40);}addEventListener('scroll',s,{passive:true});s();})();
+
+/* rotating hero word */
+(function(){
+  var words=['a memory','a love story','your lessons','a whole world','a journey','any idea'];
+  var rot=document.getElementById('rot'),i=0;
+  var span=rot.querySelector('.w');
+  // size holder to widest word to avoid layout shift
+  var probe=document.createElement('span');probe.style.cssText='visibility:hidden;position:absolute;white-space:nowrap;font:inherit';
+  rot.appendChild(probe);var max=0;words.forEach(function(w){probe.textContent=w;max=Math.max(max,probe.offsetWidth);});rot.style.minWidth=max+'px';probe.remove();
+  if(REDUCED)return;
+  setInterval(function(){
+    span.classList.add('out');
+    setTimeout(function(){i=(i+1)%words.length;span.textContent=words[i];span.classList.remove('out');},400);
+  },2600);
+})();
+
+/* niche marquee */
+(function(){
+  var items=['Travel','Love & Relationships','Learning','Fantasy','Kids','History','Mindfulness','Healing','Memories','Brand Stories','Poetry','Nature','Motivation','Language Learning'];
+  function fill(el){var h='';for(var k=0;k<2;k++){items.forEach(function(t){h+='<span class="it">'+t+'</span>';});}el.innerHTML=h;}
+  fill(document.getElementById('mrowA'));
+  var b=items.slice().reverse();var h='';for(var k=0;k<2;k++){b.forEach(function(t){h+='<span class="it">'+t+'</span>';});}document.getElementById('mrowB').innerHTML=h;
+})();
+
+/* niche showcase */
+(function(){
+  var data=[
+    {key:'Travel',img:'img/n-travel.png',title:'A journey you never want to forget',text:'That summer abroad. The places, the people, the feeling. Pour it into one song and give every traveler who finds it the same shiver you had.'},
+    {key:'Love',img:'img/n-love.png',title:'The wisdom of a real relationship',text:'How you met. What kept you together. Turn it into a song that teaches people to listen, to be kind, to stay. A message that outlives a thousand posts.'},
+    {key:'Learning',img:'img/n-learn.png',title:'Knowledge that actually sticks',text:'Hard things are easier to remember when they rhyme. Turn study material or one big idea into a song people finish, and remember long after.'},
+    {key:'Fantasy',img:'img/n-fantasy.png',title:'Build a whole world',text:'Dragons, heroes, places that never existed. A saga people come back to, episode after episode, a universe that is unmistakably yours.'},
+    {key:'Imagination',img:'img/n-create.png',title:'Anything you can picture',text:'If you can imagine it, you can release it. The only real limit is the world inside your head, and now it has a way out.'}
+  ];
+  var tabs=document.getElementById('tabs'),media=document.getElementById('showMedia'),
+      tEl=document.getElementById('stTitle'),pEl=document.getElementById('stText');
+  data.forEach(function(d,idx){
+    var b=document.createElement('button');b.className='tab'+(idx===0?' on':'');b.textContent=d.key;
+    b.onclick=function(){go(idx,true);};tabs.appendChild(b);
+    var im=document.createElement('div');im.className='im'+(idx===0?' on':'');im.style.backgroundImage="url('"+d.img+"')";media.appendChild(im);
+  });
+  var cap=document.createElement('div');cap.className='cap';media.appendChild(cap);
+  var ims=media.querySelectorAll('.im'),btns=tabs.querySelectorAll('.tab'),cur=0,timer;
+  function go(idx,manual){
+    cur=idx;
+    btns.forEach(function(b,i){b.classList.toggle('on',i===idx);});
+    ims.forEach(function(m,i){m.classList.toggle('on',i===idx);});
+    var d=data[idx];cap.textContent=d.key;
+    pEl.style.opacity=0;
+    setTimeout(function(){tEl.textContent=d.title;pEl.textContent=d.text;pEl.style.opacity=1;},220);
+    if(manual){clearInterval(timer);start();}
+  }
+  function start(){if(REDUCED)return;timer=setInterval(function(){go((cur+1)%data.length);},5000);}
+  go(0);start();
+  media.addEventListener('mouseenter',function(){clearInterval(timer);});
+  media.addEventListener('mouseleave',start);
+})();
+
+/* karaoke demo loop */
+(function(){
+  var line='And every word you sing becomes a light that someone follows home';
+  var box=document.getElementById('klines');
+  box.innerHTML=line.split(' ').map(function(w){return '<span class="kw">'+w+'</span>';}).join(' ');
+  var ws=box.querySelectorAll('.kw');if(REDUCED){ws.forEach(function(w){w.classList.add('done');});return;}
+  var i=0;
+  function tick(){
+    if(i<ws.length){ws.forEach(function(w,k){w.classList.toggle('on',k===i);if(k<i)w.classList.add('done');});i++;setTimeout(tick,300);}
+    else{setTimeout(function(){ws.forEach(function(w){w.classList.remove('on','done');});i=0;tick();},2200);}
+  }
+  var io=new IntersectionObserver(function(e){if(e[0].isIntersecting){tick();io.disconnect();}},{threshold:.4});
+  io.observe(box);
+})();
+
+/* waitlist */
+(function(){
+  var f=document.getElementById('waitForm'),ok=document.getElementById('waitOk'),em=document.getElementById('waitEmail');
+  if(!f)return;
+  f.addEventListener('submit',function(ev){ev.preventDefault();
+    if(!em.value||em.value.indexOf('@')<1){em.focus();em.style.borderColor='#d98a8a';return;}
+    try{var L=JSON.parse(localStorage.getItem('sower_waitlist')||'[]');L.push({e:em.value});localStorage.setItem('sower_waitlist',JSON.stringify(L));}catch(e){}
+    f.style.display='none';ok.classList.add('show');
+  });
+})();
+
+/* scroll reveal, robust: works without GSAP, never leaves content hidden */
+(function(){
+  // give grid children the reveal treatment with a gentle stagger
+  document.querySelectorAll('.bento,.songs,.steps,.who').forEach(function(g){
+    Array.prototype.forEach.call(g.children,function(ch,i){ch.classList.add('reveal');ch.style.transitionDelay=((i%6)*55)+'ms';});
+  });
+  var targets=[].slice.call(document.querySelectorAll('.reveal'));
+  function showAll(){targets.forEach(function(t){t.classList.add('in');});}
+  if(REDUCED||!('IntersectionObserver' in window)){showAll();return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+  targets.forEach(function(t){io.observe(t);});
+})();
+
+/* smooth scroll + scroll-driven motion */
+(function(){
+  if(REDUCED)return;
+  var lenis=null;
+  if(window.Lenis){
+    lenis=new Lenis({duration:1.1,smoothWheel:true});
+    function raf(t){lenis.raf(t);requestAnimationFrame(raf);}requestAnimationFrame(raf);
+  }
+  if(!window.gsap||!window.ScrollTrigger)return;
+  gsap.registerPlugin(ScrollTrigger);
+  if(lenis)lenis.on('scroll',ScrollTrigger.update);
+
+  // anchor links through lenis
+  if(lenis){document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var id=a.getAttribute('href');if(id.length>1){var t=document.querySelector(id);if(t){e.preventDefault();lenis.scrollTo(t,{offset:-10});}}});});}
+
+  // hero + band parallax
+  gsap.to('#heroBg',{yPercent:18,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+  gsap.to('#bandBg',{yPercent:-14,ease:'none',scrollTrigger:{trigger:'.band',start:'top bottom',end:'bottom top',scrub:true}});
+})();
+</script>
+</body>
+</html>

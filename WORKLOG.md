@@ -2,6 +2,47 @@
 
 ---
 
+## 2026-06-26 (7): Monetarisierung, Kurs-Landingpage „The Sower System" + Sticky-Bars
+
+**Ziel:** Kanal monetarisieren. Kurs verkaufen (eine Skill-Datei + kurzer „Set up Claude"-Videokurs =
+fast Plug-and-play, um einen glaubensbasierten KI-Musik-Kanal zu starten). Marke: **The Sower System**,
+Claim „Scatter the seed. Reap the channel." Sprache der Verkaufsseite: **Englisch**. Pre-Launch =
+**nur Warteliste, kein Preis**. Formular bewusst **austauschbar** (noch kein Anbieter gewählt).
+
+**Affiliate-Recherche (wichtig, ehrlich):** Anthropic/Claude hat **kein** öffentliches Einzel-Affiliate
+(nur Enterprise „Partner Network" + Enterprise-Referral, einmalig, Sätze nicht öffentlich). Die Idee
+„10-15 EUR pro Jahres-Abo" ist **so nicht verfügbar**. Echter Affiliate im Stack: **ElevenLabs**
+(wiederkehrend). Gemini/OpenAI: kein offenes Consumer-Affiliate. Deshalb alle Links als Platzhalter.
+
+**Gebaut:**
+- `course/index.html` — komplette, futuristische Landingpage im exakten Marten's-Songs-Design:
+  Announcement-Bar, Sticky-Nav, Hero (eigenes KI-Bild), Proof-Galerie (die 3 echten Songs verlinkt),
+  Problem-Sektion (Nische, **YouTube-2026-KI-Regeln**, Tool-Chaos, „blank chat", Technik-Wand, Zeit),
+  Solution-Band (before/after auf `harvest.png`), „What's inside" (9 Feature/Benefit-Karten),
+  „How it works" (4 Schritte), „Who this is for", **Warteliste-Block** (Formular swap-ready), FAQ,
+  Final-CTA, Footer. Effekte: Gold-Partikel-Canvas, Scroll-Reveal, Nav-Solid-on-Scroll, Glas/Gold-Hover.
+- 3 eigene KI-Bilder via `tools/images/generate-image.js` (gemini-3-pro-image), in `course/img/`:
+  `hero.png` (Sämann streut Saat, wird zu Sternen), `harvest.png` (Weizenfeld), `path.png` (Lichtpfad).
+- **Hub-Sticky-Bars in `tools/build-anim.js` eingebaut** (also build-fest): oben `.promo` (Kurs +
+  „Join the waitlist"), unten `.ctabar` (Features/Benefits + „See the course"), beide mit ×-Schließen
+  (sessionStorage). CSS in `hubCSS()`, JS `closeBar()` im Hub-Script. `body{padding-bottom:74px}`.
+- `marketing/youtube-description.md` — Beschreibungs-Vorlage mit **KI-Offenlegung** (von Marten gewünscht)
+  + `{{AFFILIATE_*}}`-Platzhaltern + ehrlicher Affiliate-Status + Pinned-Comment-Idee.
+- `node tools/build-anim.js --all` lief sauber; Hub + Seite headless (Chrome) gescreenshottet und geprüft.
+
+**NICHT gepusht, NICHT committet** (wartet auf Martens Sichtung + OK).
+
+**Offen / Marten muss entscheiden:**
+1. **Warteliste-Anbieter** wählen (MailerLite empfohlen) → in das Formular in `course/index.html`
+   einsetzen (Swap-Anleitung steht als Kommentar direkt über dem `<form>`).
+2. **ElevenLabs-Affiliate** anmelden (echtes Geld) → Token in der YT-Vorlage ersetzen.
+3. **Rechtliches (DSGVO!):** E-Mail-Sammeln in der EU braucht Datenschutzerklärung + Impressum. Fehlt noch.
+4. Preis/Founding-Angebot festlegen (für den Launch, aktuell bewusst kein Preis).
+5. Den eigentlichen **Kursinhalt** (Skill-Datei + Setup-Videos) produzieren.
+6. Danach: commit + push → live unter `.../marten-songs/course/`.
+
+---
+
 ## 2026-06-26 (6): Zeile-für-Zeile-Standard + Intro-Timing-Fix + LIVE gepusht
 
 Martens Feedback aus dem Browser umgesetzt:
