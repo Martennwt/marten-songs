@@ -107,14 +107,29 @@ The `/neuer-song` skill (`~/.claude/commands/neuer-song.md`) walks this exact fl
   own with its translation under it). Defined once in `tools/lib/lyrics.js` (used by retime AND verify);
   es[]/de[]/imageMap[] = one entry per line, same order. (Do NOT group lines — earlier couplet grouping made
   long blocks for songs whose lines aren't full sentences; per-line is consistent regardless of punctuation.)
-- **Intro start (the common fix).** Whisper often anchors a soft intro a few seconds EARLY, so the gold lights
-  up before the singer actually starts — but only at the very beginning; the rest is correct. Don't shift the
-  whole song. Set `"introStart": <seconds>` in song.json = when the first word is really sung. At play time the
-  player re-spaces ONLY the words before that moment (into the gap up to the first correctly-heard word) and
-  leaves everything after untouched. timing.json stays the pure Whisper truth; the fix is applied on load.
-  Calibrate by ear: open with `?cal=1` → a panel shows "Gesang ab X.Xs" with − / + buttons (±0.5s) and keys
-  `[` `]` (±0.1s). Nudge until the gold starts exactly with the voice, write that number into `introStart`,
-  rebuild. Concrete: Mustard Seed `introStart: 11` (Whisper had "The smallest of" at ~8s; sung at ~11s).
+- **Soft intros: Whisper can go DEAF.** A very soft/quiet a-cappella intro can be below Whisper's threshold —
+  it transcribes NOTHING there (or hallucinates words from elsewhere). Example: "The Word That Found Me" — Whisper's
+  first detected word is at 22.7s, so the ~16-22s sung intro is invisible to it. No Whisper-based timing can know
+  those words; any timing there is a model of the singing, not measured.
+- **Intro fix (built-in, two knobs).** `retime.js` flags such leading lines as weak segments; the player then
+  paces the soft intro itself instead of trusting Whisper's garbage:
+  - `"introStart": <s>` = when the first word is really sung (gold won't appear before it).
+  - `"introEnd": <s>` = when the soft intro finishes (sets the PACE). If omitted, the intro is paced at the
+    song's own median word rate up to the first solidly-heard line.
+  The player re-spaces only the soft-intro words across [introStart, introEnd]; everything Whisper heard well
+  stays exactly as measured. Calibrate by ear with `?cal=1` — a panel with **Start** and **Ende** controls
+  (buttons ±0.5s; keys `[` `]` = Start ±0.1, `,` `.` = Ende ±0.1). Read the two numbers, write them into
+  song.json, rebuild. Concrete: Mustard `introStart: 11` (phantom early words, introEnd auto).
+  - **Rubato intros** (each soft line a different pace, with a pause between them) need per-line windows:
+    `"introLines": [[start,end], ...]` — one [start,end] for each leading soft line. The player spreads each
+    line's words across its own window, so line A can be fast and line B slow with a gap. Beats introStart/End
+    (which assume one pace). Concrete: The Word `"introLines": [[16,21],[22.5,29.5]]` (line 0 fast 16–20.6s,
+    pause, line 1 slower 22.5–29s). Tune by ear: shift a line's window ±0.5s until the gold sits on the voice.
+- **The "send one song → flawless" goal.** Clear vocals already time well automatically. The only hard case is
+  a very soft intro Whisper can't hear → the two intro knobs (one ear-check) cover it. For fully hands-off
+  perfection on soft vocals, the real upgrade is **forced alignment** (whisperX / aeneas): it aligns the KNOWN
+  lyrics to the audio and detects quiet vocals Whisper misses. Not yet installed (needs Python+ffmpeg+model);
+  it's the documented path when zero manual calibration is required.
 - **Global offset (rare).** If a song is uniformly early/late (not just the intro), set `"offset": <seconds>`
   (positive = whole highlight later); applied in the player as `tt = t + LEAD - OFFSET`. Per-word perfection on
   soft singing would need forced alignment — future option.

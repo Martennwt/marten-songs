@@ -43,6 +43,31 @@ Claim „Scatter the seed. Reap the channel." Sprache der Verkaufsseite: **Engli
 
 ---
 
+## 2026-06-26 (8): Player-Feinschliff aus Martens Live-Tests (2-Zeilen, Badge, Sync) + gepusht
+
+Aus dem iterativen Browser-Test mit Marten, alles in `tools/build-anim.js`:
+- **2 Zeilen pro Block:** Anzeige gruppiert 2 Lyric-Zeilen pro aktivem Block (`groupLines`, Default 2), jede
+  Zeile mit eigener Übersetzung, Gold-Schimmer läuft über beide. Gilt für alle Songs (auch The Sower).
+- **„★ Most loved"-Badge** (`badge`-Feld) + **Hub-Reihenfolge** (`order`-Feld): The Sower zuerst.
+- **Kurzwort-Sync:** Gold-Füllung jetzt proportional zur Wortlänge (gedeckelt) → „in/I/a" snappen statt zäh
+  zu faden. Kein Nachhängen/Aufholen mehr.
+- **Seek-Fix:** Klick auf die Leiste richtet die Anzeige SOFORT neu aus (scrollt + setzt gesungene Zeilen
+  zurück), auch rückwärts vor die erste Zeile — kein Warten auf den Countdown (`setActive` reconciliert alle Zeilen).
+- **Soft-Intro-Timing (der harte Fall):** Whisper hört sehr leise A-cappella-Intros NICHT (bei The Word erstes
+  erkanntes Wort erst 22,7s, davor halluziniert). Neue Regler in song.json, beim Laden angewandt (timing.json
+  bleibt pure Whisper-Wahrheit):
+  - `introStart` (+ optional `introEnd`) = Start/Tempo des leisen Intros; sonst Tempo der Song-Wortrate.
+  - **`introLines`** `[[start,end],...]` = pro leiser Zeile ein Fenster (für **rubato**: Zeile schnell, Pause,
+    Zeile langsam). The Word: `[[16,21],[22.5,29.5]]`. Mustard: `introStart:11`.
+  - `?cal=1` Panel mit Start/Ende-Reglern zum Justieren per Ohr.
+- Lektion + `introLines` in `BRANDING.md` festgehalten. **Gepusht** auf Martens „push".
+
+**Offen / Strategie:** Für „ein Song schicken → 100% automatisch makellos" auch bei leisen Intros bleibt
+**Forced Alignment** (whisperX) das Angebot — Marten muss OK geben (größere Installation: Python+ffmpeg+Modell).
+YouTube-Branding läuft in separatem Fenster (`course/`, `youtube/`, `marketing/`, `YOUTUBE.md` — von mir nicht angefasst).
+
+---
+
 ## 2026-06-26 (6): Zeile-für-Zeile-Standard + Intro-Timing-Fix + LIVE gepusht
 
 Martens Feedback aus dem Browser umgesetzt:

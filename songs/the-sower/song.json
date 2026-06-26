@@ -7,6 +7,8 @@
   "genre": "Indie Folk Pop",
   "mp3": "the-sower.mp3",
   "cover": "img/1-sower.png",
+  "badge": "Most loved",
+  "order": 1,
   "images": ["img/1-sower.png", "img/2-soils.png", "img/3-birds.png", "img/4-lilies.png", "img/5-light.png", "img/6-door.png", "img/7-path.png", "img/8-seed.png"],
   "imageMap": [0, 1, 1, 2, 5, 6, 3, 2, 5, 5, 4, 7, 4],
   "es": [

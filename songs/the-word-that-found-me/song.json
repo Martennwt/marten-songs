@@ -8,6 +8,7 @@
   "mp3": "the-word-that-found-me.mp3",
   "cover": "img/3-word.png",
   "offset": 0,
+  "introLines": [[16, 21], [22.5, 29.5]],
   "images": ["img/1-weary.png", "img/2-spark.png", "img/3-word.png", "img/4-rescue.png", "img/5-rest.png", "img/6-road.png"],
   "imageMap": [0,0,0,0,1,1,2,2,2,2,4,4,3,3,2,2,3,3,2,2,2,2,4,4,3,3,1,1,4,4,2,2,2,2,4,4,3,3,5,5],
   "narration": false,

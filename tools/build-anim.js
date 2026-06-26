@@ -22,6 +22,11 @@ function buildSong(id, opts) {
   const data = JSON.parse(fs.readFileSync(path.join(dir, 'timing.json'), 'utf8'));
   const words = data.words || [];
   const segs = data.segments || [];
+  // end of a soft/weak intro region (leading weak segments) = first solidly-heard
+  // word's time; the intro-fix re-spreads the whole soft intro up to here (0 = none).
+  const weakIntro = (data._retime && data._retime.weakSegments) || [];
+  let _LW = 0; while (weakIntro.indexOf(_LW) >= 0) _LW++;
+  const introTo = (_LW > 0 && segs[_LW] && segs[_LW].w && segs[_LW].w[0]) ? +(+segs[_LW].w[0].s).toFixed(2) : 0;
   const ES = meta.es || [], DE = meta.de || [], imageMap = meta.imageMap || [];
   const useImages = !!(opts.images && meta.images && meta.images.length);
   const variant = opts.variant || 'v1';
@@ -59,12 +64,32 @@ function buildSong(id, opts) {
     lines = fine;
   }
 
-  const linesHtml = lines.map((ln, i) => {
-    const spans = ln.w.map(w => '<span class="w" data-s="' + w.s + '">' + esc(w.t) + '</span>').join(' ');
-    let tr = '';
-    if (ln.es) tr += '<div class="tline es-t">' + esc(ln.es) + '</div>';
-    if (ln.de) tr += '<div class="tline de-t">' + esc(ln.de) + '</div>';
-    return '<div class="line" data-s="' + ln.start + '" onclick="seekTo(' + ln.start + ')"><div class="en">' + spans + '</div>' + tr + '</div>';
+  // group consecutive lyric lines into display units (default 2 lines per block);
+  // each line keeps its own translation and the gold sweep flows across the unit.
+  const G = Math.max(1, +meta.groupLines || 2);
+  const units = [];
+  for (let i = 0; i < lines.length; i += G) {
+    const grp = lines.slice(i, i + G);
+    const w = [];
+    grp.forEach(g => g.w.forEach(o => w.push(o)));
+    units.push({ start: grp[0].start, end: grp[grp.length - 1].end, img: grp[0].img, seg: grp[0].seg, w,
+      rows: grp.map(g => ({ w: g.w, es: g.es, de: g.de })) });
+  }
+
+  // optional explicit per-line intro windows [[start,end],...] for a rubato soft
+  // intro Whisper can't time; lens = word count of each of those leading lines.
+  const introLines = Array.isArray(meta.introLines) ? meta.introLines : null;
+  const introLineLens = introLines ? introLines.map((_, li) => (lines[li] ? lines[li].w.length : 0)) : [];
+
+  const linesHtml = units.map((u) => {
+    const rowsHtml = u.rows.map(r => {
+      const spans = r.w.map(w => '<span class="w" data-s="' + w.s + '">' + esc(w.t) + '</span>').join(' ');
+      let tr = '';
+      if (r.es) tr += '<div class="tline es-t">' + esc(r.es) + '</div>';
+      if (r.de) tr += '<div class="tline de-t">' + esc(r.de) + '</div>';
+      return '<div class="en">' + spans + '</div>' + tr;
+    }).join('');
+    return '<div class="line" data-s="' + u.start + '" onclick="seekTo(' + u.start + ')">' + rowsHtml + '</div>';
   }).join('\n');
 
   const flES = '<svg class="fl" viewBox="0 0 24 16"><rect width="24" height="16" rx="2" fill="#c60b1e"/><rect y="4" width="24" height="8" fill="#ffc400"/></svg>';
@@ -122,7 +147,7 @@ function buildSong(id, opts) {
     '</div></div></div></div>' +
     '<audio id="au" src="' + esc(meta.mp3) + '" preload="auto"></audio><audio id="narr" preload="none"></audio>';
 
-  const dataScript = '<script>var LINES=' + JSON.stringify(lines) +
+  const dataScript = '<script>var LINES=' + JSON.stringify(units) +
     ';var ABOUT=' + JSON.stringify(meta.about || { es: [], de: [] }) +
     ';var FLAGS=' + JSON.stringify({ es: flES, de: flDE }) +
     ';var VOL=' + JSON.stringify({ on: volOn, low: volLow, mute: volMute }) +
@@ -130,10 +155,14 @@ function buildSong(id, opts) {
     ';var NARRICON=' + JSON.stringify({ play: playSvg, pause: pauseSvg }) +
     ';var SONG_OFFSET=' + JSON.stringify(+meta.offset || 0) +
     ';var INTRO_START=' + JSON.stringify(+meta.introStart || 0) +
+    ';var INTRO_END=' + JSON.stringify(+meta.introEnd || 0) +
+    ';var INTRO_LINES=' + JSON.stringify(introLines || 0) +
+    ';var INTRO_LINE_LENS=' + JSON.stringify(introLineLens) +
+    ';var INTRO_TO=' + JSON.stringify(introTo) +
     ';var NAMES=' + JSON.stringify(meta.names || {}) + ';</script>';
   const app = '<script>' + songJS() + '</script>';
   fs.writeFileSync(path.join(dir, opts.out || 'index.html'), head + body + dataScript + app + '</body></html>');
-  return { id, lineCount: lines.length };
+  return { id, lineCount: units.length };
 }
 
 /* ---------------- per-song styles ---------------- */
@@ -272,7 +301,7 @@ function songJS() {
     // real vocal start (INTRO): Whisper often anchors a soft intro a few seconds
     // early. Everything at/after the first real word is left exactly as it was.
     'LINES.forEach(function(L){L.w.forEach(function(o){o.s0=o.s;});});',
-    'function applyIntro(){var flat=[];LINES.forEach(function(L){L.w.forEach(function(o){flat.push(o);});});var k=0;while(k<flat.length&&flat[k].s0<INTRO)k++;if(k<=0){for(var i=0;i<flat.length;i++)flat[i].s=flat[i].s0;}else{var A=(k<flat.length)?flat[k].s0:(INTRO+k*0.45);for(var i=0;i<k;i++)flat[i].s=+(INTRO+(A-INTRO)*(i/k)).toFixed(2);for(var i=k;i<flat.length;i++)flat[i].s=flat[i].s0;}LINES.forEach(function(L){L.start=L.w[0].s;});FS0=LINES.length?LINES[0].start:0;}',
+    'function applyIntro(){var flat=[];LINES.forEach(function(L){L.w.forEach(function(o){flat.push(o);});});function done(){LINES.forEach(function(L){L.start=L.w[0].s;});FS0=LINES.length?LINES[0].start:0;}if(typeof INTRO_LINES!=="undefined"&&INTRO_LINES&&INTRO_LINES.length){var wi=0;for(var li=0;li<INTRO_LINES.length;li++){var n=INTRO_LINE_LENS[li]||0,s=INTRO_LINES[li][0],e=INTRO_LINES[li][1];for(var jj=0;jj<n&&wi<flat.length;jj++,wi++){flat[wi].s=+(s+(e-s)*(jj/Math.max(1,n))).toFixed(2);}}for(var i=wi;i<flat.length;i++)flat[i].s=flat[i].s0;done();return;}if(INTRO<=0){for(var i=0;i<flat.length;i++)flat[i].s=flat[i].s0;done();return;}var end=(typeof INTRO_TO!=="undefined"&&INTRO_TO>INTRO)?INTRO_TO:0;if(!end){var j=0;while(j<flat.length&&flat[j].s0<INTRO)j++;end=(j<flat.length)?flat[j].s0:(INTRO+(j||1)*0.45);}if(end<=INTRO)end=INTRO+1;var k=0;while(k<flat.length&&flat[k].s0<end)k++;if(k<=0){for(var i=0;i<flat.length;i++)flat[i].s=flat[i].s0;done();return;}var se;if(typeof INTRO_END!=="undefined"&&INTRO_END>INTRO){se=Math.min(INTRO_END,end);}else{var gaps=[];for(var i=k+1;i<flat.length;i++){var g=flat[i].s0-flat[i-1].s0;if(g>0.04&&g<1.5)gaps.push(g);}gaps.sort(function(a,b){return a-b;});var R=gaps.length?gaps[Math.floor(gaps.length/2)]:0.42;R=Math.min(0.8,Math.max(0.25,R))*1.1;se=Math.min(end,INTRO+k*R);}if(se<=INTRO)se=INTRO+0.5;for(var i=0;i<k;i++)flat[i].s=+(INTRO+(se-INTRO)*(i/k)).toFixed(2);for(var i=k;i<flat.length;i++)flat[i].s=flat[i].s0;done();}',
     'function fmt(t){t=Math.max(0,t|0);return (t/60|0)+":"+("0"+(t%60)).slice(-2);}',
     'function startPlay(){if(started)return;started=true;au.play();var tt=document.getElementById("title");tt.classList.add("starting");setTimeout(function(){tt.classList.add("hide");},1500);}',
     'function gateClick(e){if(e.target&&e.target.closest&&e.target.closest(".gate-x"))return;startPlay();}',
@@ -291,10 +320,11 @@ function songJS() {
     'function toggleVolPop(e){e.stopPropagation();var m=document.getElementById("langMenu");if(m)m.hidden=true;var v=document.getElementById("volPop");v.hidden=!v.hidden;}',
     'function toggleLangMenu(e){e.stopPropagation();var v=document.getElementById("volPop");if(v)v.hidden=true;var m=document.getElementById("langMenu");m.hidden=!m.hidden;}',
     'document.addEventListener("click",function(e){if(!(e.target.closest&&e.target.closest(".popwrap")))closeMenus();});',
-    'function renderLyrics(){var L=curLang();document.getElementById("lyricsEyebrow").textContent=L==="de"?"Ganzer Text":"Letra completa";document.getElementById("lyricsTitle").textContent=SONG.title;var h="";for(var i=0;i<LINES.length;i++){var en=LINES[i].w.map(function(o){return o.t;}).join(" ");if(!en)continue;var tr=LINES[i][L]||"";h+=\'<div class="ll"><div class="ll-en">\'+en+"</div>"+(tr?(\'<div class="ll-tr">\'+tr+"</div>"):"")+"</div>";}document.getElementById("lyricsBody").innerHTML=h;}',
+    'function rowsOf(u){return u.rows||[{w:u.w,es:u.es,de:u.de}];}',
+    'function renderLyrics(){var L=curLang();document.getElementById("lyricsEyebrow").textContent=L==="de"?"Ganzer Text":"Letra completa";document.getElementById("lyricsTitle").textContent=SONG.title;var h="";for(var i=0;i<LINES.length;i++){var rs=rowsOf(LINES[i]);for(var r=0;r<rs.length;r++){var en=rs[r].w.map(function(o){return o.t;}).join(" ");if(!en)continue;var tr=rs[r][L]||"";h+=\'<div class="ll"><div class="ll-en">\'+en+"</div>"+(tr?(\'<div class="ll-tr">\'+tr+"</div>"):"")+"</div>";}}document.getElementById("lyricsBody").innerHTML=h;}',
     'function openLyrics(){lyricsOpen=true;renderLyrics();document.getElementById("lyricsModal").hidden=false;}',
     'function closeLyrics(){lyricsOpen=false;document.getElementById("lyricsModal").hidden=true;}',
-    'function downloadPdf(){if(!(window.jspdf&&window.jspdf.jsPDF)){alert("PDF konnte nicht geladen werden (Internet noetig).");return;}var L=curLang();var doc=new window.jspdf.jsPDF({unit:"pt",format:"a4"});var W=doc.internal.pageSize.getWidth(),H=doc.internal.pageSize.getHeight(),mx=56,y=74,mw=W-mx*2;doc.setFont("times","bold");doc.setFontSize(22);doc.setTextColor(20,20,20);doc.text(doc.splitTextToSize(SONG.title,mw),mx,y);y+=24;doc.setFont("helvetica","normal");doc.setFontSize(10);doc.setTextColor(120,120,120);doc.text(doc.splitTextToSize(SONG.refs||"",mw),mx,y);y+=28;for(var i=0;i<LINES.length;i++){var en=LINES[i].w.map(function(o){return o.t;}).join(" ");if(!en)continue;var tr=LINES[i][L]||"";doc.setFont("times","normal");doc.setFontSize(13);var el=doc.splitTextToSize(en,mw);doc.setFont("times","italic");doc.setFontSize(10.5);var trl=tr?doc.splitTextToSize(tr,mw):[];var need=el.length*17+(trl.length?trl.length*14+8:0)+12;if(y+need>H-46){doc.addPage();y=62;}doc.setFont("times","normal");doc.setFontSize(13);doc.setTextColor(25,25,25);doc.text(el,mx,y);y+=el.length*17+3;if(trl.length){doc.setFont("times","italic");doc.setFontSize(10.5);doc.setTextColor(95,118,103);doc.text(trl,mx,y);y+=trl.length*14+12;}else{y+=8;}}doc.save(SONG.id+"-"+L+".pdf");}',
+    'function downloadPdf(){if(!(window.jspdf&&window.jspdf.jsPDF)){alert("PDF konnte nicht geladen werden (Internet noetig).");return;}var L=curLang();var doc=new window.jspdf.jsPDF({unit:"pt",format:"a4"});var W=doc.internal.pageSize.getWidth(),H=doc.internal.pageSize.getHeight(),mx=56,y=74,mw=W-mx*2;doc.setFont("times","bold");doc.setFontSize(22);doc.setTextColor(20,20,20);doc.text(doc.splitTextToSize(SONG.title,mw),mx,y);y+=24;doc.setFont("helvetica","normal");doc.setFontSize(10);doc.setTextColor(120,120,120);doc.text(doc.splitTextToSize(SONG.refs||"",mw),mx,y);y+=28;var RW=[];for(var q=0;q<LINES.length;q++){var rs=rowsOf(LINES[q]);for(var rr=0;rr<rs.length;rr++)RW.push(rs[rr]);}for(var i=0;i<RW.length;i++){var en=RW[i].w.map(function(o){return o.t;}).join(" ");if(!en)continue;var tr=RW[i][L]||"";doc.setFont("times","normal");doc.setFontSize(13);var el=doc.splitTextToSize(en,mw);doc.setFont("times","italic");doc.setFontSize(10.5);var trl=tr?doc.splitTextToSize(tr,mw):[];var need=el.length*17+(trl.length?trl.length*14+8:0)+12;if(y+need>H-46){doc.addPage();y=62;}doc.setFont("times","normal");doc.setFontSize(13);doc.setTextColor(25,25,25);doc.text(el,mx,y);y+=el.length*17+3;if(trl.length){doc.setFont("times","italic");doc.setFontSize(10.5);doc.setTextColor(95,118,103);doc.text(trl,mx,y);y+=trl.length*14+12;}else{y+=8;}}doc.save(SONG.id+"-"+L+".pdf");}',
     'function curLang(){return document.documentElement.getAttribute("data-tlang")==="de"?"de":"es";}',
     'function renderAbout(){var L=curLang();document.getElementById("aboutEyebrow").textContent=L==="de"?"Über den Song":"Sobre la canción";document.getElementById("aboutTitle").textContent=SONG.title;document.getElementById("aboutRefs").textContent=SONG.refs||"";var h=(ABOUT.intro&&ABOUT.intro[L])?(\'<p class="ab-intro">\'+ABOUT.intro[L]+"</p>"):"";var secs=(ABOUT&&ABOUT[L])||[];for(var i=0;i<secs.length;i++){h+=\'<div class="ab-sec"><div class="ab-h">\'+secs[i].h+"</div>";var ps=secs[i].p||[];for(var j=0;j<ps.length;j++)h+=\'<div class="ab-p">\'+ps[j]+"</div>";h+="</div>";}document.getElementById("aboutBody").innerHTML=h;}',
     'function openAbout(){aboutOpen=true;renderAbout();document.getElementById("about").hidden=false;}',
@@ -306,9 +336,9 @@ function songJS() {
     'au.addEventListener("play",function(){document.getElementById("pp").innerHTML="&#10073;&#10073;";});',
     'au.addEventListener("pause",function(){document.getElementById("pp").innerHTML="&#9654;";});',
     'au.addEventListener("loadedmetadata",function(){document.getElementById("dur").textContent=fmt(au.duration);});',
-    'function setActive(i){if(i===curLine)return;',
-    '  if(curLine>=0){var pe=lineEls[curLine];pe.classList.remove("active");pe.classList.add("done");var pw=pe.querySelectorAll(".w");for(var q=0;q<pw.length;q++){pw[q].className="w sung";pw[q].style.removeProperty("--p");}}',
-    '  curLine=i;if(i>=0){var el=lineEls[i];el.classList.add("active");el.classList.remove("done");scroll.style.transform="translateY("+(-(el.offsetTop+el.offsetHeight/2))+"px)";}}',
+    'function setActive(i){if(i===curLine)return;curLine=i;',
+    '  for(var z=0;z<lineEls.length;z++){var le=lineEls[z];if(z<i){if(le.className!=="line done"){le.className="line done";var zw=le.querySelectorAll(".w");for(var q=0;q<zw.length;q++){zw[q].className="w sung";zw[q].style.removeProperty("--p");}}}else if(z>i){if(le.className!=="line"){le.className="line";var zw=le.querySelectorAll(".w");for(var q=0;q<zw.length;q++){zw[q].className="w";zw[q].style.removeProperty("--p");}}}}',
+    '  if(i>=0){var el=lineEls[i];el.className="line active";scroll.style.transform="translateY("+(-(el.offsetTop+el.offsetHeight/2))+"px)";}else if(lineEls[0]){scroll.style.transform="translateY("+(-(lineEls[0].offsetTop+lineEls[0].offsetHeight/2))+"px)";}}',
     'function frame(){var t=au.currentTime,tt=t+LEAD-OFFSET,fs0=FS0+OFFSET;',
     '  document.getElementById("cur").textContent=fmt(t);',
     '  document.getElementById("fill").style.width=((au.duration?t/au.duration:0)*100)+"%";',
@@ -318,13 +348,13 @@ function songJS() {
     '  if(idx>=0){var el=lineEls[idx],ws=el.querySelectorAll(".w"),L=LINES[idx].w,endT=LINES[idx].end;',
     '    for(var k=0;k<ws.length;k++){var st=L[k]?L[k].s:0;var nx=(L[k+1]?L[k+1].s:endT);',
     '      if(tt>=nx){if(ws[k].className!=="w sung"){ws[k].className="w sung";ws[k].style.removeProperty("--p");}}',
-    '      else if(tt>=st){if(ws[k].className!=="w cur")ws[k].className="w cur";var p=nx>st?((tt-st)/(nx-st)):1;ws[k].style.setProperty("--p",(Math.max(0,Math.min(1,p))*100).toFixed(1)+"%");}',
+    '      else if(tt>=st){if(ws[k].className!=="w cur")ws[k].className="w cur";var wl=(L[k]&&L[k].t?L[k].t.length:3),fd=Math.min(nx-st,Math.min(0.5,Math.max(0.08,wl*0.07))),p=fd>0?((tt-st)/fd):1;ws[k].style.setProperty("--p",(Math.max(0,Math.min(1,p))*100).toFixed(1)+"%");}',
     '      else{if(ws[k].className!=="w"){ws[k].className="w";ws[k].style.removeProperty("--p");}}}}',
     '  requestAnimationFrame(frame);}',
     'applyIntro();updateLangUI();requestAnimationFrame(frame);',
     // calibration overlay (?cal=1): two buttons to set the vocal start (INTRO),
     // i.e. when the gold should first appear; the rest of the timing is untouched.
-    '(function(){if(!/[?&]cal=1/.test(location.search))return;var bar=document.createElement("div");bar.id="calbar";bar.style.cssText="position:fixed;left:12px;bottom:132px;z-index:80;background:rgba(7,13,24,.92);border:1px solid rgba(243,196,108,.55);border-radius:10px;padding:.5rem .65rem;color:#ffe7ad;font:600 .82rem Inter,system-ui,sans-serif;display:flex;gap:.5rem;align-items:center;box-shadow:0 8px 24px rgba(0,0,0,.4)";var bs="cursor:pointer;border:0;border-radius:6px;background:rgba(255,231,173,.18);color:#ffe7ad;font:inherit;padding:.25rem .6rem;font-size:1rem";bar.innerHTML=\'<button data-d="-0.5" style="\'+bs+\'">&minus;</button><span id="calv" style="min-width:118px;text-align:center"></span><button data-d="0.5" style="\'+bs+\'">+</button><span style="opacity:.55;font-weight:400">Gesang-Start &middot; [ ]=&plusmn;0.1</span>\';document.body.appendChild(bar);function upd(){document.getElementById("calv").textContent="Gesang ab "+INTRO.toFixed(1)+"s";}function step(d){INTRO=Math.max(0,Math.min(90,+(INTRO+d).toFixed(2)));applyIntro();upd();}bar.addEventListener("click",function(e){var d=e.target&&e.target.getAttribute("data-d");if(d)step(+d);});document.addEventListener("keydown",function(e){if(e.target&&/INPUT|TEXTAREA/.test(e.target.tagName))return;if(e.key==="[")step(-0.1);else if(e.key==="]")step(0.1);else if(e.key===",")step(-0.5);else if(e.key===".")step(0.5);});upd();})();',
+    '(function(){if(!/[?&]cal=1/.test(location.search))return;if(!(INTRO_END>0))INTRO_END=(typeof INTRO_TO!=="undefined"&&INTRO_TO>INTRO)?INTRO_TO:INTRO+10;var bar=document.createElement("div");bar.id="calbar";bar.style.cssText="position:fixed;left:12px;bottom:132px;z-index:80;background:rgba(7,13,24,.92);border:1px solid rgba(243,196,108,.55);border-radius:10px;padding:.5rem .65rem;color:#ffe7ad;font:600 .8rem Inter,system-ui,sans-serif;display:flex;gap:.55rem;align-items:center;box-shadow:0 8px 24px rgba(0,0,0,.4)";var bs="cursor:pointer;border:0;border-radius:6px;background:rgba(255,231,173,.18);color:#ffe7ad;font:inherit;padding:.2rem .5rem;font-size:1rem";function grp(lbl,id){return \'<span style="opacity:.7;font-weight:400">\'+lbl+\'</span> <button data-t="\'+id+\'" data-d="-0.5" style="\'+bs+\'">&minus;</button><span id="\'+id+\'" style="min-width:46px;text-align:center;display:inline-block"></span><button data-t="\'+id+\'" data-d="0.5" style="\'+bs+\'">+</button>\';}bar.innerHTML=grp("Start","cvs")+\'<span style="opacity:.3">|</span>\'+grp("Ende","cve");document.body.appendChild(bar);function upd(){document.getElementById("cvs").textContent=INTRO.toFixed(1)+"s";document.getElementById("cve").textContent=INTRO_END.toFixed(1)+"s";}function step(t,d){if(t==="cvs")INTRO=Math.max(0,+(INTRO+d).toFixed(2));else INTRO_END=Math.max(INTRO+0.5,+(INTRO_END+d).toFixed(2));applyIntro();upd();}bar.addEventListener("click",function(e){var t=e.target&&e.target.getAttribute("data-t"),d=e.target&&e.target.getAttribute("data-d");if(t&&d)step(t,+d);});document.addEventListener("keydown",function(e){if(e.target&&/INPUT|TEXTAREA/.test(e.target.tagName))return;if(e.key==="[")step("cvs",-0.1);else if(e.key==="]")step("cvs",0.1);else if(e.key===",")step("cve",-0.1);else if(e.key===".")step("cve",0.1);});upd();})();',
     '(function(){try{var u=new URLSearchParams(location.search);if(u.get("play")==="1"){var p=au.play();if(p&&p.then){p.then(function(){started=true;var tt=document.getElementById("title");tt.classList.add("starting");setTimeout(function(){tt.classList.add("hide");},1400);}).catch(function(){});}}if(location.hash==="#about"){openAbout();}}catch(e){}})();',
     dotsJS()
   ].join('\n');
@@ -334,6 +364,8 @@ function songJS() {
 function buildHub() {
   const ids = fs.readdirSync(SONGS).filter(d => fs.existsSync(path.join(SONGS, d, 'song.json')));
   const metas = ids.map(id => Object.assign({ id }, JSON.parse(fs.readFileSync(path.join(SONGS, id, 'song.json'), 'utf8'))));
+  // hub order: lower "order" first (default 999), then alphabetical by id
+  metas.sort((a, b) => ((a.order != null ? a.order : 999) - (b.order != null ? b.order : 999)) || a.id.localeCompare(b.id));
   const slug = g => String(g).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
   const genres = [...new Set(metas.map(m => m.genre).filter(Boolean))];
   const COMING = ['Blues', 'Hip Hop', 'R&B'].filter(g => !genres.includes(g));
@@ -343,6 +375,7 @@ function buildHub() {
   const cards = metas.map(m =>
     '<div class="card" data-genre="' + slug(m.genre || '') + '">' +
     (m.cover ? '<a class="c-imglink" href="songs/' + m.id + '/index.html?play=1"><div class="c-img" style="background-image:url(\'songs/' + m.id + '/' + esc(m.cover) + '\')"></div></a>' : '') +
+    (m.badge ? '<div class="c-badge">&#9733; ' + esc(m.badge) + '</div>' : '') +
     (m.genre ? '<div class="c-genre">' + esc(m.genre) + '</div>' : '') +
     '<div class="c-body"><div class="c-theme">' + esc(m.theme || 'song') + '</div>' +
     '<div class="c-title">' + esc(m.title) + '</div><div class="c-sub">' + esc(m.subtitle || '') + '</div>' +
@@ -409,6 +442,8 @@ function hubCSS() {
     '.filt.soon{opacity:.45;cursor:not-allowed}',
     '.soon-b{font-size:.62rem;background:rgba(255,255,255,.16);border-radius:6px;padding:.05rem .35rem;margin-left:.25rem;text-transform:uppercase;letter-spacing:.04em}',
     '.c-genre{position:absolute;top:10px;right:10px;z-index:2;background:rgba(7,13,24,.7);border:1px solid rgba(255,255,255,.16);color:#ffe7ad;border-radius:999px;padding:.25rem .6rem;font-size:.7rem;font-weight:600}',
+    '.c-badge{position:absolute;top:10px;left:10px;z-index:3;display:inline-flex;align-items:center;gap:.3rem;background:linear-gradient(180deg,#ffe7ad,#e9b85c);color:#0c1626;border-radius:999px;padding:.3rem .72rem;font-size:.72rem;font-weight:700;letter-spacing:.02em;box-shadow:0 4px 16px rgba(233,184,92,.5);animation:badgepulse 2.6s ease-in-out infinite}',
+    '@keyframes badgepulse{0%,100%{box-shadow:0 4px 14px rgba(233,184,92,.4);transform:translateY(0)}50%{box-shadow:0 6px 26px rgba(255,221,150,.85);transform:translateY(-1px)}}',
     'footer{position:relative;z-index:1;text-align:center;color:#7e90a8;font-size:.8rem;padding:0 1rem 3rem}',
     /* sticky course promo (top) + cta bar (bottom) */
     'body{padding-bottom:74px}',
