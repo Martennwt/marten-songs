@@ -72,7 +72,7 @@ function buildSong(id, opts) {
   const playSvg = '<svg class="vi" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
   const pauseSvg = '<svg class="vi" viewBox="0 0 24 24" fill="currentColor"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg>';
 
-  const head = '<!doctype html><html lang="en" data-tlang="es" data-variant="' + variant + '"><head><meta charset="utf-8">' +
+  const head = '<!doctype html><html lang="en" data-tlang="de" data-variant="' + variant + '"><head><meta charset="utf-8">' +
     '<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">' +
     '<title>' + esc(meta.title) + " &middot; Marten's Songs</title>" +
     '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' +
@@ -86,11 +86,11 @@ function buildSong(id, opts) {
     '<a id="home" href="../../index.html">&#8592; Songs</a>' +
     '<button id="aboutBtn" class="about-btn" onclick="openAbout()"><span class="spark">&#10022;</span> <span id="aboutBtnLabel"></span></button>' +
     '<div id="countdown" hidden><svg viewBox="0 0 60 60"><circle class="cd-bg" cx="30" cy="30" r="26"></circle><circle class="cd-fg" cx="30" cy="30" r="26"></circle></svg><span id="cdNum"></span></div>' +
-    '<div id="title"' + (meta.cover ? (' style="--hero:url(\'' + esc(meta.cover) + '\')"') : '') + '>' +
+    '<div id="title" onclick="gateClick(event)"' + (meta.cover ? (' style="--hero:url(\'' + esc(meta.cover) + '\')"') : '') + '>' +
     '<a class="gate-x" href="../../index.html" aria-label="Back to songs">&times;</a>' +
+    '<div class="gsheen"></div>' +
     '<div class="t-eyebrow">' + esc(meta.subtitle || '') + '</div><h1>' + esc(meta.title) + '</h1>' +
-    '<button id="startBtn" onclick="startPlay()">&#9654;&nbsp; Play</button>' +
-    '<div class="t-hint">The words light up as they are sung &middot; translation below</div></div>' +
+    '<div class="t-cta"><span class="t-play">&#9654;</span> <span id="startHint">Tippen, um zu starten</span></div></div>' +
     '<div id="lyrics"><div id="scroll">' + linesHtml + '<div class="line end-pad"></div></div></div>' +
     '<div id="about" hidden onclick="if(event.target===this)closeAbout()"><div class="about-card">' +
     '<button class="about-x" onclick="closeAbout()" aria-label="Close">&times;</button>' +
@@ -112,7 +112,7 @@ function buildSong(id, opts) {
     '<div id="volPop" class="pop volpop" hidden><input id="vol" type="range" min="0" max="1" step="0.01" value="1" oninput="setVol(this.value)" aria-label="Volume"></div></div></div>' +
     '<div class="pl-right">' +
     '<button id="lyricsBtn" class="chip" onclick="openLyrics()">' + listSvg + ' <span id="lyricsLbl">Letra</span></button>' +
-    '<div class="popwrap"><button id="langTog" class="chip" onclick="toggleLangMenu(event)"><span id="flag">' + flES + '</span> <span id="langName">ES</span> <span class="caret">&#9662;</span></button>' +
+    '<div class="popwrap"><button id="langTog" class="chip" onclick="toggleLangMenu(event)"><span id="flag">' + flDE + '</span> <span id="langName">DE</span> <span class="caret">&#9662;</span></button>' +
     '<div id="langMenu" class="pop menu" hidden><button type="button" onclick="setTLang(\'es\')">' + flES + ' Español</button><button type="button" onclick="setTLang(\'de\')">' + flDE + ' Deutsch</button></div></div>' +
     '</div></div></div></div>' +
     '<audio id="au" src="' + esc(meta.mp3) + '" preload="auto"></audio><audio id="narr" preload="none"></audio>';
@@ -152,6 +152,13 @@ function songCSS() {
     '#title>*{position:relative;z-index:2}',
     '#title .gate-x{position:absolute;top:12px;left:18px;z-index:3;color:#cdd8e8;text-decoration:none;font-size:1.7rem;line-height:1;opacity:.85}', '#title .gate-x:hover{color:#ffe39a}',
     '#title.hide{opacity:0;visibility:hidden}',
+    '#title .gsheen{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(115deg,transparent 40%,rgba(255,221,150,.16) 50%,transparent 60%);transform:translateX(-100%);opacity:0}',
+    '#title.starting .gsheen{opacity:1;animation:gsweep 1.3s ease}',
+    '@keyframes gsweep{from{transform:translateX(-100%)}to{transform:translateX(100%)}}',
+    '#title{cursor:pointer}',
+    '.t-cta{margin-top:1.3rem;display:inline-flex;align-items:center;gap:.6rem;color:#ffe7ad;font-size:1rem;font-weight:600;animation:cta 2.4s ease-in-out infinite}',
+    '.t-play{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:linear-gradient(180deg,#ffe7ad,#e9b85c);color:#0c1626;box-shadow:0 8px 24px rgba(233,184,92,.4)}',
+    '@keyframes cta{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}',
     '.t-eyebrow{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#caa45a}',
     "#title h1{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(3rem,12vw,7rem);margin:.2rem 0;line-height:1;background:linear-gradient(180deg,#fff,#f3d79a);-webkit-background-clip:text;background-clip:text;color:transparent}",
     '#startBtn{margin-top:1.2rem;font-size:1.05rem;font-weight:600;color:#0c1626;background:linear-gradient(180deg,#ffe7ad,#e9b85c);border:0;border-radius:999px;padding:.85rem 2.2rem;cursor:pointer;box-shadow:0 10px 30px rgba(233,184,92,.35)}',
@@ -251,7 +258,8 @@ function songJS() {
     'var cd=document.getElementById("countdown"),cdfg=document.querySelector(".cd-fg"),cdNum=document.getElementById("cdNum"),CDC=163.4,FS0=LINES.length?LINES[0].start:0;',
     'var curLine=-1,started=false,aboutOpen=false,lyricsOpen=false,lastVol=1,narr=document.getElementById("narr"),narrPlaying=false;',
     'function fmt(t){t=Math.max(0,t|0);return (t/60|0)+":"+("0"+(t%60)).slice(-2);}',
-    'function startPlay(){document.getElementById("title").classList.add("hide");started=true;au.play();}',
+    'function startPlay(){if(started)return;started=true;au.play();var tt=document.getElementById("title");tt.classList.add("starting");setTimeout(function(){tt.classList.add("hide");},1500);}',
+    'function gateClick(e){if(e.target&&e.target.closest&&e.target.closest(".gate-x"))return;startPlay();}',
     'function togglePlay(){if(au.paused){au.play();}else{au.pause();}}',
     'function seekTo(t){au.currentTime=t+0.01;if(au.paused&&started)au.play();}',
     'function scrub(e){var r=document.getElementById("track").getBoundingClientRect();au.currentTime=(e.clientX-r.left)/r.width*(au.duration||1);}',
@@ -279,7 +287,7 @@ function songJS() {
     'function toggleNarr(){var want="about-"+curLang()+".mp3";if(narr.getAttribute("data-src")!==want){narr.src=want;narr.setAttribute("data-src",want);}if(narr.paused){au.pause();var pr=narr.play();if(pr&&pr.catch)pr.catch(function(){});}else{narr.pause();}}',
     'if(narr){narr.addEventListener("play",function(){narrPlaying=true;setNarrIcon();});narr.addEventListener("pause",function(){narrPlaying=false;setNarrIcon();});narr.addEventListener("ended",function(){narrPlaying=false;setNarrIcon();});}',
     'document.addEventListener("keydown",function(e){if(e.key==="Escape"){closeAbout();closeLyrics();closeMenus();}});',
-    'au.addEventListener("play",function(){document.getElementById("pp").innerHTML="&#10073;&#10073;";document.getElementById("title").classList.add("hide");});',
+    'au.addEventListener("play",function(){document.getElementById("pp").innerHTML="&#10073;&#10073;";});',
     'au.addEventListener("pause",function(){document.getElementById("pp").innerHTML="&#9654;";});',
     'au.addEventListener("loadedmetadata",function(){document.getElementById("dur").textContent=fmt(au.duration);});',
     'function setActive(i){if(i===curLine)return;',
@@ -298,6 +306,7 @@ function songJS() {
     '      else{if(ws[k].className!=="w"){ws[k].className="w";ws[k].style.removeProperty("--p");}}}}',
     '  requestAnimationFrame(frame);}',
     'updateLangUI();requestAnimationFrame(frame);',
+    '(function(){try{var u=new URLSearchParams(location.search);if(u.get("play")==="1"){var p=au.play();if(p&&p.then){p.then(function(){started=true;var tt=document.getElementById("title");tt.classList.add("starting");setTimeout(function(){tt.classList.add("hide");},1400);}).catch(function(){});}}if(location.hash==="#about"){openAbout();}}catch(e){}})();',
     dotsJS()
   ].join('\n');
 }
@@ -308,11 +317,11 @@ function buildHub() {
   const metas = ids.map(id => Object.assign({ id }, JSON.parse(fs.readFileSync(path.join(SONGS, id, 'song.json'), 'utf8'))));
   const cards = metas.map(m =>
     '<div class="card">' +
-    (m.cover ? '<div class="c-img" style="background-image:url(\'songs/' + m.id + '/' + esc(m.cover) + '\')"></div>' : '') +
+    (m.cover ? '<a class="c-imglink" href="songs/' + m.id + '/index.html?play=1"><div class="c-img" style="background-image:url(\'songs/' + m.id + '/' + esc(m.cover) + '\')"></div></a>' : '') +
     '<div class="c-body"><div class="c-theme">' + esc(m.theme || 'song') + '</div>' +
     '<div class="c-title">' + esc(m.title) + '</div><div class="c-sub">' + esc(m.subtitle || '') + '</div>' +
-    '<div class="c-btns"><a class="c-play" href="songs/' + m.id + '/index.html">&#9654; Play</a>' +
-    '<a class="c-play alt" href="songs/' + m.id + '/v1.html">Without images</a></div>' +
+    '<div class="c-btns"><a class="c-play" href="songs/' + m.id + '/index.html?play=1">&#9654; Play</a>' +
+    '<a class="c-play alt" href="songs/' + m.id + '/index.html#about">Songinterpretation</a></div>' +
     '</div></div>'
   ).join('\n');
   const html = '<!doctype html><html lang="en"><head><meta charset="utf-8">' +
@@ -341,6 +350,7 @@ function hubCSS() {
     '.card:hover{transform:translateY(-5px);border-color:rgba(243,196,108,.7);box-shadow:0 18px 44px rgba(0,0,0,.45)}',
     '.card::after{content:"";position:absolute;inset:0;border-radius:18px;background:radial-gradient(130% 80% at 50% 0%,rgba(243,196,108,.18),transparent 55%);opacity:0;transition:opacity .25s;pointer-events:none}',
     '.card:hover::after{opacity:1}',
+    '.c-imglink{display:block}',
     '.c-img{height:152px;background-size:cover;background-position:center;position:relative;transition:transform .35s}',
     '.card:hover .c-img{transform:scale(1.04)}',
     '.c-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,20,36,0) 35%,rgba(11,20,36,.92) 100%)}',
@@ -350,7 +360,7 @@ function hubCSS() {
     '.c-sub{color:#9fb0c6;font-size:.82rem;min-height:1.2em}',
     '.c-btns{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}',
     '.c-play{display:inline-block;color:#0c1626;background:linear-gradient(180deg,#ffe7ad,#e9b85c);border-radius:999px;padding:.4rem 1rem;font-weight:600;font-size:.82rem}',
-    '.c-play.alt{color:#ffe7ad;background:transparent;border:1px solid rgba(243,196,108,.5)}',
+    '.c-play.alt{color:#9fb0c6;background:transparent;border:0;font-weight:500;padding:.45rem .35rem;font-size:.82rem}', '.c-play.alt:hover{color:#ffe39a}',
     'footer{position:relative;z-index:1;text-align:center;color:#7e90a8;font-size:.8rem;padding:0 1rem 3rem}'
   ].join('');
 }
