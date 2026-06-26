@@ -1,0 +1,863 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YouTube-Branding · Marten's Songs (Draw Near)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+:root{
+  --navy1:#16243a; --navy2:#0c1626; --navy3:#070d18; --navy0:#06101f;
+  --gold:#e9b85c; --gold-lt:#ffe7ad; --gold-soft:#f3d79a;
+  --text:#eaf0f7; --muted:#9fb0c6; --eyebrow:#caa45a;
+  --line:rgba(233,184,92,.22);
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  font-family:'Inter',system-ui,sans-serif; color:var(--text);
+  background:radial-gradient(120% 120% at 50% 0%, var(--navy1) 0%, var(--navy2) 45%, var(--navy3) 100%) fixed;
+  min-height:100vh; line-height:1.5;
+}
+#stars{position:fixed; inset:0; z-index:0; pointer-events:none}
+.wrap{position:relative; z-index:1; max-width:1240px; margin:0 auto; padding:0 22px 90px}
+
+header.top{padding:46px 0 14px; text-align:center}
+.kicker{font-size:13px; letter-spacing:.32em; text-transform:uppercase; color:var(--eyebrow); font-weight:600}
+header.top h1{font-family:'Cormorant Garamond',serif; font-weight:700; font-size:46px; margin:.18em 0 .1em;
+  background:linear-gradient(#fff,var(--gold-soft)); -webkit-background-clip:text; background-clip:text; color:transparent}
+header.top p{color:var(--muted); max-width:760px; margin:6px auto 0; font-size:15px}
+nav.jump{display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin:20px 0 6px}
+nav.jump a{font-size:13px; color:var(--gold-lt); text-decoration:none; border:1px solid var(--line);
+  padding:6px 13px; border-radius:999px; background:rgba(233,184,92,.05)}
+nav.jump a:hover{background:rgba(233,184,92,.16)}
+
+.note{font-size:13px; color:var(--muted); border:1px solid var(--line); border-radius:10px;
+  padding:11px 15px; margin:18px auto 0; max-width:900px; background:rgba(8,16,30,.55)}
+.note b{color:var(--gold-lt)}
+
+section{margin:54px 0 0; scroll-margin-top:18px}
+.shead{display:flex; align-items:baseline; gap:14px; border-bottom:1px solid var(--line); padding-bottom:10px; margin-bottom:22px}
+.shead h2{font-family:'Cormorant Garamond',serif; font-weight:600; font-size:30px; margin:0; color:var(--gold-lt)}
+.shead span{color:var(--muted); font-size:13.5px}
+
+/* ---- names ---- */
+.namegrid{display:flex; flex-wrap:wrap; gap:14px; align-items:stretch}
+.namecard{border:1px solid var(--line); border-radius:14px; padding:20px 22px; background:rgba(9,17,30,.6);
+  min-width:200px; flex:1}
+.namecard.lead{flex-basis:100%; background:
+  radial-gradient(120% 160% at 0% 0%, rgba(233,184,92,.14), transparent 60%), rgba(9,17,30,.7);
+  border-color:rgba(233,184,92,.45)}
+.namecard .wm{font-family:'Cormorant Garamond',serif; font-weight:700; letter-spacing:.02em; color:#fff}
+.namecard.lead .wm{font-size:58px; background:linear-gradient(#fff,var(--gold-soft));
+  -webkit-background-clip:text; background-clip:text; color:transparent; line-height:1}
+.namecard .wm{font-size:30px}
+.namecard small{display:block; color:var(--muted); margin-top:8px; font-size:13px}
+.tag{display:inline-block; font-size:11px; letter-spacing:.16em; text-transform:uppercase;
+  color:#0b1424; background:var(--gold); padding:3px 9px; border-radius:999px; font-weight:700; margin-bottom:10px}
+
+/* ---- logos ---- */
+.logogrid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+@media(max-width:760px){.logogrid{grid-template-columns:repeat(2,1fr)}}
+.logo{border:1px solid var(--line); border-radius:14px; overflow:hidden; background:rgba(9,17,30,.6)}
+.logo .stage{height:150px; display:flex; align-items:center; justify-content:center;
+  background:radial-gradient(90% 90% at 50% 35%, #122036, #070d18)}
+.logo.light .stage{background:radial-gradient(90% 90% at 50% 35%, #f6efe0, #e6d8bd)}
+.logo .meta{display:flex; align-items:center; justify-content:space-between; padding:11px 14px; gap:8px}
+.logo .meta b{font-family:'Cormorant Garamond',serif; font-weight:600; font-size:16px; color:var(--gold-lt)}
+.logo .meta small{color:var(--muted); font-size:11.5px}
+.logo .flip{cursor:pointer; font-size:11px; color:var(--gold-lt); border:1px solid var(--line);
+  background:transparent; border-radius:999px; padding:4px 9px}
+.mk{width:96px; height:96px}
+.mk .ln{fill:none; stroke:var(--gold); stroke-width:3; stroke-linecap:round; stroke-linejoin:round}
+.mk .fl{fill:var(--gold)}
+.mk .lt{fill:var(--gold); opacity:.22}
+.logo.light .mk .ln{stroke:#b07d22} .logo.light .mk .fl{fill:#b07d22} .logo.light .mk .lt{fill:#b07d22; opacity:.18}
+
+/* ---- avatars ---- */
+.avrow{display:flex; gap:26px; flex-wrap:wrap; align-items:flex-start}
+.avitem{text-align:center}
+.avitem small{display:block; color:var(--muted); font-size:12px; margin-top:9px}
+
+/* ---- artboards ---- */
+.art{margin:0 0 8px}
+.artbar{display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin:18px 0 10px}
+.artbar h3{font-family:'Cormorant Garamond',serif; font-weight:600; font-size:19px; margin:0; color:#fff}
+.artbar .dim{color:var(--muted); font-size:12.5px}
+.artbar .sp{flex:1}
+.btn{cursor:pointer; font-size:12px; color:var(--gold-lt); border:1px solid var(--line);
+  background:rgba(233,184,92,.06); border-radius:999px; padding:6px 12px}
+.btn:hover{background:rgba(233,184,92,.16)}
+.btn.on{background:var(--gold); color:#0b1424; border-color:var(--gold); font-weight:700}
+.frame{position:relative; overflow:hidden; background:var(--navy0);
+  border:1px solid var(--line); border-radius:10px}
+.board{position:absolute; top:0; left:0; transform-origin:top left; overflow:hidden;
+  background:var(--navy0); color:#fff}
+.board .bg{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
+
+/* banner */
+.banner .bg{opacity:.55}
+.banner .veil{position:absolute; inset:0;
+  background:radial-gradient(120% 130% at 50% 40%, rgba(6,13,24,.30), rgba(6,13,24,.86) 78%)}
+.banner .safe{position:absolute; left:50%; top:50%; width:1546px; height:423px; transform:translate(-50%,-50%);
+  display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:24px}
+.banner .eyebrow{font-family:'Inter'; font-weight:600; letter-spacing:.42em; text-transform:uppercase;
+  font-size:30px; color:var(--gold)}
+.banner .bhead{font-family:'Cormorant Garamond',serif; font-weight:700; margin:0; line-height:.95;
+  font-size:188px; background:linear-gradient(#fff,var(--gold-soft));
+  -webkit-background-clip:text; background-clip:text; color:transparent}
+.banner.b-c .bhead{font-size:128px}
+.banner .bsub{margin:0; font-size:48px; color:#dfe8f4; font-weight:400}
+.banner .badge{font-family:'Inter'; font-weight:700; font-size:26px; letter-spacing:.12em; text-transform:uppercase;
+  color:#0b1424; background:var(--gold); padding:12px 30px; border-radius:999px}
+.safeguide{position:absolute; left:50%; top:50%; width:1546px; height:423px; transform:translate(-50%,-50%);
+  border:3px dashed rgba(233,184,92,.85); display:none; pointer-events:none}
+.safeguide::after{content:'Safe-Area 1546 × 423 (auf allen Geräten sichtbar)'; position:absolute; left:0; top:-46px;
+  font-family:'Inter'; font-size:26px; color:var(--gold-lt)}
+.board.show-safe .safeguide{display:block}
+
+/* thumbnail */
+.thumb .bg{opacity:.92}
+.thumb .tveil{position:absolute; inset:0}
+.thumb .v-left{background:linear-gradient(90deg, rgba(4,10,20,.82) 0%, rgba(4,10,20,.45) 42%, rgba(4,10,20,.05) 70%),
+  radial-gradient(120% 130% at 70% 50%, transparent 40%, rgba(4,10,20,.7))}
+.thumb .v-center{background:radial-gradient(90% 110% at 50% 52%, rgba(4,10,20,.15) 30%, rgba(4,10,20,.84)),
+  linear-gradient(0deg, rgba(4,10,20,.55), transparent 55%)}
+.thumb .tcontent{position:absolute; inset:0; padding:64px; display:flex; flex-direction:column}
+.thumb .pos-bl{justify-content:flex-end; align-items:flex-start; text-align:left}
+.thumb .pos-c{justify-content:center; align-items:center; text-align:center}
+.ttext{font-family:'Anton',sans-serif; text-transform:uppercase; line-height:.86; color:var(--gold-lt);
+  -webkit-text-stroke:3px #0a1426; paint-order:stroke fill;
+  text-shadow:0 0 34px rgba(233,184,92,.55), 0 10px 26px rgba(0,0,0,.65)}
+.ttext.xl{font-size:300px} .ttext.lg{font-size:200px} .ttext.md{font-size:150px}
+.tsmall{font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:500; color:#e9eef6;
+  opacity:.85; font-size:64px; margin-top:6px; -webkit-text-stroke:0}
+.tlabel{font-family:'Inter'; font-weight:600; letter-spacing:.14em; text-transform:uppercase;
+  font-size:30px; color:var(--gold); margin-top:26px}
+
+/* thumb + mini row */
+.thumbwrap{display:grid; grid-template-columns:1fr auto; gap:20px; align-items:start}
+@media(max-width:760px){.thumbwrap{grid-template-columns:1fr}}
+.miniwrap{text-align:center; padding-top:38px}
+.miniwrap .cap{font-size:12px; color:var(--muted); margin-bottom:8px}
+.miniwrap .verdict{font-size:11.5px; color:var(--gold-lt); max-width:210px; margin:9px auto 0; line-height:1.4}
+
+/* copy */
+.copygrid{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+@media(max-width:760px){.copygrid{grid-template-columns:1fr}}
+.copycard{border:1px solid var(--line); border-radius:12px; padding:16px 18px; background:rgba(9,17,30,.6)}
+.copycard h4{margin:0 0 8px; font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold)}
+.copycard pre{white-space:pre-wrap; font-family:'Inter'; font-size:13.5px; color:#dbe4f1; margin:0}
+.copycard .cp{cursor:pointer; float:right; font-size:11px; color:var(--gold-lt); border:1px solid var(--line);
+  background:transparent; border-radius:6px; padding:3px 8px}
+
+footer{margin-top:60px; text-align:center; color:var(--muted); font-size:12.5px; border-top:1px solid var(--line); padding-top:22px}
+
+/* ---- name lockup ---- */
+.lockup{border:1px solid rgba(233,184,92,.4); border-radius:18px; padding:34px 30px; text-align:center;
+  background:radial-gradient(120% 170% at 50% 0%, rgba(233,184,92,.13), transparent 62%), rgba(9,17,30,.72); margin-bottom:18px}
+.lockmk{width:74px; height:74px}
+.lockwm{font-family:'Cormorant Garamond',serif; font-weight:700; font-size:74px; line-height:1; margin-top:4px;
+  background:linear-gradient(#fff,var(--gold-soft)); -webkit-background-clip:text; background-clip:text; color:transparent}
+.locktag{color:var(--gold-lt); font-family:'Cormorant Garamond',serif; font-style:italic; font-size:23px; margin-top:8px}
+.handles{display:flex; gap:10px; justify-content:center; margin-top:18px; flex-wrap:wrap}
+.handlepill{font-size:14px; color:#0b1424; background:var(--gold); padding:7px 16px; border-radius:999px; font-weight:700}
+.handlepill.alt{background:transparent; color:var(--gold-lt); border:1px solid var(--line); font-weight:600}
+.locknote{color:var(--muted); font-size:13px; max-width:700px; margin:18px auto 0; line-height:1.5}
+.locknote b{color:var(--gold-lt)}
+.wmrow{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:22px}
+@media(max-width:760px){.wmrow{grid-template-columns:1fr}}
+.wmcard{border:1px solid var(--line); border-radius:12px; padding:20px 16px; text-align:center; background:rgba(9,17,30,.6)}
+.wmcard small{display:block; color:var(--muted); font-size:12px; margin-top:12px}
+.wmser{font-family:'Cormorant Garamond',serif; font-weight:700; font-size:36px; color:#fff}
+.wmsans{font-family:'Inter'; font-weight:800; font-size:28px; letter-spacing:-.01em; color:#fff}
+.wmanton{font-family:'Anton'; font-size:33px; letter-spacing:.012em; color:var(--gold-lt)}
+.subh{font-family:'Cormorant Garamond',serif; font-weight:600; color:var(--gold-lt); font-size:18px; margin:8px 0 12px}
+
+/* ---- script + playbook ---- */
+.scriptcard{border:1px solid var(--line); border-radius:14px; padding:18px 20px; background:rgba(8,16,30,.72); margin-bottom:16px}
+.scriptcard h4{margin:0 0 10px; font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold)}
+.scriptcard .cp{cursor:pointer; float:right; font-size:11px; color:var(--gold-lt); border:1px solid var(--line); background:transparent; border-radius:6px; padding:3px 9px}
+.scriptcard pre{white-space:pre-wrap; word-break:break-word; font-family:'Inter'; font-size:13.5px; line-height:1.62; color:#dce5f2; margin:0}
+.scriptcard pre b{color:var(--gold-lt)}
+.pbgrid{display:grid; grid-template-columns:repeat(2,1fr); gap:14px}
+@media(max-width:760px){.pbgrid{grid-template-columns:1fr}}
+.pbcard{border:1px solid var(--line); border-radius:12px; padding:16px 18px; background:rgba(9,17,30,.6)}
+.pbcard h4{margin:0 0 9px; font-size:15px; color:var(--gold-lt); font-family:'Cormorant Garamond',serif; font-weight:600}
+.pbcard ul{margin:0; padding-left:17px; color:#cdd8e6; font-size:13px; line-height:1.55}
+.pbcard li{margin:4px 0}
+.pbcard .k{color:var(--gold); font-weight:600}
+
+/* ---- thumbnail versions (tabs) + benefits + eyebrow + face ---- */
+.vtabs{display:flex; gap:10px; margin:8px 0 18px; flex-wrap:wrap}
+.vtab{cursor:pointer; font-family:'Inter'; font-size:14px; font-weight:600; color:var(--gold-lt);
+  border:1px solid var(--line); background:rgba(233,184,92,.05); border-radius:999px; padding:9px 18px}
+.vtab.on{background:var(--gold); color:#0b1424; border-color:var(--gold); font-weight:700}
+.vpane{display:none}
+.vpane.on{display:block}
+/* painterly polish so photoreal images read more "painted" */
+.thumb .bg{filter:saturate(1.13) contrast(1.06)}
+.thumb .grain{position:absolute; inset:0; pointer-events:none; mix-blend-mode:overlay; opacity:.14;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size:300px 300px}
+.teyebrow{font-family:'Inter'; font-weight:700; letter-spacing:.13em; text-transform:uppercase;
+  font-size:27px; color:var(--gold); text-shadow:0 2px 12px rgba(0,0,0,.75); margin-bottom:14px}
+.tbenefits{display:flex; gap:12px; margin-top:24px; flex-wrap:wrap}
+.bchip{font-family:'Inter'; font-weight:700; font-size:23px; letter-spacing:.01em; color:#0b1424;
+  background:var(--gold); padding:8px 18px; border-radius:999px; box-shadow:0 6px 18px rgba(0,0,0,.45)}
+.bchip.ghost{background:rgba(8,14,24,.62); color:var(--gold-lt); border:2px solid rgba(233,184,92,.75)}
+.tface{position:absolute; right:0; top:0; bottom:0; width:46%; pointer-events:none;
+  display:flex; align-items:flex-end; justify-content:center}
+.tface::before{content:''; position:absolute; inset:0;
+  background:radial-gradient(58% 70% at 68% 58%, rgba(233,184,92,.30), transparent 72%)}
+.tface svg{height:97%; filter:drop-shadow(-10px 0 30px rgba(0,0,0,.55)); position:relative}
+.tface-note{position:absolute; right:16px; top:16px; font-family:'Inter'; font-size:17px; color:var(--gold-lt);
+  background:rgba(8,14,24,.6); padding:4px 11px; border-radius:8px; border:1px solid var(--line)}
+.thumb .tcontent{z-index:2}
+
+/* ---- faces section ---- */
+.facegrid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+@media(max-width:900px){.facegrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.facegrid{grid-template-columns:1fr}}
+.facecard{border:1px solid var(--line); border-radius:14px; overflow:hidden; background:rgba(9,17,30,.6)}
+.facecard .fstage{height:250px; display:flex; align-items:stretch; justify-content:center; position:relative; overflow:hidden;
+  background:radial-gradient(82% 82% at 50% 28%, #15263e, #070d18)}
+.facecard .fstage img{width:100%; height:100%; object-fit:cover; object-position:center 14%; position:relative}
+.facecard .fstage::before{content:''; position:absolute; inset:0;
+  background:radial-gradient(48% 60% at 50% 52%, rgba(233,184,92,.26), transparent 72%)}
+.facecard svg{height:172px; position:relative}
+.facecard .fmeta{padding:13px 15px}
+.facecard .fmeta b{font-family:'Cormorant Garamond',serif; color:var(--gold-lt); font-size:18px}
+.facecard .fmeta small{display:block; color:var(--muted); font-size:12px; margin-top:6px; line-height:1.45}
+.facecard .fprompt{display:block; color:var(--eyebrow); font-size:11px; margin-top:9px; line-height:1.4; border-top:1px solid var(--line); padding-top:8px}
+.sil{display:flex; width:100%; height:100%; align-items:flex-end; justify-content:center}
+.sil.flip svg{transform:scaleX(-1)}
+.sil.tilt svg{transform:rotate(-5deg)}
+.sil.flip.tilt svg{transform:scaleX(-1) rotate(5deg)}
+/* real face overlay in V3 thumbnails: blend into the scene with a soft left fade */
+.tface{width:52%}
+.tface img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center;
+  -webkit-mask-image:linear-gradient(90deg, transparent 0%, #000 36%, #000 100%);
+  mask-image:linear-gradient(90deg, transparent 0%, #000 36%, #000 100%)}
+
+/* ---- style picker ---- */
+.stylegrid{display:grid; grid-template-columns:repeat(5,1fr); gap:12px}
+@media(max-width:1000px){.stylegrid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:600px){.stylegrid{grid-template-columns:repeat(2,1fr)}}
+.stylecard{border:1px solid var(--line); border-radius:14px; overflow:hidden; background:rgba(9,17,30,.6)}
+.stylecard.pick{border-color:rgba(233,184,92,.65); box-shadow:0 0 0 1px rgba(233,184,92,.3)}
+.stylecard .simg{height:300px; overflow:hidden; background:#0a1322}
+.stylecard .simg img{width:100%; height:100%; object-fit:cover; object-position:center 16%}
+.stylecard .smeta{padding:12px 14px}
+.stylecard .smeta b{font-family:'Cormorant Garamond',serif; color:var(--gold-lt); font-size:17px}
+.stylecard .smeta .num{color:var(--gold); font-weight:700}
+.stylecard .smeta small{display:block; color:var(--muted); font-size:12px; margin-top:5px; line-height:1.45}
+.stylecard .stag{display:inline-block; font-size:10px; letter-spacing:.13em; text-transform:uppercase; color:#0b1424;
+  background:var(--gold); padding:2px 9px; border-radius:999px; font-weight:700; margin-bottom:8px}
+
+/* ---- bright face thumbnails (Version 4: Golden Oil + Photoreal) ---- */
+.thumb.bright{background:radial-gradient(135% 135% at 80% 36%, #2c1f0f 0%, #150f08 58%, #0d0a06 100%)}
+.thumb.bright .tface{width:58%}
+.thumb.bright .tface::before{background:radial-gradient(60% 75% at 72% 50%, rgba(233,184,92,.20), transparent 72%)}
+.thumb.bright .tface img{object-position:center 12%;
+  -webkit-mask-image:linear-gradient(90deg, transparent 0%, #000 30%, #000 100%);
+  mask-image:linear-gradient(90deg, transparent 0%, #000 30%, #000 100%)}
+.thumb.bright .v-warm{background:linear-gradient(90deg, rgba(14,10,5,.84) 0%, rgba(14,10,5,.5) 38%, rgba(14,10,5,0) 64%)}
+
+/* ---- AI thumbnails (Nano Banana Pro) ---- */
+.aigrid{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+@media(max-width:760px){.aigrid{grid-template-columns:1fr}}
+.aifig{margin:0; border:1px solid rgba(233,184,92,.3); border-radius:12px; overflow:hidden; background:#0a1322}
+.aifig img{width:100%; display:block}
+.aifig figcaption{padding:10px 14px; display:flex; justify-content:space-between; align-items:center; gap:10px}
+.aifig figcaption b{color:var(--gold-lt); font-family:'Cormorant Garamond',serif; font-size:16px; font-weight:600}
+.aifig figcaption small{color:var(--muted); font-size:12px}
+.aimini{height:112px; width:200px; overflow:hidden; border-radius:6px; border:1px solid var(--line)}
+.aimini img{width:200px; height:auto; display:block}
+</style>
+</head>
+<body>
+<canvas id="stars"></canvas>
+<div class="wrap">
+
+<header class="top">
+  <div class="kicker">YouTube · Kanal-Branding · Mockup</div>
+  <h1>Draw Near — Bible Songs</h1>
+  <p>Komplettes Kanal-Launch-Kit zum Sektion-für-Sektion-Durchgehen (Nav unten): Name, Logos, Profilbild,
+     3 Banner, 3 Thumbnails, ein <b>fertiges Video-Beschreibungs-Skript</b> für „The Sower" (Interpretation,
+     Bibelstellen-Links, Kapitel, Hashtags) und ein <b>Launch-Playbook</b> auf Basis aktueller Erkenntnisse.
+     Code-Mockup (Vektor-Logos + deine gemalten Bilder); Favoriten holen wir danach als echte KI-Bilder nach.</p>
+  <nav class="jump">
+    <a href="#name">Name</a><a href="#logos">Logos</a><a href="#avatars">Profilbild</a>
+    <a href="#banners">Banner</a><a href="#thumbs">Thumbnails</a>
+    <a href="#description">Beschreibung</a><a href="#playbook">Playbook</a><a href="#copy">Texte</a><a href="branding-archiv.html" style="opacity:.75">⤓ alte Versionen</a>
+  </nav>
+  <div class="note"><b>Export:</b> Jeder Banner/Thumbnail hat „1:1" (echte Pixel zum Screenshot) und
+    „PNG". Unter <b>file://</b> blockt der Browser den PNG-Export oft (lokale Bilder) — dann auf <b>1:1</b>
+    stellen und einen Screenshot machen, oder die Seite über einen lokalen Server öffnen. Banner = 2560×1440,
+    Thumbnail = 1280×720.</div>
+</header>
+
+<!-- NAME -->
+<section id="name">
+  <div class="shead"><h2>Kanalname</h2><span>EN-first, global · finaler Vorschlag + Shortlist</span></div>
+
+  <div class="lockup">
+    <svg class="mk lockmk" viewBox="0 0 120 120"><circle class="ln" cx="60" cy="60" r="50"/>
+      <path class="ln" d="M60 92 V58"/>
+      <path class="fl" d="M60 66 C46 66 39 54 41 44 C55 45 61 56 60 66 Z"/>
+      <path class="fl" d="M60 60 C74 60 81 48 79 38 C65 39 59 50 60 60 Z"/>
+      <path class="ln" d="M47 92 H73"/></svg>
+    <div class="lockwm">Draw Near</div>
+    <div class="locktag">Sung Scripture that draws you near</div>
+    <div class="handles">
+      <span class="handlepill">@drawnear</span>
+      <span class="handlepill alt">@drawnearsongs</span>
+      <span class="handlepill alt">@drawnearmusic</span>
+    </div>
+    <div class="locknote">Voller Kanaltitel: <b>Draw Near — Bible Songs</b>. Handle vor der Anmeldung auf
+      Verfügbarkeit prüfen (youtube.com/@drawnear). „Marten's Songs" bleibt die Studio-Signatur:
+      Website + „by Marten's Songs" im Kanal-About. Quelle des Namens: „Naht euch zu Gott, so naht er
+      sich zu euch" (Jakobus 4,8) - genau das Kanalversprechen.</div>
+  </div>
+
+  <div class="wmrow">
+    <div class="wmcard"><div class="wmser">Draw Near</div><small>Cormorant Garamond · primär (elegant, sakral)</small></div>
+    <div class="wmcard"><div class="wmsans">DRAW NEAR</div><small>Inter 800 · modern, für UI/Web</small></div>
+    <div class="wmcard"><div class="wmanton">DRAW NEAR</div><small>Anton · laut, für Thumbnails</small></div>
+  </div>
+
+  <h3 class="subh">Shortlist (Alternativen)</h3>
+  <div class="namegrid">
+    <div class="namecard lead">
+      <span class="tag">Empfehlung</span>
+      <div class="wm">Draw Near</div>
+      <small>„Naht euch zu Gott, so naht er sich zu euch" (Jak 4,8). Ist das Kanalversprechen, einladend,
+        trägt als Wortmarke, Konzept übersetzt sich (DE „Komm näher", ES „Acércate").
+        Voller Titel: <b>Draw Near — Bible Songs</b> · Handle <b>@drawnear</b>.</small>
+    </div>
+    <div class="namecard"><div class="wm">Selah</div><small>Psalmen-Musikwort. Schönste Einzelmarke, aber im Worship-Markt belegt (SEO prüfen).</small></div>
+    <div class="namecard"><div class="wm">Abide</div><small>„Bleibt in mir" (Joh 15). Ruhig, ein Wort; klingt etwas nach Meditations-App.</small></div>
+    <div class="namecard"><div class="wm">Nearer</div><small>„Nearer, My God, to Thee". Emotional, richtungsweisend; als Suchbegriff schwach.</small></div>
+    <div class="namecard"><div class="wm">Lamplight</div><small>„Dein Wort ist meines Fußes Leuchte" (Ps 119,105). Passt zum Gold-Licht-Look.</small></div>
+    <div class="namecard"><div class="wm">Still Waters</div><small>„Er führt mich zum frischen Wasser" (Ps 23). Ruhe; zwei Wörter, etwas generisch.</small></div>
+    <div class="namecard"><div class="wm">Sing the Word</div><small>Beschreibt das Produkt sofort; weniger Marke, mehr Label.</small></div>
+  </div>
+</section>
+
+<!-- LOGOS -->
+<section id="logos">
+  <div class="shead"><h2>Logos</h2><span>6 Richtungen · Vektor (editierbar) · Hell/Dunkel umschaltbar</span></div>
+  <div class="logogrid">
+    <div class="logo"><div class="stage">
+      <svg class="mk" viewBox="0 0 120 120"><circle class="ln" cx="60" cy="60" r="50"/>
+        <path class="ln" d="M60 92 V58"/>
+        <path class="fl" d="M60 66 C46 66 39 54 41 44 C55 45 61 56 60 66 Z"/>
+        <path class="fl" d="M60 60 C74 60 81 48 79 38 C65 39 59 50 60 60 Z"/>
+        <path class="ln" d="M47 92 H73"/></svg>
+    </div><div class="meta"><div><b>Sprout</b><br><small>Same, der aufgeht</small></div><button class="flip">Hell/Dunkel</button></div></div>
+
+    <div class="logo"><div class="stage">
+      <svg class="mk" viewBox="0 0 120 120">
+        <path class="ln" d="M36 96 V54 a24 24 0 0 1 48 0 V96"/>
+        <path class="lt" d="M60 96 V42 L86 54 V96 Z"/>
+        <path class="ln" d="M60 96 V42"/><path class="ln" d="M32 96 H88"/></svg>
+    </div><div class="meta"><div><b>Open Door</b><br><small>klopf an, es öffnet</small></div><button class="flip">Hell/Dunkel</button></div></div>
+
+    <div class="logo"><div class="stage">
+      <svg class="mk" viewBox="0 0 120 120"><ellipse class="ln" cx="60" cy="32" rx="27" ry="9"/>
+        <rect class="fl" x="35" y="61" width="7" height="22" rx="3.5"/>
+        <rect class="fl" x="48" y="52" width="7" height="40" rx="3.5"/>
+        <rect class="fl" x="61" y="46" width="7" height="52" rx="3.5"/>
+        <rect class="fl" x="74" y="52" width="7" height="40" rx="3.5"/>
+        <rect class="fl" x="87" y="61" width="7" height="22" rx="3.5"/></svg>
+    </div><div class="meta"><div><b>Soundwave Halo</b><br><small>Musik + sakral</small></div><button class="flip">Hell/Dunkel</button></div></div>
+
+    <div class="logo"><div class="stage">
+      <svg class="mk" viewBox="0 0 120 120"><line class="ln" x1="22" y1="82" x2="98" y2="82"/>
+        <path class="fl" d="M42 82 a18 18 0 0 1 36 0 Z"/>
+        <line class="ln" x1="60" y1="50" x2="60" y2="40"/><line class="ln" x1="42" y1="56" x2="36" y2="48"/>
+        <line class="ln" x1="78" y1="56" x2="84" y2="48"/><line class="ln" x1="30" y1="70" x2="22" y2="66"/>
+        <line class="ln" x1="90" y1="70" x2="98" y2="66"/></svg>
+    </div><div class="meta"><div><b>Sunrise</b><br><small>Hoffnung, neuer Morgen</small></div><button class="flip">Hell/Dunkel</button></div></div>
+
+    <div class="logo"><div class="stage">
+      <svg class="mk" viewBox="0 0 120 120"><path class="ln" d="M34 28 A42 42 0 0 1 34 92"/>
+        <path class="ln" d="M86 28 A42 42 0 0 0 86 92"/>
+        <path class="fl" d="M60 50 L64 58 L72 60 L64 62 L60 70 L56 62 L48 60 L56 58 Z"/></svg>
+    </div><div class="meta"><div><b>Draw-Near Mark</b><br><small>näherkommen, abstrakt</small></div><button class="flip">Hell/Dunkel</button></div></div>
+
+    <div class="logo"><div class="stage">
+      <svg class="mk" viewBox="0 0 120 120"><path class="ln" d="M60 96 V40"/>
+        <path class="fl" d="M60 52 C50 50 44 42 44 34 C54 36 60 44 60 52 Z"/>
+        <path class="fl" d="M60 52 C70 50 76 42 76 34 C66 36 60 44 60 52 Z"/>
+        <path class="fl" d="M60 64 C50 62 44 54 44 46 C54 48 60 56 60 64 Z"/>
+        <path class="fl" d="M60 64 C70 62 76 54 76 46 C66 48 60 56 60 64 Z"/>
+        <path class="fl" d="M60 76 C50 74 44 66 44 58 C54 60 60 68 60 76 Z"/>
+        <path class="fl" d="M60 76 C70 74 76 66 76 58 C66 60 60 68 60 76 Z"/></svg>
+    </div><div class="meta"><div><b>Wheat</b><br><small>Ernte + Licht, klassisch</small></div><button class="flip">Hell/Dunkel</button></div></div>
+  </div>
+</section>
+
+<!-- AVATARS -->
+<section id="avatars">
+  <div class="shead"><h2>Profilbild (Kanal-Cover)</h2><span>800×800, rund · aus den Top-Logos</span></div>
+  <div class="avrow" id="avrow"></div>
+</section>
+
+<!-- BANNERS -->
+<section id="banners">
+  <div class="shead"><h2>Kanal-Banner</h2><span>2560×1440 · Safe-Area 1546×423 · 3 Designs</span></div>
+
+  <div class="art">
+    <div class="artbar"><h3>A — Versprechen</h3><span class="dim">2560×1440</span><span class="sp"></span>
+      <button class="btn js-fit">1:1</button><button class="btn js-safe">Safe-Area</button><button class="btn js-png">PNG</button></div>
+    <div class="frame"><div class="board banner b-a" data-w="2560" data-h="1440" data-fit="0.42" data-name="banner-a">
+      <img class="bg" src="../songs/the-sower/img/5-light.png" alt="">
+      <div class="veil"></div>
+      <div class="safe"><div class="eyebrow">Bible Songs</div>
+        <h2 class="bhead">Draw Near</h2>
+        <p class="bsub">Bible songs that draw you closer to God</p>
+        <span class="badge">New songs every week</span></div>
+      <div class="safeguide"></div></div></div>
+  </div>
+
+  <div class="art">
+    <div class="artbar"><h3>B — Produkt</h3><span class="dim">2560×1440</span><span class="sp"></span>
+      <button class="btn js-fit">1:1</button><button class="btn js-safe">Safe-Area</button><button class="btn js-png">PNG</button></div>
+    <div class="frame"><div class="board banner b-b" data-w="2560" data-h="1440" data-fit="0.42" data-name="banner-b">
+      <img class="bg" src="../songs/the-sower/img/1-sower.png" alt="">
+      <div class="veil"></div>
+      <div class="safe"><div class="eyebrow">Word by word · with translation</div>
+        <h2 class="bhead">Sung Scripture</h2>
+        <p class="bsub">Word-by-word Bible karaoke — English, with translation</p>
+        <span class="badge">New songs every week</span></div>
+      <div class="safeguide"></div></div></div>
+  </div>
+
+  <div class="art">
+    <div class="artbar"><h3>C — Gefühl</h3><span class="dim">2560×1440</span><span class="sp"></span>
+      <button class="btn js-fit">1:1</button><button class="btn js-safe">Safe-Area</button><button class="btn js-png">PNG</button></div>
+    <div class="frame"><div class="board banner b-c" data-w="2560" data-h="1440" data-fit="0.42" data-name="banner-c">
+      <img class="bg" src="../songs/the-sower/img/4-lilies.png" alt="">
+      <div class="veil"></div>
+      <div class="safe"><div class="eyebrow">At home · on the road · anywhere</div>
+        <h2 class="bhead">Feel Him, wherever you are</h2>
+        <p class="bsub">Painted, bilingual worship you can sing along to</p>
+        <span class="badge">New songs every week</span></div>
+      <div class="safeguide"></div></div></div>
+  </div>
+</section>
+
+<!-- THUMBNAILS -->
+<section id="thumbs">
+  <div class="shead"><h2>Thumbnails &middot; Golden Oil &#9733;</h2><span>Deine Original-Frau + die guten Thumbnails (wiederhergestellt)</span></div>
+
+  <div style="display:flex; gap:18px; flex-wrap:wrap; align-items:stretch; margin-bottom:6px">
+    <figure class="aifig" style="max-width:300px; margin:0"><img src="styles/s1-golden-oil.png" alt="">
+      <figcaption><b>Deine Golden-Oil-Frau</b><small>Original &middot; sicher gespeichert</small></figcaption></figure>
+    <div class="note" style="flex:1; min-width:280px; margin:0">
+      <b>Tool:</b> erstellt mit <b>Gemini 3 Pro Image (&bdquo;Nano Banana Pro&ldquo;)</b> &ndash; unser Generator
+      <code>tools/images/generate-image.js</code>, Key in <code>API keys/Nano-Banana-Google.txt</code>.
+      <b>Genau dieser Stil bleibt</b>, nur andere Personen. Die 3 OpenAI-Versuche sind gel&ouml;scht.<br>
+      <b>Geld/Limit aufheben:</b> in <b>aistudio.google.com</b> (oder Google-Cloud-Console) beim Projekt dieses Keys
+      <b>Billing aktivieren</b> (Kreditkarte). Dann kein Tageslimit, ~10&ndash;13c/Bild. Sonst setzt sich das
+      Gratis-Tageslimit jeden Tag zur&uuml;ck. Alternativen: <b>fal.ai (FLUX)</b> &ndash; tolle Bilder, schwach bei Text;
+      <b>OpenAI/gpt-image</b> &ndash; anderer Look (war &bdquo;crap&ldquo;).
+    </div>
+  </div>
+
+  <h3 class="subh" style="margin-top:8px">Thumbnails mit ihr</h3>
+
+  <div class="thumbwrap">
+    <div class="art">
+      <div class="artbar"><h3>Don't Worry &middot; Golden Oil</h3><span class="dim">1280&times;720</span><span class="sp"></span>
+        <button class="btn js-fit">1:1</button><button class="btn js-png">PNG</button></div>
+      <div class="frame"><div class="board thumb bright" data-w="1280" data-h="720" data-fit="0.8" data-name="thumb-go-dontworry">
+        <div class="tface"><img src="styles/s1-golden-oil.png" alt=""></div>
+        <div class="tveil v-warm"></div>
+        <div class="tcontent pos-bl">
+          <div class="teyebrow">Matthew 6:25-34 &middot; The Sower</div>
+          <div class="ttext md">Don't<br>Worry</div>
+          <div class="tbenefits"><span class="bchip">Karaoke</span><span class="bchip ghost">Sing along</span><span class="bchip ghost">Closer to God</span></div>
+        </div></div></div>
+    </div>
+    <div class="miniwrap"><div class="cap">200px (Handy-Test)</div><div class="frame mini" data-mini="1"></div>
+      <div class="verdict">Helles L&auml;cheln rechts + Hook links, gemalter &Ouml;l-Stil. Warm, aufbauend, klick-stark.</div></div>
+  </div>
+
+  <div class="thumbwrap">
+    <div class="art">
+      <div class="artbar"><h3>Come Closer &middot; Golden Oil</h3><span class="dim">1280&times;720</span><span class="sp"></span>
+        <button class="btn js-fit">1:1</button><button class="btn js-png">PNG</button></div>
+      <div class="frame"><div class="board thumb bright" data-w="1280" data-h="720" data-fit="0.8" data-name="thumb-go-comecloser">
+        <div class="tface"><img src="styles/s1-golden-oil.png" alt=""></div>
+        <div class="tveil v-warm"></div>
+        <div class="tcontent pos-bl">
+          <div class="teyebrow">Matthew 6:33</div>
+          <div class="ttext md">Come<br>Closer</div>
+          <div class="tbenefits"><span class="bchip">Bible karaoke</span><span class="bchip ghost">Sing along</span></div>
+        </div></div></div>
+    </div>
+    <div class="miniwrap"><div class="cap">200px (Handy-Test)</div><div class="frame mini" data-mini="1"></div>
+      <div class="verdict">&bdquo;COME CLOSER&ldquo; = direktes Versprechen, dazu ein warmes Gesicht. Sehr einladend.</div></div>
+  </div>
+
+  <div class="thumbwrap">
+    <div class="art">
+      <div class="artbar"><h3>The Seed in You &middot; Golden Oil</h3><span class="dim">1280&times;720</span><span class="sp"></span>
+        <button class="btn js-fit">1:1</button><button class="btn js-png">PNG</button></div>
+      <div class="frame"><div class="board thumb bright" data-w="1280" data-h="720" data-fit="0.8" data-name="thumb-go-seed">
+        <div class="tface"><img src="styles/s1-golden-oil.png" alt=""></div>
+        <div class="tveil v-warm"></div>
+        <div class="tcontent pos-bl">
+          <div class="teyebrow">Matthew 13 &middot; The Sower</div>
+          <div class="ttext md">The Seed<br>in You</div>
+          <div class="tbenefits"><span class="bchip ghost">Sing along</span></div>
+        </div></div></div>
+    </div>
+    <div class="miniwrap"><div class="cap">200px (Handy-Test)</div><div class="frame mini" data-mini="1"></div>
+      <div class="verdict">Identit&auml;t + W&auml;rme. &bdquo;SEED&ldquo; betont. Hoffnungsvoll statt dunkel.</div></div>
+  </div>
+
+  <div class="note"><a href="branding-archiv.html">&rarr; alle alten Versionen ansehen</a>. N&auml;chster Schritt: sobald
+    das Gemini-Limit frei ist (Billing oder t&auml;glicher Reset), generiere ich neue im EXAKT gleichen Golden-Oil-Stil
+    mit verschiedenen Personen.</div>
+
+  <h3 class="subh" style="margin-top:26px">Neu &middot; 3 Themen, 3 Personen (Golden Oil, &uuml;ber fal)</h3>
+  <div class="note" style="margin-top:0">Voll von der KI komponiert (Bild + Text), je anderes Thema + andere Person, exakt im s1-Stil &mdash; &uuml;ber <b>fal.ai Nano Banana Pro</b> (kein Google-Limit, ~15c/Bild).</div>
+  <div class="aigrid">
+    <figure class="aifig"><img src="thumbs-ai/fg1-dontworry.png" alt="">
+      <figcaption><b>Don't Worry &middot; Matthew 6</b><div class="aimini"><img src="thumbs-ai/fg1-dontworry.png" alt=""></div></figcaption></figure>
+    <figure class="aifig"><img src="thumbs-ai/fg2-bestill.png" alt="">
+      <figcaption><b>Be Still &middot; Psalm 46</b><div class="aimini"><img src="thumbs-ai/fg2-bestill.png" alt=""></div></figcaption></figure>
+    <figure class="aifig"><img src="thumbs-ai/fg3-donotfear.png" alt="">
+      <figcaption><b>Do Not Fear &middot; Isaiah 41:10</b><div class="aimini"><img src="thumbs-ai/fg3-donotfear.png" alt=""></div></figcaption></figure>
+  </div>
+</section>
+
+<!-- DESCRIPTION -->
+<section id="description">
+  <div class="shead"><h2>Video-Beschreibung · fertiges Skript</h2><span>„The Sower" zum Kopieren · Vorlage · Pinned Comment</span></div>
+
+  <div class="scriptcard"><button class="cp">Kopieren</button><h4>Komplette Beschreibung · „The Sower"</h4>
+<pre><b>Don't worry. Seek first the kingdom.</b> The Sower is a Bible song from the Gospels, sung word by word in English, with the worry of Matthew 6 turning slowly into peace.
+
+This is "sung Scripture": the lyrics light up line by line like karaoke, a translation sits underneath (Español / Deutsch), and painted scenes drift behind every verse. Watch the words, follow the meaning, and let it draw you near.
+
+<b>▶ THE IDEA BEHIND THE SONG</b>
+The Sower weaves three of Jesus' teachings into one arc. It opens with the Parable of the Sower (Matthew 13): the same seed, the good news, falls on four kinds of ground, and what matters is how deeply it takes root in you. The chorus turns to Matthew 6: don't worry, look at the birds and the lilies, seek first the kingdom and the rest will follow. The bridge arrives at the heart of it, John 3:16: so great was his love that he gave his only Son. It ends in quiet trust, the seed in you rising on good and solid ground.
+
+<b>▶ SCRIPTURE IN THIS SONG</b>
+• The Parable of the Sower — Matthew 13:3-23
+• Do not worry / seek first the kingdom — Matthew 6:25-33
+• Ask, seek, knock — Matthew 7:7
+• The lilies of the field — Matthew 6:27-29
+• For God so loved the world — John 3:16
+
+<b>▶ CHAPTERS</b>
+0:00 Intro
+0:09 Verse 1 — The Parable of the Sower (Matthew 13)
+0:43 Chorus — Don't Worry, Seek First the Kingdom (Matthew 6)
+1:13 Verse 2 — Worry Adds Nothing, the Lilies (Matthew 6)
+1:35 Chorus
+2:02 Bridge — The Gift (Matthew 7 &amp; John 3:16)
+2:24 Outro — The Seed in You Is Rising
+
+<b>▶ SING IT ANYWHERE</b>
+Play it at home, on the road, or whenever you want to feel him near. The full interactive version (bilingual lyrics + the idea behind the song) lives here:
+→ The Sower (interactive): https://martennwt.github.io/marten-songs/songs/the-sower/index.html
+→ All songs: https://martennwt.github.io/marten-songs/
+
+<b>▶ LINKS</b>
+Subscribe: https://youtube.com/@drawnear
+Playlist — Bible Songs: [Playlist-Link einsetzen]
+Website: https://martennwt.github.io/marten-songs/
+
+<b>▶ READ THE SCRIPTURE</b>
+Matthew 13: https://www.biblegateway.com/passage/?search=Matthew+13
+Matthew 6: https://www.biblegateway.com/passage/?search=Matthew+6
+Matthew 7:7: https://www.biblegateway.com/passage/?search=Matthew+7:7
+John 3:16: https://www.biblegateway.com/passage/?search=John+3:16
+
+Music and visuals are AI-created; the words are drawn from the Gospels.
+
+#BibleSongs #TheSower #Matthew6 #ChristianMusic #LyricVideo #DontWorry #SungScripture #Faith #Worship</pre></div>
+
+  <div class="scriptcard"><button class="cp">Kopieren</button><h4>Wiederverwendbare Vorlage (jeder Song)</h4>
+<pre>[HOOK: ein Versprechen + das Keyword "Bible song", unter ~120 Zeichen, damit es vor "Mehr ansehen" steht]
+
+This is "sung Scripture": {ein Satz, was es ist}. Translation underneath ({ES} / {DE}), painted scenes behind every line.
+
+<b>▶ THE IDEA BEHIND THE SONG</b>
+{2 bis 4 Sätze Bedeutung — aus song.json "about" (intro + Strophen) ins Englische gebracht}
+
+<b>▶ SCRIPTURE IN THIS SONG</b>
+• {Stelle 1}
+• {Stelle 2}
+
+<b>▶ CHAPTERS</b>
+0:00 Intro
+{m:ss} {Abschnitt} ({Bibelstelle})
+... (Zeiten aus timing.json, erstes Kapitel immer 0:00)
+
+<b>▶ LINKS</b>
+→ Interactive version: {Song-URL}
+→ All songs: https://martennwt.github.io/marten-songs/
+Subscribe: https://youtube.com/@drawnear
+Playlist: {Playlist-URL}
+
+{Bibelstellen-Links: biblegateway.com/passage/?search=...}
+
+Music and visuals are AI-created; the words are drawn from Scripture.
+
+#BibleSongs #{SongTag} #ChristianMusic #LyricVideo #SungScripture</pre></div>
+
+  <div class="scriptcard"><button class="cp">Kopieren</button><h4>Pinned Comment (Engagement)</h4>
+<pre>Which line did you need to hear today? 🌱
+Watch the full bilingual version — with the meaning behind every verse — here: https://martennwt.github.io/marten-songs/songs/the-sower/index.html
+New Bible songs every week. Subscribe and draw near.</pre></div>
+</section>
+
+<!-- PLAYBOOK -->
+<section id="playbook">
+  <div class="shead"><h2>Launch-Playbook</h2><span>Alles für einen starken Start · Stand 2026</span></div>
+  <div class="note"><b>Neueste Erkenntnisse (2026):</b> Die ersten 1-2 Zeilen der Beschreibung (vor „Mehr
+    ansehen") zählen für den Algorithmus am meisten - Keyword nach vorn. <b>Kapitel</b> werden als „Key
+    Moments" in der Google-Suche gezeigt und zunehmend von KI-Antworten zitiert. <b>Playlists</b> steigern
+    die Session-Zeit (Auto-Play). <b>Shorts</b> sind seit Ende 2025 vom Long-Form entkoppelt - als
+    Entdeckung/Routing nutzen, nicht als Selbstzweck. <b>Kleine Kanäle</b> werden aggressiv getestet, wenn
+    die frühen Signale (Thumbnail-CTR + Watch-Time) stark sind.</div>
+  <div class="pbgrid">
+    <div class="pbcard"><h4>Titel-Formel</h4><ul>
+      <li>Haken/Schriftstelle zuerst, dann <span class="k">Bible Song</span> + Keyword. Kurz halten.</li>
+      <li>„Don't Worry — The Sower | Bible Song with Lyrics (Matthew 6)"</li>
+      <li>„Seek First the Kingdom — The Sower (Sung Scripture)"</li>
+      <li>„The Sower — A Bible Song to Quiet Your Worry | Lyrics + Meaning"</li>
+    </ul></div>
+    <div class="pbcard"><h4>Tags &amp; Keywords</h4><ul>
+      <li>bible song · the sower · sung scripture · lyric video</li>
+      <li>christian music · worship song · scripture song · bible karaoke</li>
+      <li>matthew 6 · don't worry · seek first the kingdom · parable of the sower</li>
+      <li>Keyword auch natürlich in Titel + erste Beschreibungszeile.</li>
+    </ul></div>
+    <div class="pbcard"><h4>Kapitel (Key Moments)</h4><ul>
+      <li>Zeitstempel = <span class="k">Key Moments</span> in der Suche + KI-zitierbar.</li>
+      <li>Nach Song-Abschnitten gliedern, erstes Kapitel immer 0:00.</li>
+      <li>Klartitel mit Bibelstelle (siehe Beschreibungs-Skript).</li>
+    </ul></div>
+    <div class="pbcard"><h4>Thumbnails A/B</h4><ul>
+      <li>Die 3 Varianten via <span class="k">Test &amp; Compare</span> hochladen.</li>
+      <li>YouTube wählt nach Watch-Time-Anteil (bis 14 Tage).</li>
+      <li>Gewinner-Muster auf die nächsten Songs übertragen.</li>
+    </ul></div>
+    <div class="pbcard"><h4>End Screen &amp; Cards</h4><ul>
+      <li>Letzte 5-20s: nächster Song + Abo-Element.</li>
+      <li>Eine Karte mittendrin → Playlist.</li>
+      <li>Zuschauer zum nächsten Schritt führen, nicht nur zum nächsten View.</li>
+    </ul></div>
+    <div class="pbcard"><h4>Playlists (Session-Time)</h4><ul>
+      <li>„Bible Songs (Gospels)", „Songs about Worry &amp; Peace", „Faith for hard days".</li>
+      <li>Auto-Play erhöht Watch-Time und signalisiert Qualität.</li>
+      <li>Jedes Video in 1-2 passende Playlists legen.</li>
+    </ul></div>
+    <div class="pbcard"><h4>Shorts als Türöffner</h4><ul>
+      <li>20-40s Short der stärksten Zeile („Don't worry…").</li>
+      <li>Hook im ersten Frame + „full song on the channel".</li>
+      <li>Entkoppelt vom Long-Form → reine Entdeckung/Routing.</li>
+    </ul></div>
+    <div class="pbcard"><h4>Community &amp; Pinned</h4><ul>
+      <li>Pinned Comment mit Frage (siehe Skript).</li>
+      <li>Zwischen Uploads eine Bibelstelle/ein Bild im Community-Tab.</li>
+      <li>1 Song/Woche, fester Rhythmus.</li>
+    </ul></div>
+    <div class="pbcard"><h4>Beschreibung-SEO</h4><ul>
+      <li>Primär-Keyword in den ersten 1-2 Zeilen (above the fold).</li>
+      <li>200-300 Wörter, Kapitel, Links, Hashtags.</li>
+      <li>Gleiche Bausteine bei jedem Song (Vorlage oben).</li>
+    </ul></div>
+    <div class="pbcard"><h4>KI-Kennzeichnung</h4><ul>
+      <li>In den YouTube-Einstellungen „verändert/synthetisch" angeben.</li>
+      <li>Im Text offen „AI-created" nennen (Richtlinie + Vertrauen).</li>
+      <li>Lyrics als „aus den Evangelien" ausweisen.</li>
+    </ul></div>
+  </div>
+</section>
+
+<!-- COPY -->
+<section id="copy">
+  <div class="shead"><h2>Texte</h2><span>Tagline, Beschreibung (EN/DE/ES), Banner-Sets</span></div>
+  <div class="copygrid">
+    <div class="copycard"><button class="cp">Kopieren</button><h4>Tagline</h4><pre>Sung Scripture that draws you near.</pre></div>
+    <div class="copycard"><button class="cp">Kopieren</button><h4>Kanalbeschreibung · EN</h4><pre>Bible songs that draw you closer to God.
+Word-by-word karaoke from the Gospels — sung in English, with translation below and painted scenes behind every line. Each song comes with a short "idea behind the song" that opens up the Scripture.
+Play them at home, on the road, or whenever you want to feel Him near.
+New songs every week.</pre></div>
+    <div class="copycard"><button class="cp">Kopieren</button><h4>Kanalbeschreibung · DE</h4><pre>Bibel-Songs, die dich Gott näherbringen.
+Wort-für-Wort-Karaoke aus den Evangelien — englisch gesungen, mit Übersetzung darunter und gemalten Bildern hinter jeder Zeile. Zu jedem Song eine kurze „Idee hinter dem Lied", die die Bibelstelle öffnet.
+Hör sie zu Hause, unterwegs oder wann immer du Ihn spüren willst. Neue Songs jede Woche.</pre></div>
+    <div class="copycard"><button class="cp">Kopieren</button><h4>Kanalbeschreibung · ES</h4><pre>Canciones bíblicas que te acercan a Dios.
+Karaoke palabra por palabra de los Evangelios — cantado en inglés, con traducción debajo y escenas pintadas tras cada línea. Cada canción trae una breve „idea detrás de la canción" que abre el pasaje.
+Escúchalas en casa, de viaje o cuando quieras sentirlo cerca. Nuevas canciones cada semana.</pre></div>
+    <div class="copycard"><button class="cp">Kopieren</button><h4>Banner-Sets</h4><pre>A — DRAW NEAR / Bible songs that draw you closer to God
+B — Sung Scripture / Word-by-word Bible karaoke, English with translation
+C — Feel Him, wherever you are / Painted, bilingual worship for home or the road
+Badge: New songs every week</pre></div>
+    <div class="copycard"><button class="cp">Kopieren</button><h4>Thumbnail-Hooks</h4><pre>T1  DON'T WORRY        (The Sower · Matthew 6)
+T2  KNOCK / and it opens (The Sower · Matthew 7)
+T3  THE SEED IN YOU     (The Sower · Matthew 13)</pre></div>
+  </div>
+</section>
+
+<footer>Marten's Songs · YouTube-Branding-Mockup · Navy/Gold, kein Gesicht, Gott nie dargestellt ·
+  Favoriten danach als echte KI-Bilder (siehe YOUTUBE.md)</footer>
+</div>
+
+<script>
+/* floating gold particles */
+(function(){
+  const c=document.getElementById('stars'), x=c.getContext('2d'); let w,h,ps;
+  function rs(){w=c.width=innerWidth; h=c.height=innerHeight;
+    ps=Array.from({length:48},()=>({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.6+.4,
+      s:Math.random()*.3+.05,a:Math.random()*.5+.2}));}
+  function loop(){x.clearRect(0,0,w,h);
+    for(const p of ps){p.y-=p.s; if(p.y<-4)p.y=h+4;
+      x.beginPath(); x.arc(p.x,p.y,p.r,0,7); x.fillStyle='rgba(233,184,92,'+p.a+')'; x.fill();}
+    requestAnimationFrame(loop);}
+  rs(); loop(); addEventListener('resize',rs);
+})();
+
+/* logo light/dark flip */
+document.querySelectorAll('.logo .flip').forEach(b=>{
+  b.addEventListener('click',()=>b.closest('.logo').classList.toggle('light'));
+});
+
+/* artboard scaling */
+function applyFit(board){
+  const w=+board.dataset.w, h=+board.dataset.h, f=+board.dataset.fit, fr=board.parentElement;
+  board.style.width=w+'px'; board.style.height=h+'px';
+  if(board.dataset.full==='1'){
+    const maxH=Math.round(innerHeight*0.7);
+    board.style.transform='scale(1)';
+    fr.style.width='100%'; fr.style.maxWidth=w+'px'; fr.style.height=Math.min(h,maxH)+'px'; fr.style.overflow='auto';
+  }else{
+    board.style.transform='scale('+f+')';
+    fr.style.width=Math.round(w*f)+'px'; fr.style.height=Math.round(h*f)+'px'; fr.style.maxWidth='100%'; fr.style.overflow='hidden';
+  }
+}
+document.querySelectorAll('.board[data-w]').forEach(b=>{ b.dataset.full='0'; applyFit(b); });
+
+/* 1:1 toggle */
+document.querySelectorAll('.js-fit').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const board=btn.closest('.art').querySelector('.board');
+    board.dataset.full = board.dataset.full==='1' ? '0' : '1';
+    btn.classList.toggle('on', board.dataset.full==='1');
+    applyFit(board); syncMini(board);
+  });
+});
+/* safe-area toggle */
+document.querySelectorAll('.js-safe').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const board=btn.closest('.art').querySelector('.board');
+    board.classList.toggle('show-safe'); btn.classList.toggle('on');
+    syncMini(board);
+  });
+});
+
+/* painterly grain + face silhouettes (inject BEFORE cloning minis so clones include them) */
+document.querySelectorAll('.board.thumb').forEach(b=>{
+  const bg=b.querySelector('.bg');
+  if(bg && !b.querySelector('.grain')){ const g=document.createElement('div'); g.className='grain'; bg.insertAdjacentElement('afterend',g); }
+});
+const FACE_SVG = `<svg viewBox="0 0 300 380" preserveAspectRatio="xMidYMax meet">
+<defs><linearGradient id="fg" x1="0" y1="0" x2="0.25" y2="1"><stop offset="0" stop-color="#273b56"/><stop offset="1" stop-color="#0a1322"/></linearGradient>
+<linearGradient id="fr" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ffe7ad"/><stop offset="0.55" stop-color="#e9b85c"/><stop offset="1" stop-color="#e9b85c" stop-opacity="0"/></linearGradient></defs>
+<path fill="url(#fg)" d="M18 380 C24 298 80 258 150 258 C220 258 276 298 282 380 Z"/>
+<path fill="url(#fg)" d="M124 232 h52 v34 h-52 z"/>
+<path fill="url(#fg)" d="M150 92 C198 92 224 132 224 172 C224 218 192 252 150 252 C108 252 76 218 76 172 C76 132 102 92 150 92 Z"/>
+<path fill="none" stroke="url(#fr)" stroke-width="7" stroke-linecap="round" opacity="0.9" d="M86 146 C78 174 80 206 98 234"/>
+<path fill="none" stroke="url(#fr)" stroke-width="6" stroke-linecap="round" opacity="0.7" d="M36 360 C58 308 100 276 142 268"/></svg>`;
+document.querySelectorAll('.sil').forEach(el=>{ el.innerHTML=FACE_SVG; });
+
+/* thumbnail version tabs */
+document.querySelectorAll('.vtab').forEach(t=>{
+  t.addEventListener('click',()=>{
+    const v=t.dataset.v;
+    document.querySelectorAll('.vtab').forEach(b=>b.classList.toggle('on', b===t));
+    document.querySelectorAll('.vpane').forEach(p=>p.classList.toggle('on', p.dataset.v===v));
+  });
+});
+
+/* mini renders (clone each thumbnail at 200px) */
+const miniFor={};
+document.querySelectorAll('.thumbwrap').forEach(tw=>{
+  const board=tw.querySelector('.board.thumb'); const mf=tw.querySelector('.frame.mini');
+  if(!board||!mf) return;
+  const w=+board.dataset.w, h=+board.dataset.h, f=200/w;
+  const clone=board.cloneNode(true);
+  clone.removeAttribute('data-w'); clone.dataset.full='';
+  clone.style.width=w+'px'; clone.style.height=h+'px'; clone.style.transform='scale('+f+')';
+  mf.style.width=Math.round(w*f)+'px'; mf.style.height=Math.round(h*f)+'px'; mf.style.overflow='hidden';
+  mf.appendChild(clone); miniFor[board.dataset.name]=clone;
+});
+function syncMini(board){
+  const c=miniFor[board.dataset.name]; if(!c) return;
+  c.classList.toggle('show-safe', board.classList.contains('show-safe'));
+}
+
+/* PNG export */
+document.querySelectorAll('.js-png').forEach(btn=>{
+  btn.addEventListener('click',async()=>{
+    const board=btn.closest('.art').querySelector('.board');
+    const w=+board.dataset.w, h=+board.dataset.h, full=board.dataset.full, prev=board.style.transform;
+    board.style.transform='scale(1)';
+    btn.textContent='…';
+    try{
+      const canvas=await html2canvas(board,{width:w,height:h,scale:1,backgroundColor:'#06101f',useCORS:true,logging:false});
+      const url=canvas.toDataURL('image/png');
+      const a=document.createElement('a'); a.href=url; a.download=(board.dataset.name||'artboard')+'.png'; a.click();
+    }catch(e){
+      alert('PNG-Export ist hier blockiert (lokale Bilder unter file://).\\nLösung: auf „1:1" stellen und einen Screenshot machen, oder die Seite über einen lokalen Server öffnen.');
+    }finally{
+      board.style.transform=prev; board.dataset.full=full; applyFit(board); btn.textContent='PNG';
+    }
+  });
+});
+
+/* copy buttons */
+document.querySelectorAll('.copycard .cp, .scriptcard .cp').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const t=btn.parentElement.querySelector('pre').innerText;
+    navigator.clipboard.writeText(t).then(()=>{btn.textContent='Kopiert ✓'; setTimeout(()=>btn.textContent='Kopieren',1200);});
+  });
+});
+
+/* build avatars from top-3 logo marks */
+(function(){
+  const marks={
+    sprout:'<circle class="ln" cx="60" cy="60" r="50"/><path class="ln" d="M60 92 V58"/><path class="fl" d="M60 66 C46 66 39 54 41 44 C55 45 61 56 60 66 Z"/><path class="fl" d="M60 60 C74 60 81 48 79 38 C65 39 59 50 60 60 Z"/><path class="ln" d="M47 92 H73"/>',
+    door:'<path class="ln" d="M36 96 V54 a24 24 0 0 1 48 0 V96"/><path class="lt" d="M60 96 V42 L86 54 V96 Z"/><path class="ln" d="M60 96 V42"/><path class="ln" d="M32 96 H88"/>',
+    near:'<path class="ln" d="M34 28 A42 42 0 0 1 34 92"/><path class="ln" d="M86 28 A42 42 0 0 0 86 92"/><path class="fl" d="M60 50 L64 58 L72 60 L64 62 L60 70 L56 62 L48 60 L56 58 Z"/>'
+  };
+  const items=[['sprout','Sprout'],['door','Open Door'],['near','Draw-Near']];
+  const row=document.getElementById('avrow');
+  items.forEach(([k,label])=>{
+    const wrap=document.createElement('div'); wrap.className='avitem';
+    const f=170/800;
+    wrap.innerHTML='<div class="frame" style="border-radius:50%;width:'+Math.round(800*f)+'px;height:'+Math.round(800*f)+'px;overflow:hidden">'+
+      '<div class="board avatar" data-w="800" data-h="800" data-fit="'+f+'" data-name="avatar-'+k+'" '+
+      'style="width:800px;height:800px;transform:scale('+f+');border-radius:50%;'+
+      'background:radial-gradient(70% 70% at 50% 38%, #15263e, #070d18);display:flex;align-items:center;justify-content:center">'+
+      '<div style="position:absolute;inset:28px;border-radius:50%;border:6px solid rgba(233,184,92,.5)"></div>'+
+      '<svg class="mk" style="width:380px;height:380px" viewBox="0 0 120 120">'+marks[k]+'</svg>'+
+      '</div></div><small>'+label+' · 800×800</small>';
+    row.appendChild(wrap);
+  });
+})();
+</script>
+</body>
+</html>

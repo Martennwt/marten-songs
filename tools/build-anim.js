@@ -108,7 +108,8 @@ function buildSong(id, opts) {
     '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' +
     '<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">' +
     '<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>' +
-    '<style>' + songCSS() + '</style></head><body>';
+    '<style>' + songCSS() + '</style></head><body>' +
+    '<script>if(/[?&]embed=1/.test(location.search))document.documentElement.classList.add("embed");</script>';
 
   const body =
     '<canvas id="bg"></canvas>' +
@@ -175,6 +176,8 @@ function songCSS() {
     '.about-btn{position:fixed;top:13px;right:14px;z-index:45;display:inline-flex;align-items:center;gap:.5rem;background:linear-gradient(180deg,rgba(255,231,173,.16),rgba(233,184,92,.12));border:1px solid rgba(243,196,108,.5);color:#ffe7ad;border-radius:999px;padding:.55rem 1.1rem;font-size:.9rem;font-weight:600;cursor:pointer;backdrop-filter:blur(4px);box-shadow:0 6px 20px rgba(0,0,0,.25);transition:transform .15s,background .2s,border-color .2s}',
     '.about-btn:hover{transform:translateY(-1px);background:linear-gradient(180deg,rgba(255,231,173,.28),rgba(233,184,92,.2));border-color:rgba(243,196,108,.85)}',
     '.about-btn .spark{color:#ffd87a}',
+    /* embed/demo mode: hide links to the hub and the full booklet (idea panel + full lyrics) */
+    'html.embed #home,html.embed .gate-x,html.embed #aboutBtn,html.embed #lyricsBtn{display:none!important}',
     /* countdown ring before the singing starts */
     '#countdown{position:fixed;top:66px;left:50%;transform:translateX(-50%);z-index:40;width:64px;height:64px;display:grid;place-items:center}',
     '#countdown[hidden]{display:none}',

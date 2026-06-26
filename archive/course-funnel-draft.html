@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Sower System, build a faith-driven AI music channel</title>
+<meta name="description" content="A plug-and-play system to launch a faith-driven AI music channel on YouTube. One skill file and a short setup course turn Scripture into cinematic, bilingual music videos. Join the waitlist.">
+<meta property="og:title" content="The Sower System">
+<meta property="og:description" content="Scatter the seed. Reap the channel. The plug-and-play system to launch a faith-driven AI music channel.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy0:#16243a; --navy1:#0c1626; --navy2:#070d18;
+  --gold:#e9b85c; --gold-soft:#ffe7ad; --gold-bright:#ffe39a; --gold-eye:#caa45a;
+  --ink:#eaf0f7; --muted:#9fb0c6; --dim:#7e90a8;
+  --card:rgba(255,255,255,.045); --card-line:rgba(255,255,255,.09);
+  --glass:rgba(9,16,28,.72);
+  --maxw:1080px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{margin:0;min-height:100%}
+body{
+  font-family:'Inter',system-ui,sans-serif;color:var(--ink);
+  background:radial-gradient(120% 90% at 50% -10%,var(--navy0) 0%,var(--navy1) 45%,var(--navy2) 100%);
+  background-attachment:fixed;
+  min-height:100vh;line-height:1.6;overflow-x:hidden;
+}
+#bg{position:fixed;inset:0;z-index:0;pointer-events:none}
+a{color:inherit;text-decoration:none}
+.wrap{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;padding:0 1.3rem}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:600;line-height:1.05;margin:0}
+.serif{font-family:'Cormorant Garamond',serif}
+.eyebrow{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-eye);font-weight:600}
+.gold-text{background:linear-gradient(180deg,#fff,#f3d79a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--muted);font-size:1.12rem;max-width:42rem}
+.center{text-align:center}
+.mx{margin-left:auto;margin-right:auto}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:.5rem;border-radius:999px;font-weight:600;font-size:.95rem;
+  padding:.8rem 1.5rem;cursor:pointer;border:0;transition:transform .18s,box-shadow .25s,border-color .2s,color .2s;font-family:inherit}
+.btn-gold{color:#0c1626;background:linear-gradient(180deg,var(--gold-soft),var(--gold));box-shadow:0 10px 30px rgba(233,184,92,.28)}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(233,184,92,.42)}
+.btn-ghost{color:var(--ink);background:transparent;border:1px solid rgba(255,255,255,.18)}
+.btn-ghost:hover{border-color:rgba(243,196,108,.7);color:var(--gold-bright)}
+.btn-sm{padding:.5rem 1rem;font-size:.82rem}
+
+/* announcement bar */
+.promo{position:sticky;top:0;z-index:60;background:linear-gradient(90deg,rgba(233,184,92,.16),rgba(9,16,28,.85) 60%);
+  backdrop-filter:blur(10px);border-bottom:1px solid rgba(243,196,108,.28);font-size:.84rem}
+.promo .inner{max-width:var(--maxw);margin:0 auto;padding:.55rem 1.3rem;display:flex;align-items:center;justify-content:center;gap:.7rem;flex-wrap:wrap;text-align:center}
+.promo b{color:var(--gold-bright);font-weight:600}
+.promo a.lk{color:var(--gold-bright);font-weight:600;border-bottom:1px solid rgba(243,196,108,.5)}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:55;transition:background .3s,border-color .3s,box-shadow .3s;border-bottom:1px solid transparent}
+.nav.solid{background:var(--glass);backdrop-filter:blur(12px);border-bottom:1px solid var(--card-line);box-shadow:0 8px 30px rgba(0,0,0,.35)}
+.nav .row{max-width:var(--maxw);margin:0 auto;padding:.7rem 1.3rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.brand{display:flex;align-items:center;gap:.55rem;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.2rem;letter-spacing:.02em}
+.brand .seed{width:22px;height:22px;flex:none}
+.nav-links{display:flex;gap:1.6rem;font-size:.9rem;color:var(--muted)}
+.nav-links a:hover{color:var(--gold-bright)}
+@media(max-width:780px){.nav-links{display:none}}
+
+/* hero */
+.hero{position:relative;z-index:2;padding:7rem 0 5rem;text-align:center;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;
+  background-image:linear-gradient(180deg,rgba(7,13,24,.45),rgba(7,13,24,.78) 70%,var(--navy2)),url('img/hero.png');
+  background-size:cover;background-position:center top;opacity:.85}
+.hero::after{content:"";position:absolute;left:50%;top:-12%;width:90vw;height:60vh;transform:translateX(-50%);z-index:-1;
+  background:radial-gradient(closest-side,rgba(243,196,108,.20),transparent 70%);filter:blur(20px);animation:breathe 9s ease-in-out infinite}
+@keyframes breathe{0%,100%{opacity:.55;transform:translateX(-50%) scale(1)}50%{opacity:.9;transform:translateX(-50%) scale(1.08)}}
+.hero h1{font-size:clamp(2.8rem,8.5vw,6rem);font-weight:700;margin:.6rem 0 0;letter-spacing:-.01em}
+.hero .sub{color:#cdd8e8;font-size:clamp(1.05rem,2.3vw,1.3rem);max-width:40rem;margin:1.3rem auto 0}
+.hero .cta{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin-top:2.1rem}
+.hero .micro{margin-top:1.1rem;font-size:.8rem;color:var(--dim);letter-spacing:.02em}
+.scrolldown{margin-top:3rem;color:var(--dim);font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;animation:bob 2.4s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0);opacity:.6}50%{transform:translateY(7px);opacity:1}}
+
+/* sections */
+section{position:relative;z-index:2;padding:5rem 0}
+.sec-head{max-width:44rem}
+.sec-head.center{margin:0 auto}
+.sec-head h2{font-size:clamp(2rem,5vw,3.2rem);margin:.5rem 0 0}
+.sec-head p{color:var(--muted);font-size:1.08rem;margin:1rem 0 0}
+
+/* proof strip */
+.proof{padding-top:1rem}
+.songs{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.2rem;margin-top:2rem}
+.song{position:relative;display:block;overflow:hidden;border-radius:16px;border:1px solid var(--card-line);background:var(--card);transition:transform .2s,border-color .2s,box-shadow .2s}
+.song:hover{transform:translateY(-5px);border-color:rgba(243,196,108,.7);box-shadow:0 18px 44px rgba(0,0,0,.45)}
+.song .ph{height:150px;background-size:cover;background-position:center;position:relative;transition:transform .35s}
+.song:hover .ph{transform:scale(1.05)}
+.song .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,20,36,0) 35%,rgba(11,20,36,.95) 100%)}
+.song .meta{padding:.9rem 1.1rem 1.1rem}
+.song .meta .t{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.5rem}
+.song .meta .e{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-eye)}
+.song .meta .w{margin-top:.5rem;font-size:.82rem;color:var(--gold-bright);font-weight:600}
+.livebadge{display:inline-flex;align-items:center;gap:.45rem;font-size:.74rem;color:var(--muted);letter-spacing:.04em}
+.dot-live{width:8px;height:8px;border-radius:50%;background:#6fe3a0;box-shadow:0 0 0 0 rgba(111,227,160,.6);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(111,227,160,.55)}70%{box-shadow:0 0 0 8px rgba(111,227,160,0)}100%{box-shadow:0 0 0 0 rgba(111,227,160,0)}}
+
+/* generic card grids */
+.grid{display:grid;gap:1.1rem;margin-top:2.4rem}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(2,1fr)}
+@media(min-width:880px){.g4{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:760px){.g2,.g3{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--card-line);border-radius:16px;padding:1.5rem;position:relative;overflow:hidden;transition:transform .2s,border-color .2s,box-shadow .25s}
+.card:hover{transform:translateY(-4px);border-color:rgba(243,196,108,.5);box-shadow:0 16px 40px rgba(0,0,0,.4)}
+.card::after{content:"";position:absolute;inset:0;border-radius:16px;background:radial-gradient(120% 80% at 50% 0%,rgba(243,196,108,.14),transparent 55%);opacity:0;transition:opacity .25s;pointer-events:none}
+.card:hover::after{opacity:1}
+.card .ic{font-size:1.5rem;line-height:1}
+.card h3{font-size:1.4rem;margin:.7rem 0 .4rem}
+.card p{color:var(--muted);font-size:.93rem;margin:0}
+.card .num{font-family:'Cormorant Garamond',serif;font-size:2.4rem;color:rgba(243,196,108,.55);line-height:1}
+
+/* problem cards accent */
+.pain h3{color:var(--ink)}
+.pain .ic{filter:saturate(.6)}
+
+/* solution before/after */
+.cols{display:grid;gap:1.2rem;margin-top:2.4rem}
+@media(min-width:780px){.cols{grid-template-columns:1fr 1fr}}
+.col{border-radius:16px;padding:1.6rem;border:1px solid var(--card-line)}
+.col.bad{background:rgba(255,255,255,.025)}
+.col.good{background:linear-gradient(180deg,rgba(243,196,108,.10),rgba(255,255,255,.03));border-color:rgba(243,196,108,.35)}
+.col h3{font-size:1.3rem;margin-bottom:.9rem}
+.col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.7rem}
+.col li{display:flex;gap:.6rem;font-size:.95rem;color:var(--muted)}
+.col li .m{flex:none;font-weight:700}
+.col.bad li .m{color:#d98a8a}
+.col.good li{color:#dbe6f2}
+.col.good li .m{color:var(--gold-bright)}
+
+/* steps */
+.steps{counter-reset:step;display:grid;gap:1.1rem;margin-top:2.4rem}
+@media(min-width:880px){.steps{grid-template-columns:repeat(4,1fr)}}
+.step{position:relative;background:var(--card);border:1px solid var(--card-line);border-radius:16px;padding:1.5rem 1.3rem}
+.step .n{font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:var(--gold);line-height:1}
+.step h3{font-size:1.25rem;margin:.5rem 0 .4rem}
+.step p{color:var(--muted);font-size:.9rem;margin:0}
+
+/* solution band background */
+.band{position:relative;border-radius:24px;overflow:hidden;border:1px solid rgba(243,196,108,.22)}
+.band::before{content:"";position:absolute;inset:0;z-index:0;opacity:.5;background-image:linear-gradient(180deg,rgba(7,13,24,.7),rgba(7,13,24,.9)),url('img/harvest.png');background-size:cover;background-position:center}
+.band .inner{position:relative;z-index:1;padding:3rem 2rem}
+
+/* who */
+.who{display:grid;gap:.8rem;margin-top:2rem}
+@media(min-width:780px){.who{grid-template-columns:repeat(2,1fr)}}
+.who div{display:flex;gap:.7rem;align-items:flex-start;background:var(--card);border:1px solid var(--card-line);border-radius:12px;padding:1rem 1.2rem;font-size:.95rem}
+.who .ck{color:var(--gold-bright);font-weight:700;flex:none}
+
+/* waitlist */
+.signup{position:relative;border-radius:24px;overflow:hidden;border:1px solid rgba(243,196,108,.3);
+  background:radial-gradient(120% 120% at 50% 0%,rgba(243,196,108,.14),rgba(9,16,28,.4) 55%),rgba(9,16,28,.55)}
+.signup .inner{padding:3.2rem 1.6rem;text-align:center}
+.form{display:flex;gap:.6rem;max-width:30rem;margin:1.8rem auto 0;flex-wrap:wrap;justify-content:center}
+.form input{flex:1;min-width:200px;background:rgba(7,13,24,.6);border:1px solid rgba(255,255,255,.18);color:var(--ink);
+  border-radius:999px;padding:.85rem 1.3rem;font:inherit;font-size:.95rem;outline:none;transition:border-color .2s}
+.form input:focus{border-color:rgba(243,196,108,.7)}
+.form input::placeholder{color:var(--dim)}
+.perks{display:flex;gap:1.4rem;justify-content:center;flex-wrap:wrap;margin-top:1.6rem;font-size:.85rem;color:var(--muted)}
+.perks span{display:inline-flex;align-items:center;gap:.4rem}
+.perks .ck{color:var(--gold-bright)}
+.formnote{margin-top:1rem;font-size:.76rem;color:var(--dim)}
+.success{display:none;margin-top:1.6rem;padding:1rem 1.3rem;border-radius:14px;border:1px solid rgba(111,227,160,.4);
+  background:rgba(111,227,160,.08);color:#bfead1;font-size:.95rem}
+.success.show{display:block;animation:fadeup .5s ease both}
+
+/* faq */
+.faq{margin-top:2.2rem;max-width:46rem}
+.faq details{border-bottom:1px solid var(--card-line);padding:.3rem 0}
+.faq summary{list-style:none;cursor:pointer;padding:1.1rem 2.2rem 1.1rem 0;position:relative;font-weight:600;font-size:1.05rem;color:var(--ink)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:.3rem;top:1rem;color:var(--gold);font-size:1.4rem;transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq p{color:var(--muted);margin:0 0 1.1rem;font-size:.95rem;max-width:42rem}
+
+/* final cta */
+.final{text-align:center}
+.final h2{font-size:clamp(2.1rem,5.5vw,3.6rem)}
+
+/* footer */
+footer.ft{position:relative;z-index:2;border-top:1px solid var(--card-line);margin-top:2rem;padding:3.5rem 0 7rem;background:rgba(7,13,24,.5)}
+.ft-grid{display:grid;gap:2rem;grid-template-columns:1.4fr 1fr 1fr}
+@media(max-width:760px){.ft-grid{grid-template-columns:1fr 1fr}}
+.ft-grid h4{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-eye);margin:0 0 .9rem;font-family:'Inter',sans-serif;font-weight:600}
+.ft-grid a{display:block;color:var(--muted);font-size:.9rem;padding:.25rem 0}
+.ft-grid a:hover{color:var(--gold-bright)}
+.ft-brand .serif{font-size:1.6rem;font-weight:700}
+.ft-brand p{color:var(--dim);font-size:.88rem;max-width:22rem;margin:.6rem 0 0}
+.ft-bottom{border-top:1px solid var(--card-line);margin-top:2.5rem;padding-top:1.5rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;color:var(--dim);font-size:.78rem}
+.builtwith{color:var(--dim);font-size:.78rem}
+.builtwith b{color:var(--muted);font-weight:500}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .hero::after,.scrolldown,.dot-live{animation:none}
+}
+</style>
+</head>
+<body>
+<canvas id="bg"></canvas>
+
+<!-- announcement bar -->
+<div class="promo">
+  <div class="inner">
+    <span>Now in <b>pre-launch</b>. Founding members lock the lowest price we will ever offer.</span>
+    <a class="lk" href="#waitlist">Join the waitlist &rarr;</a>
+  </div>
+</div>
+
+<!-- nav -->
+<nav class="nav" id="nav">
+  <div class="row">
+    <a class="brand" href="#top">
+      <svg class="seed" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21c5-1 8-5 8-10 0-1.5-.3-3-.9-4.3C16 7 13 9.5 12 13 11 9.5 8 7 4.9 6.7 4.3 8 4 9.5 4 11c0 5 3 9 8 10Z" fill="url(#g)"/><defs><linearGradient id="g" x1="4" y1="6" x2="20" y2="21"><stop stop-color="#ffe7ad"/><stop offset="1" stop-color="#e9b85c"/></linearGradient></defs></svg>
+      The Sower System
+    </a>
+    <div class="nav-links">
+      <a href="#problem">The problem</a>
+      <a href="#inside">What's inside</a>
+      <a href="#how">How it works</a>
+      <a href="#examples">Examples</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <a class="btn btn-gold btn-sm" href="#waitlist">Join the waitlist</a>
+  </div>
+</nav>
+
+<!-- hero -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="eyebrow">A plug-and-play system for faith-driven AI music channels</div>
+    <h1 class="gold-text">Scatter the seed.<br>Reap the channel.</h1>
+    <p class="sub">Start a YouTube channel that turns Scripture into cinematic, bilingual music videos. One skill file and a short setup course replace weeks of trial and error, so you can publish from day one and spread the word of God.</p>
+    <div class="cta">
+      <a class="btn btn-gold" href="#waitlist">Join the waitlist</a>
+      <a class="btn btn-ghost" href="../index.html">See it live &rarr;</a>
+    </div>
+    <div class="micro">Built on the exact system behind Marten's Songs. Free to join. No spam, just the launch.</div>
+    <div class="scrolldown">Scroll</div>
+  </div>
+</header>
+
+<!-- proof -->
+<section class="proof" id="examples">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="livebadge"><span class="dot-live"></span> Live right now</div>
+      <h2 class="gold-text">This is the real thing, already published</h2>
+      <p class="mx">Every video below was made with the exact system you are about to get. Press play and watch the words light up in time with the music.</p>
+    </div>
+    <div class="songs reveal">
+      <a class="song" href="../songs/the-sower/index.html?play=1">
+        <div class="ph" style="background-image:url('../songs/the-sower/img/1-sower.png')"></div>
+        <div class="meta"><div class="e">Faith</div><div class="t">The Sower</div><div class="w">Watch live &#9654;</div></div>
+      </a>
+      <a class="song" href="../songs/mustard-seed/index.html?play=1">
+        <div class="ph" style="background-image:url('../songs/mustard-seed/img/1-seed.png')"></div>
+        <div class="meta"><div class="e">Faith</div><div class="t">Mustard Seed</div><div class="w">Watch live &#9654;</div></div>
+      </a>
+      <a class="song" href="../songs/the-word-that-found-me/index.html?play=1">
+        <div class="ph" style="background-image:url('../songs/the-word-that-found-me/img/3-word.png')"></div>
+        <div class="meta"><div class="e">Faith</div><div class="t">The Word That Found Me</div><div class="w">Watch live &#9654;</div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- problem -->
+<section id="problem">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">The honest part</div>
+      <h2 class="gold-text">Starting a faith channel in 2026 is harder than the gurus admit</h2>
+      <p>It is not the idea that stops people. It is everything between the idea and a finished video that YouTube will actually pay you for.</p>
+    </div>
+    <div class="grid g3 pain">
+      <div class="card reveal"><div class="ic">&#129517;</div><h3>The niche trap</h3><p>Pick too broad and you drown. Pick wrong and nobody cares. Finding a niche with real spiritual value that people actually search for is the part most creators get wrong before they even start.</p></div>
+      <div class="card reveal"><div class="ic">&#128683;</div><h3>The 2026 AI rules</h3><p>YouTube now makes you disclose synthetic content, and its updated policy demotes mass-produced, repetitive, low-effort AI uploads. Faceless slideshow channels get demonetized every week. You need real transformation and value.</p></div>
+      <div class="card reveal"><div class="ic">&#129513;</div><h3>The tool maze</h3><p>Claude, Whisper, ElevenLabs, image models, timing, translation, rendering. Wiring all of that together yourself is weeks of dead ends, broken output and quiet despair.</p></div>
+      <div class="card reveal"><div class="ic">&#128173;</div><h3>The blank chat</h3><p>Starting from an empty chat every single time gives you a different result every single time. No system means no consistency, and no consistency means no brand anyone remembers.</p></div>
+      <div class="card reveal"><div class="ic">&#129695;</div><h3>The technical wall</h3><p>Word-perfect karaoke timing, two languages on screen, painted backgrounds, a clean export, a deploy. Most people quit right here, with the song still trapped on their hard drive.</p></div>
+      <div class="card reveal"><div class="ic">&#9203;</div><h3>The time sink</h3><p>By the time you have figured it all out alone, months are gone and the motivation with them. The world did not need another half-finished channel.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- solution -->
+<section id="solution">
+  <div class="wrap">
+    <div class="band reveal">
+      <div class="inner">
+        <div class="sec-head">
+          <div class="eyebrow">The shortcut you actually want</div>
+          <h2 class="gold-text">Meet The Sower System</h2>
+          <p>Instead of building the whole pipeline over weeks across a hundred single chats, you install it once. You get one markdown skill file that turns Claude into your music studio, plus a short Set up Claude video course. After that, you just bring a song. The system does the rest.</p>
+        </div>
+        <div class="cols">
+          <div class="col bad">
+            <h3>Doing it alone</h3>
+            <ul>
+              <li><span class="m">&times;</span> Weeks of gluing tools together that keep breaking</li>
+              <li><span class="m">&times;</span> A different, inconsistent result from every new chat</li>
+              <li><span class="m">&times;</span> Guessing at YouTube's AI rules and risking demonetization</li>
+              <li><span class="m">&times;</span> No clear niche and no idea how to add real value</li>
+              <li><span class="m">&times;</span> Songs that never become videos</li>
+            </ul>
+          </div>
+          <div class="col good">
+            <h3>With The Sower System</h3>
+            <ul>
+              <li><span class="m">&check;</span> Install one skill file once, with the setup course holding your hand</li>
+              <li><span class="m">&check;</span> The same on-brand, premium result every time</li>
+              <li><span class="m">&check;</span> A clear compliance playbook so your channel stays monetized</li>
+              <li><span class="m">&check;</span> A niche and value method that works in any topic you choose</li>
+              <li><span class="m">&check;</span> A finished, bilingual music video ready to publish</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- inside -->
+<section id="inside">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="eyebrow">Everything in one place</div>
+      <h2 class="gold-text">What's inside</h2>
+      <p class="mx">Not another pile of tutorials. A complete, almost plug-and-play system, delivered as one skill file and a short course, so your first upload is days away instead of months.</p>
+    </div>
+    <div class="grid g3">
+      <div class="card reveal"><div class="ic">&#128220;</div><h3>The Skill File</h3><p>The entire pipeline as a single Claude skill. Transcribe, time, translate, paint, animate and verify. Drop it in and Claude already knows your whole studio.</p></div>
+      <div class="card reveal"><div class="ic">&#127909;</div><h3>The Set up Claude course</h3><p>Short, no-fluff videos that get Claude installed and running on your machine, even if you have never opened a terminal in your life.</p></div>
+      <div class="card reveal"><div class="ic">&#10024;</div><h3>The bilingual karaoke engine</h3><p>Lyrics that light up word by word in sync with the music, with a second language underneath. The look that makes people stop scrolling.</p></div>
+      <div class="card reveal"><div class="ic">&#127919;</div><h3>The niche and value playbook</h3><p>How to choose a niche with real demand and real meaning, and how to create genuine value in any niche you pick, faith or far beyond it.</p></div>
+      <div class="card reveal"><div class="ic">&#128737;</div><h3>The 2026 compliance guide</h3><p>Exactly how to disclose AI, add the transformation YouTube rewards, and stay on the right side of the monetization rules so your channel survives and grows.</p></div>
+      <div class="card reveal"><div class="ic">&#127912;</div><h3>The branding and prompt spec</h3><p>Locked colors, type, voice and image prompts, so every upload looks like it belongs to one premium brand instead of a random AI experiment.</p></div>
+      <div class="card reveal"><div class="ic">&#9989;</div><h3>The self-checking build</h3><p>A verify step that refuses to ship a broken video. The text matches the lyrics, the timing is clean, the images are valid. Reproducible every single time.</p></div>
+      <div class="card reveal"><div class="ic">&#127925;</div><h3>Ready-made examples</h3><p>Real, finished songs you can study and reskin, so you start from something that already works instead of a blank page.</p></div>
+      <div class="card reveal"><div class="ic">&#128241;</div><h3>Your own dashboard</h3><p>The same elegant hub you are looking at now, ready to hold your whole catalog and share with one link.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- how -->
+<section id="how">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="eyebrow">From idea to upload</div>
+      <h2 class="gold-text">How it works</h2>
+      <p class="mx">Four steps. The first one you do once. The rest you repeat for every song you ever release.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="n">01</div><h3>Install once</h3><p>Set up Claude and drop in the skill file, guided by the short video course. One evening, done forever.</p></div>
+      <div class="step reveal"><div class="n">02</div><h3>Bring a song</h3><p>An MP3 and the lyrics, in any niche, theme or language you want to serve. Your own song or an AI one.</p></div>
+      <div class="step reveal"><div class="n">03</div><h3>The system builds it</h3><p>Timing, translation, painted backgrounds, the word-by-word animation and the lyric PDF, all on brand.</p></div>
+      <div class="step reveal"><div class="n">04</div><h3>Publish and sow</h3><p>Export, disclose, upload. A finished, compliant video ready for YouTube and ready to reach people.</p></div>
+    </div>
+    <div class="center reveal" style="margin-top:2.6rem">
+      <a class="btn btn-ghost" href="../songs/the-sower/index.html?play=1">See a finished one in action &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- who -->
+<section id="who">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Made for you</div>
+      <h2 class="gold-text">Who this is for</h2>
+    </div>
+    <div class="who reveal">
+      <div><span class="ck">&check;</span> Faith creators and worship leaders who want reach without a studio or a film crew.</div>
+      <div><span class="ck">&check;</span> Musicians and songwriters sitting on songs that nobody has heard yet.</div>
+      <div><span class="ck">&check;</span> AI creators who want a niche that actually means something, not another spam channel.</div>
+      <div><span class="ck">&check;</span> Beginners who want a finished channel, not a hard drive full of half-watched tutorials.</div>
+    </div>
+  </div>
+</section>
+
+<!-- waitlist -->
+<section id="waitlist">
+  <div class="wrap">
+    <div class="signup reveal">
+      <div class="inner">
+        <div class="eyebrow">Founding access</div>
+        <h2 class="gold-text" style="font-size:clamp(2rem,5vw,3.2rem);margin-top:.4rem">Get in before the doors open</h2>
+        <p class="lead mx center" style="margin-top:1rem">Join the waitlist and you are first in line, at the lowest price we will ever offer, with founding-member bonuses. We will only email you about the launch.</p>
+        <!--
+          WAITLIST FORM, swap-ready.
+          To go live, replace the form below with your provider's embed:
+            - MailerLite: paste the embedded form, keep the styling classes if you like.
+            - Tally: replace with the Tally embed snippet or set action to your Tally endpoint.
+            - Formspree: set action="https://formspree.io/f/XXXX" and method="POST" (delete the JS handler).
+          Right now it shows a local success state so the page is fully demoable.
+        -->
+        <form class="form" id="waitForm" novalidate>
+          <input type="email" name="email" id="waitEmail" placeholder="you@email.com" autocomplete="email" required>
+          <button class="btn btn-gold" type="submit">Join the waitlist</button>
+        </form>
+        <div class="perks">
+          <span><span class="ck">&check;</span> Lowest launch price, locked in</span>
+          <span><span class="ck">&check;</span> First access to the skill file</span>
+          <span><span class="ck">&check;</span> Founding-member bonuses</span>
+        </div>
+        <div class="formnote">No spam. Unsubscribe in one click. We will only write when there is something real to share.</div>
+        <div class="success" id="waitOk">You are on the list. Watch your inbox, the seed is planted.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- faq -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Before you ask</div>
+      <h2 class="gold-text">Frequently asked</h2>
+    </div>
+    <div class="faq reveal">
+      <details><summary>Do I need to know how to code?</summary><p>No. The Set up Claude course walks you through every step, click by click. If you can install an app on your computer, you can run this.</p></details>
+      <details><summary>Do I need to make music or be able to sing?</summary><p>No. You bring a song, your own or an AI-generated one, together with the lyrics. The system turns it into the video. We also point you to the music tools so you are never stuck.</p></details>
+      <details><summary>Is AI content even allowed on YouTube in 2026?</summary><p>Yes, when it is transparent and adds value. Faceless slideshow spam gets demonetized. The compliance guide shows you how to disclose AI properly and add the transformation and originality YouTube rewards, so your channel stays monetizable.</p></details>
+      <details><summary>What exactly do I get?</summary><p>One markdown skill file that holds the whole studio, the Set up Claude video course, the niche and value playbook, the 2026 compliance guide, the branding and prompt spec, ready-made examples, and the dashboard template.</p></details>
+      <details><summary>What will it cost to actually run?</summary><p>The tools are cheap at this scale. A finished song costs from a few cents to about one euro in AI usage. You will need a Claude plan and a few low-cost API keys, all explained in the setup.</p></details>
+      <details><summary>Does it only work for faith songs?</summary><p>No. Faith is the heart of it and where it shines, but the same system builds cinematic bilingual music videos for any niche you choose.</p></details>
+      <details><summary>When does it launch, and what does it cost?</summary><p>We are in pre-launch right now. Join the waitlist and founding members hear the launch date and the price first, before anyone else, at the best price we will offer.</p></details>
+      <details><summary>What language is the course in?</summary><p>The course is in English. The system itself can produce videos with translations in multiple languages, the way the live examples show English with Spanish or German underneath.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- final cta -->
+<section class="final">
+  <div class="wrap reveal">
+    <div class="eyebrow">The fields are ready</div>
+    <h2 class="gold-text" style="margin-top:.5rem">The word still needs sowers.<br>Now you have the system.</h2>
+    <div class="cta" style="display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin-top:2rem">
+      <a class="btn btn-gold" href="#waitlist">Join the waitlist</a>
+      <a class="btn btn-ghost" href="../index.html">See it live &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- footer -->
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-grid">
+      <div class="ft-brand">
+        <div class="serif gold-text">The Sower System</div>
+        <p>The plug-and-play system to launch a faith-driven AI music channel and spread the word of God, one song at a time.</p>
+        <p class="builtwith" style="margin-top:1rem">Built with <b>Claude</b>, <b>ElevenLabs</b> and <b>Gemini</b>.</p>
+      </div>
+      <div>
+        <h4>The system</h4>
+        <a href="#problem">The problem</a>
+        <a href="#inside">What's inside</a>
+        <a href="#how">How it works</a>
+        <a href="#faq">FAQ</a>
+        <a href="#waitlist">Join the waitlist</a>
+      </div>
+      <div>
+        <h4>See it live</h4>
+        <a href="../index.html">Marten's Songs</a>
+        <a href="../songs/the-sower/index.html?play=1">The Sower</a>
+        <a href="../songs/mustard-seed/index.html?play=1">Mustard Seed</a>
+        <a href="../songs/the-word-that-found-me/index.html?play=1">The Word That Found Me</a>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <span>&copy; 2026 Marten's Songs. Made to spread the word of God.</span>
+      <span>Songs on this site are created with AI. We teach transparent, policy-compliant creation, and the live videos disclose their AI origin.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* gold seed particles, same spirit as the hub */
+(function(){
+  var c=document.getElementById('bg'),x=c.getContext('2d'),P=[];
+  function rs(){c.width=innerWidth;c.height=innerHeight;}rs();addEventListener('resize',rs);
+  var N=Math.min(60,Math.round(innerWidth/26));
+  for(var i=0;i<N;i++){P.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.8+0.4,v:Math.random()*0.25+0.05,a:Math.random()*0.5+0.18});}
+  function dots(){x.clearRect(0,0,c.width,c.height);for(var i=0;i<P.length;i++){var p=P[i];p.y-=p.v;if(p.y<-5){p.y=c.height+5;p.x=Math.random()*c.width;}x.beginPath();x.arc(p.x,p.y,p.r,0,7);x.fillStyle='rgba(243,205,130,'+p.a+')';x.fill();}requestAnimationFrame(dots);}
+  if(!matchMedia('(prefers-reduced-motion: reduce)').matches)dots();
+})();
+
+/* nav solid on scroll */
+(function(){
+  var nav=document.getElementById('nav');
+  function onScroll(){nav.classList.toggle('solid',scrollY>40);}
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+})();
+
+/* scroll reveal */
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.14});
+  els.forEach(function(e){io.observe(e);});
+})();
+
+/* waitlist: local success state until a provider is wired in (see comment above the form) */
+(function(){
+  var f=document.getElementById('waitForm'),ok=document.getElementById('waitOk'),em=document.getElementById('waitEmail');
+  if(!f)return;
+  f.addEventListener('submit',function(ev){
+    ev.preventDefault();
+    if(!em.value || em.value.indexOf('@')<1){em.focus();em.style.borderColor='#d98a8a';return;}
+    try{var L=JSON.parse(localStorage.getItem('sower_waitlist')||'[]');L.push({e:em.value});localStorage.setItem('sower_waitlist',JSON.stringify(L));}catch(e){}
+    f.style.display='none';ok.classList.add('show');
+  });
+})();
+</script>
+</body>
+</html>

@@ -81,7 +81,7 @@ h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:600;line-height:1.04
 .hero-bg{position:absolute;inset:-8% 0 -8% 0;z-index:-1;background-image:url('img/hero.png');background-size:cover;background-position:center 30%;opacity:.9;will-change:transform}
 .hero-veil{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(7,13,24,.35) 0%,rgba(7,13,24,.55) 45%,rgba(7,13,24,.82) 78%,var(--navy2) 100%)}
 .hero .wrap{text-align:center}
-.hero h1{font-size:clamp(2.6rem,7.6vw,6.4rem);font-weight:700;margin:.7rem auto 0;max-width:15ch}
+.hero h1{font-size:clamp(2.3rem,5.8vw,4.7rem);font-weight:700;margin:.7rem auto 0;max-width:18ch}
 .rot{display:inline-block;position:relative;min-width:6ch}
 .rot .w{display:inline-block;background:linear-gradient(180deg,#ffe7ad,#e9b85c);-webkit-background-clip:text;background-clip:text;color:transparent;transition:opacity .4s,transform .4s}
 .rot .w.out{opacity:0;transform:translateY(-.35em)}
@@ -243,6 +243,196 @@ footer.ft{position:relative;z-index:3;border-top:1px solid var(--line);margin-to
 .ft-brand p{color:var(--dim);font-size:.88rem;max-width:24rem;margin:0}
 .ft-bottom{border-top:1px solid var(--line);margin-top:2.6rem;padding-top:1.5rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;color:var(--dim);font-size:.78rem}
 
+/* section badge */
+.sec-badge{display:inline-flex;align-items:center;gap:.45rem;margin-bottom:.9rem;padding:.4rem 1rem;border-radius:999px;border:1px solid rgba(243,196,108,.4);background:rgba(243,196,108,.1);color:#ffe39a;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.sec-badge::before{content:"\2726";font-size:.7rem;color:#e9b85c}
+
+/* growth and monetization */
+.grow-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:2.6rem}
+@media(min-width:780px){.grow-stats{grid-template-columns:repeat(5,1fr)}}
+.gstat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:1.4rem 1rem;text-align:center}
+.gstat .num{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(1.8rem,4vw,2.6rem);line-height:1;background:linear-gradient(180deg,#fff,#f3d79a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.gstat .lab{margin-top:.5rem;font-size:.78rem;color:var(--muted);letter-spacing:.02em}
+.compare{position:relative;margin-top:2.4rem;border-radius:20px;overflow:hidden;border:1px solid var(--line);user-select:none;height:340px;touch-action:none}
+.cmp-pane{position:absolute;inset:0}
+.cmp-after{z-index:2;clip-path:inset(0 50% 0 0)}
+.cmp-pane .bg{position:absolute;inset:0;background-size:cover;background-position:center}
+.cmp-after .bg{filter:saturate(1.05)}
+.cmp-before .bg{filter:grayscale(.85) brightness(.55)}
+.cmp-pane .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,13,24,.22),rgba(7,13,24,.85))}
+.cmp-tag{position:absolute;top:14px;z-index:3;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .7rem;border-radius:999px}
+.cmp-after .cmp-tag{left:14px;background:linear-gradient(180deg,#ffe7ad,#e9b85c);color:#0c1626}
+.cmp-before .cmp-tag{right:14px;background:rgba(120,134,156,.9);color:#0c1626}
+.cmp-body{position:absolute;bottom:0;z-index:3;padding:1.3rem 1.5rem;max-width:62%}
+.cmp-after .cmp-body{left:0;text-align:left}
+.cmp-before .cmp-body{right:0;text-align:right}
+.cmp-body h4{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.45rem;color:#fff}
+.cmp-body .row2{display:flex;gap:1rem;flex-wrap:wrap;margin-top:.4rem;color:#dbe6f2;font-size:.82rem}
+.cmp-before .cmp-body .row2{justify-content:flex-end}
+.cmp-body .row2 b{color:#ffe39a}
+.cmp-handle{position:absolute;top:0;bottom:0;left:50%;z-index:4;width:42px;transform:translateX(-50%);cursor:ew-resize;display:flex;align-items:center;justify-content:center;touch-action:none}
+.cmp-handle::before{content:"";position:absolute;top:0;bottom:0;width:2px;background:rgba(255,255,255,.85)}
+.cmp-knob{position:relative;width:42px;height:42px;border-radius:50%;background:linear-gradient(180deg,#ffe7ad,#e9b85c);box-shadow:0 4px 16px rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;color:#0c1626;font-weight:700;font-size:1rem}
+.grow-note{text-align:center;color:var(--dim);font-size:.78rem;margin-top:1rem}
+
+/* live demo */
+.demo-box{position:relative;margin-top:2.4rem;border-radius:20px;overflow:hidden;border:1px solid var(--line);background:#070d18;display:grid;gap:0}
+@media(min-width:880px){.demo-box{grid-template-columns:1.3fr 1fr}}
+.demo-frame{position:relative;aspect-ratio:16/10;background:#0a0f18;border-bottom:1px solid var(--line);overflow:hidden}
+@media(min-width:880px){.demo-frame{aspect-ratio:auto;border-bottom:0;border-right:1px solid var(--line);min-height:460px}}
+/* render the embedded player at a larger logical size, then scale it down so the lyrics are smaller and fully readable in the box */
+.demo-frame iframe{position:absolute;top:0;left:0;width:142.86%;height:142.86%;transform:scale(.7);transform-origin:top left;border:0}
+/* demo dashboard intro, shown briefly then fades to reveal the player */
+.demo-menu{position:absolute;inset:0;z-index:5;display:flex;flex-direction:column;padding:1.1rem 1.2rem;background:radial-gradient(120% 90% at 50% -10%,#16243a,#0c1626 55%,#070d18);transition:opacity .8s ease}
+.demo-menu.hide{opacity:0;pointer-events:none}
+.dm-head{display:flex;align-items:center;gap:.5rem;font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:#ffe7ad;margin-bottom:.85rem}
+.dm-dot{width:8px;height:8px;border-radius:50%;background:#6fe3a0;box-shadow:0 0 8px #6fe3a0}
+.dm-grid{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:.7rem;min-height:0}
+.dm-card{position:relative;border-radius:10px;overflow:hidden;border:1px solid var(--line);background-image:var(--i);background-size:cover;background-position:center}
+.dm-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,13,24,0) 38%,rgba(7,13,24,.9))}
+.dm-card span{position:absolute;left:.6rem;right:.6rem;bottom:.5rem;z-index:2;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:.98rem;color:#fff;line-height:1.05;text-shadow:0 2px 8px rgba(0,0,0,.6)}
+.dm-card.on{border-color:rgba(243,196,108,.85);box-shadow:0 0 0 2px rgba(243,196,108,.35),0 0 20px rgba(243,196,108,.45)}
+.dm-card.on::before{content:"\25B6";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:3;width:36px;height:36px;border-radius:50%;background:linear-gradient(180deg,#ffe7ad,#e9b85c);color:#0c1626;display:flex;align-items:center;justify-content:center;font-size:.82rem;animation:pblink 1s ease-in-out infinite}
+.dm-hint{text-align:center;color:#9fb0c6;font-size:.78rem;margin-top:.75rem}
+.demo-side{padding:1.8rem;display:flex;flex-direction:column;justify-content:center}
+.demo-side h3{font-size:1.6rem;margin-bottom:.5rem}
+.demo-side p{color:var(--muted);font-size:.92rem;margin:0 0 1rem}
+.demo-side .tips{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.2rem}
+.demo-side .tips span{display:flex;gap:.5rem;font-size:.86rem;color:#dbe6f2}
+.demo-side .tips .ck{color:#6fe3a0;flex:none}
+
+/* vision / why now */
+.why-grid{display:grid;gap:1.1rem;margin-top:2.6rem}
+@media(min-width:780px){.why-grid{grid-template-columns:repeat(3,1fr)}}
+.why-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:1.6rem}
+.why-card h3{font-size:1.4rem;margin:.5rem 0 .4rem}
+.why-card p{color:var(--muted);font-size:.92rem;margin:0}
+.why-card .k{font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:var(--gold-bright)}
+.fast{margin-top:1.6rem;text-align:center;border-radius:18px;border:1px solid rgba(243,196,108,.3);background:radial-gradient(120% 130% at 50% 0%,rgba(243,196,108,.12),rgba(9,16,28,.3));padding:2rem 1.4rem}
+.fast b{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(1.6rem,3.6vw,2.4rem);color:#fff;display:block}
+.fast span{color:var(--muted);font-size:.95rem;display:block;margin-top:.5rem}
+
+/* testimonials */
+.quotes{display:grid;gap:1.1rem;margin-top:2.4rem}
+@media(min-width:780px){.quotes{grid-template-columns:repeat(3,1fr)}}
+.quote{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:1.6rem;display:flex;flex-direction:column;gap:1rem}
+.quote p{margin:0;color:#dbe6f2;font-size:.95rem;line-height:1.55}
+.quote .who2{display:flex;align-items:center;gap:.7rem}
+.quote .ava{width:38px;height:38px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-weight:700;color:#0c1626;background:linear-gradient(155deg,#ffe7ad,#e9b85c)}
+.quote .nm{font-weight:600;font-size:.88rem}
+.quote .rl{color:var(--dim);font-size:.78rem}
+.quote .stars{color:#e9b85c;font-size:.8rem;letter-spacing:.1em}
+
+/* forget the old ways */
+.nono{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;margin-top:2.2rem}
+.no{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:999px;padding:.5rem 1.05rem;font-size:.9rem;color:var(--muted)}
+.no::before{content:"\2715";color:#d98a8a;font-weight:700;font-size:.82rem}
+
+/* packages */
+.pkgs{display:grid;gap:1.2rem;margin-top:2.8rem}
+@media(min-width:880px){.pkgs{grid-template-columns:repeat(3,1fr);align-items:stretch}}
+.pkg{position:relative;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:1.9rem 1.6rem;transition:transform .2s,border-color .2s,box-shadow .25s}
+.pkg:hover{transform:translateY(-4px);border-color:rgba(243,196,108,.5);box-shadow:0 18px 44px rgba(0,0,0,.42)}
+.pkg.best{border-color:rgba(243,196,108,.55);background:linear-gradient(180deg,rgba(243,196,108,.1),rgba(255,255,255,.03))}
+.pkg-flag{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:linear-gradient(180deg,#ffe7ad,#e9b85c);color:#0c1626;font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:.25rem .85rem;white-space:nowrap}
+.pkg .ptag{color:var(--gold-eye);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
+.pkg .pname{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.8rem;color:#fff;margin-top:.15rem}
+.pkg .pdesc{color:var(--muted);font-size:.9rem;margin:.7rem 0 1rem}
+.pkg ul{list-style:none;margin:0 0 1.3rem;padding:0;display:flex;flex-direction:column;gap:.55rem;flex:1}
+.pkg li{display:flex;gap:.5rem;font-size:.88rem;color:#dbe6f2}
+.pkg li .ck{color:#6fe3a0;flex:none}
+.pkg .price{font-size:.82rem;color:var(--gold-bright);margin-bottom:.9rem;font-weight:600}
+.pkg .btn{width:100%;justify-content:center}
+
+/* works-with logo strip */
+.logos{position:relative;z-index:3;padding:2.6rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(7,13,24,.35)}
+.logos .lab{text-align:center;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-bottom:1.5rem}
+.logos .row{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:1.3rem 2.4rem}
+.logo{display:flex;align-items:center;gap:.55rem;color:#aebbcf;opacity:.85;transition:color .25s,opacity .25s,transform .2s}
+.logo:hover{color:var(--gold-bright);opacity:1;transform:translateY(-2px)}
+.logo svg{width:24px;height:24px;fill:currentColor;flex:none}
+.logo b{font-weight:600;font-size:.96rem}
+.logo small{color:var(--dim);font-size:.68rem;font-weight:500;margin-left:.15rem}
+@media(max-width:560px){.logos .row{gap:1rem 1.5rem}.logo b{font-size:.86rem}.logo svg{width:20px;height:20px}}
+
+/* youtube channel mock */
+.ytcard{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--line);background:rgba(9,16,28,.55);margin-top:2.6rem;box-shadow:0 24px 60px rgba(0,0,0,.4)}
+.yt-banner{height:170px;background-size:cover;background-position:center;position:relative}
+.yt-banner::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,13,24,.15),rgba(9,16,28,.9))}
+.yt-head{display:flex;align-items:flex-start;gap:1.1rem;padding:0 1.4rem 1.2rem;margin-top:-40px;position:relative;z-index:2;flex-wrap:wrap}
+.yt-av{width:88px;height:88px;border-radius:50%;border:3px solid #0c1626;background-size:cover;background-position:center;flex:none;box-shadow:0 8px 24px rgba(0,0,0,.5)}
+.yt-meta{flex:1;min-width:200px;padding-top:48px}
+.yt-meta h3{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.9rem;line-height:1.05}
+.yt-meta .h{color:var(--muted);font-size:.86rem;margin-top:.15rem}
+.yt-meta .s{color:var(--dim);font-size:.82rem;margin-top:.2rem}
+.yt-sub{flex:none;align-self:flex-end;background:#f0334b;color:#fff;border-radius:999px;padding:.55rem 1.4rem;font-weight:600;font-size:.9rem;margin-top:.5rem}
+.yt-tabs{display:flex;gap:1.5rem;padding:0 1.4rem;border-bottom:1px solid var(--line);font-size:.88rem;color:var(--muted)}
+.yt-tabs span{padding:.7rem 0;position:relative}
+.yt-tabs span.on{color:var(--ink);font-weight:600}
+.yt-tabs span.on::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--ink)}
+.yt-scroll{display:grid;grid-auto-flow:column;grid-auto-columns:250px;gap:1rem;overflow-x:auto;padding:1.3rem 1.4rem;scroll-snap-type:x mandatory}
+.yt-scroll::-webkit-scrollbar{height:8px}
+.yt-scroll::-webkit-scrollbar-thumb{background:rgba(255,255,255,.14);border-radius:99px}
+.yt-scroll::-webkit-scrollbar-track{background:transparent}
+.ythumb{min-width:0;scroll-snap-align:start}
+.ythumb .pic{position:relative;height:141px;border-radius:12px;overflow:hidden;background-size:cover;background-position:center;border:1px solid var(--line);transition:transform .25s}
+.ythumb:hover .pic{transform:translateY(-3px)}
+.ythumb .pic::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,13,24,0) 38%,rgba(7,13,24,.88))}
+.ythumb .dur{position:absolute;right:7px;bottom:7px;z-index:2;background:rgba(0,0,0,.82);color:#fff;font-size:.68rem;font-weight:600;border-radius:4px;padding:.1rem .35rem}
+.ythumb .badge{position:absolute;left:7px;top:7px;z-index:2;background:rgba(243,196,108,.94);color:#0c1626;font-size:.6rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;border-radius:5px;padding:.14rem .42rem}
+.ythumb .tt{position:absolute;left:10px;right:10px;bottom:8px;z-index:2;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.08rem;color:#fff;line-height:1.1;text-shadow:0 2px 10px rgba(0,0,0,.65)}
+.ythumb .mt{margin-top:.5rem;color:var(--muted);font-size:.74rem}
+.yt-feats{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin-top:1.9rem}
+.yt-feats span{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:999px;padding:.4rem .9rem;font-size:.8rem;color:#cdd8e8}
+
+/* power / claude code section */
+.engine{display:grid;gap:1.4rem;margin-top:2.8rem;align-items:stretch}
+@media(min-width:960px){.engine{grid-template-columns:1.12fr 1fr}}
+/* terminal with streaming code */
+.term{position:relative;display:flex;flex-direction:column;min-height:480px;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.12);background:#090e16;box-shadow:0 30px 70px rgba(0,0,0,.55);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.78rem}
+.term-bar{display:flex;align-items:center;gap:.45rem;padding:.6rem .85rem;background:rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.08);flex:none}
+.term-dot{width:10px;height:10px;border-radius:50%;background:#33405a}
+.term-name{margin-left:.4rem;color:#9fb0c6;font-size:.74rem}
+.term-auto{margin-left:auto;color:#e9b85c;font-size:.7rem;letter-spacing:.03em}
+.term-scroll{position:relative;flex:1;overflow:hidden;-webkit-mask-image:linear-gradient(180deg,transparent,#000 13%,#000 85%,transparent);mask-image:linear-gradient(180deg,transparent,#000 13%,#000 85%,transparent)}
+.term-stream{position:absolute;left:0;right:0;top:0;padding:.7rem 1rem;display:flex;flex-direction:column;gap:.3rem;line-height:1.45;will-change:transform;animation:streamUp 22s linear infinite}
+.term:hover .term-stream{animation-play-state:paused}
+@keyframes streamUp{from{transform:translateY(0)}to{transform:translateY(-50%)}}
+.cl{white-space:pre;color:#9fb0c6}
+.c-key{color:#e0a45c}.c-str{color:#7fd99a}.c-dim{color:#566884}.c-fn{color:#9db8e6}.c-ok{color:#6fe3a0}.c-num{color:#d9b06a}
+.term-foot{flex:none;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.55rem .9rem;border-top:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);font-size:.72rem}
+.term-foot .lf{color:#e0a45c}.term-foot .rt{color:#7f8ea6}
+/* pipeline timeline */
+.pipe{position:relative;display:flex;flex-direction:column;justify-content:space-between;padding-left:2.4rem}
+.pipe::before{content:"";position:absolute;left:11px;top:18px;bottom:18px;width:2px;background:rgba(255,255,255,.1)}
+.pipe-fill{position:absolute;left:11px;top:18px;width:2px;height:0;background:linear-gradient(180deg,#ffe7ad,#e9b85c);box-shadow:0 0 10px rgba(243,196,108,.55);transition:height .5s ease}
+.pstep{position:relative;display:flex;align-items:center;gap:.75rem;padding:.5rem 0;opacity:.4;transition:opacity .4s}
+.pnode{position:absolute;left:-2.4rem;top:50%;transform:translateY(-50%);width:24px;height:24px;border-radius:50%;border:2px solid rgba(255,255,255,.18);background:#0c1626;display:flex;align-items:center;justify-content:center;transition:.35s}
+.pnode svg{width:12px;height:12px;stroke:#6fe3a0;fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;opacity:0;transition:opacity .3s}
+.pic{width:36px;height:36px;flex:none;display:inline-flex;align-items:center;justify-content:center;border-radius:11px;background:linear-gradient(155deg,rgba(243,196,108,.16),rgba(255,255,255,.02));border:1px solid rgba(243,196,108,.22)}
+.pic svg{width:19px;height:19px;fill:none;stroke:url(#icgrad);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.ptext{display:flex;flex-direction:column;line-height:1.25}
+.ptext b{font-family:'Inter',sans-serif;font-weight:600;font-size:.96rem;color:#eaf0f7}
+.ptext span{font-size:.79rem;color:var(--muted)}
+.pstep.active{opacity:1}
+.pstep.active .pnode{border-color:#e9b85c;box-shadow:0 0 0 4px rgba(243,196,108,.14),0 0 14px rgba(243,196,108,.5)}
+.pstep.active .pnode::after{content:"";width:8px;height:8px;border-radius:50%;background:#ffe39a;animation:pblink 1s ease-in-out infinite}
+.pstep.active .pic{border-color:rgba(243,196,108,.6)}
+.pstep.done{opacity:1}
+.pstep.done .pnode{border-color:#6fe3a0;background:rgba(111,227,160,.12)}
+.pstep.done .pnode svg{opacity:1}
+@keyframes pblink{0%,100%{opacity:.4;transform:scale(.8)}50%{opacity:1;transform:scale(1.1)}}
+/* stat */
+.stat{position:relative;margin-top:3rem;text-align:center;border-radius:24px;overflow:hidden;border:1px solid rgba(243,196,108,.3);background:radial-gradient(120% 130% at 50% 0%,rgba(243,196,108,.16),rgba(9,16,28,.35));padding:3rem 1.4rem}
+.stat .glow{position:absolute;inset:auto 0 -55% 0;height:90%;background:radial-gradient(closest-side,rgba(243,196,108,.2),transparent 70%);filter:blur(45px)}
+.stat-eye{position:relative;font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-eye);font-weight:600}
+.stat-big{position:relative;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(2.9rem,7.5vw,5.4rem);line-height:1;margin-top:.4rem;background:linear-gradient(110deg,#fff 18%,#f3d79a 38%,#fff 58%,#f3d79a 78%);background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 6s linear infinite}
+@keyframes shimmer{to{background-position:-220% center}}
+.stat-big i{font-style:normal;font-size:.3em;font-family:'Inter',sans-serif;font-weight:600;color:#caa45a;-webkit-text-fill-color:#caa45a;letter-spacing:.1em;text-transform:uppercase;vertical-align:middle;margin-left:.5rem}
+.stat-sub{position:relative;color:var(--muted);max-width:40rem;margin:1.1rem auto 0;font-size:1.02rem}
+.stat-chips{position:relative;display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin-top:1.5rem}
+.stat-chips span{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:999px;padding:.35rem .9rem;font-size:.78rem;color:#cdd8e8}
+
 /* scroll reveal (only hides when JS is active, so no-JS users always see content) */
 html.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
 html.js .reveal.in{opacity:1;transform:none}
@@ -272,6 +462,17 @@ html.js .reveal.in{opacity:1;transform:none}
   <symbol id="ic-palette" viewBox="0 0 24 24"><path d="M12 3.5a8.5 8.5 0 1 0 0 17c1 0 1.6-.8 1.6-1.7 0-.4-.2-.8-.5-1.1-.3-.3-.5-.7-.5-1.1 0-.9.7-1.6 1.6-1.6H16a4.5 4.5 0 0 0 4.5-4.5c0-3.7-3.8-6.5-8.5-6.5z"/><circle cx="7.6" cy="11.3" r="1"/><circle cx="10.4" cy="7.9" r="1"/><circle cx="14" cy="7.9" r="1"/><circle cx="16.6" cy="11" r="1"/></symbol>
   <symbol id="ic-badge-check" viewBox="0 0 24 24"><path d="M9 5H6.5A1.5 1.5 0 0 0 5 6.5V19a1.5 1.5 0 0 0 1.5 1.5h11A1.5 1.5 0 0 0 19 19V6.5A1.5 1.5 0 0 0 17.5 5H15"/><rect x="9" y="3.3" width="6" height="3" rx="1"/><path d="M8.8 13.2l2.1 2.1 4.2-4.4"/></symbol>
   <symbol id="ic-dashboard" viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="12" rx="1.6"/><path d="M3.5 8.3h17"/><path d="M9 20h6M12 16.5V20"/><circle cx="5.9" cy="6.4" r="0.5"/></symbol>
+  <symbol id="ic-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6"/><path d="M14.9 14.9l4.6 4.6"/></symbol>
+  <symbol id="ic-calendar" viewBox="0 0 24 24"><rect x="4" y="5.5" width="16" height="14" rx="2"/><path d="M4 9.5h16M8 3.5v4M16 3.5v4M8 13h8M8 16.3h5"/></symbol>
+  <symbol id="ic-image" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.5"/><path d="M5 17.5l4.5-4.5 3 3 3-3L20 16"/></symbol>
+  <symbol id="ic-chart" viewBox="0 0 24 24"><path d="M4 19.5h16"/><path d="M6.5 17.5v-5M11 17.5v-8M15.5 17.5v-3"/><path d="M5.5 9l3.5-3 3 2 5.5-5"/></symbol>
+  <symbol id="ic-note" viewBox="0 0 24 24"><path d="M9 17.5V6.5l9-2v9"/><circle cx="6.5" cy="17.5" r="2.4"/><circle cx="15.5" cy="15.5" r="2.4"/></symbol>
+  <symbol id="lg-claude" viewBox="0 0 24 24"><path d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></symbol>
+  <symbol id="lg-openai" viewBox="0 0 24 24"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></symbol>
+  <symbol id="lg-suno" viewBox="0 0 24 24"><path d="M16.5 0C20.642 0 24 5.373 24 12h-9c0 6.627-3.358 12-7.5 12C3.358 24 0 18.627 0 12h9c0-6.627 3.358-12 7.5-12Z"/></symbol>
+  <symbol id="lg-gemini" viewBox="0 0 24 24"><path d="M11.04 19.32Q12 21.51 12 24q0-2.49.93-4.68.96-2.19 2.58-3.81t3.81-2.55Q21.51 12 24 12q-2.49 0-4.68-.93a12.3 12.3 0 0 1-3.81-2.58 12.3 12.3 0 0 1-2.58-3.81Q12 2.49 12 0q0 2.49-.96 4.68-.93 2.19-2.55 3.81a12.3 12.3 0 0 1-3.81 2.58Q2.49 12 0 12q2.49 0 4.68.96 2.19.93 3.81 2.55t2.55 3.81"/></symbol>
+  <symbol id="lg-eleven" viewBox="0 0 24 24"><path d="M4.6035 0v24h4.9317V0zm9.8613 0v24h4.9317V0z"/></symbol>
+  <symbol id="lg-youtube" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></symbol>
 </defs></svg>
 <div class="field"></div>
 <div class="aurora"><b class="a1"></b><b class="a2"></b><b class="a3"></b></div>
@@ -293,8 +494,8 @@ html.js .reveal.in{opacity:1;transform:none}
     <div class="nav-links">
       <a href="#niches">Any niche</a>
       <a href="#how">How it works</a>
+      <a href="#channel">Your channel</a>
       <a href="#inside">What's inside</a>
-      <a href="#examples">Examples</a>
       <a href="#faq">FAQ</a>
     </div>
     <a class="btn btn-gold btn-sm" href="#waitlist">Join the waitlist</a>
@@ -305,9 +506,9 @@ html.js .reveal.in{opacity:1;transform:none}
   <div class="hero-bg" id="heroBg"></div>
   <div class="hero-veil"></div>
   <div class="wrap">
-    <div class="eyebrow">The plug-and-play system for AI music channels</div>
-    <h1>Turn <span class="rot" id="rot"><span class="w">a memory</span></span><br>into a song the world remembers.</h1>
-    <p class="sub">Bring an idea, a story or a single moment. The system turns it into a cinematic, bilingual music video with the meaning behind it explained, ready for a YouTube channel in any niche you can dream up.</p>
+    <div class="eyebrow">AI songs that sound too good to be true</div>
+    <h1>You have never been able to launch an animated channel this fast.</h1>
+    <p class="sub">Build your own animated web player and create songs, lyrics and melodies you love in just a few clicks, then <span class="rot" id="rot"><span class="w">share them with the world</span></span>.</p>
     <div class="cta">
       <a class="btn btn-gold" href="#waitlist">Join the waitlist</a>
       <a class="btn btn-ghost" href="../index.html">See it live &rarr;</a>
@@ -317,10 +518,36 @@ html.js .reveal.in{opacity:1;transform:none}
   <a class="scrolldown" href="#niches">Scroll</a>
 </header>
 
+<!-- concept -->
+<section id="concept">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="eyebrow">The concept</div>
+      <h2 class="gold-text">Turn any idea into a song the world remembers,<br>and earn money with it.</h2>
+      <p class="mx">Bring an idea, a memory or a moment. In a few clicks the system writes the lyrics, composes a melody you love, paints the visuals and animates it into a finished, bilingual music video. Share it with the people you love, or build a whole YouTube channel and a second income around it.</p>
+    </div>
+  </div>
+</section>
+
 <!-- niche marquee -->
 <div class="marquee" aria-hidden="true">
   <div class="mrow" id="mrowA"></div>
   <div class="mrow rev" id="mrowB"></div>
+</div>
+
+<!-- works-with logos -->
+<div class="logos reveal">
+  <div class="wrap">
+    <div class="lab">One skill orchestrates the best AI, and ships it straight to YouTube</div>
+    <div class="row">
+      <span class="logo"><svg><use href="#lg-claude"/></svg><b>Claude</b></span>
+      <span class="logo"><svg><use href="#lg-openai"/></svg><b>ChatGPT</b></span>
+      <span class="logo"><svg><use href="#lg-suno"/></svg><b>Suno</b></span>
+      <span class="logo"><svg><use href="#lg-gemini"/></svg><b>Gemini <small>Nano Banana</small></b></span>
+      <span class="logo"><svg><use href="#lg-eleven"/></svg><b>ElevenLabs</b></span>
+      <span class="logo"><svg><use href="#lg-youtube"/></svg><b>YouTube</b></span>
+    </div>
+  </div>
 </div>
 
 <!-- showcase: any idea becomes a song -->
@@ -391,6 +618,42 @@ html.js .reveal.in{opacity:1;transform:none}
   </div>
 </section>
 
+<!-- live demo -->
+<section id="demo">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="eyebrow">See it live</div>
+      <h2 class="gold-text">A real song, running right here</h2>
+      <p class="mx">This is the system's output, live on the page. In 2026 raw AI uploads get buried, so the course includes the tips and tricks that keep your videos watchable, compliant and monetizable. Brand it any color, any style you want.</p>
+    </div>
+    <div class="demo-box reveal">
+      <div class="demo-frame">
+        <iframe src="../songs/the-sower/index.html?embed=1" loading="lazy" title="Live song demo"></iframe>
+        <div class="demo-menu" id="demoMenu">
+          <div class="dm-head"><span class="dm-dot"></span> Your dashboard</div>
+          <div class="dm-grid">
+            <div class="dm-card on" style="--i:url('img/hero.png')"><span>The Sower</span></div>
+            <div class="dm-card" style="--i:url('img/n-travel.png')"><span>A Summer I Can't Forget</span></div>
+            <div class="dm-card" style="--i:url('img/n-love.png')"><span>How We Stayed</span></div>
+            <div class="dm-card" style="--i:url('img/n-fantasy.png')"><span>The Last Dragon's Song</span></div>
+          </div>
+          <div class="dm-hint">Opening The Sower &hellip;</div>
+        </div>
+      </div>
+      <div class="demo-side">
+        <h3>Build your own web player</h3>
+        <p>Learn to build a player like this, as a gift for yourself or someone you love. Then, with one click, turn it into a full YouTube video and start building a second income.</p>
+        <div class="tips">
+          <span><span class="ck">&check;</span> One click to a finished YouTube video</span>
+          <span><span class="ck">&check;</span> Your brand, your colors, your niche</span>
+          <span><span class="ck">&check;</span> Compliant and ready to upload for 2026</span>
+        </div>
+        <a class="btn btn-gold" href="#waitlist">Join the waitlist to see more &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- problem -->
 <section id="problem">
   <div class="wrap">
@@ -448,6 +711,137 @@ html.js .reveal.in{opacity:1;transform:none}
   </div>
 </section>
 
+<!-- power / claude code -->
+<section id="power">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="eyebrow">Powered by Claude Code</div>
+      <h2 class="gold-text">It looks complicated.<br>The skill makes it one command.</h2>
+      <p class="mx">Under the hood it is deep research, branding, songwriting, music, art, animation and rendering. You never touch that complexity. You answer a few questions about what you love, and the skill runs the whole studio with you.</p>
+    </div>
+    <div class="engine reveal">
+      <div class="term">
+        <div class="term-bar"><span class="term-dot"></span><span class="term-dot"></span><span class="term-dot"></span><span class="term-name">claude code &middot; the sower system</span><span class="term-auto">auto mode on</span></div>
+        <div class="term-scroll"><div class="term-stream" id="stream"></div></div>
+        <div class="term-foot"><span class="lf">&#10043; working &middot; xhigh effort</span><span class="rt" id="tok">&#8595; 0 tokens</span></div>
+      </div>
+      <div class="pipe">
+        <div class="pipe-fill" id="pipeFill"></div>
+        <div class="pstep"><span class="pnode"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></span><span class="pic"><svg viewBox="0 0 24 24"><use href="#ic-search"/></svg></span><div class="ptext"><b>Deep research</b><span>demand, gaps and what already wins</span></div></div>
+        <div class="pstep"><span class="pnode"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></span><span class="pic"><svg viewBox="0 0 24 24"><use href="#ic-chat"/></svg></span><div class="ptext"><b>A few questions</b><span>what you love, who it is for</span></div></div>
+        <div class="pstep"><span class="pnode"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></span><span class="pic"><svg viewBox="0 0 24 24"><use href="#ic-calendar"/></svg></span><div class="ptext"><b>Content plan</b><span>episodes mapped to real demand</span></div></div>
+        <div class="pstep"><span class="pnode"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></span><span class="pic"><svg viewBox="0 0 24 24"><use href="#ic-chart"/></svg></span><div class="ptext"><b>Scale and monetize</b><span>a growth strategy built in</span></div></div>
+        <div class="pstep"><span class="pnode"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></span><span class="pic"><svg viewBox="0 0 24 24"><use href="#ic-palette"/></svg></span><div class="ptext"><b>Channel branding</b><span>logo and channel art</span></div></div>
+        <div class="pstep"><span class="pnode"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></span><span class="pic"><svg viewBox="0 0 24 24"><use href="#ic-image"/></svg></span><div class="ptext"><b>Thumbnails</b><span>click-worthy, A/B tested</span></div></div>
+        <div class="pstep"><span class="pnode"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></span><span class="pic"><svg viewBox="0 0 24 24"><use href="#ic-doc"/></svg></span><div class="ptext"><b>Descriptions and SEO</b><span>titles, tags and chapters</span></div></div>
+        <div class="pstep"><span class="pnode"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></span><span class="pic"><svg viewBox="0 0 24 24"><use href="#ic-note"/></svg></span><div class="ptext"><b>Lyrics and music</b><span>written, then composed</span></div></div>
+        <div class="pstep"><span class="pnode"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></span><span class="pic"><svg viewBox="0 0 24 24"><use href="#ic-spark"/></svg></span><div class="ptext"><b>Art and animation</b><span>painted scenes, words that glow</span></div></div>
+        <div class="pstep"><span class="pnode"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></span><span class="pic"><svg viewBox="0 0 24 24"><use href="#ic-video"/></svg></span><div class="ptext"><b>Render and publish</b><span>a ready-to-upload video</span></div></div>
+      </div>
+    </div>
+    <div class="stat reveal">
+      <div class="glow"></div>
+      <div class="stat-eye">Your part of the work</div>
+      <div class="stat-big">1 to 2 hours <i>a week</i></div>
+      <div class="stat-sub">Everything above runs for you. You pick the idea and press go. Claude Code does the heavy lifting and hands you a finished, ready-to-upload video.</div>
+      <div class="stat-chips"><span>Research</span><span>Branding</span><span>Writing</span><span>Music</span><span>Art</span><span>Animation</span><span>Render</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- forget the old ways -->
+<section id="newway">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="eyebrow">Forget the old ways</div>
+      <h2 class="gold-text">You just say what you want.<br>It does the rest.</h2>
+      <p class="mx">No video editing. No image generating. No prompt writing. No software to master. The hard, technical work that stops everyone else is simply gone.</p>
+    </div>
+    <div class="nono reveal">
+      <span class="no">Cutting videos</span>
+      <span class="no">Creating pictures</span>
+      <span class="no">Writing prompts</span>
+      <span class="no">Editing software</span>
+      <span class="no">Design skills</span>
+      <span class="no">Coding</span>
+    </div>
+    <div class="fast reveal"><b>You speak, it builds.</b><span>The easiest path there has ever been to create what you imagine and earn a side income from it.</span></div>
+  </div>
+</section>
+
+<!-- youtube channel -->
+<section id="channel" class="yt">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="sec-badge">A complete system, not just a video</div>
+      <div class="eyebrow">Not just videos</div>
+      <h2 class="gold-text">A whole channel, built for you</h2>
+      <p class="mx">A complete channel, system and niche you can run in one or two hours a week, with almost no work. Branding, thumbnails, descriptions, a posting plan, plus a growth and monetization strategy. You look established from day one, the fastest anyone has ever launched an animated channel.</p>
+    </div>
+    <div class="ytcard">
+      <div class="yt-banner" style="background-image:url('img/harvest.png')"></div>
+      <div class="yt-head">
+        <div class="yt-av" style="background-image:url('img/hero.png')"></div>
+        <div class="yt-meta">
+          <h3>Your Channel</h3>
+          <div class="h">@yourchannel</div>
+          <div class="s">12.4K subscribers &middot; 28 videos &middot; built with The Sower System</div>
+        </div>
+        <span class="yt-sub">Subscribe</span>
+      </div>
+      <div class="yt-tabs"><span class="on">Home</span><span>Videos</span><span>Playlists</span><span>About</span></div>
+      <div class="yt-scroll">
+        <div class="ythumb"><div class="pic" style="background-image:url('img/n-travel.png')"><span class="badge">Travel</span><span class="dur">3:12</span><span class="tt">A Summer I Can't Forget</span></div><div class="mt">2.1K views &middot; 3 days ago</div></div>
+        <div class="ythumb"><div class="pic" style="background-image:url('img/n-love.png')"><span class="badge">Love</span><span class="dur">2:48</span><span class="tt">How We Stayed</span></div><div class="mt">4.8K views &middot; 1 week ago</div></div>
+        <div class="ythumb"><div class="pic" style="background-image:url('img/n-learn.png')"><span class="badge">Learning</span><span class="dur">3:30</span><span class="tt">Remember Everything</span></div><div class="mt">1.3K views &middot; 5 days ago</div></div>
+        <div class="ythumb"><div class="pic" style="background-image:url('img/n-fantasy.png')"><span class="badge">Fantasy</span><span class="dur">4:02</span><span class="tt">The Last Dragon's Song</span></div><div class="mt">9.6K views &middot; 2 weeks ago</div></div>
+        <div class="ythumb"><div class="pic" style="background-image:url('img/n-create.png')"><span class="badge">Imagine</span><span class="dur">2:55</span><span class="tt">Worlds In My Head</span></div><div class="mt">3.4K views &middot; 4 days ago</div></div>
+        <div class="ythumb"><div class="pic" style="background-image:url('img/path.png')"><span class="badge">Journey</span><span class="dur">3:05</span><span class="tt">The Road Home</span></div><div class="mt">5.2K views &middot; 1 week ago</div></div>
+        <div class="ythumb"><div class="pic" style="background-image:url('img/harvest.png')"><span class="badge">Life</span><span class="dur">3:20</span><span class="tt">The Harvest</span></div><div class="mt">2.7K views &middot; 6 days ago</div></div>
+        <div class="ythumb"><div class="pic" style="background-image:url('img/hero.png')"><span class="badge">Story</span><span class="dur">3:40</span><span class="tt">Scatter the Seed</span></div><div class="mt">7.1K views &middot; 2 weeks ago</div></div>
+      </div>
+    </div>
+    <div class="yt-feats reveal">
+      <span>Channel art</span><span>Avatar</span><span>Thumbnails</span><span>Titles and descriptions</span><span>Posting plan</span><span>Growth strategy</span><span>Monetization</span>
+    </div>
+  </div>
+</section>
+
+<!-- growth and monetization -->
+<section id="grow">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="sec-badge">Set up once, runs for you</div>
+      <div class="eyebrow">Growth and monetization</div>
+      <h2 class="gold-text">A second income, on autopilot</h2>
+      <p class="mx">Set the system up once and it keeps launching videos for you, all built with Claude. A real side income that can grow while you sleep, in any niche, with a YouTube growth and monetization strategy included in the course.</p>
+    </div>
+    <div class="grow-stats reveal">
+      <div class="gstat"><div class="num" data-to="28">0</div><div class="lab">videos a month, auto-published</div></div>
+      <div class="gstat"><div class="num" data-to="240" data-suffix="K">0</div><div class="lab">monthly views</div></div>
+      <div class="gstat"><div class="num" data-to="12.4" data-suffix="K" data-dec="1">0</div><div class="lab">subscribers</div></div>
+      <div class="gstat"><div class="num" data-prefix="&euro;" data-to="1850">0</div><div class="lab">est. monthly income</div></div>
+      <div class="gstat"><div class="num" data-to="2" data-suffix="h">0</div><div class="lab">of your time a week</div></div>
+    </div>
+    <div class="compare reveal" id="cmp">
+      <div class="cmp-pane cmp-before">
+        <div class="bg" style="background-image:url('img/path.png')"></div>
+        <div class="veil"></div>
+        <span class="cmp-tag">Before</span>
+        <div class="cmp-body"><h4>A blank channel</h4><div class="row2"><span>0 subscribers</span><span><b>&euro;0</b> / month</span></div></div>
+      </div>
+      <div class="cmp-pane cmp-after" id="cmpAfter">
+        <div class="bg" style="background-image:url('img/harvest.png')"></div>
+        <div class="veil"></div>
+        <span class="cmp-tag">After</span>
+        <div class="cmp-body"><h4>A thriving, branded channel</h4><div class="row2"><span>12.4K subscribers</span><span><b>&euro;1,850</b> / month</span></div></div>
+      </div>
+      <div class="cmp-handle" id="cmpHandle"><div class="cmp-knob">&#8596;</div></div>
+    </div>
+    <div class="grow-note">Numbers are illustrative. Set up once with Claude, then it runs. Your channel, your branding, your colors, any niche. Drag the slider.</div>
+  </div>
+</section>
+
 <!-- inside (bento) -->
 <section id="inside">
   <div class="wrap">
@@ -502,6 +896,92 @@ html.js .reveal.in{opacity:1;transform:none}
       <div><span class="ck">&check;</span> Musicians and songwriters sitting on songs nobody has heard yet.</div>
       <div><span class="ck">&check;</span> Teachers and coaches who want their message to actually stick.</div>
       <div><span class="ck">&check;</span> Beginners who want a finished channel, not a hard drive full of tutorials.</div>
+    </div>
+  </div>
+</section>
+
+<!-- vision / why now -->
+<section id="why">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="eyebrow">Why now</div>
+      <h2 class="gold-text">YouTube is becoming the new Netflix</h2>
+      <p class="mx">People are leaving TV for YouTube, and they want content made for them. Personalized, endless, in every niche. The window to plant a channel and grow with that shift is open right now.</p>
+    </div>
+    <div class="why-grid reveal">
+      <div class="why-card"><div class="k">The shift</div><h3>From TV to YouTube</h3><p>Attention is moving to on-demand video. YouTube is turning into the next Netflix, and creators, not studios, are the ones who fill it.</p></div>
+      <div class="why-card"><div class="k">Infinite</div><h3>Personal and endless</h3><p>AI lets you make personalized content with no limit, in any niche you can imagine, at a speed no studio could ever match.</p></div>
+      <div class="why-card"><div class="k">Yours</div><h3>A side income, or a gift</h3><p>Build a second income on the side, or make a song just for yourself or as a gift for your family. The possibilities are unlimited.</p></div>
+    </div>
+    <div class="fast reveal"><b>Day one: your first video is live, and a full channel concept is mapped out for you.</b><span>From a blank page to a finished, branded channel in record time.</span></div>
+  </div>
+</section>
+
+<!-- testimonials -->
+<section id="loved">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="eyebrow">Early voices</div>
+      <h2 class="gold-text">What early creators say</h2>
+      <p class="mx">From the first people building with the system. Founding examples, your story could be the next one.</p>
+    </div>
+    <div class="quotes reveal">
+      <div class="quote"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>I had a melody and a memory from a trip. Two evenings later it was a finished, bilingual video on a channel that actually looks like a real brand.</p><div class="who2"><span class="ava">M</span><span><span class="nm">Mara</span><br><span class="rl">travel creator</span></span></div></div>
+      <div class="quote"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>I cannot code and the whole AI side scared me. The setup videos had me running in one evening, and the skill did all the heavy work.</p><div class="who2"><span class="ava">J</span><span><span class="nm">Jonas</span><br><span class="rl">first-time creator</span></span></div></div>
+      <div class="quote"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>The parts I never managed alone, the niche, the thumbnails, the descriptions, were just done. It feels like a studio behind me for an hour or two a week.</p><div class="who2"><span class="ava">L</span><span><span class="nm">Lena</span><br><span class="rl">music hobbyist</span></span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- packages -->
+<section id="packages">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="eyebrow">Pick your path</div>
+      <h2 class="gold-text">Two skills. Take one, or take everything.</h2>
+      <p class="mx">Learn just the part you need, or get the complete plug-and-play system. Founding members on the waitlist lock the best price we will ever offer.</p>
+    </div>
+    <div class="pkgs reveal">
+      <div class="pkg">
+        <div class="ptag">Skill one</div>
+        <div class="pname">The Player</div>
+        <div class="pdesc">Create AI songs, lyrics and melodies, then turn them into your own animated, bilingual web and HTML player.</div>
+        <ul>
+          <li><span class="ck">&check;</span> AI songs, lyrics and melodies you love</li>
+          <li><span class="ck">&check;</span> Your own animated web / HTML player</li>
+          <li><span class="ck">&check;</span> Bilingual, word by word, fully on brand</li>
+          <li><span class="ck">&check;</span> Perfect to share, to gift, or to sell</li>
+        </ul>
+        <div class="price">Founding price at launch</div>
+        <a class="btn btn-ghost" href="#waitlist">Join the waitlist</a>
+      </div>
+      <div class="pkg best">
+        <div class="pkg-flag">Best value</div>
+        <div class="ptag">Both skills</div>
+        <div class="pname">Everything</div>
+        <div class="pdesc">The complete system. Make the songs and the player, and build the whole monetized YouTube channel around them.</div>
+        <ul>
+          <li><span class="ck">&check;</span> Everything in The Player</li>
+          <li><span class="ck">&check;</span> Everything in The Channel</li>
+          <li><span class="ck">&check;</span> One click from idea to finished video</li>
+          <li><span class="ck">&check;</span> The fastest path to a real side income</li>
+        </ul>
+        <div class="price">Best founding price at launch</div>
+        <a class="btn btn-gold" href="#waitlist">Join the waitlist</a>
+      </div>
+      <div class="pkg">
+        <div class="ptag">Skill two</div>
+        <div class="pname">The Channel</div>
+        <div class="pdesc">Turn it into a YouTube channel: research, branding, thumbnails, a content plan, monetization and automation.</div>
+        <ul>
+          <li><span class="ck">&check;</span> Deep research and niche selection</li>
+          <li><span class="ck">&check;</span> Logo, channel art and thumbnails</li>
+          <li><span class="ck">&check;</span> Content plan, SEO and descriptions</li>
+          <li><span class="ck">&check;</span> Growth, monetization and automation</li>
+        </ul>
+        <div class="price">Founding price at launch</div>
+        <a class="btn btn-ghost" href="#waitlist">Join the waitlist</a>
+      </div>
     </div>
   </div>
 </section>
@@ -702,6 +1182,104 @@ var REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
     try{var L=JSON.parse(localStorage.getItem('sower_waitlist')||'[]');L.push({e:em.value});localStorage.setItem('sower_waitlist',JSON.stringify(L));}catch(e){}
     f.style.display='none';ok.classList.add('show');
   });
+})();
+
+/* power section: streaming code + sequential pipeline that unlocks step by step */
+(function(){
+  var stream=document.getElementById('stream');
+  if(!stream)return;
+  var L=[
+    '<span class="c-dim">$</span> <span class="c-key">claude</span> run skill <span class="c-str">the-sower-system</span>',
+    '<span class="c-key">const</span> studio = <span class="c-fn">createStudio</span>(idea)',
+    '<span class="c-dim">&#9679;</span> research &#9656; <span class="c-num">1,284</span> videos analyzed',
+    '  gaps <span class="c-num">7</span> &middot; demand <span class="c-ok">high</span> &middot; angle <span class="c-ok">found</span>',
+    '<span class="c-key">for</span> (<span class="c-key">const</span> q <span class="c-key">of</span> interview) <span class="c-fn">ask</span>(q)',
+    'plan &#9656; <span class="c-num">30</span> episodes scored by demand',
+    'brand &#9656; logo.svg &middot; channel-art.png',
+    'thumb &#9656; <span class="c-fn">render</span>(a) <span class="c-fn">render</span>(b) <span class="c-fn">render</span>(c)',
+    '<span class="c-key">await</span> <span class="c-fn">write</span>(<span class="c-str">&#39;lyrics.txt&#39;</span>)',
+    '  <span class="c-ok">+</span> verse <span class="c-ok">+</span> chorus <span class="c-ok">+</span> bridge',
+    'compose &#9656; melody.mid <span class="c-dim">tempo</span> <span class="c-num">92</span> <span class="c-dim">key</span> Am',
+    'paint &#9656; bg_01 &hellip; bg_08 <span class="c-dim">(gemini-3-pro-image)</span>',
+    '<span class="c-fn">align</span>(words, audio) <span class="c-dim">// timing</span>',
+    '  coverage <span class="c-ok">99%</span>',
+    '<span class="c-fn">animate</span>(words) &#9656; gold sweep',
+    'seo &#9656; title &middot; tags &middot; chapters',
+    'render &#9656; video.mp4 <span class="c-num">1920&times;1080</span>',
+    'verify &#9656; <span class="c-ok">PASS</span>',
+    '<span class="c-key">function</span> <span class="c-fn">paintScene</span>(s) { <span class="c-key">return</span> gpu.<span class="c-fn">draw</span>(s) }',
+    '<span class="c-key">if</span> (segment.weak) <span class="c-fn">spread</span>(segment)',
+    'export &#9656; <span class="c-str">&#39;index.html&#39;</span> <span class="c-ok">built</span>',
+    'translate &#9656; es &middot; de <span class="c-ok">done</span>',
+    'pdf &#9656; lyrics.pdf <span class="c-ok">ok</span>',
+    '<span class="c-dim">&#8230;</span> queue &#9656; ready to upload'
+  ];
+  var html=L.map(function(s){return '<span class="cl">'+s+'</span>';}).join('');
+  stream.innerHTML=html+html;
+
+  var steps=[].slice.call(document.querySelectorAll('.pstep'));
+  var fill=document.getElementById('pipeFill');
+  function setFill(n){if(fill)fill.style.height=(n/steps.length*100)+'%';}
+  if(REDUCED){steps.forEach(function(s){s.classList.add('done');});setFill(steps.length);return;}
+
+  var idx=0,started=false;
+  function tick(){
+    if(idx>=steps.length){setTimeout(function(){steps.forEach(function(s){s.classList.remove('done','active');});idx=0;setFill(0);setTimeout(tick,420);},2400);return;}
+    var s=steps[idx];s.classList.add('active');
+    setTimeout(function(){s.classList.remove('active');s.classList.add('done');idx++;setFill(idx);setTimeout(tick,170);},820);
+  }
+  var pipe=document.querySelector('.pipe');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(e){if(e[0].isIntersecting&&!started){started=true;tick();}},{threshold:.25});
+    io.observe(pipe);
+  } else { tick(); }
+
+  var tok=document.getElementById('tok'),n=0;
+  setInterval(function(){n+=Math.floor(Math.random()*1400+300);if(n>9990000)n=120000;if(tok)tok.textContent='↓ '+(n/1000).toFixed(1)+'k tokens';},220);
+})();
+
+/* growth: count-up stats */
+(function(){
+  var nums=[].slice.call(document.querySelectorAll('.gstat .num'));
+  if(!nums.length)return;
+  function fmt(v,dec,pre,suf){return pre+v.toFixed(dec).replace(/\B(?=(\d{3})+(?!\d))/g,',')+suf;}
+  function run(el){
+    var to=parseFloat(el.getAttribute('data-to'))||0,dec=parseInt(el.getAttribute('data-dec')||'0',10),
+        pre=el.getAttribute('data-prefix')||'',suf=el.getAttribute('data-suffix')||'';
+    if(REDUCED){el.textContent=fmt(to,dec,pre,suf);return;}
+    var start=null,dur=1500;
+    function step(t){if(!start)start=t;var p=Math.min((t-start)/dur,1),e=1-Math.pow(1-p,3);el.textContent=fmt(to*e,dec,pre,suf);if(p<1)requestAnimationFrame(step);}
+    requestAnimationFrame(step);
+  }
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){run(en.target);io.unobserve(en.target);}});},{threshold:.5});
+    nums.forEach(function(n){io.observe(n);});
+  } else nums.forEach(run);
+})();
+
+/* growth: before/after slider */
+(function(){
+  var c=document.getElementById('cmp');if(!c)return;
+  var after=document.getElementById('cmpAfter'),handle=document.getElementById('cmpHandle'),drag=false;
+  function set(p){p=Math.max(3,Math.min(97,p));after.style.clipPath='inset(0 '+(100-p)+'% 0 0)';handle.style.left=p+'%';}
+  function at(e){var r=c.getBoundingClientRect(),x=((e.touches?e.touches[0].clientX:e.clientX)-r.left);set(x/r.width*100);}
+  handle.addEventListener('pointerdown',function(e){drag=true;e.preventDefault();});
+  window.addEventListener('pointermove',function(e){if(drag)at(e);});
+  window.addEventListener('pointerup',function(){drag=false;});
+  c.addEventListener('click',function(e){if(e.target.closest('.cmp-handle'))return;at(e);});
+  set(50);
+})();
+
+/* live demo: show the dashboard menu briefly, then reveal the player */
+(function(){
+  var m=document.getElementById('demoMenu');if(!m)return;
+  var fired=false;
+  function go(){if(fired)return;fired=true;setTimeout(function(){m.classList.add('hide');},3000);}
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){if(es[0].isIntersecting){go();io.disconnect();}},{threshold:.4});
+    io.observe(m);
+  } else go();
+  setTimeout(go,12000); /* safety: never leave the menu stuck if the observer does not fire */
 })();
 
 /* scroll reveal, robust: works without GSAP, never leaves content hidden */

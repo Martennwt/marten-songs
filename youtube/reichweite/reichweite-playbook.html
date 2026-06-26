@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Draw Near - Reichweite & Ranking Playbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0a1626; --navy2:#0d1d31; --card:#122a44; --card2:#0f2238;
+    --gold:#d9b667; --gold-soft:#e7cf8b; --gold2:#c9a24b;
+    --ink:#eceadf; --muted:#9fb4c9; --line:rgba(217,182,103,.22);
+    --good:#79c08a; --warn:#e3b873; --bad:#e08b7e;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; font-family:'Inter',system-ui,sans-serif; color:var(--ink);
+    background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(217,182,103,.10), transparent 60%),
+      radial-gradient(900px 500px at 0% 10%, rgba(60,110,160,.12), transparent 55%),
+      linear-gradient(180deg,#0a1626 0%, #081120 100%);
+    line-height:1.6; font-size:16px;
+  }
+  h1,h2,h3,h4{font-family:'Cormorant Garamond',serif; font-weight:600; letter-spacing:.2px; line-height:1.15; color:#fff}
+  a{color:var(--gold-soft); text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 22px}
+  /* hero */
+  header.hero{padding:64px 0 30px; border-bottom:1px solid var(--line)}
+  .eyebrow{font-family:'Inter'; text-transform:uppercase; letter-spacing:3px; font-size:12px; color:var(--gold); font-weight:600}
+  header.hero h1{font-size:clamp(34px,6vw,58px); margin:.18em 0 .12em}
+  header.hero p.lead{font-size:18px; color:var(--muted); max-width:760px; margin:.2em 0 0}
+  .meta{margin-top:18px; font-size:13px; color:var(--muted)}
+  .meta b{color:var(--gold-soft); font-weight:600}
+  /* nav */
+  nav.toc{position:sticky; top:0; z-index:20; backdrop-filter:blur(8px);
+    background:rgba(8,17,32,.82); border-bottom:1px solid var(--line)}
+  nav.toc .wrap{display:flex; gap:6px; flex-wrap:wrap; padding:10px 22px}
+  nav.toc a{font-size:13px; color:var(--muted); padding:6px 11px; border-radius:999px; border:1px solid transparent}
+  nav.toc a:hover{color:var(--ink); border-color:var(--line); text-decoration:none; background:rgba(217,182,103,.07)}
+  /* sections */
+  section{padding:46px 0; border-bottom:1px solid rgba(217,182,103,.10)}
+  section h2{font-size:clamp(26px,4vw,38px); margin:0 0 6px}
+  .kicker{color:var(--gold); font-weight:600; letter-spacing:2px; text-transform:uppercase; font-size:12px}
+  .sub{color:var(--muted); max-width:780px; margin:.3em 0 22px}
+  /* cards */
+  .grid{display:grid; gap:16px}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  @media(max-width:820px){.g2,.g3{grid-template-columns:1fr}}
+  .card{background:linear-gradient(180deg,var(--card),var(--card2)); border:1px solid var(--line);
+    border-radius:14px; padding:18px 18px}
+  .card h3{font-size:21px; margin:0 0 6px; color:#fff}
+  .card h4{font-size:18px; margin:0 0 4px; color:var(--gold-soft)}
+  .card p{margin:.3em 0; color:var(--muted)}
+  .card.gold{border-color:rgba(217,182,103,.5); box-shadow:0 0 0 1px rgba(217,182,103,.12), 0 18px 40px -28px rgba(217,182,103,.5)}
+  .tag{display:inline-block; font-size:11px; letter-spacing:.5px; text-transform:uppercase; color:var(--gold);
+    border:1px solid var(--line); border-radius:999px; padding:2px 9px; margin:0 6px 6px 0}
+  /* summary list */
+  ol.big{counter-reset:i; list-style:none; padding:0; margin:0; display:grid; gap:10px}
+  ol.big li{counter-increment:i; position:relative; padding:14px 16px 14px 56px; background:var(--card2);
+    border:1px solid var(--line); border-radius:12px}
+  ol.big li::before{content:counter(i); position:absolute; left:14px; top:12px; width:30px; height:30px;
+    display:grid; place-items:center; border-radius:50%; background:rgba(217,182,103,.12); color:var(--gold);
+    font-weight:700; border:1px solid var(--line); font-size:14px}
+  ol.big li b{color:#fff}
+  /* tables */
+  table{width:100%; border-collapse:collapse; margin:8px 0; font-size:14.5px}
+  th,td{text-align:left; padding:9px 11px; border-bottom:1px solid rgba(217,182,103,.14); vertical-align:top}
+  th{color:var(--gold); font-weight:600; font-size:12.5px; text-transform:uppercase; letter-spacing:.6px}
+  tr:hover td{background:rgba(217,182,103,.04)}
+  td code, .kw{background:rgba(217,182,103,.10); border:1px solid var(--line); color:var(--gold-soft);
+    padding:1px 7px; border-radius:6px; font-family:ui-monospace,Menlo,Consolas,monospace; font-size:13px}
+  .rank{display:inline-block; min-width:22px; text-align:center; font-weight:700; font-size:12px;
+    border-radius:6px; padding:1px 6px; margin-right:8px; font-family:ui-monospace,monospace}
+  .r0{background:rgba(121,192,138,.16); color:#a6e0b2; border:1px solid rgba(121,192,138,.4)}
+  .r1{background:rgba(217,182,103,.14); color:var(--gold-soft); border:1px solid var(--line)}
+  .r2{background:rgba(159,180,201,.12); color:var(--muted); border:1px solid rgba(159,180,201,.25)}
+  /* keyword chips list */
+  .kwlist{display:flex; flex-wrap:wrap; gap:7px; margin:6px 0}
+  .kwlist span{font-size:13px; background:var(--card2); border:1px solid var(--line); border-radius:8px;
+    padding:5px 9px; color:var(--ink); display:flex; align-items:center}
+  /* code blocks with copy */
+  .codeblock{position:relative; margin:10px 0}
+  pre{background:#071019; border:1px solid var(--line); border-radius:12px; padding:16px 16px; overflow:auto;
+    font-family:ui-monospace,Menlo,Consolas,monospace; font-size:13.5px; color:#dfe6ee; margin:0}
+  .copybtn{position:absolute; top:10px; right:10px; font-size:11px; letter-spacing:.5px; text-transform:uppercase;
+    background:rgba(217,182,103,.12); color:var(--gold); border:1px solid var(--line); border-radius:8px;
+    padding:5px 10px; cursor:pointer; font-family:'Inter'}
+  .copybtn:hover{background:rgba(217,182,103,.22)}
+  .pill{display:inline-block; font-size:12px; padding:2px 9px; border-radius:999px; font-weight:600}
+  .p-good{background:rgba(121,192,138,.14); color:var(--good); border:1px solid rgba(121,192,138,.35)}
+  .p-warn{background:rgba(227,184,115,.14); color:var(--warn); border:1px solid rgba(227,184,115,.35)}
+  .p-bad{background:rgba(224,139,126,.14); color:var(--bad); border:1px solid rgba(224,139,126,.35)}
+  .note{background:rgba(217,182,103,.06); border-left:3px solid var(--gold); border-radius:0 10px 10px 0;
+    padding:12px 16px; margin:14px 0; color:var(--ink)}
+  .note b{color:var(--gold-soft)}
+  ul.clean{list-style:none; padding:0; margin:8px 0}
+  ul.clean li{padding:6px 0 6px 26px; position:relative; color:var(--ink)}
+  ul.clean li::before{content:""; position:absolute; left:4px; top:13px; width:8px; height:8px; border-radius:50%;
+    background:var(--gold); box-shadow:0 0 0 3px rgba(217,182,103,.15)}
+  .check li::before{content:"\2713"; background:none; box-shadow:none; left:2px; top:6px; color:var(--gold); font-weight:700; width:auto; height:auto}
+  .small{font-size:13px; color:var(--muted)}
+  footer{padding:40px 0 70px; color:var(--muted); font-size:13px}
+  .divlabel{font-family:'Cormorant Garamond'; color:var(--gold); font-size:22px; margin:22px 0 4px}
+  .legend{display:flex; gap:16px; flex-wrap:wrap; font-size:12.5px; color:var(--muted); margin:10px 0 0}
+  .legend span{display:flex; align-items:center; gap:6px}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Draw Near - Bible Songs</div>
+    <h1>Reichweite &amp; Ranking Playbook</h1>
+    <p class="lead">Alles Wichtige aus der Tiefenrecherche in einem Dokument: wie Menschen bei Google und YouTube nach Gott suchen, echte Nachfrage-Daten live aus der YouTube-Autosuggest, die Ranking-Hebel 2026, und die ehrliche Bewertung der Prediger-Idee. Mit fertigen Vorlagen zum Kopieren.</p>
+    <div class="meta">Stand <b>26.06.2026</b> &middot; Schwester-Doku zu <b>YOUTUBE.md</b> &middot; Keine Werbung, kein Clickbait, ehrfuerchtig. Kein Em-Dash.</div>
+  </div>
+</header>
+
+<nav class="toc">
+  <div class="wrap">
+    <a href="#summary">Kurzfassung</a>
+    <a href="#demand">Echte Nachfrage</a>
+    <a href="#ideas">A &middot; Song-Ideen</a>
+    <a href="#formulas">B &middot; Formeln</a>
+    <a href="#release">C &middot; Release-Plan</a>
+    <a href="#tools">Tools</a>
+    <a href="#legal">E &middot; Prediger &amp; Recht</a>
+    <a href="#behavior">Suchverhalten</a>
+    <a href="#sources">Quellen</a>
+  </div>
+</nav>
+
+<!-- ============ SUMMARY ============ -->
+<section id="summary">
+  <div class="wrap">
+    <div class="kicker">Kurzfassung</div>
+    <h2>Die zehn wichtigsten Erkenntnisse</h2>
+    <p class="sub">Wenn du nur das hier liest, hast du 80 Prozent.</p>
+    <ol class="big">
+      <li><b>Glaube wird nach Gefuehl und Problem gesucht, nicht nach Kuenstler.</b> Die staerksten Eingaben sind "bible verse for anxiety", "scripture for sleep", "what does the bible say about ...". Darum baust du jeden Song um eine Bibelstelle plus ein Gefuehl plus das Karaoke-Format.</li>
+      <li><b>Deine staerkste freie Lane steht fest:</b> <span class="kw">bilingual worship songs english spanish</span> rankt in der echten YouTube-Autosuggest auf Position 0 (hoechste Nachfrage) und ist zugleich wenig besetzt. EN plus ES Karaoke ist genau dein Alleinstellungsmerkmal.</li>
+      <li><b>Die "Amazon-Autofill"-Funktion gibt es gratis</b> in der YouTube-Suchleiste selbst (Inkognito). Sortiert nach echter Suchhaeufigkeit. Alle Tools legen nur Schaetzzahlen darueber, YouTube gibt echte Volumen nie heraus.</li>
+      <li><b>CTR holt den Test, Retention gewinnt die Ausspielung.</b> Thumbnail plus Titel oeffnen die Tuer, die ersten 15 bis 30 Sekunden Haltequote entscheiden, ob YouTube breiter ausspielt.</li>
+      <li><b>Drei neue Hebel 2026 bevorzugen kleine Kanaele:</b> das Hype-Feature (Zuschauer pushen in Woche 1, Multiplikator fuer Kleine), Auto-Dubbing (gratis global, perfekt fuer EN-first), und engere Nischen-Cluster im Browse-Feed.</li>
+      <li><b>Sauber gekennzeichnete KI wird nicht abgestraft.</b> Disclosure ist Transparenz, keine Strafe. Undeklarierte, spaeter erkannte KI dagegen schon. Massen-KI-Spam wird seit Juli 2025 demonetarisiert, ein kuratierter Original-Katalog ist auf der sicheren Seite.</li>
+      <li><b>Schlaf und Kinder sind riesig.</b> "bible song for sleep", "sleep scriptures", "bible songs for kids" stehen alle auf Position 0. Lang-Format (1 Stunde plus, black screen, no ads) bedient eine eigene, treue Nachfrage.</li>
+      <li><b>Die Prediger-Idee in der jetzigen Form ist riskant, nicht klug.</b> "Wir haben unseren eigenen Teil dazugetan" schuetzt nicht, das ist genau die Definition einer Bearbeitung. Bei Paul Washer (HeartCry) ist Name und Foto im Thumbnail ausdruecklich verboten.</li>
+      <li><b>Die Idee funktioniert sauber anders:</b> Suchnachfrage greifst du legal ueber Themen und Bibelstellen ab ("song about grace", "Romans 8 song") und ueber Public-Domain-Prediger wie Spurgeon, dessen Worte du woertlich und sogar kommerziell vertonen darfst.</li>
+      <li><b>Fuer den bezahlten Kurs gilt verschaerft:</b> kommerzielle Nutzung kippt Fair Use und die nicht-kommerziellen Ministry-Lizenzen gegen dich. Vor dem Launch das Rechts-Thema sauber klaeren.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ REAL DEMAND ============ -->
+<section id="demand">
+  <div class="wrap">
+    <div class="kicker">Echte Nachfrage &middot; live gezogen</div>
+    <h2>Was Menschen wirklich bei YouTube tippen</h2>
+    <p class="sub">Das ist keine Schaetzung. Ich habe am 26.06.2026 die oeffentliche YouTube-Autosuggest-Schnittstelle (ds=yt) ueber viele Seeds und die komplette Alphabet-Suppe angezapft: <b>1070 echte, einzigartige Suchvorschlaege</b>, sortiert nach echter Haeufigkeit. So sieht die "Amazon-Autofill"-Funktion fuer deinen Markt aus.</p>
+    <div class="legend">
+      <span><span class="rank r0">0</span> Top-Vorschlag, hoechste Nachfrage</span>
+      <span><span class="rank r1">1-3</span> sehr gefragt</span>
+      <span><span class="rank r2">4+</span> spezifischer / Long-Tail</span>
+    </div>
+
+    <div class="grid g2" style="margin-top:18px">
+      <div class="card gold">
+        <span class="tag">deine Lane</span>
+        <h3>Zweisprachig EN + ES</h3>
+        <p class="small">Hohe Nachfrage, wenig Konkurrenz, exakt dein Format. Hier zuerst angreifen.</p>
+        <div class="kwlist">
+          <span><span class="rank r0">0</span>bilingual worship songs english spanish</span>
+          <span><span class="rank r0">0</span>spanish worship songs</span>
+          <span><span class="rank r1">2</span>bilingual worship with lyrics</span>
+          <span><span class="rank r2">5</span>bilingual worship karaoke</span>
+          <span><span class="rank r2">6</span>spanish worship songs with english subtitles</span>
+          <span><span class="rank r2">7</span>bilingual worship songs english spanish karaoke</span>
+        </div>
+      </div>
+      <div class="card gold">
+        <span class="tag">dein Format</span>
+        <h3>Lyrics / Karaoke / sing along</h3>
+        <p class="small">Genau was du baust. "female key / lower key" zeigt: Leute wollen mitsingen.</p>
+        <div class="kwlist">
+          <span><span class="rank r0">0</span>bible karaoke</span>
+          <span><span class="rank r0">0</span>bible song karaoke</span>
+          <span><span class="rank r0">0</span>bible songs with lyrics</span>
+          <span><span class="rank r0">0</span>worship with lyrics</span>
+          <span><span class="rank r1">2</span>biblical karaoke</span>
+          <span><span class="rank r1">3</span>worship karaoke female key</span>
+          <span><span class="rank r1">3</span>biblical karaoke lower key</span>
+        </div>
+      </div>
+      <div class="card">
+        <span class="tag">Position 0</span>
+        <h3>Schlaf / Ruhe</h3>
+        <p class="small">Riesig und treu. Modifikatoren (black screen, no ads, 1 hour, rain) sind eigene Sub-Nachfragen.</p>
+        <div class="kwlist">
+          <span><span class="rank r0">0</span>bible song for sleep</span>
+          <span><span class="rank r0">0</span>sleep scriptures</span>
+          <span><span class="rank r0">0</span>worship music for sleep</span>
+          <span><span class="rank r0">0</span>christian songs for sleeping</span>
+          <span><span class="rank r1">1</span>psalm songs for sleep</span>
+          <span><span class="rank r1">3</span>sleep scriptures black screen</span>
+          <span><span class="rank r2">4</span>scripture to fall asleep to</span>
+          <span><span class="rank r2">1</span>christian songs for sleeping no ads</span>
+        </div>
+      </div>
+      <div class="card">
+        <span class="tag">Position 0</span>
+        <h3>Kinder / Familie</h3>
+        <p class="small">Eigene Produktionsart (froehlicher, einfacher), aber Evergreen mit riesigem Volumen.</p>
+        <div class="kwlist">
+          <span><span class="rank r0">0</span>bible songs for kids</span>
+          <span><span class="rank r0">0</span>christian song for kids</span>
+          <span><span class="rank r0">0</span>worship for kids</span>
+          <span><span class="rank r1">1</span>bible songs for toddlers</span>
+          <span><span class="rank r1">2</span>scripture songs for kids</span>
+          <span><span class="rank r1">2</span>bible songs for babies</span>
+          <span><span class="rank r2">6</span>bible song sunday school</span>
+        </div>
+      </div>
+      <div class="card">
+        <span class="tag">Gefuehl / Problem</span>
+        <h3>Angst, Heilung, Trost</h3>
+        <p class="small">Die emotionalen Sucheingaben, um die du Single-Songs baust.</p>
+        <div class="kwlist">
+          <span><span class="rank r1">2</span>bible verse for anxiety</span>
+          <span><span class="rank r1">2</span>scripture for fear</span>
+          <span><span class="rank r1">1</span>scripture on healing</span>
+          <span><span class="rank r1">1</span>worship songs for healing</span>
+          <span><span class="rank r1">2</span>scripture to overcome fear and anxiety</span>
+          <span><span class="rank r2">5</span>worship over worry</span>
+          <span><span class="rank r2">5</span>scripture encouragement</span>
+          <span><span class="rank r2">4</span>bible verse for sadness</span>
+        </div>
+      </div>
+      <div class="card">
+        <span class="tag">Vers-spezifisch</span>
+        <h3>Psalmen &amp; Verse</h3>
+        <p class="small">Brandbare Serien. Psalm 23 und 91 sind eigene Marken-Anker.</p>
+        <div class="kwlist">
+          <span><span class="rank r0">0</span>psalm 23 song</span>
+          <span><span class="rank r0">0</span>psalm 91 song</span>
+          <span><span class="rank r0">0</span>bible verse song</span>
+          <span><span class="rank r1">1</span>psalm 23 song with lyrics</span>
+          <span><span class="rank r2">6</span>psalm 23 song the lord is my shepherd</span>
+          <span><span class="rank r2">7</span>bible verse for christmas</span>
+          <span><span class="rank r2">8</span>bible verse for healing</span>
+        </div>
+      </div>
+      <div class="card">
+        <span class="tag">Lang-Session</span>
+        <h3>Loop / Instrumental / Gebet</h3>
+        <p class="small">Sustained watch time ohne aktives Suchen (Pendeln, Gebet, lernen, schlafen).</p>
+        <div class="kwlist">
+          <span><span class="rank r0">0</span>worship instrumental</span>
+          <span><span class="rank r0">0</span>worship loop</span>
+          <span><span class="rank r0">0</span>worship playlist</span>
+          <span><span class="rank r0">0</span>scripture meditation</span>
+          <span><span class="rank r0">0</span>soaking worship songs</span>
+          <span><span class="rank r1">1</span>bible song piano</span>
+          <span><span class="rank r2">6</span>bible song instrumental</span>
+        </div>
+      </div>
+      <div class="card">
+        <span class="tag">Anlass</span>
+        <h3>Gebet / Quiet Time</h3>
+        <p class="small">Wann gehoert wird: Morgen, Nacht, stille Zeit, Andacht.</p>
+        <div class="kwlist">
+          <span><span class="rank r1">1</span>worship quiet time</span>
+          <span><span class="rank r1">2</span>worship and prayer</span>
+          <span><span class="rank r2">4</span>scripture devotional</span>
+          <span><span class="rank r2">6</span>worship music for prayer</span>
+          <span><span class="rank r2">6</span>worship morning songs</span>
+          <span><span class="rank r2">7</span>scripture night</span>
+        </div>
+      </div>
+    </div>
+    <div class="note"><b>So liest du die Zahl:</b> Rang 0 heisst, der Begriff erscheint als Top-Vorschlag, sobald jemand den Seed tippt (groesste Nachfrage). Hoehere Zahlen tauchen weiter unten oder erst bei spezifischeren Seeds auf, also Long-Tail. Vor dem Festlegen eines Titels den 3-Schritt-Check machen (siehe Tools): Autosuggest, dann Google Trends YouTube-Filter, dann Kaltsuche auf YouTube, ob kleine Kanaele auf Seite 1 stehen.</div>
+  </div>
+</section>
+
+<!-- ============ A: IDEAS ============ -->
+<section id="ideas">
+  <div class="wrap">
+    <div class="kicker">Strang A</div>
+    <h2>Priorisierte Song- und Video-Ideen</h2>
+    <p class="sub">Direkt aus den echten Nachfragedaten abgeleitet. Geordnet nach Prioritaet: hohe Nachfrage, niedrige Konkurrenz, passt zu deinem zweisprachigen Karaoke-Format. Die Titel folgen schon der Formel aus Strang B.</p>
+
+    <table>
+      <thead><tr><th>Prio</th><th>Idee / Arbeitstitel (EN)</th><th>Ziel-Keyword (echt)</th><th>Warum</th></tr></thead>
+      <tbody>
+        <tr><td><span class="pill p-good">1</span></td><td><b>Psalm 23 - Bilingual Worship (English + Spanish Lyrics) | Sing Along</b></td><td><span class="kw">bilingual worship</span> + <span class="kw">psalm 23 song</span></td><td>Verbindet deine zwei staerksten Rang-0-Felder (zweisprachig + bekanntester Psalm). Geringe Konkurrenz im Karaoke-Format.</td></tr>
+        <tr><td><span class="pill p-good">2</span></td><td><b>Psalm 91 - English &amp; Spanish Karaoke (He Is My Refuge)</b></td><td><span class="kw">psalm 91 song</span> + <span class="kw">bilingual worship karaoke</span></td><td>Psalm 91 = Schutz/Angst, hohe Dauernachfrage. Zweisprachig fast unbesetzt.</td></tr>
+        <tr><td><span class="pill p-good">3</span></td><td><b>Do Not Be Afraid - Isaiah 41:10 | Bible Song with Lyrics</b></td><td><span class="kw">scripture for fear</span> + <span class="kw">bible verse for anxiety</span></td><td>Vers des Jahres 2025, staerkstes Evergreen-Gefuehl. Single-Song, EN/ES darunter.</td></tr>
+        <tr><td><span class="pill p-good">4</span></td><td><b>1 Hour Peaceful Scripture Songs for Sleep (Lyrics, Black Screen)</b></td><td><span class="kw">sleep scriptures black screen</span> + <span class="kw">bible song for sleep</span></td><td>Rang 0, treue Lang-Session-Nachfrage. "black screen / no ads" sind echte Sub-Wuensche. Baut Watch Time massiv.</td></tr>
+        <tr><td><span class="pill p-good">5</span></td><td><b>Be Still - Scripture for Anxiety &amp; Peace (Philippians 4:6)</b></td><td><span class="kw">scripture to overcome fear and anxiety</span></td><td>Meistgelesener Vers 2024. Problem-Phrasierung im Titel konvertiert.</td></tr>
+        <tr><td><span class="pill p-warn">6</span></td><td><b>Bible Songs for Kids with Lyrics - Sing Along (Psalm 23)</b></td><td><span class="kw">bible songs for kids</span> + <span class="kw">scripture songs for kids</span></td><td>Riesiges Evergreen-Volumen. Andere Produktionsart (froehlich), pruefe ob es zur Marke passt. Eigene Playlist.</td></tr>
+        <tr><td><span class="pill p-warn">7</span></td><td><b>Scripture Lullaby for Babies - Peace of God (Sleep)</b></td><td><span class="kw">scripture lullaby</span> + <span class="kw">christian songs for sleeping babies</span></td><td>Sehr spezifisch, treu, Eltern teilen viel. Sanftes Format passt zur Marke.</td></tr>
+        <tr><td><span class="pill p-good">8</span></td><td><b>Healing Scriptures Set to Music (Lyrics) | Worship for Healing</b></td><td><span class="kw">scripture on healing</span> + <span class="kw">worship songs for healing</span></td><td>Rang 1, starke emotionale Nachfrage, gut fuer Shares in Krisenmomenten.</td></tr>
+        <tr><td><span class="pill p-good">9</span></td><td><b>The Lord Is My Shepherd - Instrumental Loop for Prayer (Piano)</b></td><td><span class="kw">worship instrumental</span> + <span class="kw">scripture meditation</span></td><td>Lang-Session ohne Gesang, leicht zu produzieren, fuettert Quiet-Time-Publikum.</td></tr>
+        <tr><td><span class="pill p-warn">10</span></td><td><b>Morning Worship with Scripture (Lyrics) | Quiet Time</b></td><td><span class="kw">worship quiet time</span> + <span class="kw">worship morning songs</span></td><td>Anlass-Suche, Routine-Hook (taeglicher Wiederkehrer).</td></tr>
+      </tbody>
+    </table>
+
+    <div class="note"><b>Serien-Logik:</b> Mach aus den Gewinnern Serien, nicht Einzelstuecke. "Bilingual Worship" (EN/ES) als Kern-Serie, "Scripture for Sleep" als Lang-Format-Serie, "A Song for ..." (Gefuehl) als Single-Serie, "Psalms" als vers-spezifische Serie. Jede Serie ist eine Playlist mit keyword-reichem Titel (siehe Strang B).</div>
+  </div>
+</section>
+
+<!-- ============ B: FORMULAS ============ -->
+<section id="formulas">
+  <div class="wrap">
+    <div class="kicker">Strang B</div>
+    <h2>Titel-, Tag- und Playlist-Formeln</h2>
+    <p class="sub">Wiederverwendbare Vorlagen. Such-Phrase immer nach vorn, ehrlich, kein Clickbait. Zum Kopieren.</p>
+
+    <div class="divlabel">Titel-Templates pro Typ</div>
+    <div class="codeblock">
+      <button class="copybtn" data-copy="t-titles">Kopieren</button>
+      <pre id="t-titles">Single-Song:     {Hook / Vers} - {Songname} | Bible Song with Lyrics ({Stelle})
+   Bsp: Don't Worry - The Sower | Bible Song with Lyrics (Matthew 6)
+
+Zweisprachig:    {Vers / Thema} - Bilingual Worship (English + Spanish Lyrics) | Sing Along
+   Bsp: Psalm 23 - Bilingual Worship (English + Spanish Lyrics) | Sing Along
+
+Schlaf / Loop:   {Dauer} {Stimmung} Scripture Songs for Sleep & Prayer (Lyrics, Black Screen)
+   Bsp: 1 Hour Peaceful Scripture Songs for Sleep & Prayer (Lyrics, Black Screen)
+
+Gefuehl-Single:  {Vers} - A Song for When You're {Gefuehl} (Lyrics)
+   Bsp: Isaiah 41:10 - A Song for When You're Afraid (Lyrics)
+
+Kinder:          Bible Songs for Kids with Lyrics - Sing Along ({Stelle})
+
+Shorts:          {Eine starke Zeile} #shorts #biblesong</pre>
+    </div>
+
+    <div class="grid g2">
+      <div>
+        <div class="divlabel">Tag-Set (Vorlage, knapp + relevant)</div>
+        <div class="codeblock">
+          <button class="copybtn" data-copy="t-tags">Kopieren</button>
+          <pre id="t-tags">bible song, scripture song, bible verse song,
+worship lyric video, sing along, bible karaoke,
+bilingual worship, english spanish worship,
+{vers, z.B. psalm 23}, {gefuehl, z.B. peace},
+christian music, scripture for {anlass}</pre>
+        </div>
+        <p class="small">Tags sind 2026 nur noch minor. Wenige, die wirklich zum Inhalt passen. Keine Zeit verschwenden, kein Stuffing.</p>
+      </div>
+      <div>
+        <div class="divlabel">Hashtags (3 bis 5, erste 3 ueber dem Titel)</div>
+        <div class="codeblock">
+          <button class="copybtn" data-copy="t-hash">Kopieren</button>
+          <pre id="t-hash">#BibleSongs #ScriptureSong #SingAlong
+#Worship #LyricVideo
+
+(Regel: mehr als ~15 Hashtags = YouTube
+ ignoriert ALLE. Also wenige, gezielt.)</pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="divlabel">Beschreibung: erste zwei Zeilen (zaehlen am meisten)</div>
+    <div class="codeblock">
+      <button class="copybtn" data-copy="t-desc">Kopieren</button>
+      <pre id="t-desc">Zeile 1: {Such-Phrase + Hook}, unter 120 Zeichen, vor "Mehr ansehen".
+   Bsp: Psalm 23 as a bilingual worship song - English and Spanish lyrics, sing along.
+Zeile 2: {Format-Satz mit zweitem Keyword}.
+   Bsp: Scripture set to music, word by word, with the meaning behind every verse.
+
+Danach: Idee hinter dem Song, Kapitel (0:00 Start), Links, KI-Hinweis, Hashtags.
+(Vollvorlage liegt in marketing/youtube-description.md)</pre>
+    </div>
+
+    <div class="divlabel">Playlist-Architektur (keyword-reiche Titel, dein Zinseszins)</div>
+    <table>
+      <thead><tr><th>Playlist-Titel</th><th>Ziel-Suche</th><th>Zweck</th></tr></thead>
+      <tbody>
+        <tr><td>Bilingual Worship - English &amp; Spanish (Sing Along)</td><td><span class="kw">bilingual worship</span></td><td>Deine Marken-Serie, autoplay-Kette</td></tr>
+        <tr><td>Scripture for Sleep &amp; Peace (1 Hour+)</td><td><span class="kw">sleep scriptures</span></td><td>Lang-Session, Watch Time</td></tr>
+        <tr><td>Bible Songs for Worry &amp; Anxiety</td><td><span class="kw">bible verse for anxiety</span></td><td>Evergreen-Gefuehl, Krisen-Shares</td></tr>
+        <tr><td>Psalms Set to Music (with Lyrics)</td><td><span class="kw">psalm song</span></td><td>Vers-Serie, Wiedererkennung</td></tr>
+        <tr><td>Bible Songs for Kids (Sing Along)</td><td><span class="kw">bible songs for kids</span></td><td>Familien-Evergreen</td></tr>
+        <tr><td>Worship to Pray To (Quiet Time)</td><td><span class="kw">worship quiet time</span></td><td>Routine-Anlass, Wiederkehrer</td></tr>
+      </tbody>
+    </table>
+    <p class="small">Jede Playlist bekommt eine keyword-reiche Beschreibung. Nie eine Playlist nur "Music Videos" nennen. Playlists ranken selbst in der Suche und treiben Autoplay-Sessions.</p>
+  </div>
+</section>
+
+<!-- ============ C: RELEASE ============ -->
+<section id="release">
+  <div class="wrap">
+    <div class="kicker">Strang C</div>
+    <h2>Release-Playbook &amp; Ranking-Hebel</h2>
+    <p class="sub">Was du pro Song abarbeitest, und welche Hebel wirklich zaehlen.</p>
+
+    <div class="grid g2">
+      <div class="card">
+        <h3>Hebel nach Wirkung</h3>
+        <ul class="clean">
+          <li><b>1. Packaging (Thumbnail + Titel).</b> Das Tor zu jedem Test. Aber nur nuetzlich, wenn Retention folgt.</li>
+          <li><b>2. Retention,</b> vor allem erste 15 bis 30 Sekunden. Schnell zum Hook, kein langes statisches Intro.</li>
+          <li><b>3. Zufriedenheit:</b> Versprechen von Titel/Thumbnail muss zum Inhalt passen. Wiederbesuche zaehlen.</li>
+          <li><b>4. Session:</b> End Screen auf deinen naechsten Song, enge Playlists, Autoplay-Radio.</li>
+          <li><b>5. Search-SEO:</b> dein realistischer Kaltstart (Phrase in Titel + Zeile 1 + gesungen).</li>
+          <li><b>6. Konsistenz:</b> fester Tag/feste Uhrzeit, 1x pro Woche reicht.</li>
+          <li><b>7. Engagement:</b> echte Frage stellen, fruehe Kommentare beantworten, einen pinnen.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Release-Tag Checkliste</h3>
+        <ul class="clean check">
+          <li>Premiere am Release-Tag (Fans zaehlen runter = Event)</li>
+          <li>Song als Featured Video setzen, Featured Playlist oben</li>
+          <li>Kapitel ab 0:00, mindestens 3, je 10s+, beschriftet (= Google Key Moments)</li>
+          <li>Akkurate Captions hochladen (gesungene Worte werden gelesen)</li>
+          <li>3 bis 5 Shorts aus verschiedenen Hooks, Audio-Link zum Track</li>
+          <li>End Screen letzte 5 bis 20s: naechster Song + Abo</li>
+          <li>Pinned Comment mit Frage</li>
+          <li>Community bitten, in Woche 1 zu hypen (Hype-Feature)</li>
+          <li>KI-Kennzeichnung gesetzt ("veraendert/synthetisch")</li>
+          <li>Auto-Dubbing in 2 bis 3 Sprachen (Vorschlag: ES, DE, PT)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note"><b>Auto-Dubbing ist dein groesster ungenutzter Global-Hebel.</b> 2026 fuer alle ausgerollt, gratis. Bei "EN-first global" verdoppelt es deine Reichweite ohne Mehrarbeit. Spanisch zuerst (passt zu deiner zweisprachigen Linie und dem grossen Latino-Glaubensmarkt).</div>
+
+    <div class="grid g3" style="margin-top:8px">
+      <div class="card"><h4>Nutzen</h4><p class="small">Hype-Feature (Woche 1), Auto-Dubbing, Lang-Session-Loops, Premieres, Shorts risikofrei testen.</p></div>
+      <div class="card"><h4>Vorsicht</h4><p class="small">Clickbait killt Zufriedenheit. Off-Platform-CTA mitten in der Session wird abgestraft. Tags/Hashtags nicht stopfen.</p></div>
+      <div class="card"><h4>Nicht erwarten</h4><p class="small">Shorts fuettern Long-Form nicht mehr direkt (entkoppelt). Fast-identische KI-Tracks nicht massenhaft hochladen.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TOOLS ============ -->
+<section id="tools">
+  <div class="wrap">
+    <div class="kicker">Werkzeugkasten</div>
+    <h2>Die Autofill-Funktion selbst nutzen</h2>
+    <p class="sub">Gratis zuerst. Das eine, das sich lohnt, kostet 27 USD pro Jahr.</p>
+
+    <div class="grid g2">
+      <div class="card">
+        <h3>Empfohlener Gratis-Stack (in Reihenfolge)</h3>
+        <ul class="clean">
+          <li><b>YouTube-Suchleiste</b> (Inkognito) - echtes Nachfrage-Signal, nach Haeufigkeit sortiert.</li>
+          <li><b>AnswerSocrates</b> (gratis) - 1000+ geclusterte Fragen pro Seed.</li>
+          <li><b>Google Trends, YouTube-Filter</b> - flach/steigend pruefen, Saison, 2 Titel vergleichen.</li>
+          <li><b>Keywords Everywhere</b> (27 USD/Jahr) - Zahlen direkt aufs Dropdown. Das eine Bezahl-Tool.</li>
+          <li><b>vidIQ oder TubeBuddy</b> (Gratis-Stufe) - Keyword-Score beim Browsen.</li>
+          <li><b>Google Search Console</b> - echte Queries deiner Website auslesen.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Alphabet-Suppe von Hand (gratis)</h3>
+        <p class="small">Erst ausloggen / Inkognito. Dann pro Seed:</p>
+        <ul class="clean">
+          <li><b>A-Z:</b> seed a, seed b, ... seed z</li>
+          <li><b>Leerzeichen:</b> "seed " erzwingt frische Fortsetzungen</li>
+          <li><b>Fragewoerter:</b> who/what/why/how + seed</li>
+          <li><b>Verbinder:</b> seed for / about / vs / with</li>
+          <li><b>Jahr:</b> seed 2026</li>
+        </ul>
+        <p class="small">Genau das habe ich automatisiert, um die Nachfrage-Daten oben zu ziehen.</p>
+      </div>
+    </div>
+
+    <div class="note"><b>3-Schritt-Validierung vor dem Bauen:</b> 1) Keyword steht im YouTube-Autosuggest (Nachfrage existiert). 2) Google Trends YouTube-Filter nicht fallend. 3) Kaltsuche auf YouTube zeigt kleine Kanaele auf Seite 1 (du kannst gewinnen). Wenn alle drei passen: bauen, exakte Phrase in Titel, erste Beschreibungszeile und einen Tag. Zielkorridor fuer kleinen Kanal: ca. 100 bis 500+ geschaetzte Suchen pro Monat bei schlagbarer Konkurrenz.</div>
+  </div>
+</section>
+
+<!-- ============ E: LEGAL ============ -->
+<section id="legal">
+  <div class="wrap">
+    <div class="kicker">Strang E</div>
+    <h2>Die Prediger-Idee: ehrlich bewertet</h2>
+    <p class="sub">Allgemeine Information zur Orientierung, keine Rechtsberatung. Fuer den kommerziellen Kurs vor Launch anwaltlich pruefen lassen.</p>
+
+    <div class="card" style="border-color:rgba(224,139,126,.4); margin-bottom:18px">
+      <h3>Kurzfazit ohne Schoenfaerberei</h3>
+      <p>Die Annahme <b>"wir haben unseren eigenen kleinen Teil dazugetan, also kommen wir nicht in Schwierigkeiten" ist rechtlich falsch.</b> Etwas Eigenes hinzuzufuegen heilt keine Verletzung, das ist genau die Definition einer Bearbeitung (derivative work), und Bearbeitungen sind dem Rechteinhaber vorbehalten. Drei Dinge im Plan sind die Risiken, und sie addieren sich:</p>
+      <ul class="clean">
+        <li>Predigt-Worte in Songtext giessen = Bearbeitung, braucht Erlaubnis.</li>
+        <li>Original-Audio/Video des Predigers nutzen = klare Verletzung + Content ID.</li>
+        <li>Name/Gesicht im Thumbnail/Titel als Klick-Magnet = Right of Publicity, False Endorsement, YouTube-Regeln zu Impersonation und irrefuehrenden Thumbnails.</li>
+      </ul>
+      <p><b>Konkret:</b> HeartCry (Paul Washer) verbietet ausdruecklich, "Fotos oder den Namen von Paul Washer in Channel-Artwork, Profil oder Video-Thumbnail" zu nutzen, verbietet Upload/Monetarisierung ihrer Inhalte und bearbeitete Versionen. Euer urspruenglicher Plan ist dort Punkt fuer Punkt untersagt.</p>
+    </div>
+
+    <div class="divlabel">Safe-vs-Risky-Spektrum</div>
+    <table>
+      <thead><tr><th>Stufe</th><th>Vorgehen</th><th>Risiko</th></tr></thead>
+      <tbody>
+        <tr><td><span class="pill p-good">Sehr sicher</span></td><td>Eigene neue Songs ueber Schrift/Themen (Gnade, Kreuz, Heiligung), die ein Prediger bekannt macht, OHNE seine Worte, OHNE Namen im Titel. Themen sind nicht schuetzbar.</td><td>Minimal</td></tr>
+        <tr><td><span class="pill p-good">Sicher</span></td><td>Songs auf Spurgeon / Public-Domain-Texten, woertlich erlaubt, auch kommerziell, mit Quellenangabe.</td><td>Sehr gering</td></tr>
+        <tr><td><span class="pill p-good">Mit Erlaubnis</span></td><td>Predigt eines Lebenden nach schriftlicher Permission der Ministry (z.B. Desiring God Auszuege erfragen).</td><td>Gering, vertraglich gedeckt</td></tr>
+        <tr><td><span class="pill p-warn">Grau</span></td><td>Original-Song, aber Name des Lebenden im Titel ("inspired by X"), ehrlich, ohne Foto/Stimme, ohne Endorsement-Suggestion.</td><td>Mittel</td></tr>
+        <tr><td><span class="pill p-bad">Riskant</span></td><td>Woertliche Predigtpassagen als Songtext ohne Erlaubnis.</td><td>Hoch</td></tr>
+        <tr><td><span class="pill p-bad">Sehr riskant</span></td><td>Original-Audio/Video im Video, oder Gesicht/Name im Thumbnail als Koeder, "offiziell"-Anmutung, Monetarisierung.</td><td>Sehr hoch (Strikes, Loeschung, bei HeartCry verboten)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="grid g2" style="margin-top:18px">
+      <div class="card">
+        <h3>Frei vs. geschuetzt (konkret)</h3>
+        <ul class="clean">
+          <li><b>Spurgeon</b> (gest. 1892): Public Domain weltweit. Woertlich + kommerziell frei. Idealer Marken-Kern.</li>
+          <li><b>Tozer</b> "Pursuit of God" (1948): in USA Public Domain, pro Werk pruefen.</li>
+          <li><b>Klassische Hymnen</b> (Wesley, Watts): meist frei (Text/Melodie), moderne Arrangements nicht.</li>
+          <li><b>Desiring God / Piper:</b> Auszuege nicht-kommerziell frei, kommerziell = Extra-Erlaubnis.</li>
+          <li><b>Grace to You / MacArthur, HeartCry / Washer:</b> restriktiv, meiden.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Themen statt Namen (legal abgreifen)</h3>
+        <p class="small">Bekannte Prediger-Botschaften in such- und rechtssichere Themen-Keywords uebersetzt. Name nur (wenn ueberhaupt) ehrlich in der Beschreibung, nie als Thumbnail-Koeder.</p>
+        <table style="font-size:13.5px">
+          <tbody>
+            <tr><td>"examine yourself / true gospel"</td><td><span class="kw">song about being truly saved (2 Cor 13:5)</span></td></tr>
+            <tr><td>"delight in God"</td><td><span class="kw">song about joy in God (Psalm 37)</span></td></tr>
+            <tr><td>"grace / the cross"</td><td><span class="kw">song about grace</span> / <span class="kw">Romans 8 song</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="divlabel">Permission-Mail (Vorlage, fuer Ministries)</div>
+    <div class="codeblock">
+      <button class="copybtn" data-copy="t-mail">Kopieren</button>
+      <pre id="t-mail">Subject: Permission to set a passage to music (Draw Near - Bible Songs)
+
+Dear {Ministry} team,
+
+I run a small faith music project, Draw Near, that turns Scripture into
+gentle bilingual lyric songs (English with Spanish/German translation).
+I would love to create an original song inspired by {sermon / message},
+using {a short quoted passage / only the themes, no direct quotes}.
+
+The video would credit {speaker / ministry} clearly and link back to you.
+Could you let me know what is permitted, including for a future paid
+teaching course? I am happy to follow any guidelines you have.
+
+Thank you for your ministry.
+{Name} - {channel link}</pre>
+    </div>
+
+    <div class="card gold" style="margin-top:18px">
+      <h3>Die smarte Linie (Empfehlung)</h3>
+      <p>Suchnachfrage abgreifen funktioniert auch sauber, ueber <b>Themen-Keywords und Bibelstellen</b> ("song about grace", "Romans 8 song", "examine yourself song"), nicht ueber fremde Namen/Gesichter. Dazu die <b>Spurgeon-Linie</b> als eigenstaendiger, rechtssicherer Marken-Kern. Das skaliert ohne juristische und Plattform-Angriffsflaeche, und es passt besser zu einer ehrfuerchtigen Marke als das Abgreifen fremder Reichweite.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BEHAVIOR ============ -->
+<section id="behavior">
+  <div class="wrap">
+    <div class="kicker">Hintergrund</div>
+    <h2>Suchverhalten kompakt</h2>
+    <div class="grid g2">
+      <div class="card">
+        <h3>Google: wie nach Gott gesucht wird</h3>
+        <ul class="clean">
+          <li><b>"What does the Bible say about ___"</b> ist das verlaesslichste Muster (Google bettet hier am haeufigsten YouTube ein).</li>
+          <li><b>Themen-Verse:</b> bible verses for anxiety / healing / strength / grief / sleep.</li>
+          <li><b>Top-Verse:</b> Philippians 4:6-7, Isaiah 41:10, Psalm 23, Psalm 91, Jeremiah 29:11.</li>
+          <li><b>Saison:</b> Ostern (groesste Spitze), Weihnachten, Fastenzeit. Dauernachfrage: Angst/Frieden.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>YouTube: nach Funktion, nicht Kuenstler</h3>
+        <ul class="clean">
+          <li>Titel = <b>Dauer + Anlass + Gefuehl</b> gestapelt (z.B. "2 Hour Worship for Prayer &amp; Sleep").</li>
+          <li><b>Kopf-Begriffe</b> (worship music) gehoeren Elevation/Bethel/Hillsong. Nicht antreten.</li>
+          <li><b>Deine Lane:</b> Scripture + Lyric/Karaoke + zweisprachig + Gefuehl/Anlass (Long-Tail).</li>
+          <li><b>Markt waechst:</b> Christian/Gospel eines der am schnellsten wachsenden US-Genres.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOURCES ============ -->
+<section id="sources">
+  <div class="wrap">
+    <div class="kicker">Belege</div>
+    <h2>Quellen</h2>
+    <p class="sub">Auswahl. Vollstaendige URLs liegen in der Markdown-Recherche (RECHERCHE-ranking-reichweite.md) im selben Ordner.</p>
+    <div class="grid g2">
+      <div class="card">
+        <h4>Suchverhalten &amp; Markt</h4>
+        <p class="small">Bible Study Tools (Top-Themen 2024) &middot; YouVersion (Vers des Jahres 2025) &middot; CBN (meistgelesener Vers 2024) &middot; Pew Research (Saison-Spitzen) &middot; Religion News / Billboard (Christian-Music-Wachstum) &middot; arXiv "The Digital Landscape of God".</p>
+      </div>
+      <div class="card">
+        <h4>Tools &amp; Autocomplete</h4>
+        <p class="small">Echte Nachfragedaten live aus YouTube ds=yt Autosuggest (26.06.2026) &middot; vidIQ / TubeBuddy Vergleiche &middot; Ahrefs Free YouTube Keyword Tool &middot; Keywords Everywhere &middot; AnswerSocrates (Alphabet-Soup) &middot; Google Trends YouTube-Filter.</p>
+      </div>
+      <div class="card">
+        <h4>Ranking 2026</h4>
+        <p class="small">YouTube for Artists (Release-Day) &middot; YouTube Blog (AI-Disclosure) &middot; Google Search Central (Key Moments / VideoObject) &middot; TechCrunch (Hype global) &middot; AdOutreach (Beaupre-Interview) &middot; OutlierKit / Buffer / vidIQ (Algorithmus 2026).</p>
+      </div>
+      <div class="card">
+        <h4>Recht</h4>
+        <p class="small">Stanford Fair Use (4 Faktoren) &middot; UMC Discipleship (Church-Musiker-Copyright) &middot; Desiring God Permissions &middot; HeartCry Copyrights &amp; Permissions &middot; Grace to You &middot; Spurgeon (Public Domain) &middot; INTA / Nolo (Right of Publicity) &middot; YouTube Spam &amp; Thumbnails Policy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Draw Near - Bible Songs &middot; Reichweite &amp; Ranking Playbook &middot; erstellt 26.06.2026.<br>
+    Nachfragedaten live aus der oeffentlichen YouTube-Autosuggest gezogen. Rechtsteil ist allgemeine Information, keine Rechtsberatung.
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.copybtn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var el = document.getElementById(btn.getAttribute('data-copy'));
+      if(!el) return;
+      navigator.clipboard.writeText(el.innerText).then(function(){
+        var old = btn.textContent; btn.textContent = 'Kopiert';
+        setTimeout(function(){ btn.textContent = old; }, 1400);
+      });
+    });
+  });
+</script>
+</body>
+</html>

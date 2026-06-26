@@ -1,72 +1,105 @@
 # Marten's Songs
 
-AI-created songs about faith, love, life and God, shown as bilingual karaoke
-lyric animations: the English lyrics light up word by word in time with the
-music, with a Spanish translation underneath. A hub page lists every song.
+KI-erstellte Songs ueber Glaube, Liebe, Leben und Gott, gezeigt als **zweisprachige Karaoke-Lyric-
+Animationen**: die englischen Lyrics leuchten Wort fuer Wort im Takt auf, die Uebersetzung steht darunter,
+gemalte Hintergruende driften dahinter, plus ein Panel "die Idee hinter dem Lied".
+Live: https://martennwt.github.io/marten-songs/ . Kein Em-Dash.
 
-## Structure
+> **Diese Datei ist der Einstieg fuer Menschen.** Fuer Claude ist es `CLAUDE.md` (wird automatisch geladen).
+> Wie wir bauen (Spezifikation) steht in `BRANDING.md`. Entwicklungs-Tagebuch: `WORKLOG.md` (intern).
+
+---
+
+## Die Landkarte: es ist nur DREIERLEI
+
+Wenn du die drei auseinanderhaeltst, ist nichts mehr chaotisch:
+
+1. **DIE ENGINE (die Song-Seite, LIVE).** Baut und zeigt die Songs. Nicht umbenennen, haengt am Build +
+   an der Live-Seite. -> `index.html`, `songs/`, `tools/`, `assets/`
+2. **DER YOUTUBE-KANAL.** Marke + Reichweite + Veroeffentlichen. -> `youtube/` (Index: `youtube/README.md`)
+3. **DER KURS / DAS PRODUKT (geparkt).** Was du spaeter verkaufst. -> `course/` (Funnel-Seite) +
+   `youtube/sower-system/` (der Skill-Bauplan)
 
 ```
 Marten's Songs/
-  index.html              hub page (auto-built, lists all songs)
-  songs/
-    the-sower/
-      index.html          the song's animation (auto-built)
-      the-sower.mp3        the audio
-      song.json           title, subtitle, theme, mp3 name, es[] translations
-      timing.json         transcript + word timestamps (from transcribe.js)
-  tools/
-    transcribe.js         mp3 -> timing.json (OpenAI: clean text + word timing)
-    build-anim.js         song.json + timing.json -> the animation + hub
-  assets/                 shared assets (if needed later)
+├── index.html      ENGINE  Hub-Menue (LIVE, gebaut von tools/build-anim.js)
+├── songs/          ENGINE  jeder Song (mp3, song.json, timing.json, gebautes index.html)
+├── tools/          ENGINE  die Maschine (retime, verify-song, build-anim, generate-image)
+├── assets/         ENGINE  geteilte Dateien
+├── youtube/        KANAL   brand.md, publish-playbook.md, description-template.md, reichweite/, sower-system/ ...
+├── course/         KURS    die Verkaufsseite (Funnel)
+├── archive/        Altes/Unbenutztes, das wir nicht loeschen, aber wegraeumen
+├── README.md       <- DIESE Datei (Mensch-Einstieg + Landkarte)
+├── CLAUDE.md       Einstieg fuer Claude (verweist auf README + BRANDING + WORKLOG)
+├── BRANDING.md     WIE wir bauen: Look, Player, Pipeline, Bild-Prompts, alle Lektionen
+└── WORKLOG.md      Tagebuch (intern, NICHT im verkauften Kunden-Paket)
 ```
 
-## Add a new song
+---
 
-**Always have the MP3 *and* the real lyrics.** Auto-transcribing singing drops/mangles
-lines, so we use the lyrics as ground truth and Whisper only for timing. (Full pipeline +
-look/feel: `BRANDING.md`. Guided flow: the `/neuer-song` skill.)
+## Das Ziel (die Vision, hier festgehalten)
 
-1. Drop the audio in `songs/<id>/<id>.mp3` and the real lyrics in `songs/<id>/lyrics.txt`
-   (verse blocks separated by blank lines; `[Verse]/[Chorus]` headers are ignored; write
-   choruses out in full).
-2. Build the timing from lyrics + audio:
-   ```
-   node tools/retime.js <id>
-   ```
-   Guided `whisper-1` gives word clocks; your real words are aligned onto them, gaps
-   interpolated, time forced monotonic. The displayed text is your lyrics by construction.
-   It prints coverage % and flags any "weak" (soft/quiet) segments.
-3. Create `songs/<id>/song.json` with `es[]`/`de[]`/`imageMap[]` — **one entry per couplet**
-   (= per timing segment; segmentation lives in `tools/lib/lyrics.js`), plus title, subtitle,
-   theme, genre, mp3, cover, images[], about{}. No internal `". "` inside an es/de entry.
-4. **Verify before anything else:**
-   ```
-   node tools/verify-song.js <id>      # text==lyrics, counts, monotonic timing, images
-   ```
-   `FAIL` = do not ship; fix and re-verify.
-5. Build:
-   ```
-   node tools/build-anim.js <id>        # builds the song + rebuilds the hub
-   node tools/build-anim.js --all       # rebuild everything
-   ```
-6. Open `songs/<id>/index.html` and play it through before sharing.
+Am Ende sollen daraus **zwei getrennte, verkaufbare Skills** werden. Es sind zwei verschiedene Dinge:
 
-`transcribe.js` (gpt-4o-transcribe + guided whisper-1) is only for a first draft when no
-lyrics exist yet — then get the real lyrics and use `retime.js`.
+1. **Song-Website-Skill** - "bau dir deinen eigenen zweisprachigen Karaoke-Song-Player / deine eigene
+   Webseite mit Songs". Das ist die ENGINE (`index.html`, `songs/`, `tools/`) + der Skill `/neuer-song`
+   + `BRANDING.md`. **Den bauen wir zuerst, damit Marten ihn selbst ausprobieren kann** (Songs Stueck fuer
+   Stueck auf die eigene Seite bringen).
+2. **YouTube-Kanal-Skill** - "bau dir einen Faith-YouTube-Kanal" (Marke, Reichweite/SEO, Thumbnails,
+   pro Song veroeffentlichen). Das ist der `youtube/`-Ordner + `/top-thumbnail`.
 
-## Notes
+So soll es fuer Kunden laufen: der Kaeufer bekommt einen **Ordner (oder eine ZIP)**, legt ihn in sein
+Claude-Projekt, und im **Chat geht er Schritt fuer Schritt von A bis Z durch**, waehrend Claude ihn fuehrt
+und alles fuer ihn macht. Der Bauplan dafuer liegt in `youtube/sower-system/blueprint.md` (GEPARKT).
+`WORKLOG.md` ist internes Tagebuch und kommt **nicht** ins Kunden-Paket.
 
-- API keys live in `C:/Users/marte/Documents/Claude/API keys/` and are read by
-  the scripts, never hardcoded. Only `transcribe.js` needs the key (the build is
-  fully offline).
-- Auto-transcription of singing is good but not perfect; a word may light up
-  slightly early or late. Fine-tune by editing the `start` values in
-  `timing.json` if needed, then rebuild.
-- Fonts load from Google Fonts (online) with a system fallback. Everything else
-  works offline by double-clicking the HTML.
+**Fokus jetzt:** Skill 1 (die eigene Songseite) scharf machen und mit echten Songs testen.
 
-## Deploy (planned)
+---
 
-Goal: publish to GitHub Pages so a single link can be shared. The repo is a
-static site (root `index.html`), so Pages can serve it directly from `main`.
+## Live vs. nur lokal
+
+- **LIVE** (martennwt.github.io/marten-songs): `index.html`, `songs/`, `tools/`.
+- **NUR LOKAL** (noch nicht committet): `course/`, `youtube/`. Hier koennen wir frei umsortieren.
+
+## Wo ist der fertige Song-Ablauf?
+
+Der Weg von "MP3 + Text" zu "fertiger Song mit Effekten, Play, Uebersetzung, Erklaerung":
+- **BRANDING.md** = die Spezifikation (Look, Player, Pipeline, alle Regeln).
+- **Skill `/neuer-song`** (`~/.claude/commands/neuer-song.md`) = der gefuehrte Ablauf Schritt fuer Schritt.
+- **tools/** = die Skripte, die es ausfuehren (retime -> verify -> build-anim).
+
+---
+
+## Neuen Song hinzufuegen (die Pipeline)
+
+**Immer MP3 + die echten Lyrics zusammen.** Auto-Transkription von Gesang verschluckt/verdreht Zeilen,
+darum sind die Lyrics die Wahrheit und Whisper nur die Uhr. (Voller Look/Feel: `BRANDING.md`.)
+
+1. Audio nach `songs/<id>/<id>.mp3`, echte Lyrics nach `songs/<id>/lyrics.txt` (Strophen durch Leerzeilen
+   getrennt; `[Verse]/[Chorus]`-Header werden ignoriert; Refrains ausschreiben).
+2. Timing bauen: `node tools/retime.js <id>` (guided whisper-1 fuer Wortuhren, deine Woerter werden per
+   Alignment daraufgelegt, Luecken interpoliert, Zeit monoton erzwungen). Achte auf "coverage %" + "weak".
+3. `songs/<id>/song.json` schreiben: `es[]`/`de[]`/`imageMap[]` mit **einem Eintrag pro Lyric-ZEILE**
+   (= pro Anzeigezeile, Segmentierung in `tools/lib/lyrics.js`), plus title, subtitle, names{de,es},
+   genre, mp3, cover, images[], about{}, introStart/introEnd bei Bedarf. Kein internes `". "` in es/de.
+4. **Pruefen (Gate, vor allem anderen):** `node tools/verify-song.js <id>` (Text==Lyrics, Counts, Timing
+   monoton, Bilder). `FAIL` = nicht ausliefern, beheben, neu pruefen.
+5. Bauen: `node tools/build-anim.js <id>` (Song + Hub) oder `--all`.
+6. `songs/<id>/index.html` oeffnen und wirklich durchspielen, bevor du teilst.
+7. Live (nach OK): `git add -A && git commit && git push origin main` (Pages baut automatisch).
+
+`transcribe.js` ist nur fuer einen ersten Entwurf, wenn noch keine Lyrics existieren, danach echte Lyrics
+holen und `retime.js` fahren.
+
+## Notizen
+
+- API-Keys liegen in `C:/Users/marte/Documents/Claude/API keys/` und werden von den Skripten gelesen, nie
+  hardcoded. Nur `retime.js`/`transcribe.js` brauchen Netz; der Build ist offline.
+- Fonts kommen von Google Fonts (online) mit System-Fallback; sonst laeuft alles offline per Doppelklick.
+
+## Was wir NICHT umbenennen (und warum)
+
+- `index.html`, `songs/`, `tools/`, `assets/`: haengen am Build + an der Live-Seite.
+- `course/`: geplanter oeffentlicher Pfad `.../marten-songs/course/`, von index.html + der Beschreibungs-
+  Vorlage verlinkt. Bleibt `course/` (intern "die Funnel Page").

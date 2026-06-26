@@ -2,6 +2,38 @@
 
 ---
 
+## 2026-06-26 (8): YouTube-Branding-Mockup + Thumbnail-Pipeline (Golden Oil über fal)
+
+**Erledigt:**
+- **Branding-Mockup `youtube/branding.html`** gebaut/iteriert: Name (Draw Near), 6 SVG-Logos, Avatare,
+  3 Banner (2560x1440 + Safe-Area), Thumbnails, fertiges Video-Beschreibungs-Skript (echte Kapitel-Zeiten
+  aus timing.json), Launch-Playbook, Copy. 1:1-Toggle + PNG-Export. Headless-Render zur Selbstprüfung.
+- **Stil ENTSCHIEDEN = „Golden Oil"** (hell, warm, gemalt). Lektion: dunkle Gesichter + CSS-Composites
+  waren schwach/düster. Alle dunklen Teile aus der Live-Seite **gelöscht** (Gesichter-Sektion, dunkle
+  Thumbnail-Tabs, Photoreal, Stil-Picker). Voll-Backup `youtube/branding-archiv.html` (Link „⤓ alte Versionen").
+- **Tool-Durchbruch:** Nano Banana Pro (= Gemini 3 Pro Image) läuft über **fal.ai** (`fal-ai/nano-banana-pro`)
+  = gleicher Look wie s1, über **fal-Guthaben, KEIN Google-Tageslimit**. Generator
+  `tools/images/generate-image.js` erweitert: Nano-Banana auf fal mit `aspect_ratio` (16:9/3:4), Job-Feld
+  `aspect` (FLUX-Pfad unverändert). OpenAI/gpt-image für Golden Oil verworfen (anderer Look, „crap").
+- **Bilder erzeugt:** Original `styles/s1-golden-oil.png` (Gemini); 3 Golden-Oil-Portraits
+  (gp-man/gp-older-woman/gp-young-man); und **3 fertige Golden-Oil-Thumbnails über fal** im Mockup:
+  fg1 Don't Worry/Matthew 6, fg2 Be Still/Psalm 46, fg3 Do Not Fear/Isaiah 41:10 - je andere Person +
+  Thema, an echte Suchnachfrage gekoppelt. Text sauber gerendert, Play + Benefit-Badge.
+- **Skill `/top-thumbnail`** (`~/.claude/commands/top-thumbnail.md`): hält Anatomie (Gesicht + Hook ≤3 Wörter
+  + „es ist ein Song"-Signal + Vers + EN/ES + Slogan), Song-zuerst-lesen (Genre/Energie), Golden-Oil-Default,
+  fal-Nano-Banana als Standardweg fest. Kanal-Slogan = „Come closer to God".
+- Recherche eingeflossen (CTR/Thumbnails 2026, beste KI-Bild-Tools, fal Nano Banana). Memory aktuell.
+
+**Offen / morgen:**
+1. Marten sichtet die 3 fal-Thumbnails: Stil/Qualität ok? Feste „Gesicht des Kanals"-Person oder wechseln?
+2. Banner (Sung Scripture / Feel Him) sind noch dunkel: ggf. auf hellen Golden-Look ziehen.
+3. Gewinner-Thumbnail in **Canva** finalisieren (Draw-Near-Logo + exakte Marken-Typo).
+4. Kanalname final wählen + Handle-Verfügbarkeit prüfen; Lieblings-Logo wählen.
+5. Optional: weitere Themen-Thumbnails; die zweisprachige EN+ES-Lane (Rang 0) prominent bespielen.
+6. Nichts gepusht (Branding ist lokales Mockup).
+
+---
+
 ## 2026-06-26 (7): Monetarisierung, Kurs-Landingpage „The Sower System" + Sticky-Bars
 
 **Ziel:** Kanal monetarisieren. Kurs verkaufen (eine Skill-Datei + kurzer „Set up Claude"-Videokurs =
