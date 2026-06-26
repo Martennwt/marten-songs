@@ -1,23 +1,18 @@
 /* ============================================================================
    build-anim.js — build a song's karaoke animation + the site hub.
 
-   Per song it reads:
-     songs/<id>/song.json   (title, subtitle, theme, mp3, es[] per segment)
-     songs/<id>/timing.json (Whisper verbose_json: segments[] + words[])
-   and writes:
-     songs/<id>/index.html  (the animation: English lights up word-by-word,
-                             Spanish translation below)
-   Then it rebuilds the root index.html hub from every songs/<id>/song.json.
+   Per song reads:  songs/<id>/song.json  (title, subtitle, theme, mp3,
+                       es[]/de[] translations per segment, about{de,es})
+                    songs/<id>/timing.json (Whisper verbose_json: segments+words)
+   Writes:          songs/<id>/index.html  (animation + player)
+   Then rebuilds:   index.html             (hub, from every songs/<id>/song.json)
 
-   Usage:
-     node tools/build-anim.js <song-id>     build one song + rebuild hub
-     node tools/build-anim.js --all         rebuild every song + hub
+   Usage:  node tools/build-anim.js <song-id> | --all
    ============================================================================ */
 const fs = require('fs');
 const path = require('path');
 const ROOT = path.resolve(__dirname, '..');
 const SONGS = path.join(ROOT, 'songs');
-
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
 function buildSong(id) {
@@ -26,79 +21,266 @@ function buildSong(id) {
   const data = JSON.parse(fs.readFileSync(path.join(dir, 'timing.json'), 'utf8'));
   const words = data.words || [];
   const segs = data.segments || [];
-  const ES = meta.es || [];
+  const ES = meta.es || [], DE = meta.de || [];
 
   const lines = segs.map((s, i) => {
     const win = words.filter(w => w.start >= s.start - 0.06 && w.start < s.end + 0.25);
     const tokens = s.text.trim().split(/\s+/).filter(Boolean);
     let wobj;
-    if (win.length === tokens.length) {
-      wobj = tokens.map((t, k) => ({ t, s: +win[k].start.toFixed(2) }));
-    } else {
-      const dur = Math.max(0.4, s.end - s.start) / tokens.length;
-      wobj = tokens.map((t, k) => ({ t, s: +(s.start + k * dur).toFixed(2) }));
-    }
-    return { start: +s.start.toFixed(2), end: +s.end.toFixed(2), es: ES[i] || '', w: wobj };
+    if (win.length === tokens.length) wobj = tokens.map((t, k) => ({ t, s: +win[k].start.toFixed(2) }));
+    else { const dur = Math.max(0.4, s.end - s.start) / tokens.length; wobj = tokens.map((t, k) => ({ t, s: +(s.start + k * dur).toFixed(2) })); }
+    return { start: +s.start.toFixed(2), end: +s.end.toFixed(2), es: ES[i] || '', de: DE[i] || '', w: wobj };
   });
 
   const linesHtml = lines.map((ln, i) => {
     const spans = ln.w.map(w => '<span class="w" data-s="' + w.s + '">' + esc(w.t) + '</span>').join(' ');
-    const es = ln.es ? '<div class="es">' + esc(ln.es) + '</div>' : '';
-    return '<div class="line" id="L' + i + '" data-s="' + ln.start + '" onclick="seekTo(' + ln.start + ')"><div class="en">' + spans + '</div>' + es + '</div>';
+    let tr = '';
+    if (ln.es) tr += '<div class="tline es-t">' + esc(ln.es) + '</div>';
+    if (ln.de) tr += '<div class="tline de-t">' + esc(ln.de) + '</div>';
+    return '<div class="line" data-s="' + ln.start + '" onclick="seekTo(' + ln.start + ')"><div class="en">' + spans + '</div>' + tr + '</div>';
   }).join('\n');
 
-  const head = '<!doctype html><html lang="en"><head><meta charset="utf-8">' +
-    '<meta name="viewport" content="width=device-width,initial-scale=1">' +
-    '<title>' + esc(meta.title) + ' &middot; Marten\'s Songs</title>' +
+  const flES = '<svg class="fl" viewBox="0 0 24 16"><rect width="24" height="16" rx="2" fill="#c60b1e"/><rect y="4" width="24" height="8" fill="#ffc400"/></svg>';
+  const flDE = '<svg class="fl" viewBox="0 0 24 16"><rect width="24" height="16" rx="2" fill="#111"/><rect y="5.33" width="24" height="5.33" fill="#dd0000"/><rect y="10.66" width="24" height="5.34" fill="#ffce00"/></svg>';
+  const volOn = '<svg class="vi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10v4h3l4 3V7L6 10H3z"/><path d="M14.5 9.2a3.4 3.4 0 010 5.6"/><path d="M17 7a6.2 6.2 0 010 10"/></svg>';
+  const volLow = '<svg class="vi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10v4h3l4 3V7L6 10H3z"/><path d="M14.5 9.2a3.4 3.4 0 010 5.6"/></svg>';
+  const volMute = '<svg class="vi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10v4h3l4 3V7L6 10H3z"/><path d="M15.5 10l5 5M20.5 10l-5 5"/></svg>';
+  const infoSvg = '<svg class="vi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.2" stroke-linecap="round"/><circle cx="12" cy="7.6" r="0.7" fill="currentColor" stroke="none"/></svg>';
+  const listSvg = '<svg class="vi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg>';
+
+  const head = '<!doctype html><html lang="en" data-tlang="es"><head><meta charset="utf-8">' +
+    '<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">' +
+    '<title>' + esc(meta.title) + " &middot; Marten's Songs</title>" +
     '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' +
-    '<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;600&display=swap" rel="stylesheet">' +
+    '<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">' +
+    '<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>' +
     '<style>' + songCSS() + '</style></head><body>';
 
   const body =
     '<canvas id="bg"></canvas>' +
-    '<a id="home" href="../../index.html">&#8592; Marten\'s Songs</a>' +
+    '<a id="home" href="../../index.html">&#8592; Songs</a>' +
+    '<button id="aboutBtn" class="about-btn" onclick="openAbout()"><span class="spark">&#10022;</span> <span id="aboutBtnLabel"></span></button>' +
     '<div id="title"><div class="t-eyebrow">' + esc(meta.subtitle || '') + '</div><h1>' + esc(meta.title) + '</h1>' +
     '<button id="startBtn" onclick="startPlay()">&#9654;&nbsp; Play</button>' +
-    '<div class="t-hint">English lights up as it is sung &middot; Spanish below</div></div>' +
+    '<div class="t-hint">The words light up as they are sung &middot; translation below</div></div>' +
     '<div id="lyrics"><div id="scroll">' + linesHtml + '<div class="line end-pad"></div></div></div>' +
-    '<div id="bar"><button id="pp" onclick="togglePlay()">&#9654;</button>' +
-    '<span id="cur" class="t">0:00</span><div id="track" onclick="scrub(event)"><div id="fill"></div></div>' +
-    '<span id="dur" class="t">0:00</span></div>' +
+    '<div id="about" hidden onclick="if(event.target===this)closeAbout()"><div class="about-card">' +
+    '<button class="about-x" onclick="closeAbout()" aria-label="Close">&times;</button>' +
+    '<div class="ab-head"><button class="about-lang chip" onclick="toggleLang()"><span id="aboutFlag">' + flES + '</span> <span id="aboutLangName">ES</span></button></div>' +
+    '<div class="ab-eyebrow" id="aboutEyebrow"></div><h2 id="aboutTitle"></h2>' +
+    '<div class="ab-refs" id="aboutRefs"></div><div id="aboutBody"></div></div></div>' +
+    '<div id="lyricsModal" hidden onclick="if(event.target===this)closeLyrics()"><div class="about-card lyrics-card">' +
+    '<button class="about-x" onclick="closeLyrics()" aria-label="Close">&times;</button>' +
+    '<div class="ab-head"><button class="dlpdf" onclick="downloadPdf()">&#8595;&nbsp; PDF</button></div>' +
+    '<div class="ab-eyebrow" id="lyricsEyebrow"></div><h2 id="lyricsTitle"></h2><div id="lyricsBody"></div></div></div>' +
+    '<div id="player">' +
+    '<button id="collapse" onclick="toggleCollapse()" aria-label="Hide or show the player">&#9662;</button>' +
+    '<div class="pl-inner">' +
+    '<div class="pl-row"><span id="cur" class="t">0:00</span><div id="track" onclick="scrub(event)"><div id="fill"></div></div><span id="dur" class="t">0:00</span></div>' +
+    '<div class="pl-row pl-ctrl">' +
+    '<div class="pl-left"><button id="pp" class="rnd" onclick="togglePlay()">&#9654;</button>' +
+    '<div class="popwrap"><button id="volBtn" class="ico" onclick="toggleVolPop(event)" aria-label="Volume">' + volOn + '</button>' +
+    '<div id="volPop" class="pop volpop" hidden><input id="vol" type="range" min="0" max="1" step="0.01" value="1" oninput="setVol(this.value)" aria-label="Volume"></div></div></div>' +
+    '<div class="pl-right">' +
+    '<button id="lyricsBtn" class="chip" onclick="openLyrics()">' + listSvg + ' <span id="lyricsLbl">Letra</span></button>' +
+    '<div class="popwrap"><button id="langTog" class="chip" onclick="toggleLangMenu(event)"><span id="flag">' + flES + '</span> <span id="langName">ES</span> <span class="caret">&#9662;</span></button>' +
+    '<div id="langMenu" class="pop menu" hidden><button type="button" onclick="setTLang(\'es\')">' + flES + ' Español</button><button type="button" onclick="setTLang(\'de\')">' + flDE + ' Deutsch</button></div></div>' +
+    '</div></div></div></div>' +
     '<audio id="au" src="' + esc(meta.mp3) + '" preload="auto"></audio>';
 
-  const dataScript = '<script>var LINES=' + JSON.stringify(lines) + ';</script>';
+  const dataScript = '<script>var LINES=' + JSON.stringify(lines) +
+    ';var ABOUT=' + JSON.stringify(meta.about || { es: [], de: [] }) +
+    ';var FLAGS=' + JSON.stringify({ es: flES, de: flDE }) +
+    ';var VOL=' + JSON.stringify({ on: volOn, low: volLow, mute: volMute }) +
+    ';var SONG=' + JSON.stringify({ id: id, title: meta.title, refs: meta.subtitle || '' }) + ';</script>';
   const app = '<script>' + songJS() + '</script>';
   fs.writeFileSync(path.join(dir, 'index.html'), head + body + dataScript + app + '</body></html>');
-  return { id, meta, lineCount: lines.length };
+  return { id, lineCount: lines.length };
 }
 
+/* ---------------- per-song styles ---------------- */
+function songCSS() {
+  return [
+    '*{box-sizing:border-box}', 'html,body{margin:0;height:100%;overflow:hidden}',
+    "body{font-family:'Inter',system-ui,sans-serif;background:radial-gradient(120% 90% at 50% -10%,#16243a 0%,#0c1626 45%,#070d18 100%);color:#eaf0f7}",
+    '#bg{position:fixed;inset:0;z-index:0;pointer-events:none}',
+    '#home{position:fixed;top:14px;left:16px;z-index:40;color:#9fb0c6;text-decoration:none;font-size:.85rem;opacity:.85}', '#home:hover{color:#ffe39a}',
+    '.about-btn{position:fixed;top:13px;right:14px;z-index:45;display:inline-flex;align-items:center;gap:.5rem;background:linear-gradient(180deg,rgba(255,231,173,.16),rgba(233,184,92,.12));border:1px solid rgba(243,196,108,.5);color:#ffe7ad;border-radius:999px;padding:.55rem 1.1rem;font-size:.9rem;font-weight:600;cursor:pointer;backdrop-filter:blur(4px);box-shadow:0 6px 20px rgba(0,0,0,.25);transition:transform .15s,background .2s,border-color .2s}',
+    '.about-btn:hover{transform:translateY(-1px);background:linear-gradient(180deg,rgba(255,231,173,.28),rgba(233,184,92,.2));border-color:rgba(243,196,108,.85)}',
+    '.about-btn .spark{color:#ffd87a}',
+    /* title / play gate */
+    '#title{position:fixed;inset:0;z-index:60;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:.5rem;padding:1rem;background:radial-gradient(80% 60% at 50% 40%,rgba(12,22,38,.55),rgba(7,13,24,.92));backdrop-filter:blur(2px);transition:opacity .8s,visibility .8s}',
+    '#title.hide{opacity:0;visibility:hidden}',
+    '.t-eyebrow{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#caa45a}',
+    "#title h1{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(3rem,12vw,7rem);margin:.2rem 0;line-height:1;background:linear-gradient(180deg,#fff,#f3d79a);-webkit-background-clip:text;background-clip:text;color:transparent}",
+    '#startBtn{margin-top:1.2rem;font-size:1.05rem;font-weight:600;color:#0c1626;background:linear-gradient(180deg,#ffe7ad,#e9b85c);border:0;border-radius:999px;padding:.85rem 2.2rem;cursor:pointer;box-shadow:0 10px 30px rgba(233,184,92,.35)}',
+    '.t-hint{margin-top:1rem;color:#7e90a8;font-size:.78rem}',
+    /* lyrics */
+    '#lyrics{position:fixed;left:0;right:0;top:0;bottom:120px;z-index:10;overflow:hidden;-webkit-mask-image:linear-gradient(180deg,transparent,#000 20%,#000 80%,transparent);mask-image:linear-gradient(180deg,transparent,#000 20%,#000 80%,transparent);transition:bottom .35s}',
+    'body.pl-collapsed #lyrics{bottom:46px}',
+    '#scroll{position:absolute;left:0;right:0;top:50%;padding:0 6vw;transition:transform .55s cubic-bezier(.22,.61,.36,1)}',
+    '.line{text-align:center;margin:0 auto;max-width:920px;padding:1.4rem 0;opacity:.26;filter:blur(.4px);transition:opacity .45s,filter .45s;cursor:pointer}',
+    '.line.active{opacity:1;filter:none}', '.line.done{opacity:.4}',
+    ".en{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(1.7rem,4.4vw,3rem);line-height:1.28}",
+    /* soft shimmer / wave highlight (no hard box) */
+    '.w{color:rgba(234,240,247,.42)}',
+    '.line.active .w{color:rgba(234,240,247,.6);transition:filter .3s ease}',
+    '.line.active .w.sung,.line.active .w.cur{color:transparent;-webkit-background-clip:text;background-clip:text}',
+    '.line.active .w.sung{background-image:linear-gradient(#f1d489,#f1d489)}',
+    '.line.active .w.cur{background-image:linear-gradient(90deg,#ffe6a6 var(--p,0%),rgba(234,240,247,.55) var(--p,0%));filter:drop-shadow(0 0 8px rgba(243,205,130,.45))}',
+    /* translation under each line */
+    '.tline{margin-top:.6rem;font-style:italic;font-size:clamp(.92rem,1.8vw,1.06rem);color:rgba(158,201,182,.5);letter-spacing:.01em}',
+    '.line.active .tline{color:rgba(186,226,207,.72)}',
+    '.de-t{display:none}', 'html[data-tlang="de"] .es-t{display:none}', 'html[data-tlang="de"] .de-t{display:block}',
+    '.end-pad{height:40vh;padding:0;opacity:0}',
+    /* player */
+    '#player{position:fixed;left:0;right:0;bottom:0;z-index:50;padding:0 max(.8rem,3vw) calc(.7rem + env(safe-area-inset-bottom));background:linear-gradient(0deg,rgba(7,13,24,.96) 60%,rgba(7,13,24,0));transition:transform .35s}',
+    '#collapse{position:absolute;left:50%;top:-16px;transform:translateX(-50%);width:54px;height:22px;border:0;border-radius:11px 11px 0 0;background:rgba(20,32,52,.95);color:#9fb0c6;cursor:pointer;font-size:.8rem;box-shadow:0 -2px 10px rgba(0,0,0,.25)}',
+    'body.pl-collapsed #player .pl-inner{display:none}', 'body.pl-collapsed #collapse{transform:translateX(-50%) rotate(180deg)}',
+    '.pl-inner{max-width:920px;margin:0 auto;display:flex;flex-direction:column;gap:.5rem;padding-top:.55rem}',
+    '.pl-row{display:flex;align-items:center;gap:.7rem}',
+    '.t{font-variant-numeric:tabular-nums;font-size:.78rem;color:#9fb0c6;flex:0 0 auto}',
+    '#track{position:relative;flex:1 1 auto;height:6px;border-radius:6px;background:rgba(255,255,255,.13);cursor:pointer}',
+    '#fill{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:6px;background:linear-gradient(90deg,#caa45a,#ffe39a)}',
+    '.pl-ctrl{justify-content:space-between}', '.pl-left,.pl-right{display:flex;align-items:center;gap:.6rem}',
+    '.rnd{width:44px;height:44px;border-radius:50%;border:0;cursor:pointer;font-size:1rem;color:#0c1626;background:linear-gradient(180deg,#ffe7ad,#e9b85c);box-shadow:0 6px 18px rgba(233,184,92,.35)}',
+    '.ico{display:inline-flex;align-items:center;justify-content:center;background:transparent;border:0;color:#aebccf;cursor:pointer;padding:.25rem}', '.ico:hover{color:#ffe39a}',
+    '.vi{width:19px;height:19px;display:block}',
+    '.fl{width:22px;height:15px;border-radius:2px;display:block;box-shadow:0 0 0 1px rgba(255,255,255,.18)}',
+    '#vol{width:92px;max-width:28vw;accent-color:#e9b85c;cursor:pointer}',
+    '.chip{display:flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:#eaf0f7;border-radius:999px;padding:.35rem .7rem;font-size:.82rem;font-weight:600;cursor:pointer}',
+    '.chip:hover{border-color:rgba(243,196,108,.5)}', '#flag{display:flex;line-height:0}',
+    /* about overlay */
+    '#about{position:fixed;inset:0;z-index:70;display:flex;align-items:center;justify-content:center;padding:1.2rem;background:rgba(5,10,20,.72);backdrop-filter:blur(4px)}',
+    '#about[hidden]{display:none}',
+    '.about-card{position:relative;max-width:660px;max-height:84vh;overflow:auto;background:linear-gradient(180deg,#101d31,#0b1424);border:1px solid rgba(255,255,255,.1);border-top:2px solid rgba(243,196,108,.55);border-radius:20px;padding:1.7rem 1.6rem 2rem;box-shadow:0 30px 80px rgba(0,0,0,.5)}',
+    '.about-x{position:absolute;top:.55rem;right:.85rem;background:transparent;border:0;color:#9fb0c6;font-size:1.6rem;cursor:pointer;line-height:1}', '.about-x:hover{color:#ffe39a}',
+    '.ab-eyebrow{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#caa45a}',
+    "#aboutTitle{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:2.1rem;margin:.1rem 0 .15rem;color:#f3d79a;line-height:1.05}",
+    '.ab-head{display:flex;justify-content:flex-start;margin:0 0 .6rem}', '.about-lang{padding:.3rem .6rem;font-size:.78rem}',
+    '.ab-refs{color:#9fb0c6;font-size:.82rem;margin-bottom:1rem}',
+    '.ab-intro{color:#d8e2f0;font-size:1rem;line-height:1.62;margin:0 0 1.15rem;padding-bottom:1.05rem;border-bottom:1px solid rgba(255,255,255,.1)}',
+    '.ab-sec{margin-bottom:1.15rem}', '.ab-h{font-weight:600;color:#ffe39a;font-size:.98rem;margin-bottom:.3rem;letter-spacing:.01em}',
+    '.ab-p{color:#c6d2e2;font-size:.93rem;line-height:1.62;margin:.35rem 0}',
+    '.popwrap{position:relative;display:inline-flex}',
+    '.pop{position:absolute;bottom:calc(100% + 10px);background:#16243a;border:1px solid rgba(255,255,255,.14);border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,.45);padding:.6rem;z-index:55}',
+    '.volpop{left:50%;transform:translateX(-50%);display:flex;align-items:center;justify-content:center}',
+    '.volpop input{appearance:slider-vertical;-webkit-appearance:slider-vertical;writing-mode:vertical-lr;direction:rtl;width:10px;height:96px;accent-color:#e9b85c;cursor:pointer}',
+    '.menu{right:0;min-width:148px;display:flex;flex-direction:column;gap:.15rem;padding:.35rem}',
+    '.menu button{display:flex;align-items:center;gap:.5rem;background:transparent;border:0;color:#eaf0f7;font:inherit;font-size:.88rem;text-align:left;padding:.45rem .55rem;border-radius:8px;cursor:pointer}',
+    '.menu button:hover{background:rgba(255,255,255,.08)}', '.menu .fl{width:20px;height:14px}',
+    '.caret{font-size:.7rem;color:#9fb0c6}',
+    '.dlpdf{background:rgba(255,231,173,.14);border:1px solid rgba(243,196,108,.5);color:#ffe7ad;border-radius:999px;padding:.4rem .9rem;font-size:.8rem;font-weight:600;cursor:pointer}', '.dlpdf:hover{background:rgba(255,231,173,.26)}',
+    '#lyricsModal{position:fixed;inset:0;z-index:70;display:flex;align-items:center;justify-content:center;padding:1.2rem;background:rgba(5,10,20,.72);backdrop-filter:blur(4px)}', '#lyricsModal[hidden]{display:none}',
+    '.lyrics-card .ll{padding:.55rem 0;border-bottom:1px solid rgba(255,255,255,.06)}',
+    ".lyrics-card .ll-en{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:#eef2f8;line-height:1.3}",
+    '.lyrics-card .ll-tr{font-style:italic;font-size:.86rem;color:rgba(158,201,182,.85);margin-top:.18rem}',
+    /* mobile: bigger lyrics, comfy player */
+    '@media(max-width:640px){',
+    '  #lyrics{bottom:132px}', 'body.pl-collapsed #lyrics{bottom:46px}',
+    '  .en{font-size:clamp(1.85rem,6.4vw,2.5rem);line-height:1.3}',
+    '  .tline{font-size:clamp(.98rem,3.7vw,1.15rem)}',
+    '  .line{padding:1.15rem 0}', '#vol{width:74px}', '.t{font-size:.72rem}',
+    '  .about-btn{font-size:.76rem;padding:.42rem .8rem;top:10px;right:10px}', '  #home{top:11px;font-size:.78rem}',
+    '  #lyricsLbl{display:none}',
+    '}'
+  ].join('');
+}
+
+/* ---------------- per-song behaviour ---------------- */
+function songJS() {
+  return [
+    'var au=document.getElementById("au"),scroll=document.getElementById("scroll");',
+    'var lineEls=[].slice.call(document.querySelectorAll(".line[data-s]"));',
+    'var curLine=-1,started=false,aboutOpen=false,lyricsOpen=false,lastVol=1;',
+    'function fmt(t){t=Math.max(0,t|0);return (t/60|0)+":"+("0"+(t%60)).slice(-2);}',
+    'function startPlay(){document.getElementById("title").classList.add("hide");started=true;au.play();}',
+    'function togglePlay(){if(au.paused){au.play();}else{au.pause();}}',
+    'function seekTo(t){au.currentTime=t+0.01;if(au.paused&&started)au.play();}',
+    'function scrub(e){var r=document.getElementById("track").getBoundingClientRect();au.currentTime=(e.clientX-r.left)/r.width*(au.duration||1);}',
+    'function setVol(v){au.volume=+v;au.muted=false;volIcon();}',
+    'function toggleMute(){if(au.muted||au.volume===0){au.muted=false;au.volume=lastVol||1;document.getElementById("vol").value=au.volume;}else{lastVol=au.volume;au.muted=true;}volIcon();}',
+    'function volIcon(){var b=document.getElementById("volBtn");if(au.muted||au.volume===0){b.innerHTML=VOL.mute;}else if(au.volume<0.5){b.innerHTML=VOL.low;}else{b.innerHTML=VOL.on;}}',
+    'function toggleCollapse(){document.body.classList.toggle("pl-collapsed");}',
+    'var UI={es:{about:"¿Qué hay detrás?",lyrics:"Letra"},de:{about:"Was steckt dahinter?",lyrics:"Text"}};',
+    'function updateLangUI(){var L=curLang(),f=FLAGS[L],n=L.toUpperCase();document.getElementById("flag").innerHTML=f;document.getElementById("langName").textContent=n;var af=document.getElementById("aboutFlag");if(af)af.innerHTML=f;var an=document.getElementById("aboutLangName");if(an)an.textContent=n;var bl=document.getElementById("aboutBtnLabel");if(bl)bl.textContent=UI[L].about;var ll=document.getElementById("lyricsLbl");if(ll)ll.textContent=UI[L].lyrics;}',
+    'function setTLang(l){document.documentElement.setAttribute("data-tlang",l);updateLangUI();closeMenus();if(aboutOpen)renderAbout();if(lyricsOpen)renderLyrics();}',
+    'function toggleLang(){setTLang(curLang()==="de"?"es":"de");}',
+    'function closeMenus(){var v=document.getElementById("volPop");if(v)v.hidden=true;var m=document.getElementById("langMenu");if(m)m.hidden=true;}',
+    'function toggleVolPop(e){e.stopPropagation();var m=document.getElementById("langMenu");if(m)m.hidden=true;var v=document.getElementById("volPop");v.hidden=!v.hidden;}',
+    'function toggleLangMenu(e){e.stopPropagation();var v=document.getElementById("volPop");if(v)v.hidden=true;var m=document.getElementById("langMenu");m.hidden=!m.hidden;}',
+    'document.addEventListener("click",function(e){if(!(e.target.closest&&e.target.closest(".popwrap")))closeMenus();});',
+    'function renderLyrics(){var L=curLang();document.getElementById("lyricsEyebrow").textContent=L==="de"?"Ganzer Text":"Letra completa";document.getElementById("lyricsTitle").textContent=SONG.title;var h="";for(var i=0;i<LINES.length;i++){var en=LINES[i].w.map(function(o){return o.t;}).join(" ");if(!en)continue;var tr=LINES[i][L]||"";h+=\'<div class="ll"><div class="ll-en">\'+en+"</div>"+(tr?(\'<div class="ll-tr">\'+tr+"</div>"):"")+"</div>";}document.getElementById("lyricsBody").innerHTML=h;}',
+    'function openLyrics(){lyricsOpen=true;renderLyrics();document.getElementById("lyricsModal").hidden=false;}',
+    'function closeLyrics(){lyricsOpen=false;document.getElementById("lyricsModal").hidden=true;}',
+    'function downloadPdf(){if(!(window.jspdf&&window.jspdf.jsPDF)){alert("PDF konnte nicht geladen werden (Internet noetig).");return;}var L=curLang();var doc=new window.jspdf.jsPDF({unit:"pt",format:"a4"});var W=doc.internal.pageSize.getWidth(),H=doc.internal.pageSize.getHeight(),mx=56,y=72,mw=W-mx*2;doc.setFont("times","bold");doc.setFontSize(22);doc.setTextColor(20,20,20);doc.text(SONG.title,mx,y);y+=22;doc.setFont("helvetica","normal");doc.setFontSize(10);doc.setTextColor(120,120,120);doc.text(SONG.refs||"",mx,y);y+=26;for(var i=0;i<LINES.length;i++){var en=LINES[i].w.map(function(o){return o.t;}).join(" ");if(!en)continue;var tr=LINES[i][L]||"";var el=doc.splitTextToSize(en,mw);var trl=tr?doc.splitTextToSize(tr,mw):[];var need=el.length*16+(trl.length?trl.length*13+8:0)+8;if(y+need>H-48){doc.addPage();y=60;}doc.setFont("times","normal");doc.setFontSize(13);doc.setTextColor(25,25,25);doc.text(el,mx,y);y+=el.length*16+2;if(trl.length){doc.setFont("times","italic");doc.setFontSize(10.5);doc.setTextColor(90,115,100);doc.text(trl,mx,y);y+=trl.length*13+10;}else{y+=6;}}doc.save(SONG.id+"-"+L+".pdf");}',
+    'function curLang(){return document.documentElement.getAttribute("data-tlang")==="de"?"de":"es";}',
+    'function renderAbout(){var L=curLang();document.getElementById("aboutEyebrow").textContent=L==="de"?"Über den Song":"Sobre la canción";document.getElementById("aboutTitle").textContent=SONG.title;document.getElementById("aboutRefs").textContent=SONG.refs||"";var h=(ABOUT.intro&&ABOUT.intro[L])?(\'<p class="ab-intro">\'+ABOUT.intro[L]+"</p>"):"";var secs=(ABOUT&&ABOUT[L])||[];for(var i=0;i<secs.length;i++){h+=\'<div class="ab-sec"><div class="ab-h">\'+secs[i].h+"</div>";var ps=secs[i].p||[];for(var j=0;j<ps.length;j++)h+=\'<div class="ab-p">\'+ps[j]+"</div>";h+="</div>";}document.getElementById("aboutBody").innerHTML=h;}',
+    'function openAbout(){aboutOpen=true;renderAbout();document.getElementById("about").hidden=false;}',
+    'function closeAbout(){aboutOpen=false;document.getElementById("about").hidden=true;}',
+    'document.addEventListener("keydown",function(e){if(e.key==="Escape"){closeAbout();closeLyrics();closeMenus();}});',
+    'au.addEventListener("play",function(){document.getElementById("pp").innerHTML="&#10073;&#10073;";document.getElementById("title").classList.add("hide");});',
+    'au.addEventListener("pause",function(){document.getElementById("pp").innerHTML="&#9654;";});',
+    'au.addEventListener("loadedmetadata",function(){document.getElementById("dur").textContent=fmt(au.duration);});',
+    'function setActive(i){if(i===curLine)return;',
+    '  if(curLine>=0){var pe=lineEls[curLine];pe.classList.remove("active");pe.classList.add("done");var pw=pe.querySelectorAll(".w");for(var q=0;q<pw.length;q++){pw[q].className="w sung";pw[q].style.removeProperty("--p");}}',
+    '  curLine=i;if(i>=0){var el=lineEls[i];el.classList.add("active");el.classList.remove("done");scroll.style.transform="translateY("+(-(el.offsetTop+el.offsetHeight/2))+"px)";}}',
+    'function frame(){var t=au.currentTime;',
+    '  document.getElementById("cur").textContent=fmt(t);',
+    '  document.getElementById("fill").style.width=((au.duration?t/au.duration:0)*100)+"%";',
+    '  var idx=-1;for(var i=0;i<LINES.length;i++){if(t>=LINES[i].start-0.15){idx=i;}else break;}',
+    '  setActive(idx);',
+    '  if(idx>=0){var el=lineEls[idx],ws=el.querySelectorAll(".w"),L=LINES[idx].w,endT=LINES[idx].end;',
+    '    for(var k=0;k<ws.length;k++){var st=L[k]?L[k].s:0;var nx=(L[k+1]?L[k+1].s:endT);',
+    '      if(t>=nx){if(ws[k].className!=="w sung"){ws[k].className="w sung";ws[k].style.removeProperty("--p");}}',
+    '      else if(t>=st){if(ws[k].className!=="w cur")ws[k].className="w cur";var p=nx>st?((t-st)/(nx-st)):1;ws[k].style.setProperty("--p",(Math.max(0,Math.min(1,p))*100).toFixed(1)+"%");}',
+    '      else{if(ws[k].className!=="w"){ws[k].className="w";ws[k].style.removeProperty("--p");}}}}',
+    '  requestAnimationFrame(frame);}',
+    'updateLangUI();requestAnimationFrame(frame);',
+    dotsJS()
+  ].join('\n');
+}
+
+/* ---------------- hub ---------------- */
 function buildHub() {
   const ids = fs.readdirSync(SONGS).filter(d => fs.existsSync(path.join(SONGS, d, 'song.json')));
   const metas = ids.map(id => Object.assign({ id }, JSON.parse(fs.readFileSync(path.join(SONGS, id, 'song.json'), 'utf8'))));
   const cards = metas.map(m =>
-    '<a class="card" href="songs/' + m.id + '/index.html">' +
-    '<div class="c-theme">' + esc(m.theme || 'song') + '</div>' +
-    '<div class="c-title">' + esc(m.title) + '</div>' +
-    '<div class="c-sub">' + esc(m.subtitle || '') + '</div>' +
+    '<a class="card" href="songs/' + m.id + '/index.html"><div class="c-theme">' + esc(m.theme || 'song') + '</div>' +
+    '<div class="c-title">' + esc(m.title) + '</div><div class="c-sub">' + esc(m.subtitle || '') + '</div>' +
     '<div class="c-play">&#9654; Play</div></a>'
   ).join('\n');
-
   const html = '<!doctype html><html lang="en"><head><meta charset="utf-8">' +
     '<meta name="viewport" content="width=device-width,initial-scale=1">' +
-    '<title>Marten\'s Songs</title>' +
+    "<title>Marten's Songs</title>" +
     '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' +
     '<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">' +
     '<style>' + hubCSS() + '</style></head><body><canvas id="bg"></canvas>' +
-    '<header><div class="eyebrow">AI songs about faith, love, life and God</div>' +
-    '<h1>Marten\'s Songs</h1></header>' +
+    '<header><div class="eyebrow">AI songs about faith, love, life and God</div><h1>Marten\'s Songs</h1></header>' +
     '<main class="grid">' + cards + '</main>' +
-    '<footer>Press a song, then Play. Lyrics light up word by word, with Spanish below.</footer>' +
+    '<footer>Press a song, then Play. The words light up as they are sung, with a translation below.</footer>' +
     '<script>' + dotsJS() + '</script></body></html>';
   fs.writeFileSync(path.join(ROOT, 'index.html'), html);
   return metas.length;
 }
-
-/* ---------- shared visuals ---------- */
+function hubCSS() {
+  return [
+    '*{box-sizing:border-box}', 'html,body{margin:0;min-height:100%}',
+    "body{font-family:'Inter',system-ui,sans-serif;background:radial-gradient(120% 90% at 50% -10%,#16243a 0%,#0c1626 45%,#070d18 100%);color:#eaf0f7;min-height:100vh}",
+    '#bg{position:fixed;inset:0;z-index:0;pointer-events:none}',
+    'header{position:relative;z-index:1;text-align:center;padding:14vh 1rem 2rem}',
+    '.eyebrow{font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:#caa45a}',
+    "header h1{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(2.6rem,9vw,5.5rem);margin:.3rem 0 0;background:linear-gradient(180deg,#fff,#f3d79a);-webkit-background-clip:text;background-clip:text;color:transparent}",
+    '.grid{position:relative;z-index:1;max-width:880px;margin:0 auto;padding:1rem 1.2rem 4rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.1rem}',
+    '.card{display:block;text-decoration:none;color:inherit;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);border-radius:18px;padding:1.4rem 1.4rem 1.2rem;transition:transform .18s,border-color .18s,background .18s}',
+    '.card:hover{transform:translateY(-4px);border-color:rgba(243,196,108,.5);background:rgba(255,255,255,.07)}',
+    '.c-theme{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:#caa45a}',
+    ".c-title{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.9rem;margin:.25rem 0}",
+    '.c-sub{color:#9fb0c6;font-size:.82rem;min-height:1.2em}',
+    '.c-play{margin-top:1rem;display:inline-block;color:#0c1626;background:linear-gradient(180deg,#ffe7ad,#e9b85c);border-radius:999px;padding:.4rem 1.1rem;font-weight:600;font-size:.85rem}',
+    'footer{position:relative;z-index:1;text-align:center;color:#7e90a8;font-size:.8rem;padding:0 1rem 3rem}'
+  ].join('');
+}
 function dotsJS() {
   return 'var c=document.getElementById("bg"),x=c.getContext("2d"),P=[];' +
     'function rs(){c.width=innerWidth;c.height=innerHeight;}rs();addEventListener("resize",rs);' +
@@ -106,94 +288,11 @@ function dotsJS() {
     'function dots(){x.clearRect(0,0,c.width,c.height);for(var i=0;i<P.length;i++){var p=P[i];p.y-=p.v;if(p.y<-5){p.y=c.height+5;p.x=Math.random()*c.width;}x.beginPath();x.arc(p.x,p.y,p.r,0,7);x.fillStyle="rgba(243,205,130,"+p.a+")";x.fill();}requestAnimationFrame(dots);}dots();';
 }
 
-function songCSS() {
-  return [
-    '*{box-sizing:border-box}', 'html,body{margin:0;height:100%;overflow:hidden}',
-    "body{font-family:'Inter',system-ui,sans-serif;background:radial-gradient(120% 90% at 50% -10%,#16243a 0%,#0c1626 45%,#070d18 100%);color:#eaf0f7}",
-    '#bg{position:fixed;inset:0;z-index:0;pointer-events:none}',
-    '#home{position:fixed;top:14px;left:16px;z-index:40;color:#9fb0c6;text-decoration:none;font-size:.82rem;letter-spacing:.02em;opacity:.8}',
-    '#home:hover{color:#ffe39a}',
-    '#title{position:fixed;inset:0;z-index:30;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:.5rem;background:radial-gradient(80% 60% at 50% 40%,rgba(12,22,38,.55),rgba(7,13,24,.92));backdrop-filter:blur(2px);transition:opacity .8s ease,visibility .8s}',
-    '#title.hide{opacity:0;visibility:hidden}',
-    '.t-eyebrow{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:#caa45a}',
-    "#title h1{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(3rem,11vw,7rem);margin:.2rem 0;line-height:1;background:linear-gradient(180deg,#fff,#f3d79a);-webkit-background-clip:text;background-clip:text;color:transparent}",
-    '#startBtn{margin-top:1.3rem;font-size:1.05rem;font-weight:600;color:#0c1626;background:linear-gradient(180deg,#ffe7ad,#e9b85c);border:0;border-radius:999px;padding:.85rem 2.2rem;cursor:pointer;box-shadow:0 10px 30px rgba(233,184,92,.35);transition:transform .15s}',
-    '#startBtn:hover{transform:translateY(-2px)}', '.t-hint{margin-top:1rem;color:#7e90a8;font-size:.78rem}',
-    '#lyrics{position:fixed;inset:0 0 84px 0;z-index:10;overflow:hidden;-webkit-mask-image:linear-gradient(180deg,transparent,#000 22%,#000 78%,transparent);mask-image:linear-gradient(180deg,transparent,#000 22%,#000 78%,transparent)}',
-    '#scroll{position:absolute;left:0;right:0;top:50%;padding:0 6vw;transition:transform .55s cubic-bezier(.22,.61,.36,1)}',
-    '.line{text-align:center;margin:0 auto;max-width:900px;padding:1.5rem 0;opacity:.28;filter:blur(.4px);transition:opacity .45s,filter .45s;cursor:pointer}',
-    '.line.active{opacity:1;filter:none}', '.line.done{opacity:.4}',
-    ".en{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(1.5rem,4.2vw,3rem);line-height:1.25}",
-    '.w{color:rgba(234,240,247,.55);transition:color .18s}', '.line.active .w{color:rgba(234,240,247,.82)}',
-    '.w.sung{color:#fbe2a0}',
-    '.w.cur{color:#1a1205;background:linear-gradient(180deg,#ffe39a,#f0b94f);border-radius:.35em;box-shadow:0 0 22px rgba(243,196,108,.55);padding:0 .12em;margin:0 -.04em}',
-    '.es{margin-top:.55rem;font-style:italic;font-size:clamp(.82rem,1.7vw,1.02rem);color:#86b6a0}', '.line.active .es{color:#a8d8c2}',
-    '.end-pad{height:38vh;padding:0;opacity:0}',
-    '#bar{position:fixed;left:0;right:0;bottom:0;z-index:20;height:84px;display:flex;align-items:center;gap:.9rem;padding:0 max(1rem,4vw);background:linear-gradient(0deg,rgba(7,13,24,.92),rgba(7,13,24,0))}',
-    '#pp{flex:0 0 auto;width:46px;height:46px;border-radius:50%;border:0;cursor:pointer;font-size:1rem;color:#0c1626;background:linear-gradient(180deg,#ffe7ad,#e9b85c);box-shadow:0 6px 20px rgba(233,184,92,.35)}',
-    '.t{font-variant-numeric:tabular-nums;font-size:.8rem;color:#9fb0c6;flex:0 0 auto}',
-    '#track{position:relative;flex:1 1 auto;height:6px;border-radius:6px;background:rgba(255,255,255,.12);cursor:pointer}',
-    '#fill{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:6px;background:linear-gradient(90deg,#caa45a,#ffe39a)}',
-    '@media(max-width:640px){#bar{height:74px}.line{padding:1.1rem 0}}'
-  ].join('');
-}
-
-function songJS() {
-  return [
-    'var au=document.getElementById("au"),scroll=document.getElementById("scroll");',
-    'var lineEls=[].slice.call(document.querySelectorAll(".line[data-s]"));',
-    'var curLine=-1, started=false;',
-    'function fmt(t){t=Math.max(0,t|0);return (t/60|0)+":"+("0"+(t%60)).slice(-2);}',
-    'function startPlay(){document.getElementById("title").classList.add("hide");started=true;au.play();}',
-    'function togglePlay(){ if(au.paused){au.play();} else {au.pause();} }',
-    'function seekTo(t){ au.currentTime=t+0.01; if(au.paused&&started)au.play(); }',
-    'function scrub(e){ var r=document.getElementById("track").getBoundingClientRect(); au.currentTime=(e.clientX-r.left)/r.width*(au.duration||1); }',
-    'au.addEventListener("play",function(){document.getElementById("pp").innerHTML="&#10073;&#10073;";document.getElementById("title").classList.add("hide");});',
-    'au.addEventListener("pause",function(){document.getElementById("pp").innerHTML="&#9654;";});',
-    'au.addEventListener("loadedmetadata",function(){document.getElementById("dur").textContent=fmt(au.duration);});',
-    'function setActive(i){ if(i===curLine)return;',
-    '  if(curLine>=0){lineEls[curLine].classList.remove("active");lineEls[curLine].classList.add("done");}',
-    '  curLine=i; if(i>=0){var el=lineEls[i];el.classList.add("active");el.classList.remove("done");',
-    '    scroll.style.transform="translateY("+(-(el.offsetTop+el.offsetHeight/2))+"px)";} }',
-    'function frame(){ var t=au.currentTime;',
-    '  document.getElementById("cur").textContent=fmt(t);',
-    '  document.getElementById("fill").style.width=((au.duration?t/au.duration:0)*100)+"%";',
-    '  var idx=-1; for(var i=0;i<LINES.length;i++){ if(t>=LINES[i].start-0.15){idx=i;} else break; }',
-    '  setActive(idx);',
-    '  if(idx>=0){ var el=lineEls[idx], ws=el.querySelectorAll(".w"), L=LINES[idx].w;',
-    '    for(var k=0;k<ws.length;k++){ var st=L[k]?L[k].s:0; var nx=(L[k+1]?L[k+1].s:LINES[idx].end||1e9);',
-    '      ws[k].classList.toggle("sung", t>=st); ws[k].classList.toggle("cur", t>=st && t<nx); } }',
-    '  requestAnimationFrame(frame); }',
-    'requestAnimationFrame(frame);',
-    dotsJS()
-  ].join('\n');
-}
-
-function hubCSS() {
-  return [
-    '*{box-sizing:border-box}', 'html,body{margin:0;min-height:100%}',
-    "body{font-family:'Inter',system-ui,sans-serif;background:radial-gradient(120% 90% at 50% -10%,#16243a 0%,#0c1626 45%,#070d18 100%);color:#eaf0f7;min-height:100vh}",
-    '#bg{position:fixed;inset:0;z-index:0;pointer-events:none}',
-    'header{position:relative;z-index:1;text-align:center;padding:14vh 1rem 2rem}',
-    '.eyebrow{font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:#caa45a}',
-    "header h1{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(2.6rem,9vw,5.5rem);margin:.3rem 0 0;background:linear-gradient(180deg,#fff,#f3d79a);-webkit-background-clip:text;background-clip:text;color:transparent}",
-    '.grid{position:relative;z-index:1;max-width:880px;margin:0 auto;padding:1rem 1.2rem 4rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.1rem}',
-    '.card{display:block;text-decoration:none;color:inherit;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);border-radius:18px;padding:1.4rem 1.4rem 1.2rem;transition:transform .18s,border-color .18s,background .18s}',
-    '.card:hover{transform:translateY(-4px);border-color:rgba(243,196,108,.5);background:rgba(255,255,255,.07)}',
-    '.c-theme{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#caa45a}',
-    ".c-title{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.9rem;margin:.25rem 0}",
-    '.c-sub{color:#9fb0c6;font-size:.82rem;min-height:1.2em}',
-    '.c-play{margin-top:1rem;display:inline-block;color:#0c1626;background:linear-gradient(180deg,#ffe7ad,#e9b85c);border-radius:999px;padding:.4rem 1.1rem;font-weight:600;font-size:.85rem}',
-    'footer{position:relative;z-index:1;text-align:center;color:#7e90a8;font-size:.8rem;padding:0 1rem 3rem}'
-  ].join('');
-}
-
-/* ---------- run ---------- */
+/* ---------------- run ---------------- */
 const arg = process.argv[2];
 if (!arg) { console.error('usage: node tools/build-anim.js <song-id> | --all'); process.exit(1); }
 const ids = arg === '--all'
   ? fs.readdirSync(SONGS).filter(d => fs.existsSync(path.join(SONGS, d, 'song.json')))
   : [arg];
 ids.forEach(id => { const r = buildSong(id); console.log('built song ' + r.id + ' (' + r.lineCount + ' lines)'); });
-const n = buildHub();
-console.log('rebuilt hub index.html (' + n + ' song' + (n === 1 ? '' : 's') + ')');
+console.log('rebuilt hub index.html (' + buildHub() + ' song(s))');
