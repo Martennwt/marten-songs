@@ -1,1629 +1,3383 @@
 {
-  "task": "transcribe",
-  "language": "english",
+  "precise": true,
   "duration": 186.67999267578125,
-  "text": "I will hold on all the same, cause it's not outside I'm holding, it's the one who holds my name. Even faith like a mustard seed is faith enough to grow. I believe, help my unbelief, that's the only prayer I know. When the doubt rolls in like weather, I will hold on all the same, cause it's not outside I'm holding, it's the one who holds my name. I have stepped out on the water and I've felt myself go under, but a hand was always reaching through the lightning and the thunder. And the prayers I thought were silent, maybe they were always heard. So I'm leaning on a promise more than feeling more than word. Even faith like a mustard seed is faith enough to grow. I believe, help my unbelief, that's the only prayer I know. When the doubt rolls in like weather, I will hold on all the same, cause it's not outside I'm holding, it's the one who holds my name. When the doubt rolls in like weather, I will hold on all the same, cause it's not outside I'm holding, it's the one who holds my name. Oh, so I will hold on all the same, cause it's not outside I'm holding, it's the one who holds my name. Oh, so I'll keep a little faith alive, no bigger than a secret, and it's carried me this far, it is all I'll ever need.",
-  "segments": [
-    {
-      "id": 0,
-      "seek": 0,
-      "start": 11.539999961853027,
-      "end": 29.979999542236328,
-      "text": " I will hold on all the same, cause it's not outside I'm holding, it's the one who holds my name.",
-      "tokens": [
-        50364,
-        286,
-        486,
-        1797,
-        322,
-        439,
-        264,
-        912,
-        11,
-        3082,
-        309,
-        311,
-        406,
-        2380,
-        286,
-        478,
-        5061,
-        11,
-        309,
-        311,
-        264,
-        472,
-        567,
-        9190,
-        452,
-        1315,
-        13,
-        50714
-      ],
-      "temperature": 0,
-      "avg_logprob": -0.415138840675354,
-      "compression_ratio": 1.1707316637039185,
-      "no_speech_prob": 0.19329272210597992
-    },
-    {
-      "id": 1,
-      "seek": 3000,
-      "start": 33.08000183105469,
-      "end": 54.86000061035156,
-      "text": " Even faith like a mustard seed is faith enough to grow. I believe, help my unbelief, that's the only prayer I know. When the doubt rolls in like weather, I will hold on all the same, cause it's not outside I'm holding, it's the one who holds my name.",
-      "tokens": [
-        50364,
-        2754,
-        4522,
-        411,
-        257,
-        23659,
-        8871,
-        307,
-        4522,
-        1547,
-        281,
-        1852,
-        13,
-        286,
-        1697,
-        11,
-        854,
-        452,
-        46063,
-        2521,
-        11,
-        300,
-        311,
-        264,
-        787,
-        8767,
-        286,
-        458,
-        13,
-        1133,
-        264,
-        6385,
-        15767,
-        294,
-        411,
-        5503,
-        11,
-        286,
-        486,
-        1797,
-        322,
-        439,
-        264,
-        912,
-        11,
-        3082,
-        309,
-        311,
-        406,
-        2380,
-        286,
-        478,
-        5061,
-        11,
-        309,
-        311,
-        264,
-        472,
-        567,
-        9190,
-        452,
-        1315,
-        13,
-        51614
-      ],
-      "temperature": 0,
-      "avg_logprob": -0.23475460708141327,
-      "compression_ratio": 1.4880952835083008,
-      "no_speech_prob": 0.959854245185852
-    },
-    {
-      "id": 2,
-      "seek": 6000,
-      "start": 60,
-      "end": 82.5,
-      "text": " I have stepped out on the water and I've felt myself go under, but a hand was always reaching through the lightning and the thunder. And the prayers I thought were silent, maybe they were always heard. So I'm leaning on a promise more than feeling more than word.",
-      "tokens": [
-        50364,
-        286,
-        362,
-        15251,
-        484,
-        322,
-        264,
-        1281,
-        293,
-        286,
-        600,
-        2762,
-        2059,
-        352,
-        833,
-        11,
-        457,
-        257,
-        1011,
-        390,
-        1009,
-        9906,
-        807,
-        264,
-        16589,
-        293,
-        264,
-        19898,
-        13,
-        400,
-        264,
-        16860,
-        286,
-        1194,
-        645,
-        12784,
-        11,
-        1310,
-        436,
-        645,
-        1009,
-        2198,
-        13,
-        407,
-        286,
-        478,
-        23390,
-        322,
-        257,
-        6228,
-        544,
-        813,
-        2633,
-        544,
-        813,
-        1349,
-        13,
-        51464
-      ],
-      "temperature": 0,
-      "avg_logprob": -0.1627691239118576,
-      "compression_ratio": 1.5290697813034058,
-      "no_speech_prob": 0.8690524697303772
-    },
-    {
-      "id": 3,
-      "seek": 8250,
-      "start": 82.5,
-      "end": 104.13999938964844,
-      "text": " Even faith like a mustard seed is faith enough to grow. I believe, help my unbelief, that's the only prayer I know. When the doubt rolls in like weather, I will hold on all the same, cause it's not outside I'm holding, it's the one who holds my name.",
-      "tokens": [
-        50364,
-        2754,
-        4522,
-        411,
-        257,
-        23659,
-        8871,
-        307,
-        4522,
-        1547,
-        281,
-        1852,
-        13,
-        286,
-        1697,
-        11,
-        854,
-        452,
-        46063,
-        2521,
-        11,
-        300,
-        311,
-        264,
-        787,
-        8767,
-        286,
-        458,
-        13,
-        1133,
-        264,
-        6385,
-        15767,
-        294,
-        411,
-        5503,
-        11,
-        286,
-        486,
-        1797,
-        322,
-        439,
-        264,
-        912,
-        11,
-        3082,
-        309,
-        311,
-        406,
-        2380,
-        286,
-        478,
-        5061,
-        11,
-        309,
-        311,
-        264,
-        472,
-        567,
-        9190,
-        452,
-        1315,
-        13,
-        51464
-      ],
-      "temperature": 0,
-      "avg_logprob": -0.1363883763551712,
-      "compression_ratio": 1.4880952835083008,
-      "no_speech_prob": 0.9230130910873413
-    },
-    {
-      "id": 4,
-      "seek": 10414,
-      "start": 121.08000183105469,
-      "end": 134.10000610351562,
-      "text": " When the doubt rolls in like weather, I will hold on all the same, cause it's not outside I'm holding, it's the one who holds my name.",
-      "tokens": [
-        50414,
-        1133,
-        264,
-        6385,
-        15767,
-        294,
-        411,
-        5503,
-        11,
-        286,
-        486,
-        1797,
-        322,
-        439,
-        264,
-        912,
-        11,
-        3082,
-        309,
-        311,
-        406,
-        277,
-        3648,
-        482,
-        286,
-        478,
-        5061,
-        11,
-        309,
-        311,
-        264,
-        472,
-        567,
-        9190,
-        452,
-        1315,
-        13,
-        50864
-      ],
-      "temperature": 0.800000011920929,
-      "avg_logprob": -0.4815749228000641,
-      "compression_ratio": 1.2761905193328857,
-      "no_speech_prob": 0.9846190810203552
-    },
-    {
-      "id": 5,
-      "seek": 13410,
-      "start": 136.82000732421875,
-      "end": 161.5399932861328,
-      "text": " Oh, so I will hold on all the same, cause it's not outside I'm holding, it's the one who holds my name.",
-      "tokens": [
-        50364,
-        876,
-        11,
-        370,
-        286,
-        486,
-        1797,
-        322,
-        439,
-        264,
-        912,
-        11,
-        3082,
-        309,
-        311,
-        406,
-        2380,
-        286,
-        478,
-        5061,
-        11,
-        309,
-        311,
-        264,
-        472,
-        567,
-        9190,
-        452,
-        1315,
-        13,
-        51764
-      ],
-      "temperature": 0,
-      "avg_logprob": -0.5079030394554138,
-      "compression_ratio": 1.170454502105713,
-      "no_speech_prob": 0.752385139465332
-    },
-    {
-      "id": 6,
-      "seek": 16154,
-      "start": 161.5399932861328,
-      "end": 175.97999572753906,
-      "text": " Oh, so I'll keep a little faith alive, no bigger than a secret, and it's carried me this far, it is all I'll ever need.",
-      "tokens": [
-        50364,
-        876,
-        11,
-        370,
-        286,
-        603,
-        1066,
-        257,
-        707,
-        4522,
-        5465,
-        11,
-        572,
-        3801,
-        813,
-        257,
-        4054,
-        11,
-        293,
-        309,
-        311,
-        9094,
-        385,
-        341,
-        1400,
-        11,
-        309,
-        307,
-        439,
-        286,
-        603,
-        1562,
-        643,
-        13,
-        51164
-      ],
-      "temperature": 0,
-      "avg_logprob": -0.23648333549499512,
-      "compression_ratio": 1.190000057220459,
-      "no_speech_prob": 0.37426483631134033
-    }
-  ],
   "words": [
     {
-      "word": "I",
-      "start": 11.539999961853027,
-      "end": 11.899999618530273
+      "word": "The",
+      "start": 7.38,
+      "end": 8.36
     },
     {
-      "word": "will",
-      "start": 11.899999618530273,
-      "end": 12.260000228881836
+      "word": "smallest",
+      "start": 8.36,
+      "end": 8.48
     },
     {
-      "word": "hold",
-      "start": 12.260000228881836,
-      "end": 12.260000228881836
-    },
-    {
-      "word": "on",
-      "start": 12.260000228881836,
-      "end": 12.260000228881836
+      "word": "of",
+      "start": 8.48,
+      "end": 12.38
     },
     {
       "word": "all",
-      "start": 12.260000228881836,
-      "end": 12.260000228881836
+      "start": 12.38,
+      "end": 13.12
     },
     {
       "word": "the",
-      "start": 12.260000228881836,
-      "end": 13.220000267028809
+      "start": 13.12,
+      "end": 13.92
     },
     {
-      "word": "same",
-      "start": 13.220000267028809,
-      "end": 13.819999694824219
+      "word": "seeds,",
+      "start": 13.92,
+      "end": 14.32
     },
     {
-      "word": "cause",
-      "start": 14.9399995803833,
-      "end": 14.960000038146973
+      "word": "almost",
+      "start": 14.22,
+      "end": 14.8
     },
     {
-      "word": "it's",
-      "start": 14.960000038146973,
-      "end": 15
-    },
-    {
-      "word": "not",
-      "start": 15,
-      "end": 15.319999694824219
-    },
-    {
-      "word": "outside",
-      "start": 15.319999694824219,
-      "end": 15.479999542236328
-    },
-    {
-      "word": "I'm",
-      "start": 15.479999542236328,
-      "end": 15.520000457763672
-    },
-    {
-      "word": "holding",
-      "start": 15.520000457763672,
-      "end": 15.539999961853027
-    },
-    {
-      "word": "it's",
-      "start": 15.5600004196167,
-      "end": 15.600000381469727
-    },
-    {
-      "word": "the",
-      "start": 15.600000381469727,
-      "end": 15.619999885559082
-    },
-    {
-      "word": "one",
-      "start": 15.619999885559082,
-      "end": 15.640000343322754
-    },
-    {
-      "word": "who",
-      "start": 15.640000343322754,
-      "end": 28.559999465942383
-    },
-    {
-      "word": "holds",
-      "start": 28.559999465942383,
-      "end": 28.940000534057617
-    },
-    {
-      "word": "my",
-      "start": 28.940000534057617,
-      "end": 29.1200008392334
-    },
-    {
-      "word": "name",
-      "start": 29.1200008392334,
-      "end": 29.979999542236328
-    },
-    {
-      "word": "Even",
-      "start": 33.08000183105469,
-      "end": 33.84000015258789
-    },
-    {
-      "word": "faith",
-      "start": 33.84000015258789,
-      "end": 34.599998474121094
-    },
-    {
-      "word": "like",
-      "start": 34.599998474121094,
-      "end": 35.18000030517578
-    },
-    {
-      "word": "a",
-      "start": 35.18000030517578,
-      "end": 35.84000015258789
-    },
-    {
-      "word": "mustard",
-      "start": 35.84000015258789,
-      "end": 35.84000015258789
-    },
-    {
-      "word": "seed",
-      "start": 35.84000015258789,
-      "end": 36.380001068115234
-    },
-    {
-      "word": "is",
-      "start": 36.380001068115234,
-      "end": 36.65999984741211
-    },
-    {
-      "word": "faith",
-      "start": 36.65999984741211,
-      "end": 37.18000030517578
-    },
-    {
-      "word": "enough",
-      "start": 37.18000030517578,
-      "end": 37.84000015258789
-    },
-    {
-      "word": "to",
-      "start": 37.84000015258789,
-      "end": 38.13999938964844
-    },
-    {
-      "word": "grow",
-      "start": 38.13999938964844,
-      "end": 38.41999816894531
-    },
-    {
-      "word": "I",
-      "start": 38.939998626708984,
-      "end": 39.2400016784668
-    },
-    {
-      "word": "believe",
-      "start": 39.2400016784668,
-      "end": 39.84000015258789
-    },
-    {
-      "word": "help",
-      "start": 40.41999816894531,
-      "end": 40.439998626708984
-    },
-    {
-      "word": "my",
-      "start": 40.439998626708984,
-      "end": 40.81999969482422
-    },
-    {
-      "word": "unbelief",
-      "start": 40.81999969482422,
-      "end": 41.720001220703125
-    },
-    {
-      "word": "that's",
-      "start": 41.97999954223633,
-      "end": 42.13999938964844
-    },
-    {
-      "word": "the",
-      "start": 42.13999938964844,
-      "end": 42.36000061035156
-    },
-    {
-      "word": "only",
-      "start": 42.36000061035156,
-      "end": 42.81999969482422
-    },
-    {
-      "word": "prayer",
-      "start": 42.81999969482422,
-      "end": 43.119998931884766
-    },
-    {
-      "word": "I",
-      "start": 43.119998931884766,
-      "end": 43.619998931884766
-    },
-    {
-      "word": "know",
-      "start": 43.619998931884766,
-      "end": 43.880001068115234
-    },
-    {
-      "word": "When",
-      "start": 44.31999969482422,
-      "end": 44.5
-    },
-    {
-      "word": "the",
-      "start": 44.5,
-      "end": 45.099998474121094
-    },
-    {
-      "word": "doubt",
-      "start": 45.099998474121094,
-      "end": 45.36000061035156
-    },
-    {
-      "word": "rolls",
-      "start": 45.36000061035156,
-      "end": 45.720001220703125
+      "word": "nothing",
+      "start": 14.8,
+      "end": 15.52
     },
     {
       "word": "in",
-      "start": 45.720001220703125,
-      "end": 46.060001373291016
+      "start": 15.52,
+      "end": 15.9
     },
     {
-      "word": "like",
-      "start": 46.060001373291016,
-      "end": 46.34000015258789
+      "word": "your",
+      "start": 15.9,
+      "end": 16.26
     },
     {
-      "word": "weather",
-      "start": 46.34000015258789,
-      "end": 46.7400016784668
-    },
-    {
-      "word": "I",
-      "start": 47.08000183105469,
-      "end": 47.2599983215332
-    },
-    {
-      "word": "will",
-      "start": 47.2599983215332,
-      "end": 47.63999938964844
-    },
-    {
-      "word": "hold",
-      "start": 47.63999938964844,
-      "end": 48.099998474121094
-    },
-    {
-      "word": "on",
-      "start": 48.099998474121094,
-      "end": 48.47999954223633
-    },
-    {
-      "word": "all",
-      "start": 48.47999954223633,
-      "end": 48.939998626708984
-    },
-    {
-      "word": "the",
-      "start": 48.939998626708984,
-      "end": 49.15999984741211
-    },
-    {
-      "word": "same",
-      "start": 49.15999984741211,
-      "end": 49.380001068115234
-    },
-    {
-      "word": "cause",
-      "start": 49.7599983215332,
-      "end": 50.02000045776367
-    },
-    {
-      "word": "it's",
-      "start": 50.02000045776367,
-      "end": 50.279998779296875
-    },
-    {
-      "word": "not",
-      "start": 50.279998779296875,
-      "end": 50.86000061035156
-    },
-    {
-      "word": "outside",
-      "start": 50.86000061035156,
-      "end": 51.380001068115234
-    },
-    {
-      "word": "I'm",
-      "start": 51.380001068115234,
-      "end": 51.68000030517578
-    },
-    {
-      "word": "holding",
-      "start": 51.68000030517578,
-      "end": 52.279998779296875
-    },
-    {
-      "word": "it's",
-      "start": 52.439998626708984,
-      "end": 52.68000030517578
-    },
-    {
-      "word": "the",
-      "start": 52.68000030517578,
-      "end": 53.099998474121094
-    },
-    {
-      "word": "one",
-      "start": 53.099998474121094,
-      "end": 53.540000915527344
-    },
-    {
-      "word": "who",
-      "start": 53.540000915527344,
-      "end": 54.040000915527344
-    },
-    {
-      "word": "holds",
-      "start": 54.040000915527344,
-      "end": 54.040000915527344
-    },
-    {
-      "word": "my",
-      "start": 54.040000915527344,
-      "end": 54.58000183105469
-    },
-    {
-      "word": "name",
-      "start": 54.58000183105469,
-      "end": 54.86000061035156
-    },
-    {
-      "word": "I",
-      "start": 60,
-      "end": 60.58000183105469
-    },
-    {
-      "word": "have",
-      "start": 60.58000183105469,
-      "end": 61.5
-    },
-    {
-      "word": "stepped",
-      "start": 61.5,
-      "end": 61.599998474121094
-    },
-    {
-      "word": "out",
-      "start": 61.599998474121094,
-      "end": 62.119998931884766
-    },
-    {
-      "word": "on",
-      "start": 62.119998931884766,
-      "end": 62.400001525878906
-    },
-    {
-      "word": "the",
-      "start": 62.400001525878906,
-      "end": 62.63999938964844
-    },
-    {
-      "word": "water",
-      "start": 62.63999938964844,
-      "end": 63.380001068115234
-    },
-    {
-      "word": "and",
-      "start": 63.380001068115234,
-      "end": 63.81999969482422
-    },
-    {
-      "word": "I've",
-      "start": 63.81999969482422,
-      "end": 64.30000305175781
-    },
-    {
-      "word": "felt",
-      "start": 64.30000305175781,
-      "end": 64.41999816894531
-    },
-    {
-      "word": "myself",
-      "start": 64.41999816894531,
-      "end": 65.04000091552734
-    },
-    {
-      "word": "go",
-      "start": 65.04000091552734,
-      "end": 65.5
-    },
-    {
-      "word": "under",
-      "start": 65.5,
-      "end": 66.08000183105469
+      "word": "hand,",
+      "start": 16.26,
+      "end": 17.08
     },
     {
       "word": "but",
-      "start": 66.26000213623047,
-      "end": 66.5199966430664
+      "start": 17.08,
+      "end": 17.38
     },
     {
-      "word": "a",
-      "start": 66.5199966430664,
-      "end": 66.81999969482422
+      "word": "you",
+      "start": 17.38,
+      "end": 17.64
     },
     {
-      "word": "hand",
-      "start": 66.81999969482422,
-      "end": 67.13999938964844
+      "word": "bury",
+      "start": 17.64,
+      "end": 18.16
     },
     {
-      "word": "was",
-      "start": 67.13999938964844,
-      "end": 67.44000244140625
+      "word": "it",
+      "start": 18.16,
+      "end": 18.66
     },
     {
-      "word": "always",
-      "start": 67.44000244140625,
-      "end": 68.18000030517578
+      "word": "one",
+      "start": 18.66,
+      "end": 18.96
     },
     {
-      "word": "reaching",
-      "start": 68.18000030517578,
-      "end": 68.69999694824219
-    },
-    {
-      "word": "through",
-      "start": 68.69999694824219,
-      "end": 69.0999984741211
-    },
-    {
-      "word": "the",
-      "start": 69.0999984741211,
-      "end": 69.91999816894531
-    },
-    {
-      "word": "lightning",
-      "start": 69.91999816894531,
-      "end": 69.95999908447266
+      "word": "morning",
+      "start": 18.96,
+      "end": 19.68
     },
     {
       "word": "and",
-      "start": 69.95999908447266,
-      "end": 70.58000183105469
+      "start": 19.68,
+      "end": 20
+    },
+    {
+      "word": "it",
+      "start": 20,
+      "end": 20.86
+    },
+    {
+      "word": "rises",
+      "start": 20.86,
+      "end": 20.9
+    },
+    {
+      "word": "from",
+      "start": 20.9,
+      "end": 21.46
     },
     {
       "word": "the",
-      "start": 70.58000183105469,
-      "end": 71.4800033569336
+      "start": 21.46,
+      "end": 22.02
     },
     {
-      "word": "thunder",
-      "start": 71.4800033569336,
-      "end": 71.4800033569336
+      "word": "land.",
+      "start": 22.02,
+      "end": 22.42
     },
     {
-      "word": "And",
-      "start": 71.76000213623047,
-      "end": 71.9800033569336
+      "word": "They",
+      "start": 22.1,
+      "end": 22.52
     },
     {
-      "word": "the",
-      "start": 71.9800033569336,
-      "end": 72.19999694824219
-    },
-    {
-      "word": "prayers",
-      "start": 72.19999694824219,
-      "end": 72.55999755859375
-    },
-    {
-      "word": "I",
-      "start": 72.55999755859375,
-      "end": 72.95999908447266
-    },
-    {
-      "word": "thought",
-      "start": 72.95999908447266,
-      "end": 73.22000122070312
-    },
-    {
-      "word": "were",
-      "start": 73.22000122070312,
-      "end": 73.66000366210938
-    },
-    {
-      "word": "silent",
-      "start": 73.66000366210938,
-      "end": 74.26000213623047
-    },
-    {
-      "word": "maybe",
-      "start": 74.44000244140625,
-      "end": 74.80000305175781
-    },
-    {
-      "word": "they",
-      "start": 74.80000305175781,
-      "end": 75.30000305175781
-    },
-    {
-      "word": "were",
-      "start": 75.30000305175781,
-      "end": 75.62000274658203
-    },
-    {
-      "word": "always",
-      "start": 75.62000274658203,
-      "end": 76.27999877929688
-    },
-    {
-      "word": "heard",
-      "start": 76.27999877929688,
-      "end": 76.87999725341797
-    },
-    {
-      "word": "So",
-      "start": 77.04000091552734,
-      "end": 77.41999816894531
-    },
-    {
-      "word": "I'm",
-      "start": 77.41999816894531,
-      "end": 77.81999969482422
-    },
-    {
-      "word": "leaning",
-      "start": 77.81999969482422,
-      "end": 78
-    },
-    {
-      "word": "on",
-      "start": 78,
-      "end": 78.80000305175781
+      "word": "say",
+      "start": 22.52,
+      "end": 22.94
     },
     {
       "word": "a",
-      "start": 78.80000305175781,
-      "end": 79.62000274658203
-    },
-    {
-      "word": "promise",
-      "start": 79.62000274658203,
-      "end": 79.62000274658203
-    },
-    {
-      "word": "more",
-      "start": 79.62000274658203,
-      "end": 80.12000274658203
-    },
-    {
-      "word": "than",
-      "start": 80.12000274658203,
-      "end": 80.41999816894531
-    },
-    {
-      "word": "feeling",
-      "start": 80.41999816894531,
-      "end": 81.08000183105469
-    },
-    {
-      "word": "more",
-      "start": 81.08000183105469,
-      "end": 81.45999908447266
-    },
-    {
-      "word": "than",
-      "start": 81.45999908447266,
-      "end": 81.83999633789062
-    },
-    {
-      "word": "word",
-      "start": 81.83999633789062,
-      "end": 82.5
-    },
-    {
-      "word": "Even",
-      "start": 82.5,
-      "end": 83.0199966430664
+      "start": 22.94,
+      "end": 23.24
     },
     {
       "word": "faith",
-      "start": 83.0199966430664,
-      "end": 83.5999984741211
+      "start": 23.24,
+      "end": 23.88
     },
     {
-      "word": "like",
-      "start": 83.5999984741211,
-      "end": 84.44000244140625
+      "word": "that",
+      "start": 23.88,
+      "end": 24.44
+    },
+    {
+      "word": "small",
+      "start": 24.44,
+      "end": 24.86
+    },
+    {
+      "word": "could",
+      "start": 24.86,
+      "end": 25.3
+    },
+    {
+      "word": "move",
+      "start": 25.3,
+      "end": 25.52
     },
     {
       "word": "a",
-      "start": 84.44000244140625,
-      "end": 84.72000122070312
+      "start": 25.52,
+      "end": 26.26
     },
     {
-      "word": "mustard",
-      "start": 84.72000122070312,
-      "end": 84.91999816894531
-    },
-    {
-      "word": "seed",
-      "start": 84.91999816894531,
-      "end": 85.44000244140625
-    },
-    {
-      "word": "is",
-      "start": 85.44000244140625,
-      "end": 85.77999877929688
-    },
-    {
-      "word": "faith",
-      "start": 85.77999877929688,
-      "end": 86.26000213623047
-    },
-    {
-      "word": "enough",
-      "start": 86.26000213623047,
-      "end": 86.91999816894531
+      "word": "mountain",
+      "start": 26.26,
+      "end": 26.34
     },
     {
       "word": "to",
-      "start": 86.91999816894531,
-      "end": 87.55999755859375
+      "start": 26.34,
+      "end": 26.76
     },
     {
-      "word": "grow",
-      "start": 87.55999755859375,
-      "end": 87.55999755859375
+      "word": "the",
+      "start": 26.76,
+      "end": 27.34
     },
     {
-      "word": "I",
-      "start": 87.95999908447266,
-      "end": 88.31999969482422
+      "word": "sea,",
+      "start": 27.34,
+      "end": 28.06
     },
     {
-      "word": "believe",
-      "start": 88.31999969482422,
-      "end": 88.86000061035156
+      "word": "so",
+      "start": 28.06,
+      "end": 28.1
     },
     {
-      "word": "help",
-      "start": 89.5199966430664,
-      "end": 89.5199966430664
+      "word": "I'll",
+      "start": 28.1,
+      "end": 28.54
+    },
+    {
+      "word": "hold",
+      "start": 28.54,
+      "end": 28.9
     },
     {
       "word": "my",
-      "start": 89.5199966430664,
-      "end": 89.91999816894531
+      "start": 28.9,
+      "end": 29.32
     },
     {
-      "word": "unbelief",
-      "start": 89.91999816894531,
-      "end": 90.80000305175781
+      "word": "little",
+      "start": 29.32,
+      "end": 29.82
     },
     {
-      "word": "that's",
-      "start": 90.94000244140625,
-      "end": 91.22000122070312
+      "word": "handful",
+      "start": 29.82,
+      "end": 30.52
     },
     {
-      "word": "the",
-      "start": 91.22000122070312,
-      "end": 91.4800033569336
+      "word": "and",
+      "start": 30.52,
+      "end": 30.9
     },
     {
-      "word": "only",
-      "start": 91.4800033569336,
-      "end": 91.91999816894531
+      "word": "I'll",
+      "start": 30.9,
+      "end": 31.36
     },
     {
-      "word": "prayer",
-      "start": 91.91999816894531,
-      "end": 92.18000030517578
+      "word": "see",
+      "start": 31.36,
+      "end": 31.62
+    },
+    {
+      "word": "what",
+      "start": 31.62,
+      "end": 31.98
+    },
+    {
+      "word": "it",
+      "start": 31.98,
+      "end": 32.22
+    },
+    {
+      "word": "can",
+      "start": 32.22,
+      "end": 32.72
+    },
+    {
+      "word": "be.",
+      "start": 32.72,
+      "end": 33.36
+    },
+    {
+      "word": "Even",
+      "start": 33.36,
+      "end": 33.82
+    },
+    {
+      "word": "faith",
+      "start": 33.82,
+      "end": 34.68
+    },
+    {
+      "word": "like",
+      "start": 34.68,
+      "end": 35.32
+    },
+    {
+      "word": "a",
+      "start": 35.32,
+      "end": 35.64
+    },
+    {
+      "word": "mustard",
+      "start": 35.64,
+      "end": 35.82
+    },
+    {
+      "word": "seed",
+      "start": 35.82,
+      "end": 36.38
+    },
+    {
+      "word": "is",
+      "start": 36.38,
+      "end": 36.68
+    },
+    {
+      "word": "faith",
+      "start": 36.68,
+      "end": 37.16
+    },
+    {
+      "word": "enough",
+      "start": 37.16,
+      "end": 37.8
+    },
+    {
+      "word": "to",
+      "start": 37.8,
+      "end": 38.16
+    },
+    {
+      "word": "grow,",
+      "start": 38.16,
+      "end": 38.88
     },
     {
       "word": "I",
-      "start": 92.18000030517578,
-      "end": 92.72000122070312
+      "start": 38.88,
+      "end": 39.26
     },
     {
-      "word": "know",
-      "start": 92.72000122070312,
-      "end": 92.9800033569336
+      "word": "believe,",
+      "start": 39.26,
+      "end": 40.42
     },
     {
-      "word": "When",
-      "start": 93.4000015258789,
-      "end": 93.62000274658203
+      "word": "help",
+      "start": 40.42,
+      "end": 40.46
+    },
+    {
+      "word": "my",
+      "start": 40.46,
+      "end": 40.78
+    },
+    {
+      "word": "unbelief,",
+      "start": 40.78,
+      "end": 42.04
+    },
+    {
+      "word": "that's",
+      "start": 42.04,
+      "end": 42.14
     },
     {
       "word": "the",
-      "start": 93.62000274658203,
-      "end": 93.94000244140625
+      "start": 42.14,
+      "end": 42.36
+    },
+    {
+      "word": "only",
+      "start": 42.36,
+      "end": 42.82
+    },
+    {
+      "word": "prayer",
+      "start": 42.82,
+      "end": 43.14
+    },
+    {
+      "word": "I",
+      "start": 43.14,
+      "end": 43.68
+    },
+    {
+      "word": "know.",
+      "start": 43.68,
+      "end": 44.08
+    },
+    {
+      "word": "When",
+      "start": 43.82,
+      "end": 44.4
+    },
+    {
+      "word": "the",
+      "start": 44.4,
+      "end": 44.84
     },
     {
       "word": "doubt",
-      "start": 93.94000244140625,
+      "start": 44.84,
+      "end": 45.36
+    },
+    {
+      "word": "rolls",
+      "start": 45.36,
+      "end": 45.74
+    },
+    {
+      "word": "in",
+      "start": 45.74,
+      "end": 46.1
+    },
+    {
+      "word": "like",
+      "start": 46.1,
+      "end": 46.32
+    },
+    {
+      "word": "weather,",
+      "start": 46.32,
+      "end": 46.96
+    },
+    {
+      "word": "I",
+      "start": 46.96,
+      "end": 47.26
+    },
+    {
+      "word": "will",
+      "start": 47.26,
+      "end": 47.64
+    },
+    {
+      "word": "hold",
+      "start": 47.64,
+      "end": 48.08
+    },
+    {
+      "word": "on",
+      "start": 48.08,
+      "end": 48.5
+    },
+    {
+      "word": "all",
+      "start": 48.5,
+      "end": 48.92
+    },
+    {
+      "word": "the",
+      "start": 48.92,
+      "end": 49.16
+    },
+    {
+      "word": "same,",
+      "start": 49.16,
+      "end": 49.82
+    },
+    {
+      "word": "'cause",
+      "start": 49.82,
+      "end": 50.02
+    },
+    {
+      "word": "it's",
+      "start": 50.02,
+      "end": 50.3
+    },
+    {
+      "word": "not",
+      "start": 50.3,
+      "end": 50.86
+    },
+    {
+      "word": "how",
+      "start": 50.86,
+      "end": 51.32
+    },
+    {
+      "word": "tight",
+      "start": 51.32,
+      "end": 51.42
+    },
+    {
+      "word": "I'm",
+      "start": 51.42,
+      "end": 51.66
+    },
+    {
+      "word": "holding,",
+      "start": 51.66,
+      "end": 52.56
+    },
+    {
+      "word": "it's",
+      "start": 52.56,
+      "end": 52.68
+    },
+    {
+      "word": "the",
+      "start": 52.68,
+      "end": 53.1
+    },
+    {
+      "word": "One",
+      "start": 53.1,
+      "end": 53.56
+    },
+    {
+      "word": "who",
+      "start": 53.56,
+      "end": 54.02
+    },
+    {
+      "word": "holds",
+      "start": 54.02,
+      "end": 54.06
+    },
+    {
+      "word": "my",
+      "start": 54.06,
+      "end": 54.38
+    },
+    {
+      "word": "name.",
+      "start": 54.38,
+      "end": 56.88
+    },
+    {
+      "word": "I",
+      "start": 60.08,
+      "end": 60.88
+    },
+    {
+      "word": "have",
+      "start": 60.88,
+      "end": 61.36
+    },
+    {
+      "word": "stepped",
+      "start": 61.36,
+      "end": 61.64
+    },
+    {
+      "word": "out",
+      "start": 61.64,
+      "end": 62.12
+    },
+    {
+      "word": "on",
+      "start": 62.12,
+      "end": 62.4
+    },
+    {
+      "word": "the",
+      "start": 62.4,
+      "end": 62.66
+    },
+    {
+      "word": "water",
+      "start": 62.66,
+      "end": 63.3
+    },
+    {
+      "word": "and",
+      "start": 63.3,
+      "end": 63.82
+    },
+    {
+      "word": "I've",
+      "start": 63.82,
+      "end": 64.12
+    },
+    {
+      "word": "felt",
+      "start": 64.12,
+      "end": 64.4
+    },
+    {
+      "word": "myself",
+      "start": 64.4,
+      "end": 65.04
+    },
+    {
+      "word": "go",
+      "start": 65.04,
+      "end": 65.48
+    },
+    {
+      "word": "under,",
+      "start": 65.48,
+      "end": 66.22
+    },
+    {
+      "word": "but",
+      "start": 66.22,
+      "end": 66.52
+    },
+    {
+      "word": "a",
+      "start": 66.52,
+      "end": 66.82
+    },
+    {
+      "word": "hand",
+      "start": 66.82,
+      "end": 67.14
+    },
+    {
+      "word": "was",
+      "start": 67.14,
+      "end": 67.42
+    },
+    {
+      "word": "always",
+      "start": 67.42,
+      "end": 68.2
+    },
+    {
+      "word": "reaching",
+      "start": 68.2,
+      "end": 68.66
+    },
+    {
+      "word": "through",
+      "start": 68.66,
+      "end": 69.1
+    },
+    {
+      "word": "the",
+      "start": 69.1,
+      "end": 69.86
+    },
+    {
+      "word": "lightning",
+      "start": 69.86,
+      "end": 69.94
+    },
+    {
+      "word": "and",
+      "start": 69.94,
+      "end": 70.58
+    },
+    {
+      "word": "the",
+      "start": 70.58,
+      "end": 71.44
+    },
+    {
+      "word": "thunder.",
+      "start": 71.44,
+      "end": 71.84
+    },
+    {
+      "word": "And",
+      "start": 71.48,
+      "end": 71.9
+    },
+    {
+      "word": "the",
+      "start": 71.9,
+      "end": 72.14
+    },
+    {
+      "word": "prayers",
+      "start": 72.14,
+      "end": 72.62
+    },
+    {
+      "word": "I",
+      "start": 72.62,
+      "end": 72.96
+    },
+    {
+      "word": "thought",
+      "start": 72.96,
+      "end": 73.24
+    },
+    {
+      "word": "were",
+      "start": 73.24,
+      "end": 73.66
+    },
+    {
+      "word": "silent",
+      "start": 73.66,
+      "end": 74.28
+    },
+    {
+      "word": "maybe",
+      "start": 74.28,
+      "end": 74.74
+    },
+    {
+      "word": "they",
+      "start": 74.74,
+      "end": 75.3
+    },
+    {
+      "word": "were",
+      "start": 75.3,
+      "end": 75.62
+    },
+    {
+      "word": "always",
+      "start": 75.62,
+      "end": 76.28
+    },
+    {
+      "word": "heard,",
+      "start": 76.28,
+      "end": 76.98
+    },
+    {
+      "word": "so",
+      "start": 76.98,
+      "end": 77.42
+    },
+    {
+      "word": "I'm",
+      "start": 77.42,
+      "end": 77.8
+    },
+    {
+      "word": "leaning",
+      "start": 77.8,
+      "end": 78.12
+    },
+    {
+      "word": "on",
+      "start": 78.12,
+      "end": 78.76
+    },
+    {
+      "word": "a",
+      "start": 78.76,
+      "end": 79.68
+    },
+    {
+      "word": "promise",
+      "start": 79.68,
+      "end": 80.08
+    },
+    {
+      "word": "more",
+      "start": 79.72,
+      "end": 80.12
+    },
+    {
+      "word": "than",
+      "start": 80.12,
+      "end": 80.44
+    },
+    {
+      "word": "feeling,",
+      "start": 80.44,
+      "end": 81.46
+    },
+    {
+      "word": "more",
+      "start": 81.46,
+      "end": 81.5
+    },
+    {
+      "word": "than",
+      "start": 81.5,
+      "end": 81.82
+    },
+    {
+      "word": "word.",
+      "start": 81.82,
+      "end": 82.74
+    },
+    {
+      "word": "Even",
+      "start": 82.74,
+      "end": 83.06
+    },
+    {
+      "word": "faith",
+      "start": 83.06,
+      "end": 83.6
+    },
+    {
+      "word": "like",
+      "start": 83.6,
+      "end": 84.42
+    },
+    {
+      "word": "a",
+      "start": 84.42,
+      "end": 84.72
+    },
+    {
+      "word": "mustard",
+      "start": 84.72,
+      "end": 84.94
+    },
+    {
+      "word": "seed",
+      "start": 84.94,
+      "end": 85.46
+    },
+    {
+      "word": "is",
+      "start": 85.46,
+      "end": 85.76
+    },
+    {
+      "word": "faith",
+      "start": 85.76,
+      "end": 86.26
+    },
+    {
+      "word": "enough",
+      "start": 86.26,
+      "end": 86.9
+    },
+    {
+      "word": "to",
+      "start": 86.9,
+      "end": 87.26
+    },
+    {
+      "word": "grow,",
+      "start": 87.26,
+      "end": 87.88
+    },
+    {
+      "word": "I",
+      "start": 87.88,
+      "end": 88.32
+    },
+    {
+      "word": "believe,",
+      "start": 88.32,
+      "end": 89.46
+    },
+    {
+      "word": "help",
+      "start": 89.46,
+      "end": 89.52
+    },
+    {
+      "word": "my",
+      "start": 89.52,
+      "end": 89.9
+    },
+    {
+      "word": "unbelief,",
+      "start": 89.9,
+      "end": 91
+    },
+    {
+      "word": "that's",
+      "start": 91,
+      "end": 91.22
+    },
+    {
+      "word": "the",
+      "start": 91.22,
+      "end": 91.48
+    },
+    {
+      "word": "only",
+      "start": 91.48,
+      "end": 91.9
+    },
+    {
+      "word": "prayer",
+      "start": 91.9,
+      "end": 92.18
+    },
+    {
+      "word": "I",
+      "start": 92.18,
+      "end": 92.74
+    },
+    {
+      "word": "know.",
+      "start": 92.74,
+      "end": 93.14
+    },
+    {
+      "word": "When",
+      "start": 93,
+      "end": 93.56
+    },
+    {
+      "word": "the",
+      "start": 93.56,
+      "end": 93.86
+    },
+    {
+      "word": "doubt",
+      "start": 93.86,
       "end": 94.5
     },
     {
       "word": "rolls",
       "start": 94.5,
-      "end": 94.80000305175781
+      "end": 94.84
     },
     {
       "word": "in",
-      "start": 94.80000305175781,
-      "end": 95.18000030517578
+      "start": 94.84,
+      "end": 95.2
     },
     {
       "word": "like",
-      "start": 95.18000030517578,
-      "end": 95.41999816894531
+      "start": 95.2,
+      "end": 95.42
     },
     {
-      "word": "weather",
-      "start": 95.41999816894531,
-      "end": 95.80000305175781
+      "word": "weather,",
+      "start": 95.42,
+      "end": 96.02
     },
     {
       "word": "I",
-      "start": 96.04000091552734,
-      "end": 96.36000061035156
+      "start": 96.02,
+      "end": 96.34
     },
     {
       "word": "will",
-      "start": 96.36000061035156,
-      "end": 96.72000122070312
+      "start": 96.34,
+      "end": 96.72
     },
     {
       "word": "hold",
-      "start": 96.72000122070312,
-      "end": 97.18000030517578
+      "start": 96.72,
+      "end": 97.18
     },
     {
       "word": "on",
-      "start": 97.18000030517578,
-      "end": 97.54000091552734
+      "start": 97.18,
+      "end": 97.56
     },
     {
       "word": "all",
-      "start": 97.54000091552734,
-      "end": 98.0199966430664
+      "start": 97.56,
+      "end": 98.02
     },
     {
       "word": "the",
-      "start": 98.0199966430664,
-      "end": 98.23999786376953
+      "start": 98.02,
+      "end": 98.26
     },
     {
-      "word": "same",
-      "start": 98.23999786376953,
-      "end": 98.4800033569336
+      "word": "same,",
+      "start": 98.26,
+      "end": 98.92
     },
     {
-      "word": "cause",
-      "start": 98.76000213623047,
-      "end": 99.08000183105469
+      "word": "'cause",
+      "start": 98.92,
+      "end": 99.1
     },
     {
       "word": "it's",
-      "start": 99.08000183105469,
-      "end": 99.37999725341797
+      "start": 99.1,
+      "end": 99.38
     },
     {
       "word": "not",
-      "start": 99.37999725341797,
-      "end": 99.94000244140625
+      "start": 99.38,
+      "end": 99.96
     },
     {
-      "word": "outside",
-      "start": 99.94000244140625,
-      "end": 100.4800033569336
+      "word": "how",
+      "start": 99.96,
+      "end": 100.42
+    },
+    {
+      "word": "tight",
+      "start": 100.42,
+      "end": 100.52
     },
     {
       "word": "I'm",
-      "start": 100.4800033569336,
-      "end": 100.80000305175781
+      "start": 100.52,
+      "end": 100.76
     },
     {
-      "word": "holding",
-      "start": 100.80000305175781,
-      "end": 101.31999969482422
+      "word": "holding,",
+      "start": 100.76,
+      "end": 101.66
     },
     {
       "word": "it's",
-      "start": 101.63999938964844,
-      "end": 101.77999877929688
+      "start": 101.66,
+      "end": 101.76
     },
     {
       "word": "the",
-      "start": 101.77999877929688,
-      "end": 102.16000366210938
+      "start": 101.76,
+      "end": 102.16
     },
     {
-      "word": "one",
-      "start": 102.16000366210938,
-      "end": 102.5999984741211
+      "word": "One",
+      "start": 102.16,
+      "end": 102.6
     },
     {
       "word": "who",
-      "start": 102.5999984741211,
-      "end": 103.0999984741211
+      "start": 102.6,
+      "end": 103.1
     },
     {
       "word": "holds",
-      "start": 103.0999984741211,
-      "end": 103.0999984741211
+      "start": 103.1,
+      "end": 103.14
     },
     {
       "word": "my",
-      "start": 103.0999984741211,
-      "end": 103.45999908447266
+      "start": 103.14,
+      "end": 103.4
     },
     {
-      "word": "name",
-      "start": 103.45999908447266,
-      "end": 104.13999938964844
+      "word": "name.",
+      "start": 103.4,
+      "end": 105.9
     },
     {
-      "word": "When",
-      "start": 121.08000183105469,
-      "end": 121.12000274658203
+      "word": "There's",
+      "start": 115.08,
+      "end": 115.62
     },
     {
-      "word": "the",
-      "start": 121.12000274658203,
-      "end": 121.13999938964844
+      "word": "a",
+      "start": 115.62,
+      "end": 115.78
     },
     {
-      "word": "doubt",
-      "start": 121.13999938964844,
-      "end": 121.80000305175781
+      "word": "man",
+      "start": 115.78,
+      "end": 116.28
     },
     {
-      "word": "rolls",
-      "start": 121.80000305175781,
-      "end": 123.41999816894531
+      "word": "who",
+      "start": 116.28,
+      "end": 116.72
+    },
+    {
+      "word": "wrote",
+      "start": 116.72,
+      "end": 116.76
+    },
+    {
+      "word": "from",
+      "start": 116.76,
+      "end": 117.3
+    },
+    {
+      "word": "prison",
+      "start": 117.3,
+      "end": 117.72
+    },
+    {
+      "word": "that",
+      "start": 117.72,
+      "end": 118.22
+    },
+    {
+      "word": "he'd",
+      "start": 118.22,
+      "end": 118.6
+    },
+    {
+      "word": "learned",
+      "start": 118.6,
+      "end": 118.98
+    },
+    {
+      "word": "to",
+      "start": 118.98,
+      "end": 119.16
+    },
+    {
+      "word": "be",
+      "start": 119.16,
+      "end": 119.72
+    },
+    {
+      "word": "content,",
+      "start": 119.72,
+      "end": 120.52
     },
     {
       "word": "in",
-      "start": 123.41999816894531,
-      "end": 123.44000244140625
-    },
-    {
-      "word": "like",
-      "start": 123.44000244140625,
-      "end": 124.05999755859375
-    },
-    {
-      "word": "weather",
-      "start": 124.05999755859375,
-      "end": 124.08000183105469
-    },
-    {
-      "word": "I",
-      "start": 125.72000122070312,
-      "end": 125.73999786376953
-    },
-    {
-      "word": "will",
-      "start": 125.73999786376953,
-      "end": 125.76000213623047
-    },
-    {
-      "word": "hold",
-      "start": 125.76000213623047,
-      "end": 125.77999877929688
-    },
-    {
-      "word": "on",
-      "start": 125.77999877929688,
-      "end": 125.80000305175781
-    },
-    {
-      "word": "all",
-      "start": 125.80000305175781,
-      "end": 125.81999969482422
+      "start": 120.52,
+      "end": 121.04
     },
     {
       "word": "the",
-      "start": 125.81999969482422,
-      "end": 125.83999633789062
+      "start": 121.04,
+      "end": 121.26
     },
     {
-      "word": "same",
-      "start": 125.83999633789062,
-      "end": 125.86000061035156
+      "word": "plenty",
+      "start": 121.26,
+      "end": 121.8
     },
     {
-      "word": "cause",
-      "start": 125.87999725341797,
-      "end": 126.44000244140625
-    },
-    {
-      "word": "it's",
-      "start": 126.44000244140625,
-      "end": 129.5
-    },
-    {
-      "word": "not",
-      "start": 129.5,
-      "end": 130.60000610351562
-    },
-    {
-      "word": "outside",
-      "start": 130.60000610351562,
-      "end": 130.66000366210938
-    },
-    {
-      "word": "I'm",
-      "start": 130.66000366210938,
-      "end": 131.66000366210938
-    },
-    {
-      "word": "holding",
-      "start": 131.66000366210938,
-      "end": 131.66000366210938
-    },
-    {
-      "word": "it's",
-      "start": 131.66000366210938,
-      "end": 131.74000549316406
+      "word": "or",
+      "start": 121.8,
+      "end": 122.42
     },
     {
       "word": "the",
-      "start": 131.74000549316406,
-      "end": 131.74000549316406
+      "start": 122.42,
+      "end": 122.88
     },
     {
-      "word": "one",
-      "start": 131.74000549316406,
-      "end": 131.74000549316406
+      "word": "empty,",
+      "start": 122.88,
+      "end": 123.28
     },
     {
-      "word": "who",
-      "start": 131.74000549316406,
-      "end": 134.0399932861328
+      "word": "with",
+      "start": 123.12,
+      "end": 123.82
     },
     {
-      "word": "holds",
-      "start": 134.0399932861328,
-      "end": 134.05999755859375
+      "word": "whatever",
+      "start": 123.82,
+      "end": 124.46
     },
     {
-      "word": "my",
-      "start": 134.05999755859375,
-      "end": 134.0800018310547
+      "word": "life",
+      "start": 124.46,
+      "end": 125
     },
     {
-      "word": "name",
-      "start": 134.0800018310547,
-      "end": 134.10000610351562
+      "word": "had",
+      "start": 125,
+      "end": 125.48
     },
     {
-      "word": "Oh",
-      "start": 136.82000732421875,
-      "end": 137.77999877929688
+      "word": "sent.",
+      "start": 125.48,
+      "end": 125.88
     },
     {
-      "word": "so",
-      "start": 151.33999633789062,
-      "end": 151.36000061035156
-    },
-    {
-      "word": "I",
-      "start": 151.36000061035156,
-      "end": 151.3800048828125
-    },
-    {
-      "word": "will",
-      "start": 151.3800048828125,
-      "end": 151.3800048828125
-    },
-    {
-      "word": "hold",
-      "start": 151.3800048828125,
-      "end": 154.44000244140625
-    },
-    {
-      "word": "on",
-      "start": 154.44000244140625,
-      "end": 154.8000030517578
-    },
-    {
-      "word": "all",
-      "start": 154.8000030517578,
-      "end": 155.25999450683594
+      "word": "For",
+      "start": 125.76,
+      "end": 126.44
     },
     {
       "word": "the",
-      "start": 155.25999450683594,
-      "end": 155.32000732421875
+      "start": 126.44,
+      "end": 126.64
     },
     {
-      "word": "same",
-      "start": 155.32000732421875,
-      "end": 155.82000732421875
+      "word": "strength",
+      "start": 126.64,
+      "end": 127.14
     },
     {
-      "word": "cause",
-      "start": 156.36000061035156,
-      "end": 156.36000061035156
+      "word": "was",
+      "start": 127.14,
+      "end": 127.5
     },
     {
-      "word": "it's",
-      "start": 156.36000061035156,
-      "end": 156.63999938964844
+      "word": "never",
+      "start": 127.5,
+      "end": 127.98
     },
     {
-      "word": "not",
-      "start": 156.63999938964844,
-      "end": 157.1999969482422
+      "word": "in",
+      "start": 127.98,
+      "end": 128.6
     },
     {
-      "word": "outside",
-      "start": 157.1999969482422,
-      "end": 157.75999450683594
-    },
-    {
-      "word": "I'm",
-      "start": 157.75999450683594,
-      "end": 158.05999755859375
-    },
-    {
-      "word": "holding",
-      "start": 158.05999755859375,
-      "end": 158.63999938964844
-    },
-    {
-      "word": "it's",
-      "start": 158.8800048828125,
-      "end": 159.0399932861328
-    },
-    {
-      "word": "the",
-      "start": 159.0399932861328,
-      "end": 159.4199981689453
-    },
-    {
-      "word": "one",
-      "start": 159.4199981689453,
-      "end": 159.89999389648438
-    },
-    {
-      "word": "who",
-      "start": 159.89999389648438,
-      "end": 160.39999389648438
-    },
-    {
-      "word": "holds",
-      "start": 160.39999389648438,
-      "end": 160.39999389648438
-    },
-    {
-      "word": "my",
-      "start": 160.39999389648438,
-      "end": 160.74000549316406
-    },
-    {
-      "word": "name",
-      "start": 160.74000549316406,
-      "end": 161.5399932861328
-    },
-    {
-      "word": "Oh",
-      "start": 161.5399932861328,
-      "end": 162.83999633789062
-    },
-    {
-      "word": "so",
-      "start": 162.83999633789062,
-      "end": 163.94000244140625
-    },
-    {
-      "word": "I'll",
-      "start": 163.94000244140625,
-      "end": 164.47999572753906
-    },
-    {
-      "word": "keep",
-      "start": 164.47999572753906,
-      "end": 164.55999755859375
-    },
-    {
-      "word": "a",
-      "start": 164.55999755859375,
-      "end": 164.74000549316406
-    },
-    {
-      "word": "little",
-      "start": 164.74000549316406,
-      "end": 165.05999755859375
-    },
-    {
-      "word": "faith",
-      "start": 165.05999755859375,
-      "end": 165.32000732421875
-    },
-    {
-      "word": "alive",
-      "start": 165.32000732421875,
-      "end": 166.3000030517578
-    },
-    {
-      "word": "no",
-      "start": 166.94000244140625,
-      "end": 167.05999755859375
-    },
-    {
-      "word": "bigger",
-      "start": 167.05999755859375,
-      "end": 167.3800048828125
-    },
-    {
-      "word": "than",
-      "start": 167.3800048828125,
-      "end": 167.63999938964844
-    },
-    {
-      "word": "a",
-      "start": 167.63999938964844,
-      "end": 168.27999877929688
-    },
-    {
-      "word": "secret",
-      "start": 168.27999877929688,
-      "end": 168.44000244140625
-    },
-    {
-      "word": "and",
-      "start": 169.3000030517578,
-      "end": 170.17999267578125
-    },
-    {
-      "word": "it's",
-      "start": 170.17999267578125,
-      "end": 170.52000427246094
-    },
-    {
-      "word": "carried",
-      "start": 170.52000427246094,
-      "end": 170.82000732421875
-    },
-    {
-      "word": "me",
-      "start": 170.82000732421875,
-      "end": 171.39999389648438
-    },
-    {
-      "word": "this",
-      "start": 171.39999389648438,
-      "end": 171.72000122070312
-    },
-    {
-      "word": "far",
-      "start": 171.72000122070312,
-      "end": 172.5
+      "word": "him,",
+      "start": 128.6,
+      "end": 129
     },
     {
       "word": "it",
-      "start": 172.60000610351562,
-      "end": 172.82000732421875
+      "start": 128.9,
+      "end": 129.22
     },
     {
-      "word": "is",
-      "start": 172.82000732421875,
-      "end": 173.17999267578125
+      "word": "was",
+      "start": 129.22,
+      "end": 129.54
     },
     {
-      "word": "all",
-      "start": 173.17999267578125,
-      "end": 174.3800048828125
+      "word": "given",
+      "start": 129.54,
+      "end": 129.94
     },
     {
-      "word": "I'll",
-      "start": 174.3800048828125,
-      "end": 175.25999450683594
+      "word": "from",
+      "start": 129.94,
+      "end": 130.66
     },
     {
-      "word": "ever",
-      "start": 175.25999450683594,
-      "end": 175.83999633789062
+      "word": "above,",
+      "start": 130.66,
+      "end": 131.9
+    },
+    {
+      "word": "and",
+      "start": 131.9,
+      "end": 132
+    },
+    {
+      "word": "a",
+      "start": 132,
+      "end": 132.4
+    },
+    {
+      "word": "seed",
+      "start": 132.4,
+      "end": 132.6
+    },
+    {
+      "word": "don't",
+      "start": 132.6,
+      "end": 132.98
     },
     {
       "word": "need",
-      "start": 175.83999633789062,
-      "end": 175.97999572753906
+      "start": 132.98,
+      "end": 133.32
+    },
+    {
+      "word": "to",
+      "start": 133.32,
+      "end": 133.56
+    },
+    {
+      "word": "be",
+      "start": 133.56,
+      "end": 133.82
+    },
+    {
+      "word": "a",
+      "start": 133.82,
+      "end": 134.48
+    },
+    {
+      "word": "tree",
+      "start": 134.48,
+      "end": 134.88
+    },
+    {
+      "word": "to",
+      "start": 134.52,
+      "end": 135.18
+    },
+    {
+      "word": "rest",
+      "start": 135.18,
+      "end": 135.24
+    },
+    {
+      "word": "inside",
+      "start": 135.24,
+      "end": 135.94
+    },
+    {
+      "word": "that",
+      "start": 135.94,
+      "end": 136.36
+    },
+    {
+      "word": "love.",
+      "start": 136.36,
+      "end": 138.86
+    },
+    {
+      "word": "Even",
+      "start": 139.8,
+      "end": 140.44
+    },
+    {
+      "word": "faith",
+      "start": 140.44,
+      "end": 141.16
+    },
+    {
+      "word": "like",
+      "start": 141.16,
+      "end": 141.54
+    },
+    {
+      "word": "a",
+      "start": 141.54,
+      "end": 141.98
+    },
+    {
+      "word": "mustard",
+      "start": 141.98,
+      "end": 142.18
+    },
+    {
+      "word": "seed",
+      "start": 142.18,
+      "end": 143.02
+    },
+    {
+      "word": "is",
+      "start": 143.02,
+      "end": 143.06
+    },
+    {
+      "word": "faith",
+      "start": 143.06,
+      "end": 143.54
+    },
+    {
+      "word": "enough",
+      "start": 143.54,
+      "end": 144.14
+    },
+    {
+      "word": "to",
+      "start": 144.14,
+      "end": 144.54
+    },
+    {
+      "word": "grow,",
+      "start": 144.54,
+      "end": 145.18
+    },
+    {
+      "word": "I",
+      "start": 145.18,
+      "end": 145.62
+    },
+    {
+      "word": "believe,",
+      "start": 145.62,
+      "end": 146.74
+    },
+    {
+      "word": "help",
+      "start": 146.74,
+      "end": 146.78
+    },
+    {
+      "word": "my",
+      "start": 146.78,
+      "end": 147.3
+    },
+    {
+      "word": "unbelief,",
+      "start": 147.3,
+      "end": 148.2
+    },
+    {
+      "word": "that's",
+      "start": 148.2,
+      "end": 148.52
+    },
+    {
+      "word": "the",
+      "start": 148.52,
+      "end": 148.74
+    },
+    {
+      "word": "only",
+      "start": 148.74,
+      "end": 149.18
+    },
+    {
+      "word": "prayer",
+      "start": 149.18,
+      "end": 149.44
+    },
+    {
+      "word": "I",
+      "start": 149.44,
+      "end": 150
+    },
+    {
+      "word": "know.",
+      "start": 150,
+      "end": 150.4
+    },
+    {
+      "word": "When",
+      "start": 150.14,
+      "end": 150.84
+    },
+    {
+      "word": "the",
+      "start": 150.84,
+      "end": 151.2
+    },
+    {
+      "word": "doubt",
+      "start": 151.2,
+      "end": 151.68
+    },
+    {
+      "word": "rolls",
+      "start": 151.68,
+      "end": 152.08
+    },
+    {
+      "word": "in",
+      "start": 152.08,
+      "end": 152.46
+    },
+    {
+      "word": "like",
+      "start": 152.46,
+      "end": 152.7
+    },
+    {
+      "word": "weather,",
+      "start": 152.7,
+      "end": 153.48
+    },
+    {
+      "word": "I",
+      "start": 153.48,
+      "end": 153.62
+    },
+    {
+      "word": "will",
+      "start": 153.62,
+      "end": 154
+    },
+    {
+      "word": "hold",
+      "start": 154,
+      "end": 154.46
+    },
+    {
+      "word": "on",
+      "start": 154.46,
+      "end": 154.82
+    },
+    {
+      "word": "all",
+      "start": 154.82,
+      "end": 155.26
+    },
+    {
+      "word": "the",
+      "start": 155.26,
+      "end": 155.52
+    },
+    {
+      "word": "same,",
+      "start": 155.52,
+      "end": 156.18
+    },
+    {
+      "word": "'cause",
+      "start": 156.18,
+      "end": 156.38
+    },
+    {
+      "word": "it's",
+      "start": 156.38,
+      "end": 156.66
+    },
+    {
+      "word": "not",
+      "start": 156.66,
+      "end": 157.22
+    },
+    {
+      "word": "how",
+      "start": 157.22,
+      "end": 157.68
+    },
+    {
+      "word": "tight",
+      "start": 157.68,
+      "end": 157.78
+    },
+    {
+      "word": "I'm",
+      "start": 157.78,
+      "end": 158.04
+    },
+    {
+      "word": "holding,",
+      "start": 158.04,
+      "end": 158.94
+    },
+    {
+      "word": "it's",
+      "start": 158.94,
+      "end": 159.04
+    },
+    {
+      "word": "the",
+      "start": 159.04,
+      "end": 159.46
+    },
+    {
+      "word": "One",
+      "start": 159.46,
+      "end": 159.88
+    },
+    {
+      "word": "who",
+      "start": 159.88,
+      "end": 160.38
+    },
+    {
+      "word": "holds",
+      "start": 160.38,
+      "end": 160.42
+    },
+    {
+      "word": "my",
+      "start": 160.42,
+      "end": 160.72
+    },
+    {
+      "word": "name.",
+      "start": 160.72,
+      "end": 163.22
+    },
+    {
+      "word": "So",
+      "start": 163.96,
+      "end": 163.98
+    },
+    {
+      "word": "I'll",
+      "start": 163.98,
+      "end": 164.42
+    },
+    {
+      "word": "keep",
+      "start": 164.42,
+      "end": 164.56
+    },
+    {
+      "word": "a",
+      "start": 164.56,
+      "end": 164.72
+    },
+    {
+      "word": "little",
+      "start": 164.72,
+      "end": 165.06
+    },
+    {
+      "word": "faith",
+      "start": 165.06,
+      "end": 165.34
+    },
+    {
+      "word": "alive,",
+      "start": 165.34,
+      "end": 166.6
+    },
+    {
+      "word": "no",
+      "start": 166.6,
+      "end": 167.06
+    },
+    {
+      "word": "bigger",
+      "start": 167.06,
+      "end": 167.36
+    },
+    {
+      "word": "than",
+      "start": 167.36,
+      "end": 167.64
+    },
+    {
+      "word": "a",
+      "start": 167.64,
+      "end": 168.08
+    },
+    {
+      "word": "seed,",
+      "start": 168.08,
+      "end": 169.44
+    },
+    {
+      "word": "and",
+      "start": 169.44,
+      "end": 170.16
+    },
+    {
+      "word": "it's",
+      "start": 170.16,
+      "end": 170.52
+    },
+    {
+      "word": "carried",
+      "start": 170.52,
+      "end": 170.86
+    },
+    {
+      "word": "me",
+      "start": 170.86,
+      "end": 171.4
+    },
+    {
+      "word": "this",
+      "start": 171.4,
+      "end": 171.74
+    },
+    {
+      "word": "far,",
+      "start": 171.74,
+      "end": 172.6
+    },
+    {
+      "word": "it",
+      "start": 172.6,
+      "end": 172.8
+    },
+    {
+      "word": "is",
+      "start": 172.8,
+      "end": 173.16
+    },
+    {
+      "word": "all",
+      "start": 173.16,
+      "end": 174.12
+    },
+    {
+      "word": "I'll",
+      "start": 174.12,
+      "end": 175.24
+    },
+    {
+      "word": "ever",
+      "start": 175.24,
+      "end": 175.82
+    },
+    {
+      "word": "need.",
+      "start": 175.82,
+      "end": 178.32
     }
   ],
-  "usage": {
-    "type": "duration",
-    "seconds": 187
-  },
-  "cleanText": "Smallest of all the seeds, almost nothing in your hand, but you bury it one morning and it rises from the land. They say a faith that's small can move a mountain to the sea, so I hold my little handful and I'll see what it can be. Even faith like a mustard seed is faith enough to grow. I believe, help my unbelief, that's the only prayer I know. When the doubt rolls in like weather, I will hold on all the same, cause it's not outside I'm holding, it's the one who holds my name. I have stepped out on the water and I've felt myself go under, but a hand was always reaching through the lightning and the thunder. And the prayers I thought were silent, maybe they were always heard. So I'm leaning on a promise more than feeling more than word. Even faith like a mustard seed is faith enough to grow. I believe, help my unbelief, that's the only prayer I know. When the doubt rolls in like weather, I will hold on all the same, cause it's not outside I'm holding, it's the one who holds my name. There's a man who wrote from prison that he'd learn to be content in the plenty or the empty with whatever life had sent. For the strength was never in him, it was given from above, and the seed don't need to be a tree to rest inside that love. Even faith like a mustard seed is faith enough to grow. I believe, help my unbelief, that's the only prayer I know. When the doubt rolls in like weather, I will hold on all the same, cause it's not outside I'm holding, it's the one who holds my name. So I'll keep a little faith alive, no bigger than a seed, and it's carried me this far, it is all I'll ever need."
+  "segments": [
+    {
+      "seg": 0,
+      "text": "The smallest of all the seeds,",
+      "start": 7.38,
+      "end": 14.32,
+      "w": [
+        {
+          "t": "The",
+          "s": 7.38
+        },
+        {
+          "t": "smallest",
+          "s": 8.36
+        },
+        {
+          "t": "of",
+          "s": 8.48
+        },
+        {
+          "t": "all",
+          "s": 12.38
+        },
+        {
+          "t": "the",
+          "s": 13.12
+        },
+        {
+          "t": "seeds,",
+          "s": 13.92
+        }
+      ]
+    },
+    {
+      "seg": 1,
+      "text": "almost nothing in your hand,",
+      "start": 14.22,
+      "end": 17.08,
+      "w": [
+        {
+          "t": "almost",
+          "s": 14.22
+        },
+        {
+          "t": "nothing",
+          "s": 14.8
+        },
+        {
+          "t": "in",
+          "s": 15.52
+        },
+        {
+          "t": "your",
+          "s": 15.9
+        },
+        {
+          "t": "hand,",
+          "s": 16.26
+        }
+      ]
+    },
+    {
+      "seg": 2,
+      "text": "but you bury it one morning",
+      "start": 17.08,
+      "end": 19.68,
+      "w": [
+        {
+          "t": "but",
+          "s": 17.08
+        },
+        {
+          "t": "you",
+          "s": 17.38
+        },
+        {
+          "t": "bury",
+          "s": 17.64
+        },
+        {
+          "t": "it",
+          "s": 18.16
+        },
+        {
+          "t": "one",
+          "s": 18.66
+        },
+        {
+          "t": "morning",
+          "s": 18.96
+        }
+      ]
+    },
+    {
+      "seg": 3,
+      "text": "and it rises from the land.",
+      "start": 19.68,
+      "end": 22.42,
+      "w": [
+        {
+          "t": "and",
+          "s": 19.68
+        },
+        {
+          "t": "it",
+          "s": 20
+        },
+        {
+          "t": "rises",
+          "s": 20.86
+        },
+        {
+          "t": "from",
+          "s": 20.9
+        },
+        {
+          "t": "the",
+          "s": 21.46
+        },
+        {
+          "t": "land.",
+          "s": 22.02
+        }
+      ]
+    },
+    {
+      "seg": 4,
+      "text": "They say a faith that small",
+      "start": 22.1,
+      "end": 24.86,
+      "w": [
+        {
+          "t": "They",
+          "s": 22.1
+        },
+        {
+          "t": "say",
+          "s": 22.52
+        },
+        {
+          "t": "a",
+          "s": 22.94
+        },
+        {
+          "t": "faith",
+          "s": 23.24
+        },
+        {
+          "t": "that",
+          "s": 23.88
+        },
+        {
+          "t": "small",
+          "s": 24.44
+        }
+      ]
+    },
+    {
+      "seg": 5,
+      "text": "could move a mountain to the sea,",
+      "start": 24.86,
+      "end": 28.06,
+      "w": [
+        {
+          "t": "could",
+          "s": 24.86
+        },
+        {
+          "t": "move",
+          "s": 25.3
+        },
+        {
+          "t": "a",
+          "s": 25.52
+        },
+        {
+          "t": "mountain",
+          "s": 26.26
+        },
+        {
+          "t": "to",
+          "s": 26.34
+        },
+        {
+          "t": "the",
+          "s": 26.76
+        },
+        {
+          "t": "sea,",
+          "s": 27.34
+        }
+      ]
+    },
+    {
+      "seg": 6,
+      "text": "so I'll hold my little handful",
+      "start": 28.06,
+      "end": 30.52,
+      "w": [
+        {
+          "t": "so",
+          "s": 28.06
+        },
+        {
+          "t": "I'll",
+          "s": 28.1
+        },
+        {
+          "t": "hold",
+          "s": 28.54
+        },
+        {
+          "t": "my",
+          "s": 28.9
+        },
+        {
+          "t": "little",
+          "s": 29.32
+        },
+        {
+          "t": "handful",
+          "s": 29.82
+        }
+      ]
+    },
+    {
+      "seg": 7,
+      "text": "and I'll see what it can be.",
+      "start": 30.52,
+      "end": 33.36,
+      "w": [
+        {
+          "t": "and",
+          "s": 30.52
+        },
+        {
+          "t": "I'll",
+          "s": 30.9
+        },
+        {
+          "t": "see",
+          "s": 31.36
+        },
+        {
+          "t": "what",
+          "s": 31.62
+        },
+        {
+          "t": "it",
+          "s": 31.98
+        },
+        {
+          "t": "can",
+          "s": 32.22
+        },
+        {
+          "t": "be.",
+          "s": 32.72
+        }
+      ]
+    },
+    {
+      "seg": 8,
+      "text": "Even faith like a mustard seed",
+      "start": 33.36,
+      "end": 36.38,
+      "w": [
+        {
+          "t": "Even",
+          "s": 33.36
+        },
+        {
+          "t": "faith",
+          "s": 33.82
+        },
+        {
+          "t": "like",
+          "s": 34.68
+        },
+        {
+          "t": "a",
+          "s": 35.32
+        },
+        {
+          "t": "mustard",
+          "s": 35.64
+        },
+        {
+          "t": "seed",
+          "s": 35.82
+        }
+      ]
+    },
+    {
+      "seg": 9,
+      "text": "is faith enough to grow,",
+      "start": 36.38,
+      "end": 38.88,
+      "w": [
+        {
+          "t": "is",
+          "s": 36.38
+        },
+        {
+          "t": "faith",
+          "s": 36.68
+        },
+        {
+          "t": "enough",
+          "s": 37.16
+        },
+        {
+          "t": "to",
+          "s": 37.8
+        },
+        {
+          "t": "grow,",
+          "s": 38.16
+        }
+      ]
+    },
+    {
+      "seg": 10,
+      "text": "I believe, help my unbelief,",
+      "start": 38.88,
+      "end": 42.04,
+      "w": [
+        {
+          "t": "I",
+          "s": 38.88
+        },
+        {
+          "t": "believe,",
+          "s": 39.26
+        },
+        {
+          "t": "help",
+          "s": 40.42
+        },
+        {
+          "t": "my",
+          "s": 40.46
+        },
+        {
+          "t": "unbelief,",
+          "s": 40.78
+        }
+      ]
+    },
+    {
+      "seg": 11,
+      "text": "that's the only prayer I know.",
+      "start": 42.04,
+      "end": 44.08,
+      "w": [
+        {
+          "t": "that's",
+          "s": 42.04
+        },
+        {
+          "t": "the",
+          "s": 42.14
+        },
+        {
+          "t": "only",
+          "s": 42.36
+        },
+        {
+          "t": "prayer",
+          "s": 42.82
+        },
+        {
+          "t": "I",
+          "s": 43.14
+        },
+        {
+          "t": "know.",
+          "s": 43.68
+        }
+      ]
+    },
+    {
+      "seg": 12,
+      "text": "When the doubt rolls in like weather,",
+      "start": 43.82,
+      "end": 46.96,
+      "w": [
+        {
+          "t": "When",
+          "s": 43.82
+        },
+        {
+          "t": "the",
+          "s": 44.4
+        },
+        {
+          "t": "doubt",
+          "s": 44.84
+        },
+        {
+          "t": "rolls",
+          "s": 45.36
+        },
+        {
+          "t": "in",
+          "s": 45.74
+        },
+        {
+          "t": "like",
+          "s": 46.1
+        },
+        {
+          "t": "weather,",
+          "s": 46.32
+        }
+      ]
+    },
+    {
+      "seg": 13,
+      "text": "I will hold on all the same,",
+      "start": 46.96,
+      "end": 49.82,
+      "w": [
+        {
+          "t": "I",
+          "s": 46.96
+        },
+        {
+          "t": "will",
+          "s": 47.26
+        },
+        {
+          "t": "hold",
+          "s": 47.64
+        },
+        {
+          "t": "on",
+          "s": 48.08
+        },
+        {
+          "t": "all",
+          "s": 48.5
+        },
+        {
+          "t": "the",
+          "s": 48.92
+        },
+        {
+          "t": "same,",
+          "s": 49.16
+        }
+      ]
+    },
+    {
+      "seg": 14,
+      "text": "'cause it's not how tight I'm holding,",
+      "start": 49.82,
+      "end": 52.56,
+      "w": [
+        {
+          "t": "'cause",
+          "s": 49.82
+        },
+        {
+          "t": "it's",
+          "s": 50.02
+        },
+        {
+          "t": "not",
+          "s": 50.3
+        },
+        {
+          "t": "how",
+          "s": 50.86
+        },
+        {
+          "t": "tight",
+          "s": 51.32
+        },
+        {
+          "t": "I'm",
+          "s": 51.42
+        },
+        {
+          "t": "holding,",
+          "s": 51.66
+        }
+      ]
+    },
+    {
+      "seg": 15,
+      "text": "it's the One who holds my name.",
+      "start": 52.56,
+      "end": 56.88,
+      "w": [
+        {
+          "t": "it's",
+          "s": 52.56
+        },
+        {
+          "t": "the",
+          "s": 52.68
+        },
+        {
+          "t": "One",
+          "s": 53.1
+        },
+        {
+          "t": "who",
+          "s": 53.56
+        },
+        {
+          "t": "holds",
+          "s": 54.02
+        },
+        {
+          "t": "my",
+          "s": 54.06
+        },
+        {
+          "t": "name.",
+          "s": 54.38
+        }
+      ]
+    },
+    {
+      "seg": 16,
+      "text": "I have stepped out on the water",
+      "start": 60.08,
+      "end": 63.3,
+      "w": [
+        {
+          "t": "I",
+          "s": 60.08
+        },
+        {
+          "t": "have",
+          "s": 60.88
+        },
+        {
+          "t": "stepped",
+          "s": 61.36
+        },
+        {
+          "t": "out",
+          "s": 61.64
+        },
+        {
+          "t": "on",
+          "s": 62.12
+        },
+        {
+          "t": "the",
+          "s": 62.4
+        },
+        {
+          "t": "water",
+          "s": 62.66
+        }
+      ]
+    },
+    {
+      "seg": 17,
+      "text": "and I've felt myself go under,",
+      "start": 63.3,
+      "end": 66.22,
+      "w": [
+        {
+          "t": "and",
+          "s": 63.3
+        },
+        {
+          "t": "I've",
+          "s": 63.82
+        },
+        {
+          "t": "felt",
+          "s": 64.12
+        },
+        {
+          "t": "myself",
+          "s": 64.4
+        },
+        {
+          "t": "go",
+          "s": 65.04
+        },
+        {
+          "t": "under,",
+          "s": 65.48
+        }
+      ]
+    },
+    {
+      "seg": 18,
+      "text": "but a hand was always reaching",
+      "start": 66.22,
+      "end": 68.66,
+      "w": [
+        {
+          "t": "but",
+          "s": 66.22
+        },
+        {
+          "t": "a",
+          "s": 66.52
+        },
+        {
+          "t": "hand",
+          "s": 66.82
+        },
+        {
+          "t": "was",
+          "s": 67.14
+        },
+        {
+          "t": "always",
+          "s": 67.42
+        },
+        {
+          "t": "reaching",
+          "s": 68.2
+        }
+      ]
+    },
+    {
+      "seg": 19,
+      "text": "through the lightning and the thunder.",
+      "start": 68.66,
+      "end": 71.84,
+      "w": [
+        {
+          "t": "through",
+          "s": 68.66
+        },
+        {
+          "t": "the",
+          "s": 69.1
+        },
+        {
+          "t": "lightning",
+          "s": 69.86
+        },
+        {
+          "t": "and",
+          "s": 69.94
+        },
+        {
+          "t": "the",
+          "s": 70.58
+        },
+        {
+          "t": "thunder.",
+          "s": 71.44
+        }
+      ]
+    },
+    {
+      "seg": 20,
+      "text": "And the prayers I thought were silent",
+      "start": 71.48,
+      "end": 74.28,
+      "w": [
+        {
+          "t": "And",
+          "s": 71.48
+        },
+        {
+          "t": "the",
+          "s": 71.9
+        },
+        {
+          "t": "prayers",
+          "s": 72.14
+        },
+        {
+          "t": "I",
+          "s": 72.62
+        },
+        {
+          "t": "thought",
+          "s": 72.96
+        },
+        {
+          "t": "were",
+          "s": 73.24
+        },
+        {
+          "t": "silent",
+          "s": 73.66
+        }
+      ]
+    },
+    {
+      "seg": 21,
+      "text": "maybe they were always heard,",
+      "start": 74.28,
+      "end": 76.98,
+      "w": [
+        {
+          "t": "maybe",
+          "s": 74.28
+        },
+        {
+          "t": "they",
+          "s": 74.74
+        },
+        {
+          "t": "were",
+          "s": 75.3
+        },
+        {
+          "t": "always",
+          "s": 75.62
+        },
+        {
+          "t": "heard,",
+          "s": 76.28
+        }
+      ]
+    },
+    {
+      "seg": 22,
+      "text": "so I'm leaning on a promise",
+      "start": 76.98,
+      "end": 80.08,
+      "w": [
+        {
+          "t": "so",
+          "s": 76.98
+        },
+        {
+          "t": "I'm",
+          "s": 77.42
+        },
+        {
+          "t": "leaning",
+          "s": 77.8
+        },
+        {
+          "t": "on",
+          "s": 78.12
+        },
+        {
+          "t": "a",
+          "s": 78.76
+        },
+        {
+          "t": "promise",
+          "s": 79.68
+        }
+      ]
+    },
+    {
+      "seg": 23,
+      "text": "more than feeling, more than word.",
+      "start": 79.72,
+      "end": 82.74,
+      "w": [
+        {
+          "t": "more",
+          "s": 79.72
+        },
+        {
+          "t": "than",
+          "s": 80.12
+        },
+        {
+          "t": "feeling,",
+          "s": 80.44
+        },
+        {
+          "t": "more",
+          "s": 81.46
+        },
+        {
+          "t": "than",
+          "s": 81.5
+        },
+        {
+          "t": "word.",
+          "s": 81.82
+        }
+      ]
+    },
+    {
+      "seg": 24,
+      "text": "Even faith like a mustard seed",
+      "start": 82.74,
+      "end": 85.46,
+      "w": [
+        {
+          "t": "Even",
+          "s": 82.74
+        },
+        {
+          "t": "faith",
+          "s": 83.06
+        },
+        {
+          "t": "like",
+          "s": 83.6
+        },
+        {
+          "t": "a",
+          "s": 84.42
+        },
+        {
+          "t": "mustard",
+          "s": 84.72
+        },
+        {
+          "t": "seed",
+          "s": 84.94
+        }
+      ]
+    },
+    {
+      "seg": 25,
+      "text": "is faith enough to grow,",
+      "start": 85.46,
+      "end": 87.88,
+      "w": [
+        {
+          "t": "is",
+          "s": 85.46
+        },
+        {
+          "t": "faith",
+          "s": 85.76
+        },
+        {
+          "t": "enough",
+          "s": 86.26
+        },
+        {
+          "t": "to",
+          "s": 86.9
+        },
+        {
+          "t": "grow,",
+          "s": 87.26
+        }
+      ]
+    },
+    {
+      "seg": 26,
+      "text": "I believe, help my unbelief,",
+      "start": 87.88,
+      "end": 91,
+      "w": [
+        {
+          "t": "I",
+          "s": 87.88
+        },
+        {
+          "t": "believe,",
+          "s": 88.32
+        },
+        {
+          "t": "help",
+          "s": 89.46
+        },
+        {
+          "t": "my",
+          "s": 89.52
+        },
+        {
+          "t": "unbelief,",
+          "s": 89.9
+        }
+      ]
+    },
+    {
+      "seg": 27,
+      "text": "that's the only prayer I know.",
+      "start": 91,
+      "end": 93.14,
+      "w": [
+        {
+          "t": "that's",
+          "s": 91
+        },
+        {
+          "t": "the",
+          "s": 91.22
+        },
+        {
+          "t": "only",
+          "s": 91.48
+        },
+        {
+          "t": "prayer",
+          "s": 91.9
+        },
+        {
+          "t": "I",
+          "s": 92.18
+        },
+        {
+          "t": "know.",
+          "s": 92.74
+        }
+      ]
+    },
+    {
+      "seg": 28,
+      "text": "When the doubt rolls in like weather,",
+      "start": 93,
+      "end": 96.02,
+      "w": [
+        {
+          "t": "When",
+          "s": 93
+        },
+        {
+          "t": "the",
+          "s": 93.56
+        },
+        {
+          "t": "doubt",
+          "s": 93.86
+        },
+        {
+          "t": "rolls",
+          "s": 94.5
+        },
+        {
+          "t": "in",
+          "s": 94.84
+        },
+        {
+          "t": "like",
+          "s": 95.2
+        },
+        {
+          "t": "weather,",
+          "s": 95.42
+        }
+      ]
+    },
+    {
+      "seg": 29,
+      "text": "I will hold on all the same,",
+      "start": 96.02,
+      "end": 98.92,
+      "w": [
+        {
+          "t": "I",
+          "s": 96.02
+        },
+        {
+          "t": "will",
+          "s": 96.34
+        },
+        {
+          "t": "hold",
+          "s": 96.72
+        },
+        {
+          "t": "on",
+          "s": 97.18
+        },
+        {
+          "t": "all",
+          "s": 97.56
+        },
+        {
+          "t": "the",
+          "s": 98.02
+        },
+        {
+          "t": "same,",
+          "s": 98.26
+        }
+      ]
+    },
+    {
+      "seg": 30,
+      "text": "'cause it's not how tight I'm holding,",
+      "start": 98.92,
+      "end": 101.66,
+      "w": [
+        {
+          "t": "'cause",
+          "s": 98.92
+        },
+        {
+          "t": "it's",
+          "s": 99.1
+        },
+        {
+          "t": "not",
+          "s": 99.38
+        },
+        {
+          "t": "how",
+          "s": 99.96
+        },
+        {
+          "t": "tight",
+          "s": 100.42
+        },
+        {
+          "t": "I'm",
+          "s": 100.52
+        },
+        {
+          "t": "holding,",
+          "s": 100.76
+        }
+      ]
+    },
+    {
+      "seg": 31,
+      "text": "it's the One who holds my name.",
+      "start": 101.66,
+      "end": 105.9,
+      "w": [
+        {
+          "t": "it's",
+          "s": 101.66
+        },
+        {
+          "t": "the",
+          "s": 101.76
+        },
+        {
+          "t": "One",
+          "s": 102.16
+        },
+        {
+          "t": "who",
+          "s": 102.6
+        },
+        {
+          "t": "holds",
+          "s": 103.1
+        },
+        {
+          "t": "my",
+          "s": 103.14
+        },
+        {
+          "t": "name.",
+          "s": 103.4
+        }
+      ]
+    },
+    {
+      "seg": 32,
+      "text": "There's a man who wrote from prison",
+      "start": 115.08,
+      "end": 117.72,
+      "w": [
+        {
+          "t": "There's",
+          "s": 115.08
+        },
+        {
+          "t": "a",
+          "s": 115.62
+        },
+        {
+          "t": "man",
+          "s": 115.78
+        },
+        {
+          "t": "who",
+          "s": 116.28
+        },
+        {
+          "t": "wrote",
+          "s": 116.72
+        },
+        {
+          "t": "from",
+          "s": 116.76
+        },
+        {
+          "t": "prison",
+          "s": 117.3
+        }
+      ]
+    },
+    {
+      "seg": 33,
+      "text": "that he'd learned to be content,",
+      "start": 117.72,
+      "end": 120.52,
+      "w": [
+        {
+          "t": "that",
+          "s": 117.72
+        },
+        {
+          "t": "he'd",
+          "s": 118.22
+        },
+        {
+          "t": "learned",
+          "s": 118.6
+        },
+        {
+          "t": "to",
+          "s": 118.98
+        },
+        {
+          "t": "be",
+          "s": 119.16
+        },
+        {
+          "t": "content,",
+          "s": 119.72
+        }
+      ]
+    },
+    {
+      "seg": 34,
+      "text": "in the plenty or the empty,",
+      "start": 120.52,
+      "end": 123.28,
+      "w": [
+        {
+          "t": "in",
+          "s": 120.52
+        },
+        {
+          "t": "the",
+          "s": 121.04
+        },
+        {
+          "t": "plenty",
+          "s": 121.26
+        },
+        {
+          "t": "or",
+          "s": 121.8
+        },
+        {
+          "t": "the",
+          "s": 122.42
+        },
+        {
+          "t": "empty,",
+          "s": 122.88
+        }
+      ]
+    },
+    {
+      "seg": 35,
+      "text": "with whatever life had sent.",
+      "start": 123.12,
+      "end": 125.88,
+      "w": [
+        {
+          "t": "with",
+          "s": 123.12
+        },
+        {
+          "t": "whatever",
+          "s": 123.82
+        },
+        {
+          "t": "life",
+          "s": 124.46
+        },
+        {
+          "t": "had",
+          "s": 125
+        },
+        {
+          "t": "sent.",
+          "s": 125.48
+        }
+      ]
+    },
+    {
+      "seg": 36,
+      "text": "For the strength was never in him,",
+      "start": 125.76,
+      "end": 129,
+      "w": [
+        {
+          "t": "For",
+          "s": 125.76
+        },
+        {
+          "t": "the",
+          "s": 126.44
+        },
+        {
+          "t": "strength",
+          "s": 126.64
+        },
+        {
+          "t": "was",
+          "s": 127.14
+        },
+        {
+          "t": "never",
+          "s": 127.5
+        },
+        {
+          "t": "in",
+          "s": 127.98
+        },
+        {
+          "t": "him,",
+          "s": 128.6
+        }
+      ]
+    },
+    {
+      "seg": 37,
+      "text": "it was given from above,",
+      "start": 128.9,
+      "end": 131.9,
+      "w": [
+        {
+          "t": "it",
+          "s": 128.9
+        },
+        {
+          "t": "was",
+          "s": 129.22
+        },
+        {
+          "t": "given",
+          "s": 129.54
+        },
+        {
+          "t": "from",
+          "s": 129.94
+        },
+        {
+          "t": "above,",
+          "s": 130.66
+        }
+      ]
+    },
+    {
+      "seg": 38,
+      "text": "and a seed don't need to be a tree",
+      "start": 131.9,
+      "end": 134.88,
+      "w": [
+        {
+          "t": "and",
+          "s": 131.9
+        },
+        {
+          "t": "a",
+          "s": 132
+        },
+        {
+          "t": "seed",
+          "s": 132.4
+        },
+        {
+          "t": "don't",
+          "s": 132.6
+        },
+        {
+          "t": "need",
+          "s": 132.98
+        },
+        {
+          "t": "to",
+          "s": 133.32
+        },
+        {
+          "t": "be",
+          "s": 133.56
+        },
+        {
+          "t": "a",
+          "s": 133.82
+        },
+        {
+          "t": "tree",
+          "s": 134.48
+        }
+      ]
+    },
+    {
+      "seg": 39,
+      "text": "to rest inside that love.",
+      "start": 134.52,
+      "end": 138.86,
+      "w": [
+        {
+          "t": "to",
+          "s": 134.52
+        },
+        {
+          "t": "rest",
+          "s": 135.18
+        },
+        {
+          "t": "inside",
+          "s": 135.24
+        },
+        {
+          "t": "that",
+          "s": 135.94
+        },
+        {
+          "t": "love.",
+          "s": 136.36
+        }
+      ]
+    },
+    {
+      "seg": 40,
+      "text": "Even faith like a mustard seed",
+      "start": 139.8,
+      "end": 143.02,
+      "w": [
+        {
+          "t": "Even",
+          "s": 139.8
+        },
+        {
+          "t": "faith",
+          "s": 140.44
+        },
+        {
+          "t": "like",
+          "s": 141.16
+        },
+        {
+          "t": "a",
+          "s": 141.54
+        },
+        {
+          "t": "mustard",
+          "s": 141.98
+        },
+        {
+          "t": "seed",
+          "s": 142.18
+        }
+      ]
+    },
+    {
+      "seg": 41,
+      "text": "is faith enough to grow,",
+      "start": 143.02,
+      "end": 145.18,
+      "w": [
+        {
+          "t": "is",
+          "s": 143.02
+        },
+        {
+          "t": "faith",
+          "s": 143.06
+        },
+        {
+          "t": "enough",
+          "s": 143.54
+        },
+        {
+          "t": "to",
+          "s": 144.14
+        },
+        {
+          "t": "grow,",
+          "s": 144.54
+        }
+      ]
+    },
+    {
+      "seg": 42,
+      "text": "I believe, help my unbelief,",
+      "start": 145.18,
+      "end": 148.2,
+      "w": [
+        {
+          "t": "I",
+          "s": 145.18
+        },
+        {
+          "t": "believe,",
+          "s": 145.62
+        },
+        {
+          "t": "help",
+          "s": 146.74
+        },
+        {
+          "t": "my",
+          "s": 146.78
+        },
+        {
+          "t": "unbelief,",
+          "s": 147.3
+        }
+      ]
+    },
+    {
+      "seg": 43,
+      "text": "that's the only prayer I know.",
+      "start": 148.2,
+      "end": 150.4,
+      "w": [
+        {
+          "t": "that's",
+          "s": 148.2
+        },
+        {
+          "t": "the",
+          "s": 148.52
+        },
+        {
+          "t": "only",
+          "s": 148.74
+        },
+        {
+          "t": "prayer",
+          "s": 149.18
+        },
+        {
+          "t": "I",
+          "s": 149.44
+        },
+        {
+          "t": "know.",
+          "s": 150
+        }
+      ]
+    },
+    {
+      "seg": 44,
+      "text": "When the doubt rolls in like weather,",
+      "start": 150.14,
+      "end": 153.48,
+      "w": [
+        {
+          "t": "When",
+          "s": 150.14
+        },
+        {
+          "t": "the",
+          "s": 150.84
+        },
+        {
+          "t": "doubt",
+          "s": 151.2
+        },
+        {
+          "t": "rolls",
+          "s": 151.68
+        },
+        {
+          "t": "in",
+          "s": 152.08
+        },
+        {
+          "t": "like",
+          "s": 152.46
+        },
+        {
+          "t": "weather,",
+          "s": 152.7
+        }
+      ]
+    },
+    {
+      "seg": 45,
+      "text": "I will hold on all the same,",
+      "start": 153.48,
+      "end": 156.18,
+      "w": [
+        {
+          "t": "I",
+          "s": 153.48
+        },
+        {
+          "t": "will",
+          "s": 153.62
+        },
+        {
+          "t": "hold",
+          "s": 154
+        },
+        {
+          "t": "on",
+          "s": 154.46
+        },
+        {
+          "t": "all",
+          "s": 154.82
+        },
+        {
+          "t": "the",
+          "s": 155.26
+        },
+        {
+          "t": "same,",
+          "s": 155.52
+        }
+      ]
+    },
+    {
+      "seg": 46,
+      "text": "'cause it's not how tight I'm holding,",
+      "start": 156.18,
+      "end": 158.94,
+      "w": [
+        {
+          "t": "'cause",
+          "s": 156.18
+        },
+        {
+          "t": "it's",
+          "s": 156.38
+        },
+        {
+          "t": "not",
+          "s": 156.66
+        },
+        {
+          "t": "how",
+          "s": 157.22
+        },
+        {
+          "t": "tight",
+          "s": 157.68
+        },
+        {
+          "t": "I'm",
+          "s": 157.78
+        },
+        {
+          "t": "holding,",
+          "s": 158.04
+        }
+      ]
+    },
+    {
+      "seg": 47,
+      "text": "it's the One who holds my name.",
+      "start": 158.94,
+      "end": 163.22,
+      "w": [
+        {
+          "t": "it's",
+          "s": 158.94
+        },
+        {
+          "t": "the",
+          "s": 159.04
+        },
+        {
+          "t": "One",
+          "s": 159.46
+        },
+        {
+          "t": "who",
+          "s": 159.88
+        },
+        {
+          "t": "holds",
+          "s": 160.38
+        },
+        {
+          "t": "my",
+          "s": 160.42
+        },
+        {
+          "t": "name.",
+          "s": 160.72
+        }
+      ]
+    },
+    {
+      "seg": 48,
+      "text": "So I'll keep a little faith alive,",
+      "start": 163.96,
+      "end": 166.6,
+      "w": [
+        {
+          "t": "So",
+          "s": 163.96
+        },
+        {
+          "t": "I'll",
+          "s": 163.98
+        },
+        {
+          "t": "keep",
+          "s": 164.42
+        },
+        {
+          "t": "a",
+          "s": 164.56
+        },
+        {
+          "t": "little",
+          "s": 164.72
+        },
+        {
+          "t": "faith",
+          "s": 165.06
+        },
+        {
+          "t": "alive,",
+          "s": 165.34
+        }
+      ]
+    },
+    {
+      "seg": 49,
+      "text": "no bigger than a seed,",
+      "start": 166.6,
+      "end": 169.44,
+      "w": [
+        {
+          "t": "no",
+          "s": 166.6
+        },
+        {
+          "t": "bigger",
+          "s": 167.06
+        },
+        {
+          "t": "than",
+          "s": 167.36
+        },
+        {
+          "t": "a",
+          "s": 167.64
+        },
+        {
+          "t": "seed,",
+          "s": 168.08
+        }
+      ]
+    },
+    {
+      "seg": 50,
+      "text": "and it's carried me this far,",
+      "start": 169.44,
+      "end": 172.6,
+      "w": [
+        {
+          "t": "and",
+          "s": 169.44
+        },
+        {
+          "t": "it's",
+          "s": 170.16
+        },
+        {
+          "t": "carried",
+          "s": 170.52
+        },
+        {
+          "t": "me",
+          "s": 170.86
+        },
+        {
+          "t": "this",
+          "s": 171.4
+        },
+        {
+          "t": "far,",
+          "s": 171.74
+        }
+      ]
+    },
+    {
+      "seg": 51,
+      "text": "it is all I'll ever need.",
+      "start": 172.6,
+      "end": 178.32,
+      "w": [
+        {
+          "t": "it",
+          "s": 172.6
+        },
+        {
+          "t": "is",
+          "s": 172.8
+        },
+        {
+          "t": "all",
+          "s": 173.16
+        },
+        {
+          "t": "I'll",
+          "s": 174.12
+        },
+        {
+          "t": "ever",
+          "s": 175.24
+        },
+        {
+          "t": "need.",
+          "s": 175.82
+        }
+      ]
+    }
+  ],
+  "_retime": {
+    "anchors": 321,
+    "total": 322,
+    "coverage": 0.997,
+    "segments": 52,
+    "segCoverage": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0.83,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "weakSegments": []
+  }
 }

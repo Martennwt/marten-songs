@@ -27,11 +27,16 @@ function buildSong(id, opts) {
   const variant = opts.variant || 'v1';
 
   let lines = segs.map((s, i) => {
-    const win = words.filter(w => w.start >= s.start - 0.06 && w.start < s.end + 0.25);
     const tokens = s.text.trim().split(/\s+/).filter(Boolean);
     let wobj;
-    if (win.length === tokens.length) wobj = tokens.map((t, k) => ({ t, s: +win[k].start.toFixed(2) }));
-    else { const dur = Math.max(0.4, s.end - s.start) / tokens.length; wobj = tokens.map((t, k) => ({ t, s: +(s.start + k * dur).toFixed(2) })); }
+    if (data.precise && Array.isArray(s.w) && s.w.length === tokens.length) {
+      // retime.js gave us exact per-word times — trust them verbatim
+      wobj = s.w.map(o => ({ t: o.t, s: +(+o.s).toFixed(2) }));
+    } else {
+      const win = words.filter(w => w.start >= s.start - 0.06 && w.start < s.end + 0.25);
+      if (win.length === tokens.length) wobj = tokens.map((t, k) => ({ t, s: +win[k].start.toFixed(2) }));
+      else { const dur = Math.max(0.4, s.end - s.start) / tokens.length; wobj = tokens.map((t, k) => ({ t, s: +(s.start + k * dur).toFixed(2) })); }
+    }
     return { start: +s.start.toFixed(2), end: +s.end.toFixed(2), es: ES[i] || '', de: DE[i] || '', w: wobj, seg: i, img: (imageMap[i] != null ? imageMap[i] : 0) };
   });
 
@@ -123,6 +128,8 @@ function buildSong(id, opts) {
     ';var VOL=' + JSON.stringify({ on: volOn, low: volLow, mute: volMute }) +
     ';var SONG=' + JSON.stringify({ id: id, title: meta.title, refs: meta.subtitle || '' }) +
     ';var NARRICON=' + JSON.stringify({ play: playSvg, pause: pauseSvg }) +
+    ';var SONG_OFFSET=' + JSON.stringify(+meta.offset || 0) +
+    ';var INTRO_START=' + JSON.stringify(+meta.introStart || 0) +
     ';var NAMES=' + JSON.stringify(meta.names || {}) + ';</script>';
   const app = '<script>' + songJS() + '</script>';
   fs.writeFileSync(path.join(dir, opts.out || 'index.html'), head + body + dataScript + app + '</body></html>');
@@ -260,7 +267,12 @@ function songJS() {
     'var imls=[].slice.call(document.querySelectorAll(".iml"));var curImg=-1;',
     'function setImg(n){if(!imls.length||n===curImg)return;curImg=n;for(var z=0;z<imls.length;z++)imls[z].classList.toggle("on",z===n);}',
     'var cd=document.getElementById("countdown"),cdfg=document.querySelector(".cd-fg"),cdNum=document.getElementById("cdNum"),CDC=163.4,FS0=LINES.length?LINES[0].start:0;',
-    'var curLine=-1,started=false,aboutOpen=false,lyricsOpen=false,lastVol=1,narr=document.getElementById("narr"),narrPlaying=false,LEAD=0.18;',
+    'var curLine=-1,started=false,aboutOpen=false,lyricsOpen=false,lastVol=1,narr=document.getElementById("narr"),narrPlaying=false,LEAD=0.18,OFFSET=(typeof SONG_OFFSET!=="undefined"?+SONG_OFFSET:0),INTRO=(typeof INTRO_START!=="undefined"?+INTRO_START:0);',
+    // remember original word times, then re-space only the words sung BEFORE the
+    // real vocal start (INTRO): Whisper often anchors a soft intro a few seconds
+    // early. Everything at/after the first real word is left exactly as it was.
+    'LINES.forEach(function(L){L.w.forEach(function(o){o.s0=o.s;});});',
+    'function applyIntro(){var flat=[];LINES.forEach(function(L){L.w.forEach(function(o){flat.push(o);});});var k=0;while(k<flat.length&&flat[k].s0<INTRO)k++;if(k<=0){for(var i=0;i<flat.length;i++)flat[i].s=flat[i].s0;}else{var A=(k<flat.length)?flat[k].s0:(INTRO+k*0.45);for(var i=0;i<k;i++)flat[i].s=+(INTRO+(A-INTRO)*(i/k)).toFixed(2);for(var i=k;i<flat.length;i++)flat[i].s=flat[i].s0;}LINES.forEach(function(L){L.start=L.w[0].s;});FS0=LINES.length?LINES[0].start:0;}',
     'function fmt(t){t=Math.max(0,t|0);return (t/60|0)+":"+("0"+(t%60)).slice(-2);}',
     'function startPlay(){if(started)return;started=true;au.play();var tt=document.getElementById("title");tt.classList.add("starting");setTimeout(function(){tt.classList.add("hide");},1500);}',
     'function gateClick(e){if(e.target&&e.target.closest&&e.target.closest(".gate-x"))return;startPlay();}',
@@ -297,10 +309,10 @@ function songJS() {
     'function setActive(i){if(i===curLine)return;',
     '  if(curLine>=0){var pe=lineEls[curLine];pe.classList.remove("active");pe.classList.add("done");var pw=pe.querySelectorAll(".w");for(var q=0;q<pw.length;q++){pw[q].className="w sung";pw[q].style.removeProperty("--p");}}',
     '  curLine=i;if(i>=0){var el=lineEls[i];el.classList.add("active");el.classList.remove("done");scroll.style.transform="translateY("+(-(el.offsetTop+el.offsetHeight/2))+"px)";}}',
-    'function frame(){var t=au.currentTime,tt=t+LEAD;',
+    'function frame(){var t=au.currentTime,tt=t+LEAD-OFFSET,fs0=FS0+OFFSET;',
     '  document.getElementById("cur").textContent=fmt(t);',
     '  document.getElementById("fill").style.width=((au.duration?t/au.duration:0)*100)+"%";',
-    '  if(started&&FS0>0.6&&t<FS0-0.05){if(cd.hidden)cd.hidden=false;var cpr=Math.max(0,Math.min(1,t/FS0));cdfg.style.strokeDashoffset=(CDC*(1-cpr)).toFixed(1);cdNum.textContent=Math.max(1,Math.ceil(FS0-t));}else if(cd&&!cd.hidden){cd.hidden=true;}',
+    '  if(started&&fs0>0.6&&t<fs0-0.05){if(cd.hidden)cd.hidden=false;var cpr=Math.max(0,Math.min(1,t/fs0));cdfg.style.strokeDashoffset=(CDC*(1-cpr)).toFixed(1);cdNum.textContent=Math.max(1,Math.ceil(fs0-t));}else if(cd&&!cd.hidden){cd.hidden=true;}',
     '  var idx=-1;for(var i=0;i<LINES.length;i++){if(tt>=LINES[i].start-0.15){idx=i;}else break;}',
     '  setActive(idx);if(imls.length)setImg(idx>=0?(LINES[idx].img||0):0);',
     '  if(idx>=0){var el=lineEls[idx],ws=el.querySelectorAll(".w"),L=LINES[idx].w,endT=LINES[idx].end;',
@@ -309,7 +321,10 @@ function songJS() {
     '      else if(tt>=st){if(ws[k].className!=="w cur")ws[k].className="w cur";var p=nx>st?((tt-st)/(nx-st)):1;ws[k].style.setProperty("--p",(Math.max(0,Math.min(1,p))*100).toFixed(1)+"%");}',
     '      else{if(ws[k].className!=="w"){ws[k].className="w";ws[k].style.removeProperty("--p");}}}}',
     '  requestAnimationFrame(frame);}',
-    'updateLangUI();requestAnimationFrame(frame);',
+    'applyIntro();updateLangUI();requestAnimationFrame(frame);',
+    // calibration overlay (?cal=1): two buttons to set the vocal start (INTRO),
+    // i.e. when the gold should first appear; the rest of the timing is untouched.
+    '(function(){if(!/[?&]cal=1/.test(location.search))return;var bar=document.createElement("div");bar.id="calbar";bar.style.cssText="position:fixed;left:12px;bottom:132px;z-index:80;background:rgba(7,13,24,.92);border:1px solid rgba(243,196,108,.55);border-radius:10px;padding:.5rem .65rem;color:#ffe7ad;font:600 .82rem Inter,system-ui,sans-serif;display:flex;gap:.5rem;align-items:center;box-shadow:0 8px 24px rgba(0,0,0,.4)";var bs="cursor:pointer;border:0;border-radius:6px;background:rgba(255,231,173,.18);color:#ffe7ad;font:inherit;padding:.25rem .6rem;font-size:1rem";bar.innerHTML=\'<button data-d="-0.5" style="\'+bs+\'">&minus;</button><span id="calv" style="min-width:118px;text-align:center"></span><button data-d="0.5" style="\'+bs+\'">+</button><span style="opacity:.55;font-weight:400">Gesang-Start &middot; [ ]=&plusmn;0.1</span>\';document.body.appendChild(bar);function upd(){document.getElementById("calv").textContent="Gesang ab "+INTRO.toFixed(1)+"s";}function step(d){INTRO=Math.max(0,Math.min(90,+(INTRO+d).toFixed(2)));applyIntro();upd();}bar.addEventListener("click",function(e){var d=e.target&&e.target.getAttribute("data-d");if(d)step(+d);});document.addEventListener("keydown",function(e){if(e.target&&/INPUT|TEXTAREA/.test(e.target.tagName))return;if(e.key==="[")step(-0.1);else if(e.key==="]")step(0.1);else if(e.key===",")step(-0.5);else if(e.key===".")step(0.5);});upd();})();',
     '(function(){try{var u=new URLSearchParams(location.search);if(u.get("play")==="1"){var p=au.play();if(p&&p.then){p.then(function(){started=true;var tt=document.getElementById("title");tt.classList.add("starting");setTimeout(function(){tt.classList.add("hide");},1400);}).catch(function(){});}}if(location.hash==="#about"){openAbout();}}catch(e){}})();',
     dotsJS()
   ].join('\n');
@@ -341,11 +356,25 @@ function buildHub() {
     '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' +
     '<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">' +
     '<style>' + hubCSS() + '</style></head><body><canvas id="bg"></canvas>' +
+    '<div class="promo" id="promo"><div class="promo-in">' +
+      '<span class="promo-eye">New</span>' +
+      '<span>Learn to build your own faith-driven AI music channel and this dashboard, with <b>The Sower System</b>.</span>' +
+      '<a class="promo-cta" href="course/index.html">Join the waitlist &rarr;</a>' +
+      '<button class="bar-x" onclick="closeBar(\'promo\')" aria-label="Dismiss">&times;</button>' +
+    '</div></div>' +
     '<header><div class="eyebrow">AI songs about faith, love, life and God</div><h1>Marten\'s Songs</h1></header>' +
     filterBar +
     '<main class="grid">' + cards + '</main>' +
     '<footer>Press a song, then Play. The words light up as they are sung, with a translation below.</footer>' +
-    '<script>function filt(b){document.querySelectorAll(".filt").forEach(function(x){x.classList.toggle("on",x===b);});var g=b.getAttribute("data-g");document.querySelectorAll(".card").forEach(function(c){c.style.display=(g==="all"||c.getAttribute("data-genre")===g)?"":"none";});}' + dotsJS() + '</script></body></html>';
+    '<div class="ctabar" id="ctabar"><div class="ctabar-in">' +
+      '<div class="ctabar-txt"><b>The Sower System.</b> One skill file plus a short setup course. Your niche, YouTube 2026 compliance and the animations, handled for you.</div>' +
+      '<a class="ctabar-btn" href="course/index.html">See the course &rarr;</a>' +
+      '<button class="bar-x" onclick="closeBar(\'ctabar\')" aria-label="Dismiss">&times;</button>' +
+    '</div></div>' +
+    '<script>function filt(b){document.querySelectorAll(".filt").forEach(function(x){x.classList.toggle("on",x===b);});var g=b.getAttribute("data-g");document.querySelectorAll(".card").forEach(function(c){c.style.display=(g==="all"||c.getAttribute("data-genre")===g)?"":"none";});}' +
+      'function closeBar(id){var e=document.getElementById(id);if(e)e.style.display="none";try{sessionStorage.setItem("hide_"+id,"1")}catch(_){}}' +
+      '["promo","ctabar"].forEach(function(id){try{if(sessionStorage.getItem("hide_"+id)){var e=document.getElementById(id);if(e)e.style.display="none";}}catch(_){}});' +
+      dotsJS() + '</script></body></html>';
   fs.writeFileSync(path.join(ROOT, 'index.html'), html);
   return metas.length;
 }
@@ -380,7 +409,24 @@ function hubCSS() {
     '.filt.soon{opacity:.45;cursor:not-allowed}',
     '.soon-b{font-size:.62rem;background:rgba(255,255,255,.16);border-radius:6px;padding:.05rem .35rem;margin-left:.25rem;text-transform:uppercase;letter-spacing:.04em}',
     '.c-genre{position:absolute;top:10px;right:10px;z-index:2;background:rgba(7,13,24,.7);border:1px solid rgba(255,255,255,.16);color:#ffe7ad;border-radius:999px;padding:.25rem .6rem;font-size:.7rem;font-weight:600}',
-    'footer{position:relative;z-index:1;text-align:center;color:#7e90a8;font-size:.8rem;padding:0 1rem 3rem}'
+    'footer{position:relative;z-index:1;text-align:center;color:#7e90a8;font-size:.8rem;padding:0 1rem 3rem}',
+    /* sticky course promo (top) + cta bar (bottom) */
+    'body{padding-bottom:74px}',
+    '.promo{position:sticky;top:0;z-index:50;background:linear-gradient(90deg,rgba(233,184,92,.16),rgba(7,13,24,.86) 65%);backdrop-filter:blur(10px);border-bottom:1px solid rgba(243,196,108,.28)}',
+    '.promo-in{max-width:920px;margin:0 auto;padding:.5rem 1.2rem;display:flex;align-items:center;justify-content:center;gap:.65rem;flex-wrap:wrap;font-size:.83rem;color:#dbe6f2;text-align:center}',
+    '.promo-in b{color:#ffe39a;font-weight:600}',
+    '.promo-eye{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#0c1626;background:linear-gradient(180deg,#ffe7ad,#e9b85c);border-radius:6px;padding:.12rem .45rem}',
+    '.promo-cta{color:#ffe39a;font-weight:600;border-bottom:1px solid rgba(243,196,108,.5);white-space:nowrap;text-decoration:none}',
+    '.promo-cta:hover{color:#fff}',
+    '.ctabar{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(9,16,28,.88);backdrop-filter:blur(12px);border-top:1px solid rgba(243,196,108,.3);box-shadow:0 -10px 30px rgba(0,0,0,.4)}',
+    '.ctabar-in{max-width:920px;margin:0 auto;padding:.6rem 1.2rem;display:flex;align-items:center;gap:1rem}',
+    '.ctabar-txt{font-size:.84rem;color:#cdd8e8;flex:1;min-width:0}',
+    ".ctabar-txt b{color:#ffe39a;font-weight:600;font-family:'Cormorant Garamond',serif;font-size:1.08rem}",
+    '.ctabar-btn{flex:none;color:#0c1626;background:linear-gradient(180deg,#ffe7ad,#e9b85c);border-radius:999px;padding:.5rem 1.1rem;font-weight:600;font-size:.82rem;white-space:nowrap;text-decoration:none;transition:transform .18s,box-shadow .25s}',
+    '.ctabar-btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(233,184,92,.4)}',
+    '.bar-x{flex:none;background:transparent;border:0;color:#7e90a8;font-size:1.15rem;cursor:pointer;padding:.1rem .3rem;line-height:1}',
+    '.bar-x:hover{color:#eaf0f7}',
+    '@media(max-width:560px){.promo-in{font-size:.75rem;gap:.45rem}.ctabar-txt{font-size:.76rem}.ctabar-btn{padding:.45rem .8rem;font-size:.76rem}}'
   ].join('');
 }
 function dotsJS() {

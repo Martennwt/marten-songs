@@ -1,0 +1,163 @@
+{
+  "id": "mustard-seed",
+  "title": "Mustard Seed",
+  "subtitle": "Matthew 17:20 · Mark 9:24 · Matthew 14:29",
+  "names": { "de": "Senfkorn", "es": "Grano de mostaza" },
+  "theme": "faith",
+  "genre": "Indie Folk Pop",
+  "mp3": "mustard-seed.mp3",
+  "cover": "img/1-seed.png",
+  "offset": 0,
+  "introStart": 11,
+  "images": ["img/1-seed.png", "img/2-storm.png", "img/3-water.png", "img/4-hold.png", "img/5-ember.png"],
+  "imageMap": [0,0,0,0,0,0,0,0, 4,4,4,4,1,1,3,3, 2,2,2,2,1,1,3,3, 4,4,4,4,1,1,3,3, 4,4,4,4,4,4,0,0, 4,4,4,4,1,1,3,3, 4,4,0,0],
+  "narration": false,
+  "es": [
+    "La más pequeña de todas las semillas,",
+    "casi nada en tu mano,",
+    "pero la entierras una mañana",
+    "y brota de la tierra.",
+    "Dicen que una fe tan pequeña",
+    "podría mover un monte hasta el mar,",
+    "así que guardaré mi puñado",
+    "y veré lo que puede llegar a ser.",
+    "Hasta una fe como un grano de mostaza",
+    "es fe suficiente para crecer,",
+    "Creo; ayuda mi incredulidad,",
+    "esa es la única oración que sé.",
+    "Cuando la duda llega como tormenta,",
+    "me aferraré igualmente,",
+    "porque no es cuán fuerte me aferro,",
+    "sino Aquel que sostiene mi nombre.",
+    "He salido a caminar sobre el agua",
+    "y me he sentido hundir,",
+    "pero una mano siempre alcanzaba",
+    "entre los relámpagos y los truenos.",
+    "Y las oraciones que creía silenciosas,",
+    "quizá siempre fueron oídas,",
+    "así que me apoyo en una promesa,",
+    "más que en lo que siento, más que en palabras.",
+    "Hasta una fe como un grano de mostaza",
+    "es fe suficiente para crecer,",
+    "Creo; ayuda mi incredulidad,",
+    "esa es la única oración que sé.",
+    "Cuando la duda llega como tormenta,",
+    "me aferraré igualmente,",
+    "porque no es cuán fuerte me aferro,",
+    "sino Aquel que sostiene mi nombre.",
+    "Hay un hombre que escribió desde la cárcel",
+    "que había aprendido a contentarse,",
+    "en la abundancia o en la escasez,",
+    "con todo lo que la vida le enviara.",
+    "Pues la fuerza nunca estuvo en él,",
+    "le fue dada desde lo alto,",
+    "y una semilla no necesita ser árbol",
+    "para descansar en ese amor.",
+    "Hasta una fe como un grano de mostaza",
+    "es fe suficiente para crecer,",
+    "Creo; ayuda mi incredulidad,",
+    "esa es la única oración que sé.",
+    "Cuando la duda llega como tormenta,",
+    "me aferraré igualmente,",
+    "porque no es cuán fuerte me aferro,",
+    "sino Aquel que sostiene mi nombre.",
+    "Así que mantendré viva una pequeña fe,",
+    "no mayor que una semilla,",
+    "y me ha traído hasta aquí;",
+    "es todo lo que jamás necesitaré."
+  ],
+  "de": [
+    "Das kleinste aller Samenkörner,",
+    "fast nichts in deiner Hand,",
+    "doch du säst es eines Morgens",
+    "und es wächst aus dem Land.",
+    "Man sagt, ein so kleiner Glaube",
+    "könnte einen Berg ins Meer versetzen,",
+    "also halte ich meine kleine Handvoll",
+    "und sehe, was daraus wird.",
+    "Schon ein Glaube wie ein Senfkorn",
+    "ist Glaube genug, um zu wachsen,",
+    "Ich glaube; hilf meinem Unglauben,",
+    "das ist das einzige Gebet, das ich kenne.",
+    "Wenn der Zweifel aufzieht wie ein Wetter,",
+    "halte ich trotzdem fest,",
+    "denn es zählt nicht, wie fest ich halte,",
+    "sondern der, der meinen Namen hält.",
+    "Ich bin aufs Wasser hinausgetreten",
+    "und fühlte mich sinken,",
+    "doch eine Hand griff immer nach mir",
+    "durch Blitz und Donner.",
+    "Und die Gebete, die ich für stumm hielt,",
+    "wurden vielleicht immer gehört,",
+    "also stütze ich mich auf eine Verheißung,",
+    "mehr als auf Gefühl, mehr als auf Worte.",
+    "Schon ein Glaube wie ein Senfkorn",
+    "ist Glaube genug, um zu wachsen,",
+    "Ich glaube; hilf meinem Unglauben,",
+    "das ist das einzige Gebet, das ich kenne.",
+    "Wenn der Zweifel aufzieht wie ein Wetter,",
+    "halte ich trotzdem fest,",
+    "denn es zählt nicht, wie fest ich halte,",
+    "sondern der, der meinen Namen hält.",
+    "Da ist ein Mann, der aus dem Gefängnis schrieb,",
+    "er habe gelernt, zufrieden zu sein,",
+    "in der Fülle oder der Leere,",
+    "mit allem, was das Leben ihm schickte.",
+    "Denn die Kraft lag nie in ihm,",
+    "sie wurde ihm von oben gegeben,",
+    "und ein Same muss kein Baum sein,",
+    "um in dieser Liebe zu ruhen.",
+    "Schon ein Glaube wie ein Senfkorn",
+    "ist Glaube genug, um zu wachsen,",
+    "Ich glaube; hilf meinem Unglauben,",
+    "das ist das einzige Gebet, das ich kenne.",
+    "Wenn der Zweifel aufzieht wie ein Wetter,",
+    "halte ich trotzdem fest,",
+    "denn es zählt nicht, wie fest ich halte,",
+    "sondern der, der meinen Namen hält.",
+    "Also halte ich einen kleinen Glauben am Leben,",
+    "nicht größer als ein Samenkorn,",
+    "und er hat mich so weit getragen;",
+    "mehr werde ich nie brauchen."
+  ],
+  "about": {
+    "intro": {
+      "de": "„Mustard Seed\" handelt von einem kleinen, zähen Glauben, der mitten in Zweifel und Sturm festhält, nicht an der eigenen Kraft, sondern an dem, der uns beim Namen kennt.",
+      "es": "„Mustard Seed\" trata de una fe pequeña y tenaz que se aferra en medio de la duda y la tormenta, no a la propia fuerza, sino a Aquel que nos conoce por nuestro nombre."
+    },
+    "de": [
+      { "h": "Glaube wie ein Senfkorn (Matthäus 17,20)", "p": [
+        "Jesus sagt: schon ein Glaube so klein wie ein Senfkorn genügt. Es geht nicht um die Größe deines Glaubens, sondern um den, auf den er sich richtet.",
+        "„Ich glaube; hilf meinem Unglauben\" ist das Gebet eines Vaters aus Markus 9,24: ehrlich, schwach und trotzdem gehalten. Genau dieser kleine, ehrliche Glaube reicht."
+      ]},
+      { "h": "Auf dem Wasser (Matthäus 14)", "p": [
+        "Petrus tritt aufs Wasser und beginnt zu sinken, doch Jesus streckt die Hand aus und hält ihn. Das Bild: Auch wenn du untergehst, ist die Hand schon da, mitten in Blitz und Donner.",
+        "„Die Gebete, die ich für stumm hielt, wurden vielleicht immer gehört\" erinnert daran, dass Gott auch das leise Rufen hört."
+      ]},
+      { "h": "Zufrieden in allem (Philipper 4,11-13)", "p": [
+        "Die Brücke denkt an Paulus, der aus dem Gefängnis schreibt, er habe gelernt, in Fülle wie in Mangel zufrieden zu sein. Die Kraft kommt nicht aus ihm selbst, sondern von oben.",
+        "„Ein Same muss kein Baum sein, um in dieser Liebe zu ruhen\": man muss nicht groß oder fertig sein, um schon jetzt geborgen zu sein."
+      ]},
+      { "h": "Der meinen Namen hält (Jesaja 43,1)", "p": [
+        "„Ich habe dich bei deinem Namen gerufen, du bist mein.\" Der Halt liegt nicht in dir selbst oder den Umständen, sondern in dem, der dich kennt und festhält. Am Ende bleibt ein kleiner, fast verborgener Glaube, der trotzdem trägt."
+      ]}
+    ],
+    "es": [
+      { "h": "Fe como un grano de mostaza (Mateo 17,20)", "p": [
+        "Jesús dice que basta una fe tan pequeña como un grano de mostaza. No importa el tamaño de tu fe, sino Aquel en quien se apoya.",
+        "„Creo; ayuda mi incredulidad\" es la oración de un padre en Marcos 9,24: sincera, débil y aun así sostenida. Esa fe pequeña y honesta basta."
+      ]},
+      { "h": "Sobre el agua (Mateo 14)", "p": [
+        "Pedro camina sobre el agua y empieza a hundirse, pero Jesús extiende la mano y lo sostiene. La imagen: aunque te hundas, la mano ya está ahí, en medio de relámpagos y truenos.",
+        "„Las oraciones que creía silenciosas, quizá siempre fueron oídas\" recuerda que Dios oye también el clamor más callado."
+      ]},
+      { "h": "Contento en todo (Filipenses 4,11-13)", "p": [
+        "El puente piensa en Pablo, que escribe desde la cárcel que aprendió a contentarse en la abundancia y en la escasez. La fuerza no viene de él mismo, sino de lo alto.",
+        "„Una semilla no necesita ser árbol para descansar en ese amor\": no hace falta ser grande ni estar terminado para estar ya seguro."
+      ]},
+      { "h": "El que sostiene mi nombre (Isaías 43,1)", "p": [
+        "„Te llamé por tu nombre; mío eres tú.\" El sostén no está en ti ni en las circunstancias, sino en Aquel que te conoce y te sujeta. Al final queda una fe pequeña, casi secreta, que aun así sostiene."
+      ]}
+    ]
+  }
+}

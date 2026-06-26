@@ -23,28 +23,37 @@ Marten's Songs/
 
 ## Add a new song
 
-1. Drop the audio in `songs/<id>/<id>.mp3`.
-2. Transcribe with timing:
+**Always have the MP3 *and* the real lyrics.** Auto-transcribing singing drops/mangles
+lines, so we use the lyrics as ground truth and Whisper only for timing. (Full pipeline +
+look/feel: `BRANDING.md`. Guided flow: the `/neuer-song` skill.)
+
+1. Drop the audio in `songs/<id>/<id>.mp3` and the real lyrics in `songs/<id>/lyrics.txt`
+   (verse blocks separated by blank lines; `[Verse]/[Chorus]` headers are ignored; write
+   choruses out in full).
+2. Build the timing from lyrics + audio:
    ```
-   node tools/transcribe.js "songs/<id>/<id>.mp3" "songs/<id>/timing.json"
+   node tools/retime.js <id>
    ```
-   It prints the lines (segments). It uses OpenAI: `gpt-4o-transcribe` for the
-   accurate lyrics, then `whisper-1` guided by those lyrics for word timestamps.
-3. Create `songs/<id>/song.json`:
-   ```json
-   {
-     "id": "<id>", "title": "...", "subtitle": "...", "theme": "faith|love|life",
-     "mp3": "<id>.mp3",
-     "es": ["spanish for segment 0", "...one entry per timing.json segment..."]
-   }
+   Guided `whisper-1` gives word clocks; your real words are aligned onto them, gaps
+   interpolated, time forced monotonic. The displayed text is your lyrics by construction.
+   It prints coverage % and flags any "weak" (soft/quiet) segments.
+3. Create `songs/<id>/song.json` with `es[]`/`de[]`/`imageMap[]` — **one entry per couplet**
+   (= per timing segment; segmentation lives in `tools/lib/lyrics.js`), plus title, subtitle,
+   theme, genre, mp3, cover, images[], about{}. No internal `". "` inside an es/de entry.
+4. **Verify before anything else:**
    ```
-   The `es` array lines up 1:1 with the segments printed by `transcribe.js`.
-4. Build:
+   node tools/verify-song.js <id>      # text==lyrics, counts, monotonic timing, images
+   ```
+   `FAIL` = do not ship; fix and re-verify.
+5. Build:
    ```
    node tools/build-anim.js <id>        # builds the song + rebuilds the hub
    node tools/build-anim.js --all       # rebuild everything
    ```
-5. Open `songs/<id>/index.html` (or the hub `index.html`) to check it.
+6. Open `songs/<id>/index.html` and play it through before sharing.
+
+`transcribe.js` (gpt-4o-transcribe + guided whisper-1) is only for a first draft when no
+lyrics exist yet — then get the real lyrics and use `retime.js`.
 
 ## Notes
 

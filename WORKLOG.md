@@ -2,6 +2,62 @@
 
 ---
 
+## 2026-06-26 (6): Zeile-für-Zeile-Standard + Intro-Timing-Fix + LIVE gepusht
+
+Martens Feedback aus dem Browser umgesetzt:
+- **Zeile für Zeile** (wie The Sower): Anzeige war bei den neuen Songs als große Blöcke, weil der Player nach
+  Satzzeichen trennte (Sower-Zeilen enden auf Punkt, neue Songs auf Komma). Segmentierung in
+  `tools/lib/lyrics.js` auf **eine Lyric-Zeile = eine Anzeigezeile** umgestellt (Mustard 52, The Word 40),
+  `es[]/de[]/imageMap[]` pro Zeile neu geschrieben. verify PASS.
+- **Gold zu früh am Anfang:** Whisper ankert leise Intros ein paar Sekunden zu früh (Mustard: „The smallest of"
+  bei ~8s, gesungen ~11s); der Rest stimmt. NEU: `"introStart"` in song.json + Player-Logik `applyIntro()` —
+  rückt **nur** die Wörter vor dem echten Gesang-Start nach (verteilt sie in die Lücke bis zum ersten korrekt
+  gehörten Wort), Rest unberührt. timing.json bleibt pure Whisper-Wahrheit, Fix wird beim Laden angewendet.
+  Mustard `introStart: 11` gesetzt (verifiziert: The/smallest/of → 11/11.46/11.92, „all the seeds" bleibt 12.4+).
+- **Kalibrier-Tool** `?cal=1`: Panel „Gesang ab X.Xs" mit −/+ Buttons (±0.5s) und Tasten `[` `]` (±0.1s), live.
+  Marten justiert per Ohr, sagt die Zahl → wird in `introStart` gebacken. (Globaler `offset` bleibt für selten
+  gleichmäßig verschobene Songs.)
+- **Whisper-Cache** in retime (`.whisper.json`): Re-Segmentieren/Neu-Timen gratis & sofort; `--fresh` ruft neu ab.
+- `BRANDING.md`, README, Skill `/neuer-song` aktualisiert (Zeilen-Standard + introStart/Kalibrierung).
+- **GEPUSHT** auf Martens OK („Rest sieht gut aus") → beide Songs live auf martennwt.github.io/marten-songs.
+
+**Offen:** The Word hat `introStart: 0` (sein weicher Intro startet graduell) — falls das Gold dort auch zu früh
+wirkt, per `?cal=1` justieren und Zahl nennen. Genre bestätigen. YouTube-Branding läuft in separatem Fenster.
+
+---
+
+## 2026-06-26 (5): Die 2 geparkten Songs gefixt (Lyrics-first) + Selbst-Check-Pipeline
+
+**Marten schickte die echten Lyrics** für Mustard Seed + The Word That Found Me → beide gebaut, lokal
+geprüft, jetzt aktiv (`song.json`, `.off`-Backups gelöscht). Noch **nicht gepusht** (wartet auf Martens OK
+nach Sichtung im Browser).
+
+**Neue, robuste Pipeline gebaut (für den Kurs gedacht, „immer reproduzierbar"):**
+- `tools/lib/lyrics.js` — eine Wahrheit für die Segmentierung: Couplet = 2 Lyric-Zeilen = 1 Anzeigezeile.
+- `tools/retime.js` — Lyrics + MP3 → vertrauenswürdige `timing.json`. Guided whisper-1 für Wortuhren, dann
+  **Needleman-Wunsch-Alignment** der echten Wörter auf die Whisper-Zeiten, Lücken interpoliert, Monotonie
+  erzwungen. `precise:true` + Wortzeiten pro Segment. Schwache Segmente (leiser Gesang, den Whisper kaum
+  hört): gleichmäßig über das Whisper-**Segmentfenster** verteilt statt zappeligen Einzelzeiten zu trauen.
+- `tools/verify-song.js` — **das Gate vor jeder Auslieferung**: Text==Lyrics (wortgenau), #Segmente==es==de==
+  imageMap, Zeiten monoton/im Bereich, imageMap gültig, Coverage + weak-Segments. FAIL = nicht ausliefern.
+- `tools/build-anim.js` — nutzt jetzt `precise`-Wortzeiten verbatim (The-Sower-Pfad unverändert).
+- **Skill `/neuer-song`** (`~/.claude/commands/neuer-song.md`) hält den ganzen Ablauf fest. `BRANDING.md` +
+  `README.md` aktualisiert (Lektionen + verify-vor-Auslieferung).
+
+**Ergebnisse:** Mustard Seed 26 Segmente, **99 % Coverage**, verify PASS. The Word That Found Me 20 Segmente,
+**94 % Coverage**, verify PASS mit 1 WARN: das **zarte A-cappella-Intro** („There was nothing in my hands…")
+hört Whisper kaum → über das Whisper-Fenster (0–28s) gleichmäßig verteilt (~1,1 s/Wort, glatt, aber nicht
+wortgenau). Falls Marten den Intro-Einsatz genauer will: per Ohr nachjustieren (Startzeit nennen → manuell setzen).
+Außerdem ein alter Transkriptionsfehler korrigiert: Bridge ist „a faith of **seeds**" (vorher fälschlich „seas/Meeren").
+
+**Gelernte Regel bestätigt (live erlebt):** Mit echten Lyrics als Whisper-Prompt sprang Mustard Seeds
+**Verse 1 von „fehlt komplett" auf 99 % Coverage** — Lyrics-mitschicken ist der Hebel, nicht „zweimal laufen".
+
+**Offen:** Browser-Sichtung durch Marten → dann commit + push. Genre der 2 Songs bestätigen (Indie Folk Pop).
+Optional: `the-sower-remastered` mit gleicher Pipeline retimen.
+
+---
+
 ## 2026-06-26 (4): Stand für Wiedereinstieg (Kontext-Cut)
 
 **LIVE = nur „The Sower" (Original)** auf https://martennwt.github.io/marten-songs/ . Spanisch auf

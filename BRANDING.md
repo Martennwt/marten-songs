@@ -62,14 +62,26 @@ https://martennwt.github.io/marten-songs/
   ranges dropped). Keys in `Documents/Claude/API keys/ElevenLabs.txt`.
 
 ## Add a new song (pipeline)
-1. `songs/<id>/<id>.mp3`
-2. `node tools/transcribe.js "songs/<id>/<id>.mp3" "songs/<id>/timing.json"` (gpt-4o-transcribe + guided whisper-1)
-3. Write `songs/<id>/song.json`: title, subtitle (scripture refs), theme, mp3, cover, images[], imageMap[],
-   es[]/de[] (per segment), about{intro,de,es}.
+**Always have the MP3 + the real lyrics together.** (See "Skill standards" — this is the #1 rule.)
+1. `songs/<id>/<id>.mp3` and the real lyrics as `songs/<id>/lyrics.txt` (verse blocks separated by blank
+   lines; `[Verse]/[Chorus]` headers are fine, they're ignored; write choruses out in full).
+2. `node tools/retime.js <id>` — builds a trustworthy `timing.json` from lyrics + audio (guided whisper-1 for
+   word clocks, then aligns YOUR words onto them, interpolates gaps, forces monotonic). The displayed text is
+   your lyrics BY CONSTRUCTION. Watch the printed coverage % and any "weak segment(s)" (soft/quiet parts).
+3. Write `songs/<id>/song.json`: title, subtitle (scripture refs), names{de,es}, theme, genre, mp3, cover,
+   images[], imageMap[], es[]/de[] (**one entry per lyric LINE = per timing segment**), about{intro,de,es},
+   narration, offset. Segmentation = **one lyric line per display line** (the "Sower" standard — each sung
+   line lights up on its own with its translation under it), defined once in `tools/lib/lyrics.js`;
+   es[]/de[]/imageMap[] line up 1:1 with the lines.
 4. Images: write `songs/<id>/img/jobs.json`, run the generator (above).
-5. Narration: `node tools/about-audio.js <id>`
-6. Build: `node tools/build-anim.js <id>` (or `--all`). Builds index.html + v1.html + rebuilds the hub.
-7. Deploy: `git add -A && git commit && git push origin main` (GitHub Pages auto-rebuilds).
+5. Narration (optional): `node tools/about-audio.js <id>` (set `narration:false` to skip).
+6. **Verify (the gate): `node tools/verify-song.js <id>`** — text == lyrics, counts match, timing monotonic &
+   in range, images valid, coverage report. **FAIL = do not ship.** Fix and re-verify.
+7. Build: `node tools/build-anim.js <id>` (or `--all`). Builds index.html + v1.html + rebuilds the hub.
+8. Open `songs/<id>/index.html` and actually PLAY it through before showing Marten.
+9. Deploy (after Marten's OK): `git add -A && git commit && git push origin main` (GitHub Pages auto-rebuilds).
+
+The `/neuer-song` skill (`~/.claude/commands/neuer-song.md`) walks this exact flow.
 
 ## Costs (rough)
 - Images: Gemini 3 Pro ~ a few cents to ~15 cents each; flash-image ~4 cents each. ~6-8 images/song.
@@ -77,9 +89,35 @@ https://martennwt.github.io/marten-songs/
 - => A few cents to ~1 EUR per song depending on the image model. Negligible at channel scale.
 
 ## Skill standards (locked-in lessons)
-- **Send just the MP3.** Pipeline: `transcribe.js` (gpt-4o-transcribe for text + whisper-1 guided for
-  word timestamps). If the auto-transcript looks wrong/uncertain, ASK the user to paste the exact lyrics
-  and re-time guided by them. Suno does not export timestamps, so whisper is needed (cheap, ~2 cents).
+- **MP3 + real lyrics together is the safest path — always.** Auto-transcription of singing drops/mangles
+  lines (then text AND timing are wrong). With the lyrics we never trust Whisper's TEXT, only its clock.
+  Running transcription twice does NOT help (same model, near-same mistakes, double cost). `transcribe.js`
+  (gpt-4o-transcribe + guided whisper-1) is only for getting a first draft when no lyrics exist yet — then
+  ask for the real lyrics and run `retime.js`.
+- **`retime.js` is the trustworthy timer.** It segments `lyrics.txt` the canonical way (`tools/lib/lyrics.js`),
+  asks whisper-1 (guided) for word times, aligns YOUR words onto Whisper's via Needleman-Wunsch, interpolates
+  any words Whisper dropped, and forces monotonic time. Output has `precise:true` + per-segment word times, so
+  the builder uses them verbatim. Whisper word stamps are unreliable on soft/quiet singing, but its SEGMENT
+  windows are solid → for "weak" segments (few anchored words) retime spreads the words across the segment
+  window instead of trusting the jittery per-word stamps. It reports coverage% and weakSegments.
+- **`verify-song.js` is the gate before every delivery.** Checks text==lyrics, segment/es/de/imageMap counts,
+  monotonic+in-range times, valid image indices, coverage. FAIL = do not ship. It re-derives the segmentation
+  from `lyrics.txt`, so a drift between lyrics and what's displayed is caught automatically.
+- **Segmentation = one lyric LINE per display line** (the "Sower" standard: each sung line lights up on its
+  own with its translation under it). Defined once in `tools/lib/lyrics.js` (used by retime AND verify);
+  es[]/de[]/imageMap[] = one entry per line, same order. (Do NOT group lines — earlier couplet grouping made
+  long blocks for songs whose lines aren't full sentences; per-line is consistent regardless of punctuation.)
+- **Intro start (the common fix).** Whisper often anchors a soft intro a few seconds EARLY, so the gold lights
+  up before the singer actually starts — but only at the very beginning; the rest is correct. Don't shift the
+  whole song. Set `"introStart": <seconds>` in song.json = when the first word is really sung. At play time the
+  player re-spaces ONLY the words before that moment (into the gap up to the first correctly-heard word) and
+  leaves everything after untouched. timing.json stays the pure Whisper truth; the fix is applied on load.
+  Calibrate by ear: open with `?cal=1` → a panel shows "Gesang ab X.Xs" with − / + buttons (±0.5s) and keys
+  `[` `]` (±0.1s). Nudge until the gold starts exactly with the voice, write that number into `introStart`,
+  rebuild. Concrete: Mustard Seed `introStart: 11` (Whisper had "The smallest of" at ~8s; sung at ~11s).
+- **Global offset (rare).** If a song is uniformly early/late (not just the intro), set `"offset": <seconds>`
+  (positive = whole highlight later); applied in the player as `tt = t + LEAD - OFFSET`. Per-word perfection on
+  soft singing would need forced alignment — future option.
 - **Translation = top Castellano + German.** ES is Spain Castellano (tú), DE natural. For recognizable
   Bible lines, echo the standard versions so a native recognizes them instantly:
   Reina-Valera (ES): "no te afanes", "buscad/busca primero el reino ... por añadidura", "lirios del campo",
