@@ -5,8 +5,8 @@
   "theme": "faith",
   "mp3": "the-sower.mp3",
   "cover": "img/1-sower.png",
-  "images": ["img/1-sower.png", "img/2-soils.png", "img/3-birds.png", "img/4-lilies.png", "img/5-light.png"],
-  "imageMap": [0, 1, 1, 2, 2, 2, 3, 2, 2, 4, 4, 4, 4],
+  "images": ["img/1-sower.png", "img/2-soils.png", "img/3-birds.png", "img/4-lilies.png", "img/5-light.png", "img/6-door.png", "img/7-path.png", "img/8-seed.png"],
+  "imageMap": [0, 1, 1, 2, 5, 6, 3, 2, 5, 5, 4, 7, 4],
   "es": [
     "Salió una mañana con la semilla en la mano. Parte cayó en el camino, parte en terreno pedregoso.",
     "Vinieron las aves y se la llevaron antes de que arraigara. Sobre la piedra brotó pronto, y con el frío se secó.",

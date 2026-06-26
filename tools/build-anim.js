@@ -69,6 +69,8 @@ function buildSong(id, opts) {
   const volMute = '<svg class="vi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10v4h3l4 3V7L6 10H3z"/><path d="M15.5 10l5 5M20.5 10l-5 5"/></svg>';
   const infoSvg = '<svg class="vi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.2" stroke-linecap="round"/><circle cx="12" cy="7.6" r="0.7" fill="currentColor" stroke="none"/></svg>';
   const listSvg = '<svg class="vi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg>';
+  const playSvg = '<svg class="vi" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+  const pauseSvg = '<svg class="vi" viewBox="0 0 24 24" fill="currentColor"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg>';
 
   const head = '<!doctype html><html lang="en" data-tlang="es" data-variant="' + variant + '"><head><meta charset="utf-8">' +
     '<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">' +
@@ -83,6 +85,7 @@ function buildSong(id, opts) {
     (useImages ? ('<div id="imgbg">' + meta.images.map((f, i) => '<div class="iml" data-i="' + i + '" style="background-image:url(\'' + esc(f) + '\')"></div>').join('') + '</div><div id="imgveil"></div>') : '') +
     '<a id="home" href="../../index.html">&#8592; Songs</a>' +
     '<button id="aboutBtn" class="about-btn" onclick="openAbout()"><span class="spark">&#10022;</span> <span id="aboutBtnLabel"></span></button>' +
+    '<div id="countdown" hidden><svg viewBox="0 0 60 60"><circle class="cd-bg" cx="30" cy="30" r="26"></circle><circle class="cd-fg" cx="30" cy="30" r="26"></circle></svg><span id="cdNum"></span></div>' +
     '<div id="title"' + (meta.cover ? (' style="--hero:url(\'' + esc(meta.cover) + '\')"') : '') + '>' +
     '<a class="gate-x" href="../../index.html" aria-label="Back to songs">&times;</a>' +
     '<div class="t-eyebrow">' + esc(meta.subtitle || '') + '</div><h1>' + esc(meta.title) + '</h1>' +
@@ -91,7 +94,8 @@ function buildSong(id, opts) {
     '<div id="lyrics"><div id="scroll">' + linesHtml + '<div class="line end-pad"></div></div></div>' +
     '<div id="about" hidden onclick="if(event.target===this)closeAbout()"><div class="about-card">' +
     '<button class="about-x" onclick="closeAbout()" aria-label="Close">&times;</button>' +
-    '<div class="ab-head"><button class="about-lang chip" onclick="toggleLang()"><span id="aboutFlag">' + flES + '</span> <span id="aboutLangName">ES</span></button></div>' +
+    '<div class="ab-head"><button id="narrBtn" class="ab-listen" onclick="toggleNarr()"><span class="ni">' + playSvg + '</span> <span id="narrLbl">Anhören</span></button>' +
+    '<div class="ab-langs"><button class="ab-lng" data-l="es" onclick="setTLang(\'es\')">' + flES + ' ES</button><button class="ab-lng" data-l="de" onclick="setTLang(\'de\')">' + flDE + ' DE</button></div></div>' +
     '<div class="ab-eyebrow" id="aboutEyebrow"></div><h2 id="aboutTitle"></h2>' +
     '<div class="ab-refs" id="aboutRefs"></div><div id="aboutBody"></div></div></div>' +
     '<div id="lyricsModal" hidden onclick="if(event.target===this)closeLyrics()"><div class="about-card lyrics-card">' +
@@ -111,13 +115,14 @@ function buildSong(id, opts) {
     '<div class="popwrap"><button id="langTog" class="chip" onclick="toggleLangMenu(event)"><span id="flag">' + flES + '</span> <span id="langName">ES</span> <span class="caret">&#9662;</span></button>' +
     '<div id="langMenu" class="pop menu" hidden><button type="button" onclick="setTLang(\'es\')">' + flES + ' Español</button><button type="button" onclick="setTLang(\'de\')">' + flDE + ' Deutsch</button></div></div>' +
     '</div></div></div></div>' +
-    '<audio id="au" src="' + esc(meta.mp3) + '" preload="auto"></audio>';
+    '<audio id="au" src="' + esc(meta.mp3) + '" preload="auto"></audio><audio id="narr" preload="none"></audio>';
 
   const dataScript = '<script>var LINES=' + JSON.stringify(lines) +
     ';var ABOUT=' + JSON.stringify(meta.about || { es: [], de: [] }) +
     ';var FLAGS=' + JSON.stringify({ es: flES, de: flDE }) +
     ';var VOL=' + JSON.stringify({ on: volOn, low: volLow, mute: volMute }) +
-    ';var SONG=' + JSON.stringify({ id: id, title: meta.title, refs: meta.subtitle || '' }) + ';</script>';
+    ';var SONG=' + JSON.stringify({ id: id, title: meta.title, refs: meta.subtitle || '' }) +
+    ';var NARRICON=' + JSON.stringify({ play: playSvg, pause: pauseSvg }) + ';</script>';
   const app = '<script>' + songJS() + '</script>';
   fs.writeFileSync(path.join(dir, opts.out || 'index.html'), head + body + dataScript + app + '</body></html>');
   return { id, lineCount: lines.length };
@@ -133,6 +138,13 @@ function songCSS() {
     '.about-btn{position:fixed;top:13px;right:14px;z-index:45;display:inline-flex;align-items:center;gap:.5rem;background:linear-gradient(180deg,rgba(255,231,173,.16),rgba(233,184,92,.12));border:1px solid rgba(243,196,108,.5);color:#ffe7ad;border-radius:999px;padding:.55rem 1.1rem;font-size:.9rem;font-weight:600;cursor:pointer;backdrop-filter:blur(4px);box-shadow:0 6px 20px rgba(0,0,0,.25);transition:transform .15s,background .2s,border-color .2s}',
     '.about-btn:hover{transform:translateY(-1px);background:linear-gradient(180deg,rgba(255,231,173,.28),rgba(233,184,92,.2));border-color:rgba(243,196,108,.85)}',
     '.about-btn .spark{color:#ffd87a}',
+    /* countdown ring before the singing starts */
+    '#countdown{position:fixed;top:66px;left:50%;transform:translateX(-50%);z-index:40;width:64px;height:64px;display:grid;place-items:center}',
+    '#countdown[hidden]{display:none}',
+    '#countdown svg{position:absolute;inset:0;width:64px;height:64px;transform:rotate(-90deg)}',
+    '.cd-bg{fill:none;stroke:rgba(255,255,255,.13);stroke-width:3}',
+    '.cd-fg{fill:none;stroke:#e9b85c;stroke-width:3;stroke-linecap:round;stroke-dasharray:163.4;stroke-dashoffset:163.4;filter:drop-shadow(0 0 6px rgba(243,205,130,.5))}',
+    '#cdNum{position:relative;font-variant-numeric:tabular-nums;font-weight:600;color:#ffe7ad;font-size:1.15rem}',
     /* title / play gate */
     '#title{position:fixed;inset:0;z-index:60;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:.5rem;padding:1rem;overflow:hidden;background:#070d18;backdrop-filter:blur(2px);transition:opacity .8s,visibility .8s}',
     '#title::before{content:"";position:absolute;inset:0;background:var(--hero,none) center/cover no-repeat;opacity:.32;transform:scale(1.06);z-index:0}',
@@ -186,7 +198,12 @@ function songCSS() {
     '.about-x{position:absolute;top:.55rem;right:.85rem;background:transparent;border:0;color:#9fb0c6;font-size:1.6rem;cursor:pointer;line-height:1}', '.about-x:hover{color:#ffe39a}',
     '.ab-eyebrow{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#caa45a}',
     "#aboutTitle{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:2.1rem;margin:.1rem 0 .15rem;color:#f3d79a;line-height:1.05}",
-    '.ab-head{display:flex;justify-content:flex-start;margin:0 0 .6rem}', '.about-lang{padding:.3rem .6rem;font-size:.78rem}',
+    '.ab-head{display:flex;justify-content:space-between;align-items:center;gap:.6rem;margin:0 0 .8rem;flex-wrap:wrap}',
+    '.ab-langs{display:inline-flex;gap:.2rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:.2rem}',
+    '.ab-lng{display:flex;align-items:center;gap:.35rem;background:transparent;border:0;color:#cdd8e8;border-radius:999px;padding:.32rem .7rem;font-size:.8rem;font-weight:600;cursor:pointer}',
+    '.ab-lng.on{background:linear-gradient(180deg,#ffe7ad,#e9b85c);color:#0c1626}', '.ab-lng .fl{width:18px;height:12px}',
+    '.ab-listen{display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,231,173,.12);border:1px solid rgba(243,196,108,.45);color:#ffe7ad;border-radius:999px;padding:.4rem .9rem;font-size:.84rem;font-weight:600;cursor:pointer}',
+    '.ab-listen:hover{background:rgba(255,231,173,.22)}', '.ab-listen .ni{display:flex}', '.ab-listen .vi{width:16px;height:16px}',
     '.ab-refs{color:#9fb0c6;font-size:.82rem;margin-bottom:1rem}',
     '.ab-intro{color:#d8e2f0;font-size:1rem;line-height:1.62;margin:0 0 1.15rem;padding-bottom:1.05rem;border-bottom:1px solid rgba(255,255,255,.1)}',
     '.ab-sec{margin-bottom:1.15rem}', '.ab-h{font-weight:600;color:#ffe39a;font-size:.98rem;margin-bottom:.3rem;letter-spacing:.01em}',
@@ -207,9 +224,9 @@ function songCSS() {
     '.lyrics-card .ll-tr{font-style:italic;font-size:.86rem;color:rgba(158,201,182,.85);margin-top:.18rem}',
     /* background images (v2) */
     '#imgbg{position:fixed;inset:0;z-index:1;pointer-events:none}',
-    '.iml{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.8s ease;animation:imgdrift 32s ease-in-out infinite alternate}',
-    '.iml.on{opacity:.26}',
-    '@keyframes imgdrift{from{transform:scale(1.05)}to{transform:scale(1.15)}}',
+    '.iml{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.8s ease;animation:imgdrift 22s ease-in-out infinite alternate}',
+    '.iml.on{opacity:.27}',
+    '@keyframes imgdrift{from{transform:scale(1.12) translate(-2.8%,-1%)}to{transform:scale(1.12) translate(2.8%,1%)}}',
     '#imgveil{position:fixed;inset:0;z-index:2;pointer-events:none;background:radial-gradient(95% 80% at 50% 45%,rgba(7,13,24,.42),rgba(7,13,24,.82))}',
     'html[data-variant="v2"] .tline{color:rgba(178,186,198,.55)}', 'html[data-variant="v2"] .line.active .tline{color:rgba(204,212,224,.8)}',
     /* mobile: bigger lyrics, comfy player */
@@ -231,7 +248,8 @@ function songJS() {
     'var lineEls=[].slice.call(document.querySelectorAll(".line[data-s]"));',
     'var imls=[].slice.call(document.querySelectorAll(".iml"));var curImg=-1;',
     'function setImg(n){if(!imls.length||n===curImg)return;curImg=n;for(var z=0;z<imls.length;z++)imls[z].classList.toggle("on",z===n);}',
-    'var curLine=-1,started=false,aboutOpen=false,lyricsOpen=false,lastVol=1;',
+    'var cd=document.getElementById("countdown"),cdfg=document.querySelector(".cd-fg"),cdNum=document.getElementById("cdNum"),CDC=163.4,FS0=LINES.length?LINES[0].start:0;',
+    'var curLine=-1,started=false,aboutOpen=false,lyricsOpen=false,lastVol=1,narr=document.getElementById("narr"),narrPlaying=false;',
     'function fmt(t){t=Math.max(0,t|0);return (t/60|0)+":"+("0"+(t%60)).slice(-2);}',
     'function startPlay(){document.getElementById("title").classList.add("hide");started=true;au.play();}',
     'function togglePlay(){if(au.paused){au.play();}else{au.pause();}}',
@@ -241,9 +259,9 @@ function songJS() {
     'function toggleMute(){if(au.muted||au.volume===0){au.muted=false;au.volume=lastVol||1;document.getElementById("vol").value=au.volume;}else{lastVol=au.volume;au.muted=true;}volIcon();}',
     'function volIcon(){var b=document.getElementById("volBtn");if(au.muted||au.volume===0){b.innerHTML=VOL.mute;}else if(au.volume<0.5){b.innerHTML=VOL.low;}else{b.innerHTML=VOL.on;}}',
     'function toggleCollapse(){document.body.classList.toggle("pl-collapsed");}',
-    'var UI={es:{about:"La idea detrás",lyrics:"Letra"},de:{about:"Die Idee hinter dem Lied",lyrics:"Text"}};',
-    'function updateLangUI(){var L=curLang(),f=FLAGS[L],n=L.toUpperCase();document.getElementById("flag").innerHTML=f;document.getElementById("langName").textContent=n;var af=document.getElementById("aboutFlag");if(af)af.innerHTML=f;var an=document.getElementById("aboutLangName");if(an)an.textContent=n;var bl=document.getElementById("aboutBtnLabel");if(bl)bl.textContent=UI[L].about;var ll=document.getElementById("lyricsLbl");if(ll)ll.textContent=UI[L].lyrics;}',
-    'function setTLang(l){document.documentElement.setAttribute("data-tlang",l);updateLangUI();closeMenus();if(aboutOpen)renderAbout();if(lyricsOpen)renderLyrics();}',
+    'var UI={es:{about:"La idea detrás",lyrics:"Letra",listen:"Escuchar"},de:{about:"Die Idee hinter dem Lied",lyrics:"Text",listen:"Anhören"}};',
+    'function updateLangUI(){var L=curLang(),f=FLAGS[L],n=L.toUpperCase();document.getElementById("flag").innerHTML=f;document.getElementById("langName").textContent=n;var bl=document.getElementById("aboutBtnLabel");if(bl)bl.textContent=UI[L].about;var ll=document.getElementById("lyricsLbl");if(ll)ll.textContent=UI[L].lyrics;var nl=document.getElementById("narrLbl");if(nl)nl.textContent=UI[L].listen;var seg=document.querySelectorAll(".ab-lng");for(var i=0;i<seg.length;i++)seg[i].classList.toggle("on",seg[i].getAttribute("data-l")===L);}',
+    'function setTLang(l){document.documentElement.setAttribute("data-tlang",l);updateLangUI();closeMenus();if(narr&&!narr.paused)narr.pause();if(narr)narr.removeAttribute("data-src");if(aboutOpen)renderAbout();if(lyricsOpen)renderLyrics();}',
     'function toggleLang(){setTLang(curLang()==="de"?"es":"de");}',
     'function closeMenus(){var v=document.getElementById("volPop");if(v)v.hidden=true;var m=document.getElementById("langMenu");if(m)m.hidden=true;}',
     'function toggleVolPop(e){e.stopPropagation();var m=document.getElementById("langMenu");if(m)m.hidden=true;var v=document.getElementById("volPop");v.hidden=!v.hidden;}',
@@ -256,7 +274,10 @@ function songJS() {
     'function curLang(){return document.documentElement.getAttribute("data-tlang")==="de"?"de":"es";}',
     'function renderAbout(){var L=curLang();document.getElementById("aboutEyebrow").textContent=L==="de"?"Über den Song":"Sobre la canción";document.getElementById("aboutTitle").textContent=SONG.title;document.getElementById("aboutRefs").textContent=SONG.refs||"";var h=(ABOUT.intro&&ABOUT.intro[L])?(\'<p class="ab-intro">\'+ABOUT.intro[L]+"</p>"):"";var secs=(ABOUT&&ABOUT[L])||[];for(var i=0;i<secs.length;i++){h+=\'<div class="ab-sec"><div class="ab-h">\'+secs[i].h+"</div>";var ps=secs[i].p||[];for(var j=0;j<ps.length;j++)h+=\'<div class="ab-p">\'+ps[j]+"</div>";h+="</div>";}document.getElementById("aboutBody").innerHTML=h;}',
     'function openAbout(){aboutOpen=true;renderAbout();document.getElementById("about").hidden=false;}',
-    'function closeAbout(){aboutOpen=false;document.getElementById("about").hidden=true;}',
+    'function closeAbout(){aboutOpen=false;document.getElementById("about").hidden=true;if(narr&&!narr.paused)narr.pause();}',
+    'function setNarrIcon(){var b=document.getElementById("narrBtn");if(b)b.querySelector(".ni").innerHTML=narrPlaying?NARRICON.pause:NARRICON.play;}',
+    'function toggleNarr(){var want="about-"+curLang()+".mp3";if(narr.getAttribute("data-src")!==want){narr.src=want;narr.setAttribute("data-src",want);}if(narr.paused){au.pause();var pr=narr.play();if(pr&&pr.catch)pr.catch(function(){});}else{narr.pause();}}',
+    'if(narr){narr.addEventListener("play",function(){narrPlaying=true;setNarrIcon();});narr.addEventListener("pause",function(){narrPlaying=false;setNarrIcon();});narr.addEventListener("ended",function(){narrPlaying=false;setNarrIcon();});}',
     'document.addEventListener("keydown",function(e){if(e.key==="Escape"){closeAbout();closeLyrics();closeMenus();}});',
     'au.addEventListener("play",function(){document.getElementById("pp").innerHTML="&#10073;&#10073;";document.getElementById("title").classList.add("hide");});',
     'au.addEventListener("pause",function(){document.getElementById("pp").innerHTML="&#9654;";});',
@@ -267,6 +288,7 @@ function songJS() {
     'function frame(){var t=au.currentTime;',
     '  document.getElementById("cur").textContent=fmt(t);',
     '  document.getElementById("fill").style.width=((au.duration?t/au.duration:0)*100)+"%";',
+    '  if(started&&FS0>0.6&&t<FS0-0.05){if(cd.hidden)cd.hidden=false;var cpr=Math.max(0,Math.min(1,t/FS0));cdfg.style.strokeDashoffset=(CDC*(1-cpr)).toFixed(1);cdNum.textContent=Math.max(1,Math.ceil(FS0-t));}else if(cd&&!cd.hidden){cd.hidden=true;}',
     '  var idx=-1;for(var i=0;i<LINES.length;i++){if(t>=LINES[i].start-0.15){idx=i;}else break;}',
     '  setActive(idx);if(imls.length)setImg(idx>=0?(LINES[idx].img||0):0);',
     '  if(idx>=0){var el=lineEls[idx],ws=el.querySelectorAll(".w"),L=LINES[idx].w,endT=LINES[idx].end;',
@@ -289,8 +311,8 @@ function buildHub() {
     (m.cover ? '<div class="c-img" style="background-image:url(\'songs/' + m.id + '/' + esc(m.cover) + '\')"></div>' : '') +
     '<div class="c-body"><div class="c-theme">' + esc(m.theme || 'song') + '</div>' +
     '<div class="c-title">' + esc(m.title) + '</div><div class="c-sub">' + esc(m.subtitle || '') + '</div>' +
-    '<div class="c-btns"><a class="c-play" href="songs/' + m.id + '/index.html">&#9654; Version 1</a>' +
-    '<a class="c-play alt" href="songs/' + m.id + '/v2.html">&#10022; Version 2 &middot; Bilder</a></div>' +
+    '<div class="c-btns"><a class="c-play" href="songs/' + m.id + '/index.html">&#9654; Play</a>' +
+    '<a class="c-play alt" href="songs/' + m.id + '/v1.html">Without images</a></div>' +
     '</div></div>'
   ).join('\n');
   const html = '<!doctype html><html lang="en"><head><meta charset="utf-8">' +
@@ -346,8 +368,8 @@ const ids = arg === '--all'
   ? fs.readdirSync(SONGS).filter(d => fs.existsSync(path.join(SONGS, d, 'song.json')))
   : [arg];
 ids.forEach(id => {
-  const r = buildSong(id);
-  buildSong(id, { fine: true, images: true, variant: 'v2', out: 'v2.html' });
-  console.log('built song ' + r.id + ' (v1 ' + r.lineCount + ' lines, + v2 with images)');
+  const main = buildSong(id, { fine: true, images: true, variant: 'v2', out: 'index.html' });
+  buildSong(id, { variant: 'v1', out: 'v1.html' });
+  console.log('built song ' + main.id + ' (main: images + per-sentence; + v1.html clean)');
 });
 console.log('rebuilt hub index.html (' + buildHub() + ' song(s))');
