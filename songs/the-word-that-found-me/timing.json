@@ -1,0 +1,2826 @@
+{
+  "task": "transcribe",
+  "language": "english",
+  "duration": 243.83999633789062,
+  "text": "I was tired of my own questions and the fear that wouldn't fade. I carried all my worry till my shoulders nearly broke, and I whispered to the silence with the little faith I spoke. It was smaller than a mustard seed, it was barely even there, but it turned me toward the only light still burning anywhere. I was empty, I was lonely, with the dark on every side, when a voice said, open up the word, and I had nowhere left to hide. So I read it in the silence, and the words began to shine, and the fear I couldn't carry was trading line by line. Now there's peace I cannot explain where the worry used to be, he took the weight I couldn't hold and he carried it for me. So I read it in the morning, and I read it in the night, and the words I almost gave up on began to set me right. Every promise like a hand held out to pull me from the deep, come to me you weary one, and he gave me rest to keep. I was empty, I was lonely, with the dark on every side, when a voice said, open up the word, and I had nowhere left to hide. So I read it in the silence, and the words began to shine, and the fear I couldn't carry was trading line by line. Now there's peace I cannot explain where the worry used to be, he took the weight I couldn't hold and he carried it for me. I don't have a faith of mountains, I just have a faith of seas, but it found me in the wreckage and it gave me what I need. And I'm grateful for the morning, I'm grateful for the gift, for the hand that took my fear away and gave me peace to live. I was empty, I was lonely, with the dark on every side, when a voice said, open up the word, and I had nowhere left to hide. So I read it in the silence, and the words began to shine, and the fear I couldn't carry was trading line by line. Now there's peace I cannot explain where the worry used to be, he took the weight I couldn't hold and he carried it for me. So I'll drive into the daylight with the windows rolling down, and the word that came to find me is the peace I finally found.",
+  "segments": [
+    {
+      "id": 0,
+      "seek": 0,
+      "start": 12.5,
+      "end": 29.979999542236328,
+      "text": " I was tired of my own questions and the fear that wouldn't fade. I carried all my worry till my shoulders nearly broke, and I whispered to the silence with the little faith I spoke.",
+      "tokens": [
+        50364,
+        286,
+        390,
+        5868,
+        295,
+        452,
+        1065,
+        1651,
+        293,
+        264,
+        4240,
+        300,
+        2759,
+        380,
+        21626,
+        13,
+        286,
+        9094,
+        439,
+        452,
+        3292,
+        4288,
+        452,
+        10245,
+        6217,
+        6902,
+        11,
+        293,
+        286,
+        26018,
+        292,
+        281,
+        264,
+        12239,
+        365,
+        264,
+        707,
+        4522,
+        286,
+        7179,
+        13,
+        50714
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.44624221324920654,
+      "compression_ratio": 1.3816794157028198,
+      "no_speech_prob": 0.6443164348602295
+    },
+    {
+      "id": 1,
+      "seek": 3000,
+      "start": 39.15999984741211,
+      "end": 53.599998474121094,
+      "text": " It was smaller than a mustard seed, it was barely even there, but it turned me toward the only light still burning anywhere.",
+      "tokens": [
+        50364,
+        467,
+        390,
+        4356,
+        813,
+        257,
+        23659,
+        8871,
+        11,
+        309,
+        390,
+        10268,
+        754,
+        456,
+        11,
+        457,
+        309,
+        3574,
+        385,
+        7361,
+        264,
+        787,
+        1442,
+        920,
+        9488,
+        4992,
+        13,
+        51564
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.399538516998291,
+      "compression_ratio": 1.2653061151504517,
+      "no_speech_prob": 0.6953478455543518
+    },
+    {
+      "id": 2,
+      "seek": 5360,
+      "start": 53.599998474121094,
+      "end": 66.86000061035156,
+      "text": " I was empty, I was lonely, with the dark on every side, when a voice said, open up the word, and I had nowhere left to hide.",
+      "tokens": [
+        50414,
+        286,
+        390,
+        6707,
+        11,
+        286,
+        390,
+        14236,
+        11,
+        365,
+        264,
+        2877,
+        322,
+        633,
+        1252,
+        11,
+        562,
+        257,
+        3177,
+        848,
+        11,
+        1269,
+        493,
+        264,
+        1349,
+        11,
+        293,
+        286,
+        632,
+        11159,
+        1411,
+        281,
+        6479,
+        13,
+        51014
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.19451814889907837,
+      "compression_ratio": 1.493749976158142,
+      "no_speech_prob": 0.9506730437278748
+    },
+    {
+      "id": 3,
+      "seek": 5360,
+      "start": 67.5199966430664,
+      "end": 80,
+      "text": " So I read it in the silence, and the words began to shine, and the fear I couldn't carry was trading line by line.",
+      "tokens": [
+        51064,
+        407,
+        286,
+        1401,
+        309,
+        294,
+        264,
+        12239,
+        11,
+        293,
+        264,
+        2283,
+        4283,
+        281,
+        12207,
+        11,
+        293,
+        264,
+        4240,
+        286,
+        2809,
+        380,
+        3985,
+        390,
+        9529,
+        1622,
+        538,
+        1622,
+        13,
+        51664
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.19451814889907837,
+      "compression_ratio": 1.493749976158142,
+      "no_speech_prob": 0.9506730437278748
+    },
+    {
+      "id": 4,
+      "seek": 8000,
+      "start": 80,
+      "end": 93,
+      "text": " Now there's peace I cannot explain where the worry used to be, he took the weight I couldn't hold and he carried it for me.",
+      "tokens": [
+        50364,
+        823,
+        456,
+        311,
+        4336,
+        286,
+        2644,
+        2903,
+        689,
+        264,
+        3292,
+        1143,
+        281,
+        312,
+        11,
+        415,
+        1890,
+        264,
+        3364,
+        286,
+        2809,
+        380,
+        1797,
+        293,
+        415,
+        9094,
+        309,
+        337,
+        385,
+        13,
+        51014
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.17180125415325165,
+      "compression_ratio": 1.2178218364715576,
+      "no_speech_prob": 0.5381879806518555
+    },
+    {
+      "id": 5,
+      "seek": 9333,
+      "start": 94.33000183105469,
+      "end": 107.25,
+      "text": " So I read it in the morning, and I read it in the night, and the words I almost gave up on began to set me right.",
+      "tokens": [
+        50414,
+        407,
+        286,
+        1401,
+        309,
+        294,
+        264,
+        2446,
+        11,
+        293,
+        286,
+        1401,
+        309,
+        294,
+        264,
+        1818,
+        11,
+        293,
+        264,
+        2283,
+        286,
+        1920,
+        2729,
+        493,
+        322,
+        4283,
+        281,
+        992,
+        385,
+        558,
+        13,
+        51014
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.16294649243354797,
+      "compression_ratio": 1.3139535188674927,
+      "no_speech_prob": 0.8568793535232544
+    },
+    {
+      "id": 6,
+      "seek": 10725,
+      "start": 108.25,
+      "end": 120.19000244140625,
+      "text": " Every promise like a hand held out to pull me from the deep, come to me you weary one, and he gave me rest to keep.",
+      "tokens": [
+        50414,
+        2048,
+        6228,
+        411,
+        257,
+        1011,
+        5167,
+        484,
+        281,
+        2235,
+        385,
+        490,
+        264,
+        2452,
+        11,
+        808,
+        281,
+        385,
+        291,
+        47853,
+        472,
+        11,
+        293,
+        415,
+        2729,
+        385,
+        1472,
+        281,
+        1066,
+        13,
+        51014
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.21965113282203674,
+      "compression_ratio": 1.2365591526031494,
+      "no_speech_prob": 0.8660842776298523
+    },
+    {
+      "id": 7,
+      "seek": 12019,
+      "start": 120.19000244140625,
+      "end": 133.2899932861328,
+      "text": " I was empty, I was lonely, with the dark on every side, when a voice said, open up the word, and I had nowhere left to hide.",
+      "tokens": [
+        50364,
+        286,
+        390,
+        6707,
+        11,
+        286,
+        390,
+        14236,
+        11,
+        365,
+        264,
+        2877,
+        322,
+        633,
+        1252,
+        11,
+        562,
+        257,
+        3177,
+        848,
+        11,
+        1269,
+        493,
+        264,
+        1349,
+        11,
+        293,
+        286,
+        632,
+        11159,
+        1411,
+        281,
+        6479,
+        13,
+        50964
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.14646251499652863,
+      "compression_ratio": 1.493749976158142,
+      "no_speech_prob": 0.7073527574539185
+    },
+    {
+      "id": 8,
+      "seek": 12019,
+      "start": 133.88999938964844,
+      "end": 146.0500030517578,
+      "text": " So I read it in the silence, and the words began to shine, and the fear I couldn't carry was trading line by line.",
+      "tokens": [
+        51014,
+        407,
+        286,
+        1401,
+        309,
+        294,
+        264,
+        12239,
+        11,
+        293,
+        264,
+        2283,
+        4283,
+        281,
+        12207,
+        11,
+        293,
+        264,
+        4240,
+        286,
+        2809,
+        380,
+        3985,
+        390,
+        9529,
+        1622,
+        538,
+        1622,
+        13,
+        51614
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.14646251499652863,
+      "compression_ratio": 1.493749976158142,
+      "no_speech_prob": 0.7073527574539185
+    },
+    {
+      "id": 9,
+      "seek": 14605,
+      "start": 146.0500030517578,
+      "end": 159.22999572753906,
+      "text": " Now there's peace I cannot explain where the worry used to be, he took the weight I couldn't hold and he carried it for me.",
+      "tokens": [
+        50364,
+        823,
+        456,
+        311,
+        4336,
+        286,
+        2644,
+        2903,
+        689,
+        264,
+        3292,
+        1143,
+        281,
+        312,
+        11,
+        415,
+        1890,
+        264,
+        3364,
+        286,
+        2809,
+        380,
+        1797,
+        293,
+        415,
+        9094,
+        309,
+        337,
+        385,
+        13,
+        51014
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.1457950323820114,
+      "compression_ratio": 1.5534591674804688,
+      "no_speech_prob": 0.10942157357931137
+    },
+    {
+      "id": 10,
+      "seek": 14605,
+      "start": 160.6300048828125,
+      "end": 173.8699951171875,
+      "text": " I don't have a faith of mountains, I just have a faith of seas, but it found me in the wreckage and it gave me what I need.",
+      "tokens": [
+        51064,
+        286,
+        500,
+        380,
+        362,
+        257,
+        4522,
+        295,
+        10233,
+        11,
+        286,
+        445,
+        362,
+        257,
+        4522,
+        295,
+        22535,
+        11,
+        457,
+        309,
+        1352,
+        385,
+        294,
+        264,
+        21478,
+        609,
+        293,
+        309,
+        2729,
+        385,
+        437,
+        286,
+        643,
+        13,
+        51714
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.1457950323820114,
+      "compression_ratio": 1.5534591674804688,
+      "no_speech_prob": 0.10942157357931137
+    },
+    {
+      "id": 11,
+      "seek": 17387,
+      "start": 173.8699951171875,
+      "end": 186.97000122070312,
+      "text": " And I'm grateful for the morning, I'm grateful for the gift, for the hand that took my fear away and gave me peace to live.",
+      "tokens": [
+        50364,
+        400,
+        286,
+        478,
+        7941,
+        337,
+        264,
+        2446,
+        11,
+        286,
+        478,
+        7941,
+        337,
+        264,
+        5306,
+        11,
+        337,
+        264,
+        1011,
+        300,
+        1890,
+        452,
+        4240,
+        1314,
+        293,
+        2729,
+        385,
+        4336,
+        281,
+        1621,
+        13,
+        51014
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.13768823444843292,
+      "compression_ratio": 1.5499999523162842,
+      "no_speech_prob": 0.10080213099718094
+    },
+    {
+      "id": 12,
+      "seek": 17387,
+      "start": 188.35000610351562,
+      "end": 201.2899932861328,
+      "text": " I was empty, I was lonely, with the dark on every side, when a voice said, open up the word, and I had nowhere left to hide.",
+      "tokens": [
+        51064,
+        286,
+        390,
+        6707,
+        11,
+        286,
+        390,
+        14236,
+        11,
+        365,
+        264,
+        2877,
+        322,
+        633,
+        1252,
+        11,
+        562,
+        257,
+        3177,
+        848,
+        11,
+        1269,
+        493,
+        264,
+        1349,
+        11,
+        293,
+        286,
+        632,
+        11159,
+        1411,
+        281,
+        6479,
+        13,
+        51714
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.13768823444843292,
+      "compression_ratio": 1.5499999523162842,
+      "no_speech_prob": 0.10080213099718094
+    },
+    {
+      "id": 13,
+      "seek": 20129,
+      "start": 201.2899932861328,
+      "end": 214.1699981689453,
+      "text": " So I read it in the silence, and the words began to shine, and the fear I couldn't carry was trading line by line.",
+      "tokens": [
+        50364,
+        407,
+        286,
+        1401,
+        309,
+        294,
+        264,
+        12239,
+        11,
+        293,
+        264,
+        2283,
+        4283,
+        281,
+        12207,
+        11,
+        293,
+        264,
+        4240,
+        286,
+        2809,
+        380,
+        3985,
+        390,
+        9529,
+        1622,
+        538,
+        1622,
+        13,
+        50964
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.1361762136220932,
+      "compression_ratio": 1.545454502105713,
+      "no_speech_prob": 0.09256662428379059
+    },
+    {
+      "id": 14,
+      "seek": 20129,
+      "start": 214.97000122070312,
+      "end": 227.92999267578125,
+      "text": " Now there's peace I cannot explain where the worry used to be, he took the weight I couldn't hold and he carried it for me.",
+      "tokens": [
+        51014,
+        823,
+        456,
+        311,
+        4336,
+        286,
+        2644,
+        2903,
+        689,
+        264,
+        3292,
+        1143,
+        281,
+        312,
+        11,
+        415,
+        1890,
+        264,
+        3364,
+        286,
+        2809,
+        380,
+        1797,
+        293,
+        415,
+        9094,
+        309,
+        337,
+        385,
+        13,
+        51664
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.1361762136220932,
+      "compression_ratio": 1.545454502105713,
+      "no_speech_prob": 0.09256662428379059
+    },
+    {
+      "id": 15,
+      "seek": 22793,
+      "start": 227.92999267578125,
+      "end": 242.50999450683594,
+      "text": " So I'll drive into the daylight with the windows rolling down, and the word that came to find me is the peace I finally found.",
+      "tokens": [
+        50414,
+        407,
+        286,
+        603,
+        3332,
+        666,
+        264,
+        29964,
+        365,
+        264,
+        9309,
+        9439,
+        760,
+        11,
+        293,
+        264,
+        1349,
+        300,
+        1361,
+        281,
+        915,
+        385,
+        307,
+        264,
+        4336,
+        286,
+        2721,
+        1352,
+        13,
+        51114
+      ],
+      "temperature": 0,
+      "avg_logprob": -0.19877927005290985,
+      "compression_ratio": 1.2352941036224365,
+      "no_speech_prob": 0.48818767070770264
+    }
+  ],
+  "words": [
+    {
+      "word": "I",
+      "start": 12.5,
+      "end": 13.5600004196167
+    },
+    {
+      "word": "was",
+      "start": 13.5600004196167,
+      "end": 13.5600004196167
+    },
+    {
+      "word": "tired",
+      "start": 13.5600004196167,
+      "end": 23
+    },
+    {
+      "word": "of",
+      "start": 23,
+      "end": 23.280000686645508
+    },
+    {
+      "word": "my",
+      "start": 23.280000686645508,
+      "end": 23.559999465942383
+    },
+    {
+      "word": "own",
+      "start": 23.559999465942383,
+      "end": 25.040000915527344
+    },
+    {
+      "word": "questions",
+      "start": 25.040000915527344,
+      "end": 25.040000915527344
+    },
+    {
+      "word": "and",
+      "start": 25.040000915527344,
+      "end": 25.260000228881836
+    },
+    {
+      "word": "the",
+      "start": 25.260000228881836,
+      "end": 26.200000762939453
+    },
+    {
+      "word": "fear",
+      "start": 26.200000762939453,
+      "end": 26.200000762939453
+    },
+    {
+      "word": "that",
+      "start": 26.200000762939453,
+      "end": 26.719999313354492
+    },
+    {
+      "word": "wouldn't",
+      "start": 26.719999313354492,
+      "end": 27.1200008392334
+    },
+    {
+      "word": "fade",
+      "start": 27.1200008392334,
+      "end": 27.65999984741211
+    },
+    {
+      "word": "I",
+      "start": 27.899999618530273,
+      "end": 28.739999771118164
+    },
+    {
+      "word": "carried",
+      "start": 28.739999771118164,
+      "end": 29.700000762939453
+    },
+    {
+      "word": "all",
+      "start": 29.700000762939453,
+      "end": 29.979999542236328
+    },
+    {
+      "word": "my",
+      "start": 29.979999542236328,
+      "end": 29.979999542236328
+    },
+    {
+      "word": "worry",
+      "start": 29.979999542236328,
+      "end": 29.979999542236328
+    },
+    {
+      "word": "till",
+      "start": 29.979999542236328,
+      "end": 29.979999542236328
+    },
+    {
+      "word": "my",
+      "start": 29.979999542236328,
+      "end": 29.979999542236328
+    },
+    {
+      "word": "shoulders",
+      "start": 29.979999542236328,
+      "end": 29.979999542236328
+    },
+    {
+      "word": "nearly",
+      "start": 29.979999542236328,
+      "end": 29.979999542236328
+    },
+    {
+      "word": "broke",
+      "start": 29.979999542236328,
+      "end": 29.979999542236328
+    },
+    {
+      "word": "and",
+      "start": 29.979999542236328,
+      "end": 29.979999542236328
+    },
+    {
+      "word": "I",
+      "start": 29.979999542236328,
+      "end": 29.979999542236328
+    },
+    {
+      "word": "whispered",
+      "start": 29.979999542236328,
+      "end": 29.979999542236328
+    },
+    {
+      "word": "to",
+      "start": 29.979999542236328,
+      "end": 29.979999542236328
+    },
+    {
+      "word": "the",
+      "start": 29.979999542236328,
+      "end": 29.979999542236328
+    },
+    {
+      "word": "silence",
+      "start": 29.979999542236328,
+      "end": 29.979999542236328
+    },
+    {
+      "word": "with",
+      "start": 29.979999542236328,
+      "end": 29.979999542236328
+    },
+    {
+      "word": "the",
+      "start": 29.979999542236328,
+      "end": 29.979999542236328
+    },
+    {
+      "word": "little",
+      "start": 29.979999542236328,
+      "end": 29.979999542236328
+    },
+    {
+      "word": "faith",
+      "start": 29.979999542236328,
+      "end": 29.979999542236328
+    },
+    {
+      "word": "I",
+      "start": 29.979999542236328,
+      "end": 29.979999542236328
+    },
+    {
+      "word": "spoke",
+      "start": 29.979999542236328,
+      "end": 29.979999542236328
+    },
+    {
+      "word": "It",
+      "start": 39.15999984741211,
+      "end": 40.5
+    },
+    {
+      "word": "was",
+      "start": 40.5,
+      "end": 41.84000015258789
+    },
+    {
+      "word": "smaller",
+      "start": 41.84000015258789,
+      "end": 42.540000915527344
+    },
+    {
+      "word": "than",
+      "start": 42.540000915527344,
+      "end": 43.36000061035156
+    },
+    {
+      "word": "a",
+      "start": 43.36000061035156,
+      "end": 43.939998626708984
+    },
+    {
+      "word": "mustard",
+      "start": 43.939998626708984,
+      "end": 44.13999938964844
+    },
+    {
+      "word": "seed",
+      "start": 44.13999938964844,
+      "end": 44.779998779296875
+    },
+    {
+      "word": "it",
+      "start": 44.91999816894531,
+      "end": 44.939998626708984
+    },
+    {
+      "word": "was",
+      "start": 44.939998626708984,
+      "end": 45.15999984741211
+    },
+    {
+      "word": "barely",
+      "start": 45.15999984741211,
+      "end": 45.959999084472656
+    },
+    {
+      "word": "even",
+      "start": 45.959999084472656,
+      "end": 46.84000015258789
+    },
+    {
+      "word": "there",
+      "start": 46.84000015258789,
+      "end": 47.779998779296875
+    },
+    {
+      "word": "but",
+      "start": 47.779998779296875,
+      "end": 48.20000076293945
+    },
+    {
+      "word": "it",
+      "start": 48.20000076293945,
+      "end": 48.84000015258789
+    },
+    {
+      "word": "turned",
+      "start": 48.84000015258789,
+      "end": 48.900001525878906
+    },
+    {
+      "word": "me",
+      "start": 48.900001525878906,
+      "end": 49.779998779296875
+    },
+    {
+      "word": "toward",
+      "start": 49.779998779296875,
+      "end": 49.779998779296875
+    },
+    {
+      "word": "the",
+      "start": 49.779998779296875,
+      "end": 50.060001373291016
+    },
+    {
+      "word": "only",
+      "start": 50.060001373291016,
+      "end": 50.79999923706055
+    },
+    {
+      "word": "light",
+      "start": 50.79999923706055,
+      "end": 51.31999969482422
+    },
+    {
+      "word": "still",
+      "start": 51.31999969482422,
+      "end": 51.86000061035156
+    },
+    {
+      "word": "burning",
+      "start": 51.86000061035156,
+      "end": 52.619998931884766
+    },
+    {
+      "word": "anywhere",
+      "start": 52.619998931884766,
+      "end": 53.599998474121094
+    },
+    {
+      "word": "I",
+      "start": 53.599998474121094,
+      "end": 54.560001373291016
+    },
+    {
+      "word": "was",
+      "start": 54.560001373291016,
+      "end": 54.91999816894531
+    },
+    {
+      "word": "empty",
+      "start": 54.91999816894531,
+      "end": 55.84000015258789
+    },
+    {
+      "word": "I",
+      "start": 55.86000061035156,
+      "end": 56.36000061035156
+    },
+    {
+      "word": "was",
+      "start": 56.36000061035156,
+      "end": 56.599998474121094
+    },
+    {
+      "word": "lonely",
+      "start": 56.599998474121094,
+      "end": 57.279998779296875
+    },
+    {
+      "word": "with",
+      "start": 57.79999923706055,
+      "end": 57.97999954223633
+    },
+    {
+      "word": "the",
+      "start": 57.97999954223633,
+      "end": 58.220001220703125
+    },
+    {
+      "word": "dark",
+      "start": 58.220001220703125,
+      "end": 58.79999923706055
+    },
+    {
+      "word": "on",
+      "start": 58.79999923706055,
+      "end": 59.279998779296875
+    },
+    {
+      "word": "every",
+      "start": 59.279998779296875,
+      "end": 59.779998779296875
+    },
+    {
+      "word": "side",
+      "start": 59.779998779296875,
+      "end": 60.68000030517578
+    },
+    {
+      "word": "when",
+      "start": 60.7400016784668,
+      "end": 61.2400016784668
+    },
+    {
+      "word": "a",
+      "start": 61.2400016784668,
+      "end": 61.52000045776367
+    },
+    {
+      "word": "voice",
+      "start": 61.52000045776367,
+      "end": 62
+    },
+    {
+      "word": "said",
+      "start": 62,
+      "end": 62.619998931884766
+    },
+    {
+      "word": "open",
+      "start": 62.84000015258789,
+      "end": 63.060001373291016
+    },
+    {
+      "word": "up",
+      "start": 63.060001373291016,
+      "end": 63.619998931884766
+    },
+    {
+      "word": "the",
+      "start": 63.619998931884766,
+      "end": 64.08000183105469
+    },
+    {
+      "word": "word",
+      "start": 64.08000183105469,
+      "end": 64.27999877929688
+    },
+    {
+      "word": "and",
+      "start": 64.33999633789062,
+      "end": 64.5199966430664
+    },
+    {
+      "word": "I",
+      "start": 64.5199966430664,
+      "end": 64.73999786376953
+    },
+    {
+      "word": "had",
+      "start": 64.73999786376953,
+      "end": 65.0199966430664
+    },
+    {
+      "word": "nowhere",
+      "start": 65.0199966430664,
+      "end": 65.58000183105469
+    },
+    {
+      "word": "left",
+      "start": 65.58000183105469,
+      "end": 66.05999755859375
+    },
+    {
+      "word": "to",
+      "start": 66.05999755859375,
+      "end": 66.76000213623047
+    },
+    {
+      "word": "hide",
+      "start": 66.76000213623047,
+      "end": 66.86000061035156
+    },
+    {
+      "word": "So",
+      "start": 67.5199966430664,
+      "end": 67.68000030517578
+    },
+    {
+      "word": "I",
+      "start": 67.68000030517578,
+      "end": 68.30000305175781
+    },
+    {
+      "word": "read",
+      "start": 68.30000305175781,
+      "end": 68.4000015258789
+    },
+    {
+      "word": "it",
+      "start": 68.4000015258789,
+      "end": 68.9800033569336
+    },
+    {
+      "word": "in",
+      "start": 68.9800033569336,
+      "end": 69.36000061035156
+    },
+    {
+      "word": "the",
+      "start": 69.36000061035156,
+      "end": 69.58000183105469
+    },
+    {
+      "word": "silence",
+      "start": 69.58000183105469,
+      "end": 70.37999725341797
+    },
+    {
+      "word": "and",
+      "start": 70.5,
+      "end": 70.94000244140625
+    },
+    {
+      "word": "the",
+      "start": 70.94000244140625,
+      "end": 71.36000061035156
+    },
+    {
+      "word": "words",
+      "start": 71.36000061035156,
+      "end": 71.72000122070312
+    },
+    {
+      "word": "began",
+      "start": 71.72000122070312,
+      "end": 72.04000091552734
+    },
+    {
+      "word": "to",
+      "start": 72.04000091552734,
+      "end": 73.26000213623047
+    },
+    {
+      "word": "shine",
+      "start": 73.26000213623047,
+      "end": 73.30000305175781
+    },
+    {
+      "word": "and",
+      "start": 73.91999816894531,
+      "end": 74.19999694824219
+    },
+    {
+      "word": "the",
+      "start": 74.19999694824219,
+      "end": 74.5199966430664
+    },
+    {
+      "word": "fear",
+      "start": 74.5199966430664,
+      "end": 74.80000305175781
+    },
+    {
+      "word": "I",
+      "start": 74.80000305175781,
+      "end": 75.62000274658203
+    },
+    {
+      "word": "couldn't",
+      "start": 75.62000274658203,
+      "end": 75.86000061035156
+    },
+    {
+      "word": "carry",
+      "start": 75.86000061035156,
+      "end": 76.62000274658203
+    },
+    {
+      "word": "was",
+      "start": 76.62000274658203,
+      "end": 77.73999786376953
+    },
+    {
+      "word": "trading",
+      "start": 77.73999786376953,
+      "end": 78.33999633789062
+    },
+    {
+      "word": "line",
+      "start": 78.33999633789062,
+      "end": 78.86000061035156
+    },
+    {
+      "word": "by",
+      "start": 78.86000061035156,
+      "end": 79.27999877929688
+    },
+    {
+      "word": "line",
+      "start": 79.27999877929688,
+      "end": 80
+    },
+    {
+      "word": "Now",
+      "start": 80,
+      "end": 80.5999984741211
+    },
+    {
+      "word": "there's",
+      "start": 80.5999984741211,
+      "end": 80.87999725341797
+    },
+    {
+      "word": "peace",
+      "start": 80.87999725341797,
+      "end": 81.31999969482422
+    },
+    {
+      "word": "I",
+      "start": 81.31999969482422,
+      "end": 82.12000274658203
+    },
+    {
+      "word": "cannot",
+      "start": 82.12000274658203,
+      "end": 82.33999633789062
+    },
+    {
+      "word": "explain",
+      "start": 82.33999633789062,
+      "end": 83.16000366210938
+    },
+    {
+      "word": "where",
+      "start": 83.16000366210938,
+      "end": 83.9000015258789
+    },
+    {
+      "word": "the",
+      "start": 83.9000015258789,
+      "end": 84.4800033569336
+    },
+    {
+      "word": "worry",
+      "start": 84.4800033569336,
+      "end": 84.76000213623047
+    },
+    {
+      "word": "used",
+      "start": 84.76000213623047,
+      "end": 85.4800033569336
+    },
+    {
+      "word": "to",
+      "start": 85.4800033569336,
+      "end": 85.83999633789062
+    },
+    {
+      "word": "be",
+      "start": 85.83999633789062,
+      "end": 86.5199966430664
+    },
+    {
+      "word": "he",
+      "start": 86.5999984741211,
+      "end": 87.08000183105469
+    },
+    {
+      "word": "took",
+      "start": 87.08000183105469,
+      "end": 87.33999633789062
+    },
+    {
+      "word": "the",
+      "start": 87.33999633789062,
+      "end": 87.5999984741211
+    },
+    {
+      "word": "weight",
+      "start": 87.5999984741211,
+      "end": 88
+    },
+    {
+      "word": "I",
+      "start": 88,
+      "end": 88.73999786376953
+    },
+    {
+      "word": "couldn't",
+      "start": 88.73999786376953,
+      "end": 88.94000244140625
+    },
+    {
+      "word": "hold",
+      "start": 88.94000244140625,
+      "end": 89.55999755859375
+    },
+    {
+      "word": "and",
+      "start": 89.55999755859375,
+      "end": 90.23999786376953
+    },
+    {
+      "word": "he",
+      "start": 90.23999786376953,
+      "end": 90.83999633789062
+    },
+    {
+      "word": "carried",
+      "start": 90.83999633789062,
+      "end": 91.30000305175781
+    },
+    {
+      "word": "it",
+      "start": 91.30000305175781,
+      "end": 91.76000213623047
+    },
+    {
+      "word": "for",
+      "start": 91.76000213623047,
+      "end": 92.80000305175781
+    },
+    {
+      "word": "me",
+      "start": 92.80000305175781,
+      "end": 93.33000183105469
+    },
+    {
+      "word": "So",
+      "start": 94.33000183105469,
+      "end": 95.11000061035156
+    },
+    {
+      "word": "I",
+      "start": 95.11000061035156,
+      "end": 95.51000213623047
+    },
+    {
+      "word": "read",
+      "start": 95.51000213623047,
+      "end": 95.91000366210938
+    },
+    {
+      "word": "it",
+      "start": 95.91000366210938,
+      "end": 96.48999786376953
+    },
+    {
+      "word": "in",
+      "start": 96.48999786376953,
+      "end": 96.87000274658203
+    },
+    {
+      "word": "the",
+      "start": 96.87000274658203,
+      "end": 97.48999786376953
+    },
+    {
+      "word": "morning",
+      "start": 97.48999786376953,
+      "end": 97.87000274658203
+    },
+    {
+      "word": "and",
+      "start": 97.87000274658203,
+      "end": 98.55000305175781
+    },
+    {
+      "word": "I",
+      "start": 98.55000305175781,
+      "end": 98.94999694824219
+    },
+    {
+      "word": "read",
+      "start": 98.94999694824219,
+      "end": 99.12999725341797
+    },
+    {
+      "word": "it",
+      "start": 99.12999725341797,
+      "end": 99.66999816894531
+    },
+    {
+      "word": "in",
+      "start": 99.66999816894531,
+      "end": 100.11000061035156
+    },
+    {
+      "word": "the",
+      "start": 100.11000061035156,
+      "end": 100.3499984741211
+    },
+    {
+      "word": "night",
+      "start": 100.3499984741211,
+      "end": 101.11000061035156
+    },
+    {
+      "word": "and",
+      "start": 101.29000091552734,
+      "end": 101.70999908447266
+    },
+    {
+      "word": "the",
+      "start": 101.70999908447266,
+      "end": 102.01000213623047
+    },
+    {
+      "word": "words",
+      "start": 102.01000213623047,
+      "end": 102.33000183105469
+    },
+    {
+      "word": "I",
+      "start": 102.33000183105469,
+      "end": 102.93000030517578
+    },
+    {
+      "word": "almost",
+      "start": 102.93000030517578,
+      "end": 103.55000305175781
+    },
+    {
+      "word": "gave",
+      "start": 103.55000305175781,
+      "end": 104.01000213623047
+    },
+    {
+      "word": "up",
+      "start": 104.01000213623047,
+      "end": 104.51000213623047
+    },
+    {
+      "word": "on",
+      "start": 104.51000213623047,
+      "end": 105.06999969482422
+    },
+    {
+      "word": "began",
+      "start": 105.06999969482422,
+      "end": 105.41000366210938
+    },
+    {
+      "word": "to",
+      "start": 105.41000366210938,
+      "end": 106.25
+    },
+    {
+      "word": "set",
+      "start": 106.25,
+      "end": 106.25
+    },
+    {
+      "word": "me",
+      "start": 106.25,
+      "end": 106.88999938964844
+    },
+    {
+      "word": "right",
+      "start": 106.88999938964844,
+      "end": 107.25
+    },
+    {
+      "word": "Every",
+      "start": 107.79000091552734,
+      "end": 108.2699966430664
+    },
+    {
+      "word": "promise",
+      "start": 108.2699966430664,
+      "end": 109.11000061035156
+    },
+    {
+      "word": "like",
+      "start": 109.11000061035156,
+      "end": 109.8499984741211
+    },
+    {
+      "word": "a",
+      "start": 109.8499984741211,
+      "end": 110.44999694824219
+    },
+    {
+      "word": "hand",
+      "start": 110.44999694824219,
+      "end": 110.47000122070312
+    },
+    {
+      "word": "held",
+      "start": 110.47000122070312,
+      "end": 110.8499984741211
+    },
+    {
+      "word": "out",
+      "start": 110.8499984741211,
+      "end": 111.43000030517578
+    },
+    {
+      "word": "to",
+      "start": 111.43000030517578,
+      "end": 111.62999725341797
+    },
+    {
+      "word": "pull",
+      "start": 111.62999725341797,
+      "end": 111.98999786376953
+    },
+    {
+      "word": "me",
+      "start": 111.98999786376953,
+      "end": 112.44999694824219
+    },
+    {
+      "word": "from",
+      "start": 112.44999694824219,
+      "end": 113.05000305175781
+    },
+    {
+      "word": "the",
+      "start": 113.05000305175781,
+      "end": 113.69000244140625
+    },
+    {
+      "word": "deep",
+      "start": 113.69000244140625,
+      "end": 113.88999938964844
+    },
+    {
+      "word": "come",
+      "start": 113.88999938964844,
+      "end": 114.69000244140625
+    },
+    {
+      "word": "to",
+      "start": 114.69000244140625,
+      "end": 114.93000030517578
+    },
+    {
+      "word": "me",
+      "start": 114.93000030517578,
+      "end": 115.38999938964844
+    },
+    {
+      "word": "you",
+      "start": 115.38999938964844,
+      "end": 115.87000274658203
+    },
+    {
+      "word": "weary",
+      "start": 115.87000274658203,
+      "end": 116.3499984741211
+    },
+    {
+      "word": "one",
+      "start": 116.3499984741211,
+      "end": 116.98999786376953
+    },
+    {
+      "word": "and",
+      "start": 117.44999694824219,
+      "end": 117.79000091552734
+    },
+    {
+      "word": "he",
+      "start": 117.79000091552734,
+      "end": 118.1500015258789
+    },
+    {
+      "word": "gave",
+      "start": 118.1500015258789,
+      "end": 118.48999786376953
+    },
+    {
+      "word": "me",
+      "start": 118.48999786376953,
+      "end": 118.97000122070312
+    },
+    {
+      "word": "rest",
+      "start": 118.97000122070312,
+      "end": 119.52999877929688
+    },
+    {
+      "word": "to",
+      "start": 119.52999877929688,
+      "end": 120.19000244140625
+    },
+    {
+      "word": "keep",
+      "start": 120.19000244140625,
+      "end": 120.19000244140625
+    },
+    {
+      "word": "I",
+      "start": 120.19000244140625,
+      "end": 121.01000213623047
+    },
+    {
+      "word": "was",
+      "start": 121.01000213623047,
+      "end": 121.37000274658203
+    },
+    {
+      "word": "empty",
+      "start": 121.37000274658203,
+      "end": 122.2300033569336
+    },
+    {
+      "word": "I",
+      "start": 122.25,
+      "end": 122.79000091552734
+    },
+    {
+      "word": "was",
+      "start": 122.79000091552734,
+      "end": 123.02999877929688
+    },
+    {
+      "word": "lonely",
+      "start": 123.02999877929688,
+      "end": 123.79000091552734
+    },
+    {
+      "word": "with",
+      "start": 123.87000274658203,
+      "end": 124.38999938964844
+    },
+    {
+      "word": "the",
+      "start": 124.38999938964844,
+      "end": 124.6500015258789
+    },
+    {
+      "word": "dark",
+      "start": 124.6500015258789,
+      "end": 125.19000244140625
+    },
+    {
+      "word": "on",
+      "start": 125.19000244140625,
+      "end": 125.70999908447266
+    },
+    {
+      "word": "every",
+      "start": 125.70999908447266,
+      "end": 126.19000244140625
+    },
+    {
+      "word": "side",
+      "start": 126.19000244140625,
+      "end": 126.83000183105469
+    },
+    {
+      "word": "when",
+      "start": 127.16999816894531,
+      "end": 127.6500015258789
+    },
+    {
+      "word": "a",
+      "start": 127.6500015258789,
+      "end": 127.91000366210938
+    },
+    {
+      "word": "voice",
+      "start": 127.91000366210938,
+      "end": 128.41000366210938
+    },
+    {
+      "word": "said",
+      "start": 128.41000366210938,
+      "end": 129.0500030517578
+    },
+    {
+      "word": "open",
+      "start": 129.22999572753906,
+      "end": 129.47000122070312
+    },
+    {
+      "word": "up",
+      "start": 129.47000122070312,
+      "end": 130.02999877929688
+    },
+    {
+      "word": "the",
+      "start": 130.02999877929688,
+      "end": 130.47000122070312
+    },
+    {
+      "word": "word",
+      "start": 130.47000122070312,
+      "end": 130.7100067138672
+    },
+    {
+      "word": "and",
+      "start": 130.7899932861328,
+      "end": 130.9499969482422
+    },
+    {
+      "word": "I",
+      "start": 130.9499969482422,
+      "end": 131.1300048828125
+    },
+    {
+      "word": "had",
+      "start": 131.1300048828125,
+      "end": 131.41000366210938
+    },
+    {
+      "word": "nowhere",
+      "start": 131.41000366210938,
+      "end": 131.97000122070312
+    },
+    {
+      "word": "left",
+      "start": 131.97000122070312,
+      "end": 132.47000122070312
+    },
+    {
+      "word": "to",
+      "start": 132.47000122070312,
+      "end": 133.11000061035156
+    },
+    {
+      "word": "hide",
+      "start": 133.11000061035156,
+      "end": 133.2899932861328
+    },
+    {
+      "word": "So",
+      "start": 133.88999938964844,
+      "end": 134.08999633789062
+    },
+    {
+      "word": "I",
+      "start": 134.08999633789062,
+      "end": 134.92999267578125
+    },
+    {
+      "word": "read",
+      "start": 134.92999267578125,
+      "end": 134.9499969482422
+    },
+    {
+      "word": "it",
+      "start": 134.9499969482422,
+      "end": 135.3300018310547
+    },
+    {
+      "word": "in",
+      "start": 135.3300018310547,
+      "end": 135.75
+    },
+    {
+      "word": "the",
+      "start": 135.75,
+      "end": 135.97000122070312
+    },
+    {
+      "word": "silence",
+      "start": 135.97000122070312,
+      "end": 136.8300018310547
+    },
+    {
+      "word": "and",
+      "start": 137.07000732421875,
+      "end": 137.35000610351562
+    },
+    {
+      "word": "the",
+      "start": 137.35000610351562,
+      "end": 137.8699951171875
+    },
+    {
+      "word": "words",
+      "start": 137.8699951171875,
+      "end": 138.1300048828125
+    },
+    {
+      "word": "began",
+      "start": 138.1300048828125,
+      "end": 138.49000549316406
+    },
+    {
+      "word": "to",
+      "start": 138.49000549316406,
+      "end": 139.69000244140625
+    },
+    {
+      "word": "shine",
+      "start": 139.69000244140625,
+      "end": 139.72999572753906
+    },
+    {
+      "word": "and",
+      "start": 140.14999389648438,
+      "end": 140.58999633789062
+    },
+    {
+      "word": "the",
+      "start": 140.58999633789062,
+      "end": 140.80999755859375
+    },
+    {
+      "word": "fear",
+      "start": 140.80999755859375,
+      "end": 141.25
+    },
+    {
+      "word": "I",
+      "start": 141.25,
+      "end": 142.25
+    },
+    {
+      "word": "couldn't",
+      "start": 142.25,
+      "end": 142.25
+    },
+    {
+      "word": "carry",
+      "start": 142.25,
+      "end": 143.0500030517578
+    },
+    {
+      "word": "was",
+      "start": 143.0500030517578,
+      "end": 144.1300048828125
+    },
+    {
+      "word": "trading",
+      "start": 144.1300048828125,
+      "end": 144.75
+    },
+    {
+      "word": "line",
+      "start": 144.75,
+      "end": 145.25
+    },
+    {
+      "word": "by",
+      "start": 145.25,
+      "end": 145.6699981689453
+    },
+    {
+      "word": "line",
+      "start": 145.6699981689453,
+      "end": 146.0500030517578
+    },
+    {
+      "word": "Now",
+      "start": 146.0500030517578,
+      "end": 146.99000549316406
+    },
+    {
+      "word": "there's",
+      "start": 146.99000549316406,
+      "end": 147.27000427246094
+    },
+    {
+      "word": "peace",
+      "start": 147.27000427246094,
+      "end": 147.7100067138672
+    },
+    {
+      "word": "I",
+      "start": 147.7100067138672,
+      "end": 148.52999877929688
+    },
+    {
+      "word": "cannot",
+      "start": 148.52999877929688,
+      "end": 148.72999572753906
+    },
+    {
+      "word": "explain",
+      "start": 148.72999572753906,
+      "end": 149.50999450683594
+    },
+    {
+      "word": "where",
+      "start": 149.50999450683594,
+      "end": 150.27000427246094
+    },
+    {
+      "word": "the",
+      "start": 150.27000427246094,
+      "end": 150.64999389648438
+    },
+    {
+      "word": "worry",
+      "start": 150.64999389648438,
+      "end": 151.2100067138672
+    },
+    {
+      "word": "used",
+      "start": 151.2100067138672,
+      "end": 151.8699951171875
+    },
+    {
+      "word": "to",
+      "start": 151.8699951171875,
+      "end": 152.19000244140625
+    },
+    {
+      "word": "be",
+      "start": 152.19000244140625,
+      "end": 152.7100067138672
+    },
+    {
+      "word": "he",
+      "start": 152.7100067138672,
+      "end": 153.49000549316406
+    },
+    {
+      "word": "took",
+      "start": 153.49000549316406,
+      "end": 153.7100067138672
+    },
+    {
+      "word": "the",
+      "start": 153.7100067138672,
+      "end": 153.97000122070312
+    },
+    {
+      "word": "weight",
+      "start": 153.97000122070312,
+      "end": 154.35000610351562
+    },
+    {
+      "word": "I",
+      "start": 154.35000610351562,
+      "end": 155.1699981689453
+    },
+    {
+      "word": "couldn't",
+      "start": 155.1699981689453,
+      "end": 155.30999755859375
+    },
+    {
+      "word": "hold",
+      "start": 155.30999755859375,
+      "end": 155.97000122070312
+    },
+    {
+      "word": "and",
+      "start": 155.97000122070312,
+      "end": 156.61000061035156
+    },
+    {
+      "word": "he",
+      "start": 156.61000061035156,
+      "end": 157.52999877929688
+    },
+    {
+      "word": "carried",
+      "start": 157.52999877929688,
+      "end": 157.64999389648438
+    },
+    {
+      "word": "it",
+      "start": 157.64999389648438,
+      "end": 158.14999389648438
+    },
+    {
+      "word": "for",
+      "start": 158.14999389648438,
+      "end": 158.77000427246094
+    },
+    {
+      "word": "me",
+      "start": 158.77000427246094,
+      "end": 159.22999572753906
+    },
+    {
+      "word": "I",
+      "start": 160.6300048828125,
+      "end": 161.61000061035156
+    },
+    {
+      "word": "don't",
+      "start": 161.61000061035156,
+      "end": 161.8300018310547
+    },
+    {
+      "word": "have",
+      "start": 161.8300018310547,
+      "end": 162.4499969482422
+    },
+    {
+      "word": "a",
+      "start": 162.4499969482422,
+      "end": 162.91000366210938
+    },
+    {
+      "word": "faith",
+      "start": 162.91000366210938,
+      "end": 162.92999267578125
+    },
+    {
+      "word": "of",
+      "start": 162.92999267578125,
+      "end": 164.35000610351562
+    },
+    {
+      "word": "mountains",
+      "start": 164.35000610351562,
+      "end": 164.35000610351562
+    },
+    {
+      "word": "I",
+      "start": 164.6699981689453,
+      "end": 164.8699951171875
+    },
+    {
+      "word": "just",
+      "start": 164.8699951171875,
+      "end": 165.08999633789062
+    },
+    {
+      "word": "have",
+      "start": 165.08999633789062,
+      "end": 165.64999389648438
+    },
+    {
+      "word": "a",
+      "start": 165.64999389648438,
+      "end": 166.2100067138672
+    },
+    {
+      "word": "faith",
+      "start": 166.2100067138672,
+      "end": 166.2100067138672
+    },
+    {
+      "word": "of",
+      "start": 166.2100067138672,
+      "end": 167.07000732421875
+    },
+    {
+      "word": "seas",
+      "start": 167.07000732421875,
+      "end": 167.08999633789062
+    },
+    {
+      "word": "but",
+      "start": 167.91000366210938,
+      "end": 168.11000061035156
+    },
+    {
+      "word": "it",
+      "start": 168.11000061035156,
+      "end": 168.3699951171875
+    },
+    {
+      "word": "found",
+      "start": 168.3699951171875,
+      "end": 168.85000610351562
+    },
+    {
+      "word": "me",
+      "start": 168.85000610351562,
+      "end": 169.58999633789062
+    },
+    {
+      "word": "in",
+      "start": 169.58999633789062,
+      "end": 169.75
+    },
+    {
+      "word": "the",
+      "start": 169.75,
+      "end": 170.02999877929688
+    },
+    {
+      "word": "wreckage",
+      "start": 170.02999877929688,
+      "end": 170.91000366210938
+    },
+    {
+      "word": "and",
+      "start": 170.91000366210938,
+      "end": 171.14999389648438
+    },
+    {
+      "word": "it",
+      "start": 171.14999389648438,
+      "end": 171.72999572753906
+    },
+    {
+      "word": "gave",
+      "start": 171.72999572753906,
+      "end": 171.72999572753906
+    },
+    {
+      "word": "me",
+      "start": 171.72999572753906,
+      "end": 172.57000732421875
+    },
+    {
+      "word": "what",
+      "start": 172.57000732421875,
+      "end": 172.8300018310547
+    },
+    {
+      "word": "I",
+      "start": 172.8300018310547,
+      "end": 173.52999877929688
+    },
+    {
+      "word": "need",
+      "start": 173.52999877929688,
+      "end": 173.8699951171875
+    },
+    {
+      "word": "And",
+      "start": 173.8699951171875,
+      "end": 174.61000061035156
+    },
+    {
+      "word": "I'm",
+      "start": 174.61000061035156,
+      "end": 174.8300018310547
+    },
+    {
+      "word": "grateful",
+      "start": 174.8300018310547,
+      "end": 175.30999755859375
+    },
+    {
+      "word": "for",
+      "start": 175.30999755859375,
+      "end": 176.14999389648438
+    },
+    {
+      "word": "the",
+      "start": 176.14999389648438,
+      "end": 176.41000366210938
+    },
+    {
+      "word": "morning",
+      "start": 176.41000366210938,
+      "end": 177.2899932861328
+    },
+    {
+      "word": "I'm",
+      "start": 177.2899932861328,
+      "end": 178.14999389648438
+    },
+    {
+      "word": "grateful",
+      "start": 178.14999389648438,
+      "end": 178.5500030517578
+    },
+    {
+      "word": "for",
+      "start": 178.5500030517578,
+      "end": 179.42999267578125
+    },
+    {
+      "word": "the",
+      "start": 179.42999267578125,
+      "end": 179.72999572753906
+    },
+    {
+      "word": "gift",
+      "start": 179.72999572753906,
+      "end": 180.35000610351562
+    },
+    {
+      "word": "for",
+      "start": 181.00999450683594,
+      "end": 181.08999633789062
+    },
+    {
+      "word": "the",
+      "start": 181.08999633789062,
+      "end": 181.3300018310547
+    },
+    {
+      "word": "hand",
+      "start": 181.3300018310547,
+      "end": 181.92999267578125
+    },
+    {
+      "word": "that",
+      "start": 181.92999267578125,
+      "end": 182.19000244140625
+    },
+    {
+      "word": "took",
+      "start": 182.19000244140625,
+      "end": 182.52999877929688
+    },
+    {
+      "word": "my",
+      "start": 182.52999877929688,
+      "end": 183.00999450683594
+    },
+    {
+      "word": "fear",
+      "start": 183.00999450683594,
+      "end": 183.5500030517578
+    },
+    {
+      "word": "away",
+      "start": 183.5500030517578,
+      "end": 184.25
+    },
+    {
+      "word": "and",
+      "start": 184.25,
+      "end": 184.69000244140625
+    },
+    {
+      "word": "gave",
+      "start": 184.69000244140625,
+      "end": 184.9499969482422
+    },
+    {
+      "word": "me",
+      "start": 184.9499969482422,
+      "end": 185.57000732421875
+    },
+    {
+      "word": "peace",
+      "start": 185.57000732421875,
+      "end": 185.97000122070312
+    },
+    {
+      "word": "to",
+      "start": 185.97000122070312,
+      "end": 186.27000427246094
+    },
+    {
+      "word": "live",
+      "start": 186.27000427246094,
+      "end": 186.97000122070312
+    },
+    {
+      "word": "I",
+      "start": 188.35000610351562,
+      "end": 189.2100067138672
+    },
+    {
+      "word": "was",
+      "start": 189.2100067138672,
+      "end": 189.52999877929688
+    },
+    {
+      "word": "empty",
+      "start": 189.52999877929688,
+      "end": 190.2100067138672
+    },
+    {
+      "word": "I",
+      "start": 190.61000061035156,
+      "end": 190.88999938964844
+    },
+    {
+      "word": "was",
+      "start": 190.88999938964844,
+      "end": 191.1300048828125
+    },
+    {
+      "word": "lonely",
+      "start": 191.1300048828125,
+      "end": 191.8300018310547
+    },
+    {
+      "word": "with",
+      "start": 192.25,
+      "end": 192.50999450683594
+    },
+    {
+      "word": "the",
+      "start": 192.50999450683594,
+      "end": 192.77000427246094
+    },
+    {
+      "word": "dark",
+      "start": 192.77000427246094,
+      "end": 193.30999755859375
+    },
+    {
+      "word": "on",
+      "start": 193.30999755859375,
+      "end": 193.77000427246094
+    },
+    {
+      "word": "every",
+      "start": 193.77000427246094,
+      "end": 194.22999572753906
+    },
+    {
+      "word": "side",
+      "start": 194.22999572753906,
+      "end": 195.07000732421875
+    },
+    {
+      "word": "when",
+      "start": 195.35000610351562,
+      "end": 195.77000427246094
+    },
+    {
+      "word": "a",
+      "start": 195.77000427246094,
+      "end": 196.00999450683594
+    },
+    {
+      "word": "voice",
+      "start": 196.00999450683594,
+      "end": 196.5500030517578
+    },
+    {
+      "word": "said",
+      "start": 196.5500030517578,
+      "end": 197.2100067138672
+    },
+    {
+      "word": "open",
+      "start": 197.38999938964844,
+      "end": 197.61000061035156
+    },
+    {
+      "word": "up",
+      "start": 197.61000061035156,
+      "end": 198.1699981689453
+    },
+    {
+      "word": "the",
+      "start": 198.1699981689453,
+      "end": 198.38999938964844
+    },
+    {
+      "word": "word",
+      "start": 198.38999938964844,
+      "end": 198.8300018310547
+    },
+    {
+      "word": "and",
+      "start": 198.85000610351562,
+      "end": 199.0500030517578
+    },
+    {
+      "word": "I",
+      "start": 199.0500030517578,
+      "end": 199.3300018310547
+    },
+    {
+      "word": "had",
+      "start": 199.3300018310547,
+      "end": 199.50999450683594
+    },
+    {
+      "word": "nowhere",
+      "start": 199.50999450683594,
+      "end": 200.1699981689453
+    },
+    {
+      "word": "left",
+      "start": 200.1699981689453,
+      "end": 200.5500030517578
+    },
+    {
+      "word": "to",
+      "start": 200.5500030517578,
+      "end": 201.19000244140625
+    },
+    {
+      "word": "hide",
+      "start": 201.19000244140625,
+      "end": 201.2899932861328
+    },
+    {
+      "word": "So",
+      "start": 201.2899932861328,
+      "end": 202.11000061035156
+    },
+    {
+      "word": "I",
+      "start": 202.11000061035156,
+      "end": 202.50999450683594
+    },
+    {
+      "word": "read",
+      "start": 202.50999450683594,
+      "end": 202.88999938964844
+    },
+    {
+      "word": "it",
+      "start": 202.88999938964844,
+      "end": 203.6699981689453
+    },
+    {
+      "word": "in",
+      "start": 203.6699981689453,
+      "end": 203.88999938964844
+    },
+    {
+      "word": "the",
+      "start": 203.88999938964844,
+      "end": 204.11000061035156
+    },
+    {
+      "word": "silence",
+      "start": 204.11000061035156,
+      "end": 204.92999267578125
+    },
+    {
+      "word": "and",
+      "start": 204.97000122070312,
+      "end": 205.47000122070312
+    },
+    {
+      "word": "the",
+      "start": 205.47000122070312,
+      "end": 205.72999572753906
+    },
+    {
+      "word": "words",
+      "start": 205.72999572753906,
+      "end": 206.25
+    },
+    {
+      "word": "began",
+      "start": 206.25,
+      "end": 206.6699981689453
+    },
+    {
+      "word": "to",
+      "start": 206.6699981689453,
+      "end": 207.8300018310547
+    },
+    {
+      "word": "shine",
+      "start": 207.8300018310547,
+      "end": 207.88999938964844
+    },
+    {
+      "word": "and",
+      "start": 208.27000427246094,
+      "end": 208.7100067138672
+    },
+    {
+      "word": "the",
+      "start": 208.7100067138672,
+      "end": 208.92999267578125
+    },
+    {
+      "word": "fear",
+      "start": 208.92999267578125,
+      "end": 209.35000610351562
+    },
+    {
+      "word": "I",
+      "start": 209.35000610351562,
+      "end": 210.4499969482422
+    },
+    {
+      "word": "couldn't",
+      "start": 210.4499969482422,
+      "end": 210.4499969482422
+    },
+    {
+      "word": "carry",
+      "start": 210.4499969482422,
+      "end": 211.1699981689453
+    },
+    {
+      "word": "was",
+      "start": 211.1699981689453,
+      "end": 212.1699981689453
+    },
+    {
+      "word": "trading",
+      "start": 212.1699981689453,
+      "end": 212.88999938964844
+    },
+    {
+      "word": "line",
+      "start": 212.88999938964844,
+      "end": 214.0500030517578
+    },
+    {
+      "word": "by",
+      "start": 214.0500030517578,
+      "end": 214.0500030517578
+    },
+    {
+      "word": "line",
+      "start": 214.0500030517578,
+      "end": 214.1699981689453
+    },
+    {
+      "word": "Now",
+      "start": 214.97000122070312,
+      "end": 215.1699981689453
+    },
+    {
+      "word": "there's",
+      "start": 215.1699981689453,
+      "end": 215.3699951171875
+    },
+    {
+      "word": "peace",
+      "start": 215.3699951171875,
+      "end": 215.8300018310547
+    },
+    {
+      "word": "I",
+      "start": 215.8300018310547,
+      "end": 216.64999389648438
+    },
+    {
+      "word": "cannot",
+      "start": 216.64999389648438,
+      "end": 216.8699951171875
+    },
+    {
+      "word": "explain",
+      "start": 216.8699951171875,
+      "end": 217.64999389648438
+    },
+    {
+      "word": "where",
+      "start": 217.64999389648438,
+      "end": 218.41000366210938
+    },
+    {
+      "word": "the",
+      "start": 218.41000366210938,
+      "end": 218.69000244140625
+    },
+    {
+      "word": "worry",
+      "start": 218.69000244140625,
+      "end": 219.22999572753906
+    },
+    {
+      "word": "used",
+      "start": 219.22999572753906,
+      "end": 220.00999450683594
+    },
+    {
+      "word": "to",
+      "start": 220.00999450683594,
+      "end": 220.35000610351562
+    },
+    {
+      "word": "be",
+      "start": 220.35000610351562,
+      "end": 220.8699951171875
+    },
+    {
+      "word": "he",
+      "start": 221.14999389648438,
+      "end": 221.64999389648438
+    },
+    {
+      "word": "took",
+      "start": 221.64999389648438,
+      "end": 221.85000610351562
+    },
+    {
+      "word": "the",
+      "start": 221.85000610351562,
+      "end": 222.07000732421875
+    },
+    {
+      "word": "weight",
+      "start": 222.07000732421875,
+      "end": 222.49000549316406
+    },
+    {
+      "word": "I",
+      "start": 222.49000549316406,
+      "end": 223.27000427246094
+    },
+    {
+      "word": "couldn't",
+      "start": 223.27000427246094,
+      "end": 223.41000366210938
+    },
+    {
+      "word": "hold",
+      "start": 223.41000366210938,
+      "end": 224.07000732421875
+    },
+    {
+      "word": "and",
+      "start": 224.07000732421875,
+      "end": 224.72999572753906
+    },
+    {
+      "word": "he",
+      "start": 224.72999572753906,
+      "end": 225.6699981689453
+    },
+    {
+      "word": "carried",
+      "start": 225.6699981689453,
+      "end": 225.8300018310547
+    },
+    {
+      "word": "it",
+      "start": 225.8300018310547,
+      "end": 226.27000427246094
+    },
+    {
+      "word": "for",
+      "start": 226.27000427246094,
+      "end": 227.2899932861328
+    },
+    {
+      "word": "me",
+      "start": 227.2899932861328,
+      "end": 227.92999267578125
+    },
+    {
+      "word": "So",
+      "start": 227.92999267578125,
+      "end": 229.6300048828125
+    },
+    {
+      "word": "I'll",
+      "start": 229.6300048828125,
+      "end": 229.99000549316406
+    },
+    {
+      "word": "drive",
+      "start": 229.99000549316406,
+      "end": 230.41000366210938
+    },
+    {
+      "word": "into",
+      "start": 230.41000366210938,
+      "end": 231.19000244140625
+    },
+    {
+      "word": "the",
+      "start": 231.19000244140625,
+      "end": 231.5500030517578
+    },
+    {
+      "word": "daylight",
+      "start": 231.5500030517578,
+      "end": 232.30999755859375
+    },
+    {
+      "word": "with",
+      "start": 232.30999755859375,
+      "end": 232.75
+    },
+    {
+      "word": "the",
+      "start": 232.75,
+      "end": 233.41000366210938
+    },
+    {
+      "word": "windows",
+      "start": 233.41000366210938,
+      "end": 233.91000366210938
+    },
+    {
+      "word": "rolling",
+      "start": 233.91000366210938,
+      "end": 234.7100067138672
+    },
+    {
+      "word": "down",
+      "start": 234.7100067138672,
+      "end": 235.80999755859375
+    },
+    {
+      "word": "and",
+      "start": 236.08999633789062,
+      "end": 236.2100067138672
+    },
+    {
+      "word": "the",
+      "start": 236.2100067138672,
+      "end": 236.42999267578125
+    },
+    {
+      "word": "word",
+      "start": 236.42999267578125,
+      "end": 237.00999450683594
+    },
+    {
+      "word": "that",
+      "start": 237.00999450683594,
+      "end": 237.69000244140625
+    },
+    {
+      "word": "came",
+      "start": 237.69000244140625,
+      "end": 237.72999572753906
+    },
+    {
+      "word": "to",
+      "start": 237.72999572753906,
+      "end": 238.0500030517578
+    },
+    {
+      "word": "find",
+      "start": 238.0500030517578,
+      "end": 238.50999450683594
+    },
+    {
+      "word": "me",
+      "start": 238.50999450683594,
+      "end": 239.22999572753906
+    },
+    {
+      "word": "is",
+      "start": 239.22999572753906,
+      "end": 239.30999755859375
+    },
+    {
+      "word": "the",
+      "start": 239.30999755859375,
+      "end": 239.50999450683594
+    },
+    {
+      "word": "peace",
+      "start": 239.50999450683594,
+      "end": 239.92999267578125
+    },
+    {
+      "word": "I",
+      "start": 239.92999267578125,
+      "end": 240.9499969482422
+    },
+    {
+      "word": "finally",
+      "start": 240.9499969482422,
+      "end": 241.42999267578125
+    },
+    {
+      "word": "found",
+      "start": 241.42999267578125,
+      "end": 242.50999450683594
+    }
+  ],
+  "usage": {
+    "type": "duration",
+    "seconds": 244
+  },
+  "cleanText": "There was nothing in my hands, and there was nothing left to say. I was tired of my own questions and the fear that wouldn't fade. I carried all my worry till my shoulders nearly broke, and I whispered to the silence with the little faith I spoke. It was smaller than a mustard seed, it was barely even there, but it turned me toward the only light still burning anywhere. I was empty, I was lonely, with the dark on every side, when a voice said, open up the word, and I had nowhere left to hide. So I read it in the silence, and the words began to shine, and the fear I couldn't carry was trading line by line. Now there's peace I cannot explain where the worry used to be, he took the weight I couldn't hold and he carried it for me. So I read it in the morning, and I read it in the night, and the words I almost gave up on began to set me right. Every promise like a hand held out to pull me from the deep, come to me you weary one, and he gave me rest to keep. I was empty, I was lonely, with the dark on every side, when a voice said, open up the word, and I had nowhere left to hide. So I read it in the silence, and the words began to shine, and the fear I couldn't carry was trading line by line. Now there's peace I cannot explain where the worry used to be, he took the weight I couldn't hold and he carried it for me. I don't have a faith of mountains, I just have a faith of seeds, but it found me in the wreckage and it gave me what I need. And I'm grateful for the morning, I'm grateful for the gift, for the hand that took my fear away and gave me peace to live. I was empty, I was lonely, with the dark on every side, when a voice said, open up the word, and I had nowhere left to hide. So I read it in the silence, and the words began to shine, and the fear I couldn't carry was trading line by line. Now there's peace I cannot explain where the worry used to be, he took the weight I couldn't hold and he carried it for me. So I'll drive into the daylight with the windows rolling down, and the word that came to find me is the peace I finally found."
+}

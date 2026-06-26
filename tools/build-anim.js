@@ -94,7 +94,7 @@ function buildSong(id, opts) {
     '<div id="lyrics"><div id="scroll">' + linesHtml + '<div class="line end-pad"></div></div></div>' +
     '<div id="about" hidden onclick="if(event.target===this)closeAbout()"><div class="about-card">' +
     '<button class="about-x" onclick="closeAbout()" aria-label="Close">&times;</button>' +
-    '<div class="ab-head"><button id="narrBtn" class="ab-listen" onclick="toggleNarr()"><span class="ni">' + playSvg + '</span> <span id="narrLbl">Anhören</span></button>' +
+    '<div class="ab-head">' + (meta.narration === false ? '' : '<button id="narrBtn" class="ab-listen" onclick="toggleNarr()"><span class="ni">' + playSvg + '</span> <span id="narrLbl">Anhören</span></button>') +
     '<div class="ab-langs"><button class="ab-lng" data-l="es" onclick="setTLang(\'es\')">' + flES + ' ES</button><button class="ab-lng" data-l="de" onclick="setTLang(\'de\')">' + flDE + ' DE</button></div></div>' +
     '<div class="ab-eyebrow" id="aboutEyebrow"></div><h2 id="aboutTitle"></h2>' +
     '<div class="ab-refs" id="aboutRefs"></div><div id="aboutBody"></div></div></div>' +
@@ -236,6 +236,7 @@ function songCSS() {
     '.iml{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.8s ease;animation:imgdrift 22s ease-in-out infinite alternate}',
     '.iml.on{opacity:.34}',
     '@keyframes imgdrift{from{transform:scale(1.12) translate(-2.8%,-1%)}to{transform:scale(1.12) translate(2.8%,1%)}}',
+    '@keyframes imgpan{from{background-position:0% center}to{background-position:100% center}}',
     '#imgveil{position:fixed;inset:0;z-index:2;pointer-events:none;background:radial-gradient(100% 85% at 50% 45%,rgba(7,13,24,.3),rgba(7,13,24,.76))}',
     'html[data-variant="v2"] .tline{color:rgba(178,186,198,.55)}', 'html[data-variant="v2"] .line.active .tline{color:rgba(204,212,224,.8)}',
     /* mobile: bigger lyrics, comfy player */
@@ -246,6 +247,7 @@ function songCSS() {
     '  .line{padding:1.15rem 0}', '#vol{width:74px}', '.t{font-size:.72rem}',
     '  .about-btn{font-size:.76rem;padding:.42rem .8rem;top:10px;right:10px}', '  #home{top:11px;font-size:.78rem}',
     '  #lyricsLbl{display:none}',
+    '  .iml{animation:imgpan 14s ease-in-out infinite alternate;transform:none}',
     '}'
   ].join('');
 }
@@ -258,7 +260,7 @@ function songJS() {
     'var imls=[].slice.call(document.querySelectorAll(".iml"));var curImg=-1;',
     'function setImg(n){if(!imls.length||n===curImg)return;curImg=n;for(var z=0;z<imls.length;z++)imls[z].classList.toggle("on",z===n);}',
     'var cd=document.getElementById("countdown"),cdfg=document.querySelector(".cd-fg"),cdNum=document.getElementById("cdNum"),CDC=163.4,FS0=LINES.length?LINES[0].start:0;',
-    'var curLine=-1,started=false,aboutOpen=false,lyricsOpen=false,lastVol=1,narr=document.getElementById("narr"),narrPlaying=false;',
+    'var curLine=-1,started=false,aboutOpen=false,lyricsOpen=false,lastVol=1,narr=document.getElementById("narr"),narrPlaying=false,LEAD=0.18;',
     'function fmt(t){t=Math.max(0,t|0);return (t/60|0)+":"+("0"+(t%60)).slice(-2);}',
     'function startPlay(){if(started)return;started=true;au.play();var tt=document.getElementById("title");tt.classList.add("starting");setTimeout(function(){tt.classList.add("hide");},1500);}',
     'function gateClick(e){if(e.target&&e.target.closest&&e.target.closest(".gate-x"))return;startPlay();}',
@@ -295,16 +297,16 @@ function songJS() {
     'function setActive(i){if(i===curLine)return;',
     '  if(curLine>=0){var pe=lineEls[curLine];pe.classList.remove("active");pe.classList.add("done");var pw=pe.querySelectorAll(".w");for(var q=0;q<pw.length;q++){pw[q].className="w sung";pw[q].style.removeProperty("--p");}}',
     '  curLine=i;if(i>=0){var el=lineEls[i];el.classList.add("active");el.classList.remove("done");scroll.style.transform="translateY("+(-(el.offsetTop+el.offsetHeight/2))+"px)";}}',
-    'function frame(){var t=au.currentTime;',
+    'function frame(){var t=au.currentTime,tt=t+LEAD;',
     '  document.getElementById("cur").textContent=fmt(t);',
     '  document.getElementById("fill").style.width=((au.duration?t/au.duration:0)*100)+"%";',
     '  if(started&&FS0>0.6&&t<FS0-0.05){if(cd.hidden)cd.hidden=false;var cpr=Math.max(0,Math.min(1,t/FS0));cdfg.style.strokeDashoffset=(CDC*(1-cpr)).toFixed(1);cdNum.textContent=Math.max(1,Math.ceil(FS0-t));}else if(cd&&!cd.hidden){cd.hidden=true;}',
-    '  var idx=-1;for(var i=0;i<LINES.length;i++){if(t>=LINES[i].start-0.15){idx=i;}else break;}',
+    '  var idx=-1;for(var i=0;i<LINES.length;i++){if(tt>=LINES[i].start-0.15){idx=i;}else break;}',
     '  setActive(idx);if(imls.length)setImg(idx>=0?(LINES[idx].img||0):0);',
     '  if(idx>=0){var el=lineEls[idx],ws=el.querySelectorAll(".w"),L=LINES[idx].w,endT=LINES[idx].end;',
     '    for(var k=0;k<ws.length;k++){var st=L[k]?L[k].s:0;var nx=(L[k+1]?L[k+1].s:endT);',
-    '      if(t>=nx){if(ws[k].className!=="w sung"){ws[k].className="w sung";ws[k].style.removeProperty("--p");}}',
-    '      else if(t>=st){if(ws[k].className!=="w cur")ws[k].className="w cur";var p=nx>st?((t-st)/(nx-st)):1;ws[k].style.setProperty("--p",(Math.max(0,Math.min(1,p))*100).toFixed(1)+"%");}',
+    '      if(tt>=nx){if(ws[k].className!=="w sung"){ws[k].className="w sung";ws[k].style.removeProperty("--p");}}',
+    '      else if(tt>=st){if(ws[k].className!=="w cur")ws[k].className="w cur";var p=nx>st?((tt-st)/(nx-st)):1;ws[k].style.setProperty("--p",(Math.max(0,Math.min(1,p))*100).toFixed(1)+"%");}',
     '      else{if(ws[k].className!=="w"){ws[k].className="w";ws[k].style.removeProperty("--p");}}}}',
     '  requestAnimationFrame(frame);}',
     'updateLangUI();requestAnimationFrame(frame);',

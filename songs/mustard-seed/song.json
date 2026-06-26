@@ -1,0 +1,69 @@
+{
+  "id": "mustard-seed",
+  "title": "Mustard Seed",
+  "subtitle": "Matthew 17:20 · Mark 9:24 · Matthew 14:29",
+  "names": { "de": "Senfkorn", "es": "Grano de mostaza" },
+  "theme": "faith",
+  "genre": "Indie Folk Pop",
+  "mp3": "mustard-seed.mp3",
+  "cover": "img/1-seed.png",
+  "images": ["img/1-seed.png", "img/2-storm.png", "img/3-water.png", "img/4-hold.png", "img/5-ember.png"],
+  "imageMap": [3, 0, 2, 0, 1, 3, 4],
+  "narration": false,
+  "es": [
+    "Me aferraré igualmente, porque no me sostengo en algo de fuera, sino en Aquel que sostiene mi nombre.",
+    "Hasta una fe como un grano de mostaza es fe suficiente para crecer. Creo; ayuda mi incredulidad: esa es la única oración que sé. Cuando la duda llega como tormenta, me aferraré igualmente, porque no me sostengo en algo de fuera, sino en Aquel que sostiene mi nombre.",
+    "Salí a caminar sobre el agua y me sentí hundir, pero una mano siempre alcanzaba entre los relámpagos y los truenos. Y las oraciones que creía silenciosas, quizá siempre fueron oídas. Así que me apoyo en una promesa, más que en lo que siento, más que en palabras.",
+    "Hasta una fe como un grano de mostaza es fe suficiente para crecer. Creo; ayuda mi incredulidad: esa es la única oración que sé. Cuando la duda llega como tormenta, me aferraré igualmente, porque no me sostengo en algo de fuera, sino en Aquel que sostiene mi nombre.",
+    "Cuando la duda llega como tormenta, me aferraré igualmente, porque no me sostengo en algo de fuera, sino en Aquel que sostiene mi nombre.",
+    "Oh, me aferraré igualmente, porque no me sostengo en algo de fuera, sino en Aquel que sostiene mi nombre.",
+    "Oh, mantendré viva una pizca de fe, no mayor que un secreto; me ha traído hasta aquí, y es todo lo que necesitaré."
+  ],
+  "de": [
+    "Ich halte trotzdem fest, denn ich halte mich nicht an etwas von außen, sondern an dem, der meinen Namen hält.",
+    "Schon ein Glaube wie ein Senfkorn ist Glaube genug, um zu wachsen. Ich glaube; hilf meinem Unglauben: das ist das einzige Gebet, das ich kenne. Wenn der Zweifel wie ein Wetter aufzieht, halte ich trotzdem fest, denn ich halte mich nicht an etwas von außen, sondern an dem, der meinen Namen hält.",
+    "Ich bin aufs Wasser hinausgetreten und fühlte mich sinken, doch eine Hand griff immer nach mir durch Blitz und Donner. Und die Gebete, die ich für stumm hielt, wurden vielleicht immer gehört. Also stütze ich mich auf eine Verheißung, mehr als auf Gefühl, mehr als auf Worte.",
+    "Schon ein Glaube wie ein Senfkorn ist Glaube genug, um zu wachsen. Ich glaube; hilf meinem Unglauben: das ist das einzige Gebet, das ich kenne. Wenn der Zweifel wie ein Wetter aufzieht, halte ich trotzdem fest, denn ich halte mich nicht an etwas von außen, sondern an dem, der meinen Namen hält.",
+    "Wenn der Zweifel wie ein Wetter aufzieht, halte ich trotzdem fest, denn ich halte mich nicht an etwas von außen, sondern an dem, der meinen Namen hält.",
+    "Oh, ich halte trotzdem fest, denn ich halte mich nicht an etwas von außen, sondern an dem, der meinen Namen hält.",
+    "Oh, ich halte ein wenig Glauben am Leben, nicht größer als ein Geheimnis; er hat mich so weit getragen, und mehr werde ich nie brauchen."
+  ],
+  "about": {
+    "intro": {
+      "de": "„Mustard Seed\" handelt von einem kleinen, zähen Glauben, der mitten in Zweifel und Sturm festhält, nicht an der eigenen Kraft, sondern an dem, der uns beim Namen kennt.",
+      "es": "„Mustard Seed\" trata de una fe pequeña y tenaz que se aferra en medio de la duda y la tormenta, no a la propia fuerza, sino a Aquel que nos conoce por nuestro nombre."
+    },
+    "de": [
+      { "h": "Glaube wie ein Senfkorn (Matthäus 17,20)", "p": [
+        "Jesus sagt: schon ein Glaube so klein wie ein Senfkorn genügt. Es geht nicht um die Größe deines Glaubens, sondern um den, auf den er sich richtet.",
+        "„Ich glaube; hilf meinem Unglauben\" ist das Gebet eines Vaters aus Markus 9,24: ehrlich, schwach und trotzdem gehalten. Genau dieser kleine, ehrliche Glaube reicht."
+      ]},
+      { "h": "Auf dem Wasser (Matthäus 14)", "p": [
+        "Petrus tritt aufs Wasser und beginnt zu sinken, doch Jesus streckt die Hand aus und hält ihn. Das Bild: Auch wenn du untergehst, ist die Hand schon da, mitten in Blitz und Donner.",
+        "„Die Gebete, die ich für stumm hielt, wurden vielleicht immer gehört\" erinnert daran, dass Gott auch das leise Rufen hört."
+      ]},
+      { "h": "Der meinen Namen hält (Jesaja 43,1)", "p": [
+        "„Ich habe dich bei deinem Namen gerufen, du bist mein.\" Der Halt liegt nicht in dir selbst oder den Umständen, sondern in dem, der dich kennt und festhält."
+      ]},
+      { "h": "Ein wenig Glauben am Leben halten", "p": [
+        "Am Ende bleibt ein kleiner, fast geheimer Glaube, der trotzdem trägt. Er muss nicht groß sein, er muss nur lebendig bleiben."
+      ]}
+    ],
+    "es": [
+      { "h": "Fe como un grano de mostaza (Mateo 17,20)", "p": [
+        "Jesús dice que basta una fe tan pequeña como un grano de mostaza. No importa el tamaño de tu fe, sino Aquel en quien se apoya.",
+        "„Creo; ayuda mi incredulidad\" es la oración de un padre en Marcos 9,24: sincera, débil y aun así sostenida. Esa fe pequeña y honesta basta."
+      ]},
+      { "h": "Sobre el agua (Mateo 14)", "p": [
+        "Pedro camina sobre el agua y empieza a hundirse, pero Jesús extiende la mano y lo sostiene. La imagen: aunque te hundas, la mano ya está ahí, en medio de relámpagos y truenos.",
+        "„Las oraciones que creía silenciosas, quizá siempre fueron oídas\" recuerda que Dios oye también el clamor más callado."
+      ]},
+      { "h": "El que sostiene mi nombre (Isaías 43,1)", "p": [
+        "„Te llamé por tu nombre; mío eres tú.\" El sostén no está en ti ni en las circunstancias, sino en Aquel que te conoce y te sujeta."
+      ]},
+      { "h": "Mantener viva una pizca de fe", "p": [
+        "Al final queda una fe pequeña, casi secreta, que aun así sostiene. No tiene que ser grande, solo seguir viva."
+      ]}
+    ]
+  }
+}

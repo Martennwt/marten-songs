@@ -72,6 +72,27 @@ https://martennwt.github.io/marten-songs/
 7. Deploy: `git add -A && git commit && git push origin main` (GitHub Pages auto-rebuilds).
 
 ## Costs (rough)
-- Images: Gemini 3 Pro ~ a few cents to ~15 cents each; flash-image ~4 cents each. 8 images/song.
-- Transcription (OpenAI) + narration (ElevenLabs): a few cents per song.
+- Images: Gemini 3 Pro ~ a few cents to ~15 cents each; flash-image ~4 cents each. ~6-8 images/song.
+- Transcription: whisper-1 = 0.006 $/min -> ~2 cents per 3-min song. Narration (ElevenLabs) optional.
 - => A few cents to ~1 EUR per song depending on the image model. Negligible at channel scale.
+
+## Skill standards (locked-in lessons)
+- **Send just the MP3.** Pipeline: `transcribe.js` (gpt-4o-transcribe for text + whisper-1 guided for
+  word timestamps). If the auto-transcript looks wrong/uncertain, ASK the user to paste the exact lyrics
+  and re-time guided by them. Suno does not export timestamps, so whisper is needed (cheap, ~2 cents).
+- **Translation = top Castellano + German.** ES is Spain Castellano (tú), DE natural. For recognizable
+  Bible lines, echo the standard versions so a native recognizes them instantly:
+  Reina-Valera (ES): "no te afanes", "buscad/busca primero el reino ... por añadidura", "lirios del campo",
+  "su Hijo unigénito" (Jn 3:16), "Creo; ayuda mi incredulidad" (Mr 9:24), "venid a mí los cansados" (Mt 11:28).
+  Luther (DE): "Sorgt euch nicht", "Glaube wie ein Senfkorn", "Hijo"->"Sohn", "kommt zu mir, ihr Müden".
+  Keep es[]/de[] one entry per timing segment, sentences separated by ". " so the per-sentence (v2) split lines up.
+- **Mobile backgrounds pan, do NOT make separate mobile images.** 16:9 images are cropped on phones, so on
+  mobile the `.iml` layers animate `background-position` 0%->100% (`imgpan`, ~14s) to reveal the whole scene
+  (subject often on the left -> starts at 0%). Desktop keeps the slow scale/translate drift.
+- **Word highlight LEAD offset = 0.18s** (`var LEAD` in songJS): the gold sweep runs slightly ahead because
+  whisper marks word starts a touch late. Tweak LEAD if a song feels early/late. Perfect per-word sync would
+  need forced alignment (whisperX/aeneas) - future option, more setup; auto-timing has a small inherent wobble.
+- **`narration` flag** in song.json: set `false` to skip the read-aloud TTS (and the listen button is hidden),
+  e.g. to save ElevenLabs tokens. Default = narration on (Guillermo voice).
+- **Thumbnail/cover** = `cover` in song.json -> shown as the hub card banner and faintly behind the gate;
+  it adapts to desktop and mobile automatically (no separate asset).
