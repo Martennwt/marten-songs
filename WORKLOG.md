@@ -2,6 +2,33 @@
 
 ---
 
+## 2026-06-26 (3): Bilder, Version 2, Hub mit Bildern, Intro-Fenster, Bugfixes
+
+**Erledigt:**
+- **Bugfixes (live):** Lautstärke-Popover + Sprachmenü waren dauerhaft offen (display:flex schlug
+  `hidden`) -> `.pop[hidden]{display:none}`. PDF lief rechts raus (Umbruch mit falscher Schriftgröße
+  berechnet) -> Schriftgröße VOR `splitTextToSize`; headless verifiziert (maxLineW 481 <= 483).
+- **Button-Copy** oben rechts: „Die Idee hinter dem Lied" / „La idea detrás".
+- **5 Hintergrundbilder** pro Abschnitt mit **Gemini 3 Pro Image** (ölgemäldeartig, Navy/Gold, kein Text)
+  in `songs/the-sower/img/`. Generator: `tools/images/generate-image.js` (zentral), Batch `img/jobs.json`.
+- **Version 2** (`songs/<id>/v2.html`): Übersetzung **pro Satz** in dezentem Grau + die Bilder als leicht
+  transparenter, langsam driftender Hintergrund, der **pro Abschnitt überblendet** (`imageMap` in song.json).
+  Version 1 bleibt clean (Doppelzeile). Builder: `buildSong(id,{fine,images,variant,out})`.
+- **Hub-Kacheln** mit **Bild-Banner** oben, Gold-Hover-Glow, und zwei Buttons (Version 1 / Version 2).
+- **Intro-Fenster** mit dem Song-Bild leicht dahinter, Gold-Verlauf und **X oben links** zurück zum Hub.
+- **Mockup** des Intro-Fensters (deutlicher Bild-Hintergrund, Hover-Gold am Play) liegt im Scratchpad
+  (`intro-mockup.html`) als Design-Vergleich.
+- Alles gepusht -> live auf https://martennwt.github.io/marten-songs/.
+
+**Offen / als Nächstes:**
+1. **Intro-Flow** final entscheiden: aktuell ein Play-Druck (Autoplay braucht eine Nutzer-Geste). Optional:
+   Karte 1-2s zeigen, Gold-Shimmer, dann starten.
+2. Evtl. den deutlicheren Intro-Look aus dem Mockup in die echte Seite übernehmen.
+3. Zwei weitere Songs.
+4. Bild-Hintergrund-Intensität pro Geschmack feinjustieren.
+
+---
+
 ## 2026-06-26 (2): Player-Ausbau + LIVE auf GitHub Pages
 
 **Erledigt:**
