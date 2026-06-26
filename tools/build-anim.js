@@ -89,7 +89,7 @@ function buildSong(id, opts) {
     '<div id="title" onclick="gateClick(event)"' + (meta.cover ? (' style="--hero:url(\'' + esc(meta.cover) + '\')"') : '') + '>' +
     '<a class="gate-x" href="../../index.html" aria-label="Back to songs">&times;</a>' +
     '<div class="gsheen"></div>' +
-    '<div class="t-eyebrow">' + esc(meta.subtitle || '') + '</div><h1>' + esc(meta.title) + '</h1>' +
+    '<div class="t-eyebrow">' + esc(meta.subtitle || '') + '</div><h1>' + esc(meta.title) + '</h1><div class="t-name" id="gateName"></div>' +
     '<div class="t-cta"><span class="t-play">&#9654;</span> <span id="startHint">Tippen, um zu starten</span></div></div>' +
     '<div id="lyrics"><div id="scroll">' + linesHtml + '<div class="line end-pad"></div></div></div>' +
     '<div id="about" hidden onclick="if(event.target===this)closeAbout()"><div class="about-card">' +
@@ -122,7 +122,8 @@ function buildSong(id, opts) {
     ';var FLAGS=' + JSON.stringify({ es: flES, de: flDE }) +
     ';var VOL=' + JSON.stringify({ on: volOn, low: volLow, mute: volMute }) +
     ';var SONG=' + JSON.stringify({ id: id, title: meta.title, refs: meta.subtitle || '' }) +
-    ';var NARRICON=' + JSON.stringify({ play: playSvg, pause: pauseSvg }) + ';</script>';
+    ';var NARRICON=' + JSON.stringify({ play: playSvg, pause: pauseSvg }) +
+    ';var NAMES=' + JSON.stringify(meta.names || {}) + ';</script>';
   const app = '<script>' + songJS() + '</script>';
   fs.writeFileSync(path.join(dir, opts.out || 'index.html'), head + body + dataScript + app + '</body></html>');
   return { id, lineCount: lines.length };
@@ -162,6 +163,7 @@ function songCSS() {
     '.t-eyebrow{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#caa45a}',
     "#title h1{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(3rem,12vw,7rem);margin:.2rem 0;line-height:1;background:linear-gradient(180deg,#fff,#f3d79a);-webkit-background-clip:text;background-clip:text;color:transparent}",
     '#startBtn{margin-top:1.2rem;font-size:1.05rem;font-weight:600;color:#0c1626;background:linear-gradient(180deg,#ffe7ad,#e9b85c);border:0;border-radius:999px;padding:.85rem 2.2rem;cursor:pointer;box-shadow:0 10px 30px rgba(233,184,92,.35)}',
+    ".t-name{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.1rem,3vw,1.7rem);color:#e7c984;margin-top:.1rem;text-shadow:0 1px 12px rgba(0,0,0,.6)}",
     '.t-hint{margin-top:1rem;color:#7e90a8;font-size:.78rem}',
     /* lyrics */
     '#lyrics{position:fixed;left:0;right:0;top:0;bottom:120px;z-index:10;overflow:hidden;-webkit-mask-image:linear-gradient(180deg,transparent,#000 20%,#000 80%,transparent);mask-image:linear-gradient(180deg,transparent,#000 20%,#000 80%,transparent);transition:bottom .35s}',
@@ -232,9 +234,9 @@ function songCSS() {
     /* background images (v2) */
     '#imgbg{position:fixed;inset:0;z-index:1;pointer-events:none}',
     '.iml{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.8s ease;animation:imgdrift 22s ease-in-out infinite alternate}',
-    '.iml.on{opacity:.27}',
+    '.iml.on{opacity:.34}',
     '@keyframes imgdrift{from{transform:scale(1.12) translate(-2.8%,-1%)}to{transform:scale(1.12) translate(2.8%,1%)}}',
-    '#imgveil{position:fixed;inset:0;z-index:2;pointer-events:none;background:radial-gradient(95% 80% at 50% 45%,rgba(7,13,24,.42),rgba(7,13,24,.82))}',
+    '#imgveil{position:fixed;inset:0;z-index:2;pointer-events:none;background:radial-gradient(100% 85% at 50% 45%,rgba(7,13,24,.3),rgba(7,13,24,.76))}',
     'html[data-variant="v2"] .tline{color:rgba(178,186,198,.55)}', 'html[data-variant="v2"] .line.active .tline{color:rgba(204,212,224,.8)}',
     /* mobile: bigger lyrics, comfy player */
     '@media(max-width:640px){',
@@ -268,7 +270,7 @@ function songJS() {
     'function volIcon(){var b=document.getElementById("volBtn");if(au.muted||au.volume===0){b.innerHTML=VOL.mute;}else if(au.volume<0.5){b.innerHTML=VOL.low;}else{b.innerHTML=VOL.on;}}',
     'function toggleCollapse(){document.body.classList.toggle("pl-collapsed");}',
     'var UI={es:{about:"La idea detrás",lyrics:"Letra",listen:"Escuchar"},de:{about:"Die Idee hinter dem Lied",lyrics:"Text",listen:"Anhören"}};',
-    'function updateLangUI(){var L=curLang(),f=FLAGS[L],n=L.toUpperCase();document.getElementById("flag").innerHTML=f;document.getElementById("langName").textContent=n;var bl=document.getElementById("aboutBtnLabel");if(bl)bl.textContent=UI[L].about;var ll=document.getElementById("lyricsLbl");if(ll)ll.textContent=UI[L].lyrics;var nl=document.getElementById("narrLbl");if(nl)nl.textContent=UI[L].listen;var seg=document.querySelectorAll(".ab-lng");for(var i=0;i<seg.length;i++)seg[i].classList.toggle("on",seg[i].getAttribute("data-l")===L);}',
+    'function updateLangUI(){var L=curLang(),f=FLAGS[L],n=L.toUpperCase();document.getElementById("flag").innerHTML=f;document.getElementById("langName").textContent=n;var bl=document.getElementById("aboutBtnLabel");if(bl)bl.textContent=UI[L].about;var ll=document.getElementById("lyricsLbl");if(ll)ll.textContent=UI[L].lyrics;var nl=document.getElementById("narrLbl");if(nl)nl.textContent=UI[L].listen;var gn=document.getElementById("gateName");if(gn)gn.textContent=(NAMES&&NAMES[L])?NAMES[L]:"";var seg=document.querySelectorAll(".ab-lng");for(var i=0;i<seg.length;i++)seg[i].classList.toggle("on",seg[i].getAttribute("data-l")===L);}',
     'function setTLang(l){document.documentElement.setAttribute("data-tlang",l);updateLangUI();closeMenus();if(narr&&!narr.paused)narr.pause();if(narr)narr.removeAttribute("data-src");if(aboutOpen)renderAbout();if(lyricsOpen)renderLyrics();}',
     'function toggleLang(){setTLang(curLang()==="de"?"es":"de");}',
     'function closeMenus(){var v=document.getElementById("volPop");if(v)v.hidden=true;var m=document.getElementById("langMenu");if(m)m.hidden=true;}',
@@ -315,9 +317,16 @@ function songJS() {
 function buildHub() {
   const ids = fs.readdirSync(SONGS).filter(d => fs.existsSync(path.join(SONGS, d, 'song.json')));
   const metas = ids.map(id => Object.assign({ id }, JSON.parse(fs.readFileSync(path.join(SONGS, id, 'song.json'), 'utf8'))));
+  const slug = g => String(g).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const genres = [...new Set(metas.map(m => m.genre).filter(Boolean))];
+  const COMING = ['Blues', 'Hip Hop', 'R&B'].filter(g => !genres.includes(g));
+  const filterBar = '<div class="filters"><button class="filt on" data-g="all" onclick="filt(this)">Alle</button>' +
+    genres.map(g => '<button class="filt" data-g="' + slug(g) + '" onclick="filt(this)">' + esc(g) + '</button>').join('') +
+    COMING.map(g => '<button class="filt soon" disabled>' + esc(g) + ' <span class="soon-b">bald</span></button>').join('') + '</div>';
   const cards = metas.map(m =>
-    '<div class="card">' +
+    '<div class="card" data-genre="' + slug(m.genre || '') + '">' +
     (m.cover ? '<a class="c-imglink" href="songs/' + m.id + '/index.html?play=1"><div class="c-img" style="background-image:url(\'songs/' + m.id + '/' + esc(m.cover) + '\')"></div></a>' : '') +
+    (m.genre ? '<div class="c-genre">' + esc(m.genre) + '</div>' : '') +
     '<div class="c-body"><div class="c-theme">' + esc(m.theme || 'song') + '</div>' +
     '<div class="c-title">' + esc(m.title) + '</div><div class="c-sub">' + esc(m.subtitle || '') + '</div>' +
     '<div class="c-btns"><a class="c-play" href="songs/' + m.id + '/index.html?play=1">&#9654; Play</a>' +
@@ -331,9 +340,10 @@ function buildHub() {
     '<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">' +
     '<style>' + hubCSS() + '</style></head><body><canvas id="bg"></canvas>' +
     '<header><div class="eyebrow">AI songs about faith, love, life and God</div><h1>Marten\'s Songs</h1></header>' +
+    filterBar +
     '<main class="grid">' + cards + '</main>' +
     '<footer>Press a song, then Play. The words light up as they are sung, with a translation below.</footer>' +
-    '<script>' + dotsJS() + '</script></body></html>';
+    '<script>function filt(b){document.querySelectorAll(".filt").forEach(function(x){x.classList.toggle("on",x===b);});var g=b.getAttribute("data-g");document.querySelectorAll(".card").forEach(function(c){c.style.display=(g==="all"||c.getAttribute("data-genre")===g)?"":"none";});}' + dotsJS() + '</script></body></html>';
   fs.writeFileSync(path.join(ROOT, 'index.html'), html);
   return metas.length;
 }
@@ -361,6 +371,13 @@ function hubCSS() {
     '.c-btns{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}',
     '.c-play{display:inline-block;color:#0c1626;background:linear-gradient(180deg,#ffe7ad,#e9b85c);border-radius:999px;padding:.4rem 1rem;font-weight:600;font-size:.82rem}',
     '.c-play.alt{color:#9fb0c6;background:transparent;border:0;font-weight:500;padding:.45rem .35rem;font-size:.82rem}', '.c-play.alt:hover{color:#ffe39a}',
+    '.filters{position:relative;z-index:1;max-width:920px;margin:.5rem auto 0;padding:0 1.2rem;display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center}',
+    '.filt{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:#cdd8e8;border-radius:999px;padding:.4rem .9rem;font:inherit;font-size:.82rem;font-weight:600;cursor:pointer}',
+    '.filt:hover{border-color:rgba(243,196,108,.5)}',
+    '.filt.on{background:linear-gradient(180deg,#ffe7ad,#e9b85c);color:#0c1626;border-color:transparent}',
+    '.filt.soon{opacity:.45;cursor:not-allowed}',
+    '.soon-b{font-size:.62rem;background:rgba(255,255,255,.16);border-radius:6px;padding:.05rem .35rem;margin-left:.25rem;text-transform:uppercase;letter-spacing:.04em}',
+    '.c-genre{position:absolute;top:10px;right:10px;z-index:2;background:rgba(7,13,24,.7);border:1px solid rgba(255,255,255,.16);color:#ffe7ad;border-radius:999px;padding:.25rem .6rem;font-size:.7rem;font-weight:600}',
     'footer{position:relative;z-index:1;text-align:center;color:#7e90a8;font-size:.8rem;padding:0 1rem 3rem}'
   ].join('');
 }
