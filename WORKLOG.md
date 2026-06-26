@@ -43,6 +43,29 @@ Claim „Scatter the seed. Reap the channel." Sprache der Verkaufsseite: **Engli
 
 ---
 
+## 2026-06-26 (9): Übergabe an neuen Chat — alles festgehalten, offene Entscheidungen
+
+**Stand:** Songs sind live & gut (per-Zeile-Daten, 2-Zeilen-Anzeige, Badge, Reihenfolge, Intro-Fixes,
+Kurzwort-Sync, Seek-Fix — gepusht in `02c70b6`). Pipeline + Lektionen dokumentiert.
+
+**Neu festgehalten in dieser Session:**
+- **WhisperX** (Forced Alignment, lokal) als Schritt-für-Schritt in `BRANDING.md` (Abschnitt „Forced alignment
+  with WhisperX"): Install (ffmpeg+Python+`pip install whisperx`), Forced-Align an UNSERE Lyrics (Python-Snippet),
+  geplanter Adapter `tools/whisperx-import.js` → `timing.json`. Whisper-API = Cloud-Pfad; WhisperX = lokaler
+  Perfekt-Pfad. NICHT installiert (Marten-OK nötig, ~GB Download).
+- **`introLines`** (rubato-Intro: pro Zeile [start,end]-Fenster) in `BRANDING.md` + Skill `/neuer-song` dokumentiert.
+- Skill `/neuer-song` auf aktuellen Stand gebracht (2-Zeilen-Anzeige, introStart/introEnd/introLines, Seek/Sync).
+
+**OFFEN — Marten will im NEUEN Chat klären (Reihenfolge so gewünscht):**
+1. **Doku-Organisation / Umbenennung:** `BRANDING.md` ist faktisch der **Skill/Bauplan** der ganzen App
+   (Design, Bilder, Pipeline, Player, Mobil, alle Lektionen) — Name „Branding" irreführend. Frage offen:
+   umbenennen (PLAYBOOK/GUIDE/SKILL?) UND evtl. trennen in *interne Bau-Doku* vs. *verkaufbarer „KI-Guide"*
+   für den Kurs. (AskUserQuestion zum Namen wurde gestellt, Marten will erst sortieren → im neuen Chat entscheiden.)
+2. **WhisperX installieren?** Marten fand's „cool" — auf sein OK als eigener Schritt einrichten.
+3. YouTube-Branding läuft im SEPARATEN Fenster (`course/`, `youtube/`, `marketing/`, `YOUTUBE.md`) — hier nicht anfassen.
+
+---
+
 ## 2026-06-26 (8): Player-Feinschliff aus Martens Live-Tests (2-Zeilen, Badge, Sync) + gepusht
 
 Aus dem iterativen Browser-Test mit Marten, alles in `tools/build-anim.js`:

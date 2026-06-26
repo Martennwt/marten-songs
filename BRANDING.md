@@ -83,6 +83,41 @@ https://martennwt.github.io/marten-songs/
 
 The `/neuer-song` skill (`~/.claude/commands/neuer-song.md`) walks this exact flow.
 
+## Forced alignment with WhisperX (optional upgrade — perfect word-sync)
+The current pipeline uses **Whisper via the OpenAI API (cloud)**: easy, but its word timestamps are approximate
+and it goes deaf on very soft vocals (then we pace the intro by hand with `introStart`/`introLines`). **WhisperX**
+removes that fiddling: it runs **locally** and does *forced alignment* — it takes YOUR known lyrics and aligns
+them to the audio at phoneme level (wav2vec2), so even a quiet a-cappella intro gets exact per-word times.
+Trade-off: a bigger one-time install (Python + ffmpeg + ~torch); after that, "send mp3 + lyrics → flawless"
+is real with zero ear-calibration.
+
+**Step by step (one-time setup):**
+1. Install **ffmpeg** (audio decoding) and **Python 3.10+**. On Windows: `winget install Gyan.FFmpeg` (or a static
+   build on PATH), and Python from python.org.
+2. Create an isolated env and install WhisperX:
+   `python -m venv .venv && .venv\Scripts\activate && pip install whisperx` (pulls torch; CPU works, GPU is faster).
+3. Quick check (WhisperX's own transcript + word times):
+   `whisperx "song.mp3" --model large-v2 --language en --output_format json --output_dir out`
+
+**Forced-align to OUR exact lyrics (the part that fixes soft intros)** — Python:
+```python
+import whisperx, json
+device = "cpu"                                  # or "cuda"
+audio  = whisperx.load_audio("song.mp3")
+# segments = OUR lyrics (one per line), with rough start/end (whole-song span is fine):
+segs = [{"text": line, "start": 0.0, "end": 0.0} for line in open("lyrics.txt").read().splitlines() if line.strip() and not line.startswith("[")]
+model_a, meta = whisperx.load_align_model(language_code="en", device=device)
+aligned = whisperx.align(segs, model_a, meta, audio, device, return_char_alignments=False)
+json.dump(aligned, open("aligned.json","w"))    # aligned["word_segments"] = exact per-word start/end
+```
+4. **Adapter to our format:** a small `tools/whisperx-import.js` turns `aligned.json` into our `timing.json`
+   (segments = the lyric lines, words = `{t, s}` from `word_segments`), sets `precise:true`, then the normal
+   `verify-song.js` + `build-anim.js` run unchanged. No `introStart`/`introLines` needed — the words are measured.
+5. In the skill, the rule becomes: **if WhisperX is installed, use it; else fall back to OpenAI Whisper + the
+   intro knobs.** (`retime.js` stays the cloud path; `whisperx-import.js` is the local forced-alignment path.)
+
+> Note: this is documented, NOT yet installed in this repo. Ask Marten before running the install (downloads ~GB).
+
 ## Costs (rough)
 - Images: Gemini 3 Pro ~ a few cents to ~15 cents each; flash-image ~4 cents each. ~6-8 images/song.
 - Transcription: whisper-1 = 0.006 $/min -> ~2 cents per 3-min song. Narration (ElevenLabs) optional.
@@ -103,10 +138,11 @@ The `/neuer-song` skill (`~/.claude/commands/neuer-song.md`) walks this exact fl
 - **`verify-song.js` is the gate before every delivery.** Checks text==lyrics, segment/es/de/imageMap counts,
   monotonic+in-range times, valid image indices, coverage. FAIL = do not ship. It re-derives the segmentation
   from `lyrics.txt`, so a drift between lyrics and what's displayed is caught automatically.
-- **Segmentation = one lyric LINE per display line** (the "Sower" standard: each sung line lights up on its
-  own with its translation under it). Defined once in `tools/lib/lyrics.js` (used by retime AND verify);
-  es[]/de[]/imageMap[] = one entry per line, same order. (Do NOT group lines — earlier couplet grouping made
-  long blocks for songs whose lines aren't full sentences; per-line is consistent regardless of punctuation.)
+- **Segmentation = one lyric LINE per data segment** (`tools/lib/lyrics.js`, used by retime AND verify);
+  es[]/de[]/imageMap[] = one entry per line, same order. **Display groups 2 lines per active block**
+  (`groupLines`, default 2): both lines show together, each keeps its OWN translation, and the gold sweep
+  flows across both. (1 line felt too sparse; the whole couplet as one block was too much — 2 lines, each
+  with its translation, is the sweet spot.)
 - **Soft intros: Whisper can go DEAF.** A very soft/quiet a-cappella intro can be below Whisper's threshold —
   it transcribes NOTHING there (or hallucinates words from elsewhere). Example: "The Word That Found Me" — Whisper's
   first detected word is at 22.7s, so the ~16-22s sung intro is invisible to it. No Whisper-based timing can know
