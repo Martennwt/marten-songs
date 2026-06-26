@@ -56,8 +56,10 @@ https://martennwt.github.io/marten-songs/
 ## Voice / narration
 - Deep voice "dave" = ElevenLabs voice id `QtPMrakdgePQIUwOX7Ut`, model `eleven_multilingual_v2`.
 - Song read-aloud: `tools/audio/build-audio.js` (settings 0.9/0.9/0.4, speed ~1.08, mp3 192k).
-- "Idea behind the song" narration: `tools/about-audio.js <id>` -> `about-de.mp3` + `about-es.mp3`
-  (settings 0.9/0.9/0.35, speed 1.0). Keys in `Documents/Claude/API keys/ElevenLabs.txt`.
+- "Idea behind the song" narration: `tools/about-audio.js <id>` -> `about-de.mp3` + `about-es.mp3`,
+  voice **Guillermo** `qUPtETgSYRhCRb2pfOla` (deep, chosen), settings 0.9/0.9/0.35, speed 1.06.
+  It speaks a cleaned script (scripture refs spoken naturally, e.g. "Matthäus 6, Vers 33"; bracketed
+  ranges dropped). Keys in `Documents/Claude/API keys/ElevenLabs.txt`.
 
 ## Add a new song (pipeline)
 1. `songs/<id>/<id>.mp3`
