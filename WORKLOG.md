@@ -2,6 +2,28 @@
 
 ---
 
+## 2026-06-27 (3): Player-UX optimiert (Playlist-Sidebar, Home, Auto-Next, Songdauer) + Mobil-Fix
+
+**Erledigt (alles in `tools/build-anim.js`, gebaut + headless geprüft + gepusht):**
+- **Playlist-Sidebar:** Hamburger oben links → Drawer mit allen Songs (Cover + Name + Dauer, aktueller gold
+  markiert), Song wechseln ohne Hauptmenü. `getPlaylist()`/`fmtDur()`-Helfer; `PLAYLIST`+`SONG_ID` injiziert.
+- **Home-Button** (Icon) neben dem Hamburger → Hub.
+- **Auto-Next:** Song endet → nächster lädt mit `?play=1`.
+- **Songdauer** als Badge auf den Hub-Karten, in der Sidebar und im Player.
+- **Mobil-Fix (wichtig):** Nav (Hamburger+Home) liegt jetzt **über dem Gate** (z-index 62), der alte `gate-x`
+  ist dadurch ersetzt → Playlist/Home auch erreichbar, wenn Autoplay nicht startet.
+- **`docs/automation-plan.md`** gespeichert (Drop-Ordner → Vollpipeline, Phasen, kritische Hinweise).
+- Pushes heute: Songs/Pipeline (`d2b3c83`), Automatisierungsplan (`501150c`), Player-UX (`8030b2c`).
+
+**Offen / morgen (Martens Wahl):**
+1. Player-Feinschliff nach Martens Test (Icon-Größe/Position, Sidebar-Verhalten).
+2. **MP4-Renderer** (Player ohne UI → YouTube-Video) + Beschreibungen.
+3. **Auto-Ordner** + automatische lokal→Cloud-Umschaltung in die Pipeline gießen.
+4. Auto-Next-Autoplay kann beim Seitenwechsel browserseitig blocken; für lückenlos später Single-Page-Umbau.
+5. **Kurs-Seite v3** liegt weiter lokal/ungepusht (Martens OK steht aus).
+
+---
+
 ## 2026-06-27 (2): WhisperX-Timing-Pipeline scharf gemacht, alle 4 Songs lokal getimt + Hybrid + Drift-Check
 
 **Ziel:** Karaoke-Timing pro Song makellos UND automatisch (kein Handarbeit-Tuning), für den Video-Launch.
