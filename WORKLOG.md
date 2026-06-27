@@ -23,8 +23,13 @@ laeuft lokal und macht Forced Alignment: es presst UNSERE bekannten Lyrics Wort 
   GEMESSEN: There 15,57s / was 15,81s / hands 17,59s. Cloud-Whisper hatte sie geraten (There 2,16s, gleichmaessig
   ueber 2-25s verteilt = falsch). WhisperX trifft automatisch das Fenster, das wir vorher per Ohr als
   `introLines [[16,21],...]` setzen mussten -> die manuelle Intro-Kalibrierung entfaellt.
-- **Guide `docs/whisperx.md`** geschrieben (fuer die KI-Medien-Guide-Dokumente): was es ist, exakte Installation,
-  Benutzung, Pipeline-Einordnung, Troubleshooting, Protokoll.
+- **Guide `docs/whisperx.md`** geschrieben + auf Martens Fragen **anfaengerfreundlich** ueberarbeitet: was/warum,
+  ffmpeg erklaert, was man alles damit kann (transkribieren/Untertitel/YouTube via yt-dlp), Vorteile vs Cloud,
+  Groesse (2,0 GB .venv + 361 MB Modell), commit-vs-push, GitHub-Sicherheit, „ueberall nutzbar" via
+  `uv tool install whisperx`, FAQ. Plus **Mitschrift `docs/sessions/2026-06-27-whisperx-install.md`** (Schritt
+  fuer Schritt fuers Video).
+- **Push-Entscheidung:** alles nach GitHub **ausser der Kurs-Seite** (Marten ist mit v3 noch nicht zufrieden,
+  bleibt lokal committet/ungepusht). WhisperX/Doku/Infra/YouTube-Mockup sind live.
 
 **Offen / als Naechstes:**
 1. **Adapter `tools/whisperx-import.js`** bauen: `whisperx-aligned.json` -> unsere `timing.json` (`precise:true`,

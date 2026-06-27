@@ -1,161 +1,219 @@
-# WhisperX - lokale Forced-Alignment (perfekte Wort-Synchronisation)
+# WhisperX - dein lokaler Untertitel- und Wort-Timer (Anfänger-Guide)
 
-Guide für die KI-Medien-Guide-Dokumente. Stand: installiert + getestet am 2026-06-27 auf Martens Rechner.
+Teil der **KI-Medien-Guide-Dokumente**. Hier steht alles über WhisperX so einfach wie möglich, damit du
+jederzeit nachschlagen kannst. Installiert + getestet am **2026-06-27** auf Martens Rechner.
+
+> **In einem Satz:** WhisperX ist ein kostenloses Programm auf deinem Computer, das aus einer Tonspur
+> heraushört, **welches Wort wann** gesprochen oder gesungen wird - perfekt für Karaoke-Timing und Untertitel.
 
 ---
 
-## 1. Was ist WhisperX und warum brauchen wir es?
+## 1. Was ist WhisperX überhaupt? (ganz einfach)
 
-Unser Karaoke-Player lässt jedes englische Wort **genau dann** aufleuchten, wenn es gesungen wird. Dafür
-brauchen wir pro Wort eine **Startzeit**. Bisher kommen diese Zeiten aus **Whisper über die OpenAI-Cloud**
-(`tools/retime.js`).
+Stell dir einen sehr guten Tipp-Assistenten vor, der sich ein Lied oder Video anhört und dir sagt:
+„Das Wort *There* kommt bei Sekunde 15,57, *was* bei 15,81, *nothing* bei 16,01 ..." - **jedes Wort mit
+genauer Uhrzeit.**
+
+- „**Whisper**" ist das KI-Modell von OpenAI, das Sprache in Text umwandelt (Transkription).
+- „**WhisperX**" ist eine verbesserte, **kostenlose Open-Source-Version**, die zusätzlich **Forced Alignment**
+  kann: Sie bekommt einen **bereits bekannten Text** (z. B. unsere Lyrics) und klebt **jedes Wort exakt** auf
+  die passende Stelle in der Tonspur. Sie rät den Text nicht, sie **misst** die Zeiten.
+
+Das Wichtige: WhisperX läuft **lokal auf deinem Computer**, nicht in der Cloud. Du brauchst kein Internet
+(außer einmal beim Installieren) und zahlst nichts pro Nutzung.
+
+---
+
+## 2. Warum haben wir das gemacht? (und warum ist es wichtig)
+
+Unser Karaoke-Player lässt jedes Wort genau dann aufleuchten, wenn es gesungen wird. Dafür braucht er pro
+Wort eine **Startzeit**. Bisher kamen diese Zeiten von **Whisper über die OpenAI-Cloud** (`tools/retime.js`).
 
 Das Cloud-Whisper hat zwei Schwächen:
-- Seine **Wort-Zeiten sind nur ungefähr** (ein leichtes Wabern, das wir mit `LEAD 0.18s` kaschieren).
-- Bei **sehr leisen Intros** (zartes A-cappella) wird Whisper **taub**: Es hört die Wörter gar nicht und
-  verteilt sie einfach gleichmäßig über ein Zeitfenster. Das ist geraten, nicht gemessen. Genau deshalb
-  mussten wir bei „The Word That Found Me" das Intro per Ohr mit `introStart`/`introLines` von Hand timen.
+1. Seine Wort-Zeiten sind **nur ungefähr** (ein leichtes Wabern).
+2. Bei **sehr leisen Intros** (zartes A-cappella) wird es **taub**: Es hört die Wörter gar nicht und verteilt
+   sie einfach gleichmäßig über ein Zeitfenster. Das ist **geraten**, nicht gemessen. Genau deshalb mussten
+   wir bei „The Word That Found Me" den Intro per Ohr von Hand timen (`introStart`/`introLines`).
 
-**WhisperX** löst beides. Es läuft **lokal auf dem Rechner** (kein API-Call) und macht **Forced Alignment**:
-Es bekommt **unsere bekannten Lyrics** und presst sie mit einem Phonem-Modell (wav2vec2) Wort für Wort auf
-die Tonspur. Es errät den Text nicht, es **misst**, wo jedes Wort tatsächlich klingt - auch im leisen Intro.
+**WhisperX löst beides.** Echter Beweis aus unserem Test mit „The Word That Found Me":
+- Erste Zeile „There was nothing in my hands ...": WhisperX **misst** „There" bei **15,57s**.
+- Cloud-Whisper hatte denselben Anfang bei **2,16s geraten** (über 2-25s gleichmäßig verteilt = komplett daneben).
+- WhisperX trifft automatisch genau das Fenster, das wir früher mühsam per Ohr einstellen mussten.
 
-> Kurzform: Cloud-Whisper rät die Zeiten, WhisperX misst sie. Forced Alignment = „ich kenne den Text schon,
-> sag mir nur, wann genau jedes Wort kommt."
-
-**Der Gewinn:** „Song schicken -> makellose Wort-Sync" wird real, **ohne** das manuelle Intro-Gefummel.
+**Warum wichtig:** Das ist der Schritt von „Song schicken -> meistens gut, manchmal Handarbeit" zu
+„**Song schicken -> makellose Wort-Sync, ohne Gefummel**". Und es ist gratis und privat.
 
 ---
 
-## 2. Voraussetzungen (was auf dem Rechner sein muss)
+## 3. Was ist ffmpeg? (das haben wir mitinstalliert)
 
-| Baustein | Zweck | Status auf Martens Rechner |
+**ffmpeg** ist das Schweizer Taschenmesser für Audio und Video. Es kann praktisch **jedes** Audio-/Video-Format
+öffnen, umwandeln und auslesen (mp3, wav, mp4, m4a ...). WhisperX kann selbst keine MP3 lesen - es **benutzt
+ffmpeg im Hintergrund**, um die Tonspur in Zahlen zu verwandeln, die die KI versteht.
+
+Du musst ffmpeg nie direkt bedienen. Es muss nur installiert und „auffindbar" sein (im sogenannten **PATH**,
+das ist die Liste der Orte, an denen Windows nach Programmen sucht). Bei uns ist das erledigt.
+
+---
+
+## 4. Was kann ich mit WhisperX alles machen?
+
+WhisperX kann drei Dinge:
+
+1. **Transkribieren** - aus Audio/Video Text machen (wie OpenAI Whisper, aber lokal + gratis).
+   Funktioniert für **jede** Audio- oder Videodatei: Songs, Podcasts, Sprachnotizen, Interviews,
+   heruntergeladene YouTube-Videos, deine Spanisch-Lernvideos usw. Über 90 Sprachen.
+2. **Forced Alignment** - bekannten Text Wort für Wort exakt auf die Tonspur legen (unser Karaoke-Timing).
+3. **Untertitel erzeugen** - es kann direkt **.srt** / **.vtt**-Untertiteldateien ausgeben (z. B. für YouTube).
+   *(Optional auch Sprecher-Trennung „wer spricht wann" - brauchen wir nicht, lassen wir aus.)*
+
+**YouTube-Videos transkribieren?** Ja - in zwei Schritten: erst die **Tonspur herunterladen** (mit dem
+Zusatz-Tool `yt-dlp`), dann diese Datei durch WhisperX schicken. WhisperX selbst lädt nichts von YouTube;
+es braucht eine fertige Audio-/Videodatei. (yt-dlp können wir bei Bedarf genauso installieren.)
+
+**Ganze Audio-Files?** Ja, jede Länge - ein 60-Minuten-Podcast genauso wie ein 3-Minuten-Song. Auf der CPU
+dauert Langes entsprechend länger, aber es funktioniert.
+
+---
+
+## 5. Welche Vorteile hat WhisperX gegenüber OpenAI-Whisper (Cloud)?
+
+| | **WhisperX (lokal)** | **OpenAI Whisper (Cloud)** |
 |---|---|---|
-| **Python 3.10-3.12** | WhisperX läuft in Python | ✓ Python 3.12.10 |
-| **ffmpeg** | dekodiert die MP3 für das Modell | ✓ frisch installiert (8.1.1) |
-| **uv** (oder pip) | installiert die Python-Pakete | ✓ uv 0.11.14 |
-| **torch** | das KI-Rechenwerk (zieht WhisperX automatisch) | ✓ 2.8.0+cpu |
-| GPU (optional) | macht es schneller | – keine NVIDIA-GPU -> CPU-Modus (läuft, nur langsamer) |
+| **Kosten** | kostenlos (nur Strom) | ~2 Cent pro 3-Min-Song, zahlbar pro Minute |
+| **Datenschutz** | Audio bleibt auf deinem PC | Audio wird zu OpenAI hochgeladen |
+| **Internet** | nur einmal zum Installieren | bei jeder Nutzung |
+| **Limit** | keins | API-Limits / Kontingente |
+| **Wort-Genauigkeit** | **Forced Alignment = exakt**, auch bei leisen Stellen | nur ungefähr, taub bei leisem Intro |
+| **Aufwand** | einmal installieren (~2,4 GB, siehe unten) | nichts installieren, sofort startklar |
+| **Tempo** | auf CPU langsamer (Minuten) | schnell (Server-GPUs) |
 
-Festplatte: einmalig ca. **2-3 GB** (torch + Modelle). Internet nur **einmal** für die Installation +
-den ersten Modell-Download. Danach komplett offline und kostenlos.
+Kurz: **WhisperX ist gratis, privat und genauer** - der Preis ist die einmalige Installation und etwas mehr
+Rechenzeit ohne Grafikkarte.
 
----
-
-## 3. Installation (genau diese Schritte, einmalig)
-
-### Schritt 1 - ffmpeg installieren
-```powershell
-winget install --id Gyan.FFmpeg -e --accept-source-agreements --accept-package-agreements
-```
-winget trägt den ffmpeg-Ordner direkt in den Benutzer-PATH ein. **Wichtig:** Erst eine **neue** Shell
-(neues Terminal) sieht den PATH. Prüfen in einem neuen Fenster:
-```powershell
-ffmpeg -version
-```
-(Unser Skript hängt ffmpeg zur Sicherheit auch selbst in den PATH, falls man im selben Fenster bleibt.)
-
-### Schritt 2 - isolierte Python-Umgebung anlegen
-Eine eigene Umgebung („venv"), damit WhisperX nichts am restlichen System verstellt. Sie liegt im Projekt
-unter `.venv/` und ist in `.gitignore` (wird **nicht** mit hochgeladen, ist nur lokal):
-```powershell
-uv venv .venv --python 3.12
-```
-
-### Schritt 3 - WhisperX installieren
-```powershell
-uv pip install --python .venv\Scripts\python.exe whisperx
-```
-Das zieht ~100 Pakete (torch, transformers, faster-whisper, ...), ca. 1-2 Minuten.
-
-> **Stolperstein, den wir hatten:** Eine uv-Umgebung kommt **ohne `pip`**. `python -m pip install ...`
-> schlägt deshalb mit „No module named pip" fehl. Lösung: einfach **uv** zum Installieren benutzen
-> (`uv pip install --python .venv\Scripts\python.exe ...`) - das braucht kein pip in der Umgebung.
-
-### Alternative ohne uv (universeller Weg, z. B. für Kunden)
-```powershell
-python -m venv .venv
-.venv\Scripts\activate
-pip install whisperx
-```
-Langsamer als uv, aber überall gleich. (Auf Windows zieht `pip install whisperx` automatisch die
-CPU-Variante von torch - kein 2,5-GB-CUDA-Paket.)
+**Brauchen wir OpenAI-Whisper jetzt noch?** Im Prinzip kann WhisperX alles, was wir brauchen, auch alleine -
+inklusive Transkription. **Aktuell** nutzt unsere Pipeline die Cloud noch für die grobe Struktur (welche Zeile
+ungefähr wann), und WhisperX macht die feinen Wort-Zeiten. Sobald der kleine Adapter gebaut ist (siehe
+Abschnitt 9), können wir **komplett lokal** arbeiten und die Cloud ganz weglassen.
 
 ---
 
-## 4. Installation prüfen
-```powershell
-.venv\Scripts\python.exe -c "import whisperx, torch; print('whisperx ok, torch', torch.__version__, 'cuda', torch.cuda.is_available())"
-```
-Erwartet (CPU-Rechner): `whisperx ok, torch 2.8.0+cpu cuda False`.
+## 6. Wie groß ist das, und was liegt wo? (wichtig zu verstehen)
+
+Es gibt **zwei Dinge**, die man nicht verwechseln darf:
+
+1. **Das Programm WhisperX** - liegt **lokal auf deinem Computer** im Ordner `.venv/` (ca. **2,0 GB**, das
+   meiste davon ist „torch", das Rechenwerk der KI). Dazu ein heruntergeladenes **Modell** (~**361 MB**) im
+   versteckten Ordner `C:\Users\marte\.cache\torch`. Zusammen rund **2,4 GB**. Das wird **NICHT** zu GitHub
+   hochgeladen (steht in `.gitignore`).
+2. **Unsere Hilfsdateien** - das kleine Skript `tools/whisperx-align.py` und dieser Guide `docs/whisperx.md`.
+   Das sind **Textdateien von wenigen Kilobyte**. **Die** laden wir zu GitHub hoch.
+
+> Deshalb: Wenn wir „WhisperX committen", laden wir **nicht** das 2,4-GB-Programm hoch, sondern nur unsere
+> winzigen Text-Anleitungen, die **beschreiben, wie man es benutzt**. Das Programm bleibt auf deinem PC.
 
 ---
 
-## 5. Benutzung - unser Skript `tools/whisperx-align.py`
+## 7. „Commit" und „Push" - was ist der Unterschied?
 
-Voraussetzung im Songordner: `songs/<id>/lyrics.txt` (echte Lyrics, eine Zeile = eine Anzeigezeile) und die
-MP3. Dann:
-```powershell
-.venv\Scripts\python.exe tools\whisperx-align.py <song-id>
-```
+- **Commit** = einen Zwischenstand **lokal speichern** (wie „Speichern unter" mit Notiz). Bleibt auf deinem PC.
+- **Push** = die gespeicherten Stände **zu GitHub hochladen** (online sichern + bei uns: live schalten).
 
-Was das Skript tut:
-1. Liest `lyrics.txt` und segmentiert es **genau wie der Rest der Pipeline** (eine Lyric-Zeile = ein Segment,
-   dieselbe Regel wie `tools/lib/lyrics.js`).
-2. Setzt grobe Start/Ende-Fenster pro Zeile als Anker. Wenn schon eine `timing.json` da ist (aus
-   `retime.js`), nutzt es deren Fenster; sonst verteilt es die Zeilen grob über die Songlänge.
-3. Lädt das wav2vec2-Modell (beim **ersten Mal** Download ~360 MB, danach gecacht) und richtet **jedes Wort
-   gemessen** an der Tonspur aus.
-4. Schreibt `songs/<id>/whisperx-aligned.json` (Segmente + Wort-Zeiten) und druckt eine Zusammenfassung,
-   inklusive der **gemessenen Onsets der ersten gesungenen Zeile** (der Intro-Beweis).
+Bei uns gilt: Was nach GitHub **gepusht** wird, schaltet GitHub Pages **live** auf die Webseite. Deshalb
+pushen wir nur, was fertig ist. (Die Kurs-Seite z. B. ist noch nicht fertig -> committet/gesichert, aber
+**nicht** gepusht.)
+
+**Ist GitHub sicher? Kann da jemand einen Virus hochladen?**
+- GitHub ist ein **Speicher für Text-/Code-Dateien**, kein Programm, das etwas „ausführt". Hochgeladene
+  Dateien laufen nicht von alleine. Ein Besucher unserer Seite lädt nur fertige HTML-Seiten - harmlos.
+- In **unser** Repo kann nur hochladen, wer Schreibrechte hat (du). Fremde können nichts hineinschmuggeln.
+- WhisperX selbst kam **nicht** von einem zufälligen GitHub-Account, sondern aus **PyPI**, dem offiziellen
+  Paket-Verzeichnis für Python - millionenfach genutzte, offene Software. Das ist der normale, sichere Weg.
 
 ---
 
-## 6. Wie es in unsere Pipeline passt
+## 8. Kann ich WhisperX überall nutzen, in jedem Projekt? Nur im Terminal?
+
+- **Bedienung:** WhisperX hat **keine Fenster-Oberfläche** - du startest es per **Befehl im Terminal**
+  (oder über ein kleines Skript wie unseres). Das ist aber nur **ein** Befehl, kein Programmieren.
+- **Wo es gilt:** Aktuell ist WhisperX in der **Projekt-Umgebung** dieses Songs-Ordners installiert
+  (`.venv/`). In einem **anderen** Projekt (z. B. Spanisch-Lernen) ist es so noch nicht automatisch da.
+- **Überall verfügbar machen (empfohlen, wenn du es oft brauchst):** ein einziger Befehl macht den
+  `whisperx`-Aufruf **systemweit** in jedem Terminal nutzbar:
+  ```powershell
+  uv tool install whisperx
+  ```
+  Danach kannst du in **jedem** Ordner z. B. tippen:
+  ```powershell
+  whisperx "mein-video.mp4" --model large-v2 --language de --output_format srt
+  ```
+  Die heruntergeladenen Modelle werden **geteilt** (kein erneuter großer Download). Kostet einmalig nochmal
+  etwas Speicher für eine eigene Umgebung. **Sag Bescheid, dann richte ich das ein.**
+
+---
+
+## 9. Wie passt WhisperX in unsere Song-Pipeline?
 
 ```
 lyrics.txt + mp3
       |
       v
-[ grobe Struktur ]   retime.js (Cloud-Whisper)  ->  timing.json   (Segment-Fenster sitzen gut)
+[ grobe Struktur ]   retime.js (Cloud-Whisper)  ->  timing.json   (welche Zeile ungefähr wann)
       |
       v
 [ exakte Wort-Zeiten ]   whisperx-align.py  ->  whisperx-aligned.json   (gemessen, auch im leisen Intro)
       |
       v
-[ in unser Format ]   tools/whisperx-import.js  ->  timing.json (precise:true)   <-- NÄCHSTER SCHRITT, noch offen
+[ in unser Format ]   tools/whisperx-import.js  ->  timing.json (precise:true)   <-- NÄCHSTER SCHRITT, offen
       |
       v
-verify-song.js (Gate)  ->  build-anim.js  ->  fertiger Player
+verify-song.js (Prüfung)  ->  build-anim.js  ->  fertiger Player
 ```
 
-**Regel künftig:** Ist WhisperX installiert, nimm den lokalen Forced-Alignment-Weg; sonst fällt die Pipeline
-auf Cloud-Whisper + die Intro-Regler zurück. `retime.js` bleibt der Cloud-Pfad, `whisperx-align.py` ist der
-lokale Präzisions-Pfad.
-
 **Noch offen (bewusst):** Der Adapter `tools/whisperx-import.js`, der `whisperx-aligned.json` in unsere
-`timing.json` (`precise:true`, Wortzeiten `{t,s}`) umschreibt, ist noch nicht gebaut. Erst danach laufen
-`verify-song.js` + `build-anim.js` unverändert auf den WhisperX-Zeiten. Das ist der nächste Baustein, bevor
-wir einen Live-Song auf WhisperX-Timing umstellen (kein Live-Song wird ohne Martens Sichtung geändert).
+`timing.json` umschreibt, ist noch nicht gebaut. Erst danach laufen `verify-song.js` + `build-anim.js`
+unverändert auf den WhisperX-Zeiten, und wir können einen Live-Song umstellen - **nach deiner Sichtung**.
 
 ---
 
-## 7. Notizen / Troubleshooting
-- **CPU vs GPU:** Ohne NVIDIA-GPU läuft alles auf der CPU - korrekt, nur langsamer (ein 3-Minuten-Song
-  einige Minuten). Mit GPU wäre es Sekunden. Für unsere Stückzahlen ist CPU völlig ok.
-- **„No module named pip"** in der Umgebung -> mit `uv pip install ...` installieren (siehe Schritt 3).
-- **ffmpeg nicht gefunden** -> neues Terminal öffnen (PATH), oder das Skript regelt es selbst.
-- **Erster Lauf lädt Modelle** (wav2vec2 ~360 MB). Einmalig, danach offline.
-- **Keine API-Kosten:** WhisperX ist lokal und gratis. Nur Strom/Rechenzeit. (Cloud-Whisper kostete ~2 Cent
-  pro Song; das sparen wir hier.)
-- **Diarisation/Sprecher-Trennung** (pyannote, braucht HuggingFace-Token) brauchen wir **nicht** - wir nutzen
-  nur das Alignment-Modell, das ohne Token lädt.
+## 10. So benutzt du unser Skript (Schritt für Schritt)
+
+Voraussetzung im Songordner: `songs/<id>/lyrics.txt` (echte Lyrics, eine Zeile = eine Anzeigezeile) + die MP3.
+```powershell
+.venv\Scripts\python.exe tools\whisperx-align.py <song-id>
+```
+Beispiel: `.venv\Scripts\python.exe tools\whisperx-align.py the-word-that-found-me`
+
+Was passiert:
+1. Liest `lyrics.txt` und teilt es in Zeilen (genau wie der Rest der Pipeline, `tools/lib/lyrics.js`).
+2. Nimmt grobe Start/Ende-Zeiten aus `timing.json` als Anker (falls vorhanden).
+3. Lädt beim **ersten Mal** das Modell (~361 MB, danach gecacht) und richtet **jedes Wort gemessen** aus.
+4. Schreibt `songs/<id>/whisperx-aligned.json` und druckt die gemessenen Intro-Zeiten als Beweis.
 
 ---
 
-## 8. Was wir konkret installiert haben (Protokoll)
-- ffmpeg 8.1.1 (Gyan-Build) via winget, bin im Benutzer-PATH.
-- `.venv/` per uv (Python 3.12.10), in `.gitignore`.
-- whisperx 3.8.6, torch 2.8.0+cpu (CPU-Build, ~230 MB).
-- Test-Skript `tools/whisperx-align.py` gebaut und auf „The Word That Found Me" laufen lassen
-  (der harte Soft-Intro-Fall). Ergebnis siehe Commit-Notiz / WORKLOG.
+## 11. Häufige Fragen / Stolpersteine (FAQ)
+
+- **„No module named pip"** beim Installieren -> eine uv-Umgebung hat **kein pip**. Mit
+  `uv pip install --python .venv\Scripts\python.exe <paket>` installieren (nicht `python -m pip`).
+- **„ffmpeg not found"** -> ein **neues** Terminal öffnen (damit der PATH frisch geladen ist); unser Skript
+  hängt ffmpeg zur Sicherheit selbst dazu.
+- **Erster Lauf lädt ein Modell** (~361 MB). Das ist einmalig, danach offline und sofort.
+- **Es ist langsam** -> ohne NVIDIA-Grafikkarte rechnet alles auf der CPU (korrekt, nur langsamer). Mit GPU
+  wäre es Sekunden. Für unsere Stückzahlen völlig ok.
+- **Kostet das was?** Nein. Lokal = gratis. Nur die einmalige Installation braucht Internet + Speicherplatz.
+- **Brauche ich Internet zum Benutzen?** Nein (nach der einmaligen Installation + Modell-Download).
+- **Ändert WhisperX meine Originaldateien?** Nein. Es liest die MP3 nur und schreibt eine neue JSON-Datei.
+
+---
+
+## 12. Protokoll - was genau installiert wurde (für dein Video / Nachschauen)
+- **ffmpeg 8.1.1** (Gyan-Build) via `winget`, bin-Ordner im Benutzer-PATH.
+- **Isolierte Umgebung `.venv/`** per `uv` (Python 3.12.10), in `.gitignore` (nur lokal, ~2,0 GB).
+- **WhisperX 3.8.6** + **torch 2.8.0+cpu** (CPU-Build) installiert; Import verifiziert
+  (`whisperx ok, torch 2.8.0+cpu cuda False`).
+- **Modell-Cache** `~/.cache/torch` ~361 MB (wav2vec2, englisches Alignment-Modell).
+- **Skript** `tools/whisperx-align.py` gebaut, auf „The Word That Found Me" getestet:
+  434 Wörter, 40/40 Zeilen, 0 Fehler, Intro gemessen (There @ 15,57s).
+- Der genaue Ablauf dieser Installation als Schritt-für-Schritt-Mitschrift: siehe
+  `docs/sessions/2026-06-27-whisperx-install.md`.
