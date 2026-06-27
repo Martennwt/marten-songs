@@ -3,3 +3,6 @@ Thumbs.db
 *.log
 .c.js
 _chrome-profile/
+.venv/
+__pycache__/
+*.whisper.json

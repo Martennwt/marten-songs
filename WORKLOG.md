@@ -2,6 +2,123 @@
 
 ---
 
+## 2026-06-27 (1): WhisperX installiert (lokale Forced-Alignment) + Skript + getestet + Guide
+
+**Ziel:** Der dokumentierte naechste Schritt fuer **perfekte Wort-Sync ohne Intro-Gefummel**. WhisperX
+laeuft lokal und macht Forced Alignment: es presst UNSERE bekannten Lyrics Wort fuer Wort auf die Tonspur
+(wav2vec2), misst also die Onsets statt sie zu raten - auch im leisen A-cappella-Intro, wo Cloud-Whisper taub ist.
+
+**Erledigt:**
+- **ffmpeg 8.1.1** via winget installiert (bin im Benutzer-PATH; neue Shell noetig zum Erkennen).
+- **Isolierte Umgebung `.venv/`** per uv (Python 3.12.10), in `.gitignore` (nur lokal, nicht im Repo).
+  Stolperstein festgehalten: uv-venvs haben **kein pip** -> mit `uv pip install --python .venv\Scripts\python.exe ...`
+  installieren statt `python -m pip`.
+- **WhisperX 3.8.6 + torch 2.8.0+cpu** installiert (CPU-Build ~230 MB, kein NVIDIA-GPU -> CPU-Modus, laeuft).
+- **Skript `tools/whisperx-align.py`** gebaut: liest `lyrics.txt` (segmentiert exakt wie `tools/lib/lyrics.js`),
+  nimmt grobe Fenster aus `timing.json` als Anker (sonst Gleichverteilung), richtet jedes Wort gemessen aus,
+  schreibt `songs/<id>/whisperx-aligned.json` + druckt die gemessenen Intro-Onsets als Beweis. Haengt ffmpeg
+  selbst in den PATH, damit es ohne Shell-Neustart laeuft.
+- **Beweislauf auf „The Word That Found Me"** (der harte Soft-Intro-Fall): **434 Woerter, 40/40 Zeilen, 0
+  Monotonie-Verletzungen, 0 ausserhalb des Bereichs.** Erste Zeile „There was nothing in my hands..." jetzt
+  GEMESSEN: There 15,57s / was 15,81s / hands 17,59s. Cloud-Whisper hatte sie geraten (There 2,16s, gleichmaessig
+  ueber 2-25s verteilt = falsch). WhisperX trifft automatisch das Fenster, das wir vorher per Ohr als
+  `introLines [[16,21],...]` setzen mussten -> die manuelle Intro-Kalibrierung entfaellt.
+- **Guide `docs/whisperx.md`** geschrieben (fuer die KI-Medien-Guide-Dokumente): was es ist, exakte Installation,
+  Benutzung, Pipeline-Einordnung, Troubleshooting, Protokoll.
+
+**Offen / als Naechstes:**
+1. **Adapter `tools/whisperx-import.js`** bauen: `whisperx-aligned.json` -> unsere `timing.json` (`precise:true`,
+   Wortzeiten `{t,s}`), dann laufen `verify-song.js` + `build-anim.js` unveraendert auf den WhisperX-Zeiten.
+2. Erst danach einen Live-Song (z. B. The Word) auf WhisperX-Timing umstellen - **nach Martens Sichtung**,
+   kein Live-Song wird ungeprueft geaendert.
+3. Regel in den Skill `/neuer-song` aufnehmen: WhisperX installiert -> lokaler Pfad; sonst Cloud + Intro-Regler.
+4. BRANDING.md-Reorg (WhisperX-Abschnitt + Guide zusammenfuehren) - bewusst spaeter.
+
+---
+
+## 2026-06-26 (10): Kurs-Landingpage „The Sower System" gebaut + auf hell/modern neu entworfen (v3)
+
+**Ziel:** Verkaufsseite fuer den Kurs (Monetarisierung). Eigene Produkt-Marke, NICHT spirituell, getrennt
+vom Faith-Kanal. Verkauft **zwei Programme**: Web Player (eigene KI-Songs, mobil, fuer zuhause/Geschenk)
+und YouTube-Kanal + Nebeneinkommen + **KI lernen**. Tonalitaet „If you can feel it, you can sing it."
+
+**Erledigt:**
+- `course/index.html` aufgebaut + in vielen Iterationen mit Marten verfeinert: Power-Sektion (animiertes
+  Claude-Code-Terminal + Pipeline), YouTube-Channel-Mock (History „Echoes of History", Grid-Thumbnails,
+  starker Header), interaktiver **Einkommens-Rechner** (Ads+Affiliate+Mitgliedschaften, konservativ),
+  **Browser-Demo** (Dashboard-Menue → Sower-Player, scroll-getriggert), Tool-Logos + Browser-Logos,
+  „Forget the old ways" (kein Schneiden/Design/Code), Pakete mit Preisen **99/149/199** (Bundle save 49),
+  Zielgruppen-Sektion. Eigener SVG-Icon-Satz statt Emojis. Nischen-Fantasy-Showcase entfernt.
+- **Embed-Modus im Player** (`tools/build-anim.js`): `?embed=1` blendet Songs-Link/X/Letra aus (Booklet
+  geschuetzt), Idee-Button sichtbar. Songs neu gebaut. Hub-Sticky-Bars (oben Promo, unten CTA) eingebaut.
+- **Grosser Neuentwurf v3 = HELL/modern** (auf Martens Feedback „zu dunkel, sieht aus wie immer"):
+  warmes Creme + dunkler Text + Gold, **Hell/Dunkel-Rhythmus** (dunkle cineastische Baender: Demo,
+  Solution, Power, Channel), **neuer Split-Hero mit Phone-Mockup**. Eigenes Light-Theme ueber dem Basis-CSS.
+- **KI-Bilder erzeugt** (`tools/images/generate-image.js`, gemini-3-pro-image) in `course/img/`:
+  `hero2` (goldene Wellen), `harvest`,`path`, Nischen `n-*`, History `h-banner`+`h-*` (6), Zielgruppen `aud-*` (4, warm/hell).
+- `marketing/youtube-description.md` (KI-Offenlegung + Affiliate-Platzhalter). Affiliate-Recherche:
+  Anthropic hat KEIN Einzel-Affiliate; ElevenLabs ist der echte. Siehe Memory [[affiliate-reality]].
+- **Dateien:** `course/v1.html` = Grundlage (unangetastet), `course/v2.html` = `course/index.html` = aktueller
+  heller v3, `course/faith.html` = aelteste Faith-Version. Plan: `~/.claude/plans/structured-wiggling-treehouse.md`.
+
+**Gepusht:** nur EINMAL frueh (`09f6fc0`: erste allgemeine Kurs-Seite + Hub-Bars live). **Der gesamte
+v2/v3-Umbau ist NICHT gepusht** , live ist noch die alte Version. (Cache-Tipp: `file://` cached, frisch via Inkognito.)
+
+**Offen / morgen:**
+1. Martens OK zur **hellen Richtung** (zuletzt offen). Dann Feinschliff.
+2. **Demo-Dashboard** exakt wie sein echtes „Marten's Songs"-Hub stylen (Genre-Chips, „Most loved", Play/Songinterpretation).
+3. **Markenname** entscheiden (`The Sower System` klingt leicht spirituell, evtl. neutraler Produktname).
+4. FAQ-Copy auf neue Positionierung nachziehen, Kontraste final pruefen.
+5. **Vor Launch:** Warteliste-Anbieter (MailerLite), ElevenLabs-Affiliate anmelden, **DSGVO** (Datenschutz+Impressum),
+   eigentlicher Kursinhalt (Skill-Datei + Setup-Videos). Danach commit + push.
+
+---
+
+## 2026-06-26 (9): YouTube-Ranking-Recherche + grosse Doku-/Ordner-Reorg + Projekt-Hygiene
+
+**Erledigt:**
+- **Tiefenrecherche YouTube/Google-Ranking** (4 parallele Agenten): wie Menschen nach Glaube suchen
+  (Gefuehl/Problem, nicht Kuenstler), Autocomplete-/Keyword-Tools, Ranking-Hebel 2026, Prediger-Idee
+  (Recht). Ergebnis: `youtube/reichweite/reichweite-playbook.html` (poliert, Navy/Gold, Kopier-Buttons)
+  + `youtube/reichweite/RECHERCHE-ranking-reichweite.md`.
+- **Echte YouTube-Autosuggest live gezogen** (oeffentlicher ds=yt-Endpoint): 1070 reale Suchvorschlaege,
+  geclustert. Staerkste freie Lane bestaetigt: **zweisprachig EN+ES Karaoke** (Rang 0).
+- **Prediger-Idee (Paul Washer) ehrlich bewertet:** rechtlich riskant ("eigenen Teil dazugetan" schuetzt
+  nicht; bei HeartCry Name/Foto im Thumbnail verboten). Sauberer Weg = Themen + Bibelstellen + Spurgeon
+  (Public Domain). In Memory + Playbook.
+- **Grosses Doku-/Ordner-Aufraeumen (alles nur lokal, nichts an der Live-Seite):**
+  - `marketing/` aufgeloest -> `youtube/description-template.md`.
+  - `YOUTUBE.md` (Root) in den youtube-Ordner geholt + nach Job getrennt: `youtube/brand.md` (Marke) +
+    `youtube/publish-playbook.md` (pro Song veroeffentlichen, inkl. Render-Schritt) + `youtube/README.md`.
+  - `START-HERE.md` als Mensch-Karte erstellt, dann in `README.md` gefaltet (geloescht). README ist jetzt
+    der Mensch-Einstieg: Landkarte (3 Buckets: Engine/Kanal/Kurs) + das festgehaltene Ziel.
+  - `archive/` angelegt: alte Kurs-Seite (faith.html), `the-sower-remastered` (Bauruine, kein song.json),
+    `the-sower/_backup` (Original-mp3).
+- **Senior-Review + 3 Quick-Wins:** `CLAUDE.md` Key files aktualisiert (retime + verify vorn, transcribe =
+  Fallback, externe Tools benannt); **`package.json`** angelegt (Node >=18, keine Deps, npm run
+  build/verify/retime); tote Song-Ordner archiviert -> `songs/` = nur noch 3 echte Songs.
+- **KI-Guide (BRANDING.md):** neuer Abschnitt "Setup & external tools (by design)" - warum package.json
+  zaehlt; **Entscheidung: Bild-Generator + APIs bleiben extern** (nicht ins Repo gevendort, = dokumentierte
+  Voraussetzungen, im Kunden-Video-Guide gezeigt); WhisperX-Status (dokumentiert, noch nicht installiert).
+- **Produkt-Vision festgehalten:** ZWEI getrennte verkaufbare Skills - (1) eigene Songseite/Player,
+  (2) YouTube-Kanal. Kunde bekommt Ordner/ZIP, geht im Chat A-Z durch. `youtube/sower-system/` =
+  benanntes Skelett + `blueprint.md` + neues `modules/00-setup.md` (Node + API-Keys, Video-Guide).
+- **WhisperX erklaert** (lokale Forced-Alignment, perfekte Wort-Sync, entfernt das Intro-Gefummel).
+- **Memories** neu/aktualisiert: `reichweite-playbook`, `product-vision-two-skills`, `youtube-branding`
+  (Pfad -> brand.md), `MEMORY.md`.
+
+**Offen / morgen:**
+1. **WhisperX installieren** (auf Martens OK, ~GB Download) - der naechste Schritt fuer perfekte Wort-Sync.
+2. **Skill 1 (eigene Songseite) scharf machen** - damit Marten 5-7 Songs hintereinander durchziehen kann.
+3. Hauptziel bleibt: mehr Songs hinzufuegen (Marten liefert MP3 + Lyrics + Suno-Style).
+4. Spaeter/optional fuers Kundenpaket: `.env` statt absolutem Key-Pfad; `BRANDING.md` evtl. umbenennen
+   (interne Doku vs. verkaufbarer Guide); `youtube/branding-archiv.html` beim Branding-Durchgang ins archive.
+5. Branding-Mockup laeuft im anderen Fenster (Eintrag 8) - hier nicht angefasst.
+
+**Nicht committet, nicht gepusht** (alles lokal, wartet auf Martens OK).
+
+---
+
 ## 2026-06-26 (8): YouTube-Branding-Mockup + Thumbnail-Pipeline (Golden Oil über fal)
 
 **Erledigt:**
