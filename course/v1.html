@@ -250,7 +250,7 @@ footer.ft{position:relative;z-index:3;border-top:1px solid var(--line);margin-to
 
 /* growth and monetization */
 .grow-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:2.6rem}
-@media(min-width:780px){.grow-stats{grid-template-columns:repeat(4,1fr)}}
+@media(min-width:780px){.grow-stats{grid-template-columns:repeat(5,1fr)}}
 .gstat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:1.4rem 1rem;text-align:center}
 .gstat .num{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(1.8rem,4vw,2.6rem);line-height:1;background:linear-gradient(180deg,#fff,#f3d79a);-webkit-background-clip:text;background-clip:text;color:transparent}
 .gstat .lab{margin-top:.5rem;font-size:.78rem;color:var(--muted);letter-spacing:.02em}
@@ -345,34 +345,11 @@ footer.ft{position:relative;z-index:3;border-top:1px solid var(--line);margin-to
 .browsers .logo:hover{color:var(--gold-bright);opacity:1}
 .browsers .logo svg{width:22px;height:22px;fill:currentColor;display:block}
 
-/* audience image cards */
-.auds{display:grid;gap:1.2rem;margin-top:2.6rem;grid-template-columns:1fr}
-@media(min-width:700px){.auds{grid-template-columns:repeat(2,1fr)}}
-.aud{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line);min-height:240px;display:flex;align-items:flex-end}
-.aud .abg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .45s}
-.aud:hover .abg{transform:scale(1.05)}
-.aud::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,13,24,.05) 30%,rgba(7,13,24,.9))}
-.aud .ac{position:relative;z-index:2;padding:1.4rem 1.5rem}
-.aud .ac .at{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-bright);font-weight:700}
-.aud .ac h3{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.6rem;color:#fff;margin:.2rem 0 .35rem}
-.aud .ac p{color:#dbe6f2;font-size:.9rem;margin:0;max-width:30rem}
-
-/* light section theme: warm cream bands with dark text, to break the all-dark page */
-section.sec-light{position:relative;background:linear-gradient(180deg,#f7f0e3,#efe5d2);color:#2b2823}
-section.sec-light .eyebrow{color:#b07d2a}
-section.sec-light .gold-text{background:none;-webkit-text-fill-color:#241f17;color:#241f17}
-section.sec-light .sec-head p,section.sec-light p{color:#5f574a}
-section.sec-light .sec-badge{background:rgba(202,164,90,.16);border-color:rgba(202,164,90,.55);color:#8a6520}
-section.sec-light .step,section.sec-light .pkg,section.sec-light .tile{background:#fffdf8;border-color:#e7dcc6;color:#2b2823;box-shadow:0 12px 34px rgba(120,90,40,.1)}
-section.sec-light .step .n{color:#c79a3e}
-section.sec-light .step h3,section.sec-light .pkg .pname,section.sec-light .tile h3{color:#241f17}
-section.sec-light .step p,section.sec-light .pkg .pdesc,section.sec-light .pkg li,section.sec-light .tile p{color:#5f574a}
-section.sec-light .pkg li .ck{color:#2f9b5e}
-section.sec-light .pkg .price .amt{color:#241f17}
-section.sec-light .pkg .price .was{color:#a99b80}
-section.sec-light .pkg.best{background:linear-gradient(180deg,#fff8ea,#fffdf8);border-color:rgba(202,164,90,.6)}
-section.sec-light .btn-ghost{color:#241f17;border-color:#cdbfa3;background:rgba(0,0,0,.02)}
-section.sec-light .ic{background:linear-gradient(155deg,rgba(202,164,90,.2),rgba(0,0,0,.02));border-color:rgba(202,164,90,.4)}
+/* warm, gently moving background behind the concept section */
+#concept{position:relative;overflow:hidden}
+#concept::before{content:"";position:absolute;inset:-12%;z-index:0;background:url('img/harvest.png') center/cover;opacity:.18;animation:heroKen 34s ease-in-out infinite alternate}
+#concept::after{content:"";position:absolute;inset:0;z-index:0;background:radial-gradient(110% 90% at 50% 60%,rgba(243,196,108,.07),transparent 60%)}
+#concept .wrap{position:relative;z-index:2}
 
 /* highlighted phrase inside a gold-text heading */
 .earn{-webkit-text-fill-color:#ffe39a;color:#ffe39a;background:none;text-shadow:0 0 26px rgba(243,196,108,.6);white-space:nowrap}
@@ -396,10 +373,7 @@ section.sec-light .ic{background:linear-gradient(155deg,rgba(202,164,90,.2),rgba
 .pkg ul{list-style:none;margin:0 0 1.3rem;padding:0;display:flex;flex-direction:column;gap:.55rem;flex:1}
 .pkg li{display:flex;gap:.5rem;font-size:.88rem;color:#dbe6f2}
 .pkg li .ck{color:#6fe3a0;flex:none}
-.pkg .price{margin-bottom:1rem}
-.pkg .price .amt{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:2.1rem;color:#fff}
-.pkg .price .was{text-decoration:line-through;color:var(--dim);font-size:1.05rem;margin-right:.35rem;font-family:'Cormorant Garamond',serif}
-.pkg .price small{display:block;color:var(--muted);font-size:.74rem;margin-top:.15rem}
+.pkg .price{font-size:.82rem;color:var(--gold-bright);margin-bottom:.9rem;font-weight:600}
 .pkg .btn{width:100%;justify-content:center}
 
 /* works-with logo strip */
@@ -503,119 +477,6 @@ html.js .reveal.in{opacity:1;transform:none}
   .show-media .im.on{opacity:1}
   .reveal{opacity:1!important;transform:none!important}
 }
-
-/* ==================== LIGHT THEME v3 ==================== */
-body{background:#f6f0e3;color:#211d15}
-.field{background:radial-gradient(120% 90% at 50% -8%,#fbf6ec 0%,#f4ebd8 48%,#eee3cf 100%)}
-.aurora{opacity:.55}
-.aurora .a1{background:radial-gradient(closest-side,rgba(200,144,46,.16),transparent 70%)}
-.aurora .a2{background:radial-gradient(closest-side,rgba(212,178,118,.18),transparent 70%)}
-.aurora .a3{background:radial-gradient(closest-side,rgba(232,202,150,.14),transparent 70%)}
-#dots{opacity:.3}
-.gold-text{background:none;-webkit-text-fill-color:#1c1910;color:#1c1910}
-.eyebrow{color:#b07d2a}
-.sec-head p,.lead{color:#5e5647}
-/* nav + promo on light */
-.promo{background:linear-gradient(90deg,rgba(200,144,46,.16),rgba(255,253,248,.55) 62%);border-bottom:1px solid #e7dcc6}
-.promo .in span{color:#3c3526}.promo b{color:#9a6a16}.promo .lk{color:#9a6a16;border-bottom-color:rgba(200,144,46,.5)}
-.nav.solid{background:rgba(250,244,232,.9);backdrop-filter:blur(12px);border-bottom:1px solid #e7dcc6;box-shadow:0 8px 30px rgba(120,90,40,.1)}
-.brand{color:#1c1910}
-.nav-links a{color:#5e5647}.nav-links a:hover{color:#9a6a16}.nav-links a::after{background:#c8902f}
-.btn-ghost{color:#1c1910;background:rgba(0,0,0,.03);border-color:#cdbfa3}
-.btn-ghost:hover{border-color:#c8902f;color:#9a6a16}
-.btn-dark{color:#fff;background:#1d1a13;box-shadow:0 10px 26px rgba(0,0,0,.22)}
-.btn-dark:hover{transform:translateY(-2px);background:#2a2519}
-/* cards / components on light */
-.card,.tile,.step,.gstat,.cs,.quote,.why-card,.pkg{background:#fffdf8;border-color:#ebe1ce;color:#2a2620;box-shadow:0 12px 30px rgba(120,90,40,.08)}
-.card h3,.tile h3,.step h3,.why-card h3,.quote .nm,.pkg .pname{color:#241f17}
-.card p,.tile p,.step p,.why-card p,.quote p,.pkg .pdesc,.pkg li,.cs-lab{color:#5e5647}
-.card .num{color:rgba(200,144,46,.5)}
-.step .n{color:#c8902f}.why-card .k{color:#b07d2a}
-.tile:hover,.card:hover,.step:hover,.pkg:hover{border-color:rgba(200,144,46,.5);box-shadow:0 18px 40px rgba(120,90,40,.14)}
-.tile::after,.card::after{background:radial-gradient(120% 80% at 50% 0%,rgba(200,144,46,.12),transparent 55%)}
-.sec-badge{background:rgba(200,144,46,.14);border-color:rgba(200,144,46,.5);color:#8a6520}
-.gstat .num{background:linear-gradient(180deg,#3a2f1a,#9a6a16);-webkit-background-clip:text;background-clip:text;color:transparent}
-.gstat .lab{color:#5e5647}
-.fast{background:radial-gradient(120% 130% at 50% 0%,rgba(200,144,46,.14),#fffdf8);border-color:rgba(200,144,46,.32)}
-.fast b{color:#241f17}.fast span{color:#5e5647}
-.no{background:#fffdf8;border-color:#ebe1ce;color:#5e5647}
-.who div{background:#fffdf8;border-color:#ebe1ce}
-.who .ck,.pkg li .ck,.cs .ck{color:#2f9b5e}
-/* calculator light */
-.calc{background:radial-gradient(120% 130% at 50% 0%,rgba(200,144,46,.12),#fffdf8);border-color:rgba(200,144,46,.3)}
-.calc-views,.calc-views small{color:#241f17}.calc-views small{color:#7c7468}
-.cs-val{color:#9a6a16}
-.calc-total span{color:#5e5647}.calc-total b{background:linear-gradient(180deg,#3a2f1a,#9a6a16);-webkit-background-clip:text;background-clip:text;color:transparent}
-.calc-note,.grow-note{color:#8a8173}
-.calc input[type=range]{background:linear-gradient(90deg,#c8902f var(--p,50%),rgba(0,0,0,.1) var(--p,50%))}
-/* pricing light */
-.pkg .price .amt{color:#241f17}.pkg .price .was{color:#a99b80}.pkg .price small{color:#7c7468}
-.pkg.best{background:linear-gradient(180deg,#fff7e8,#fffdf8);border-color:rgba(200,144,46,.6)}
-.pkg-flag{color:#1c1910}
-/* faq + waitlist + footer light */
-.faq details{border-bottom-color:#ebe1ce}.faq summary{color:#241f17}.faq summary::after{color:#c8902f}.faq p{color:#5e5647}
-.signup{background:radial-gradient(120% 120% at 50% 0%,rgba(200,144,46,.14),#fffdf8 60%);border-color:rgba(200,144,46,.32)}
-.form input{background:#fff;border-color:#d8ccb2;color:#241f17}.form input::placeholder{color:#a99b80}
-.formnote{color:#8a8173}.perks{color:#5e5647}
-footer.ft{background:#efe6d3;border-top-color:#e7dcc6}
-.ft-grid h4{color:#b07d2a}.ft-grid a{color:#5e5647}.ft-grid a:hover{color:#9a6a16}
-.ft-brand p{color:#7c7468}.ft-bottom{color:#9a9182;border-top-color:#e7dcc6}
-.builtwith b{color:#5e5647}
-/* logos on light */
-.hero-logos .logo,.browsers .logo,.logo{color:#8a8071}
-.hero-logos .logo:hover,.browsers .logo:hover{color:#9a6a16}
-.hero-logos .hl-lab,.browsers .bl-lab{color:#8a8071}
-/* marquee on light */
-.marquee{background:rgba(255,253,248,.5);border-color:#e7dcc6}
-.mrow .it{color:#4a4234}.mrow .it::after{color:#c8902f}
-/* scrolldown */
-.scrolldown{color:#8a8071}.scrolldown::after{background:linear-gradient(180deg,#c8902f,transparent)}
-
-/* ---- DARK cinematic bands keep the dark look ---- */
-section.dark{background:#0b1322;color:#eaf0f7;position:relative;z-index:3}
-section.dark .gold-text{background:linear-gradient(180deg,#fff,#f3d79a);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
-section.dark .eyebrow{color:#caa45a}
-section.dark .sec-head p,section.dark .lead{color:#9fb0c6}
-section.dark .sec-badge{background:rgba(243,196,108,.1);border-color:rgba(243,196,108,.4);color:#ffe39a}
-section.dark .btn-ghost{color:#eaf0f7;background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.18)}
-section.dark .step,section.dark .tile,section.dark .card{background:rgba(255,255,255,.045);border-color:rgba(255,255,255,.09);color:#eaf0f7}
-section.dark .step h3,section.dark .tile h3{color:#fff}
-section.dark .step p,section.dark .tile p,section.dark .who div{color:#9fb0c6}
-
-/* ============ NEW LIGHT SPLIT HERO ============ */
-.hero{min-height:auto;padding:7.5rem 0 4.5rem;background:linear-gradient(180deg,#fbf6ec,#f3ead7);overflow:hidden}
-.hero-bg,.hero-veil{display:none}
-.hero .wrap{text-align:left}
-.h-grid{display:grid;gap:2.6rem;align-items:center}
-@media(min-width:920px){.h-grid{grid-template-columns:1.05fr .95fr}}
-.h-eye{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:#b07d2a;font-weight:700}
-.h-title{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(2.6rem,5.4vw,4.6rem);line-height:1.02;color:#1c1910;margin:.7rem 0 0;letter-spacing:-.01em}
-.h-title .am{color:#c8902f}
-.h-sub{color:#5e5647;font-size:1.15rem;max-width:33rem;margin:1.3rem 0 0}
-.h-cta{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1.9rem}
-.h-trust{margin-top:1.1rem;font-size:.82rem;color:#8a8071}
-.h-logos{display:flex;align-items:center;gap:.5rem 1.1rem;flex-wrap:wrap;margin-top:1.8rem}
-.h-logos .hl-lab{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:#a99b80;margin-right:.1rem}
-.h-logos .logo{color:#8a8071;transition:color .2s,transform .2s}.h-logos .logo:hover{color:#9a6a16;transform:translateY(-2px)}
-.h-logos .logo svg{width:22px;height:22px;fill:currentColor;display:block}
-/* phone mockup */
-.h-visual{position:relative;display:flex;justify-content:center;align-items:center}
-.h-glow{position:absolute;width:90%;height:80%;background:radial-gradient(closest-side,rgba(200,144,46,.28),transparent 70%);filter:blur(40px);z-index:0}
-.phone{position:relative;z-index:2;width:270px;max-width:78vw;aspect-ratio:9/19;border-radius:34px;background:#0c1018;border:2px solid #221c12;box-shadow:0 30px 70px rgba(80,60,20,.35),0 0 0 8px rgba(255,255,255,.6);overflow:hidden;transform:rotate(2deg)}
-.phone::before{content:"";position:absolute;top:10px;left:50%;transform:translateX(-50%);width:90px;height:18px;border-radius:0 0 12px 12px;background:#0c1018;z-index:5}
-.phone-scr{position:absolute;inset:0;background-size:cover;background-position:center;display:flex;flex-direction:column;justify-content:flex-end;padding:1.1rem}
-.phone-scr::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,13,24,.15) 30%,rgba(7,13,24,.86))}
-.ps-top{position:absolute;top:2.1rem;left:1.1rem;right:1.1rem;z-index:2;text-align:center;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.5rem;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.5)}
-.ps-kar{position:relative;z-index:2;font-family:'Cormorant Garamond',serif;font-size:1.15rem;line-height:1.5;margin-bottom:.9rem}
-.ps-kar span{color:rgba(255,255,255,.45);transition:color .3s}
-.ps-kar span.on{color:#ffe6a6;text-shadow:0 0 14px rgba(243,196,108,.5)}
-.ps-ctrl{position:relative;z-index:2;display:flex;align-items:center;gap:.6rem}
-.ps-play{width:34px;height:34px;border-radius:50%;background:linear-gradient(180deg,#ffe7ad,#e9b85c);color:#0c1626;display:flex;align-items:center;justify-content:center;font-size:.8rem;flex:none}
-.ps-bar{flex:1;height:4px;border-radius:99px;background:rgba(255,255,255,.25);overflow:hidden}
-.ps-bar i{display:block;height:100%;width:42%;background:linear-gradient(90deg,#ffe7ad,#e9b85c)}
-@media(max-width:920px){.h-grid{text-align:center}.hero .wrap{text-align:center}.h-sub{margin-left:auto;margin-right:auto}.h-cta,.h-logos{justify-content:center}.h-visual{order:-1}}
-
-@media(prefers-reduced-motion:reduce){.phone{transform:none}}
 </style>
 </head>
 <body>
@@ -670,51 +531,39 @@ section.dark .step p,section.dark .tile p,section.dark .who div{color:#9fb0c6}
       The Sower System
     </a>
     <div class="nav-links">
-      <a href="#demo">Demo</a>
+      <a href="#niches">Any niche</a>
       <a href="#how">How it works</a>
       <a href="#channel">Your channel</a>
-      <a href="#packages">Pricing</a>
+      <a href="#inside">What's inside</a>
       <a href="#faq">FAQ</a>
     </div>
-    <a class="btn btn-gold btn-sm" href="#packages">Get the system</a>
+    <a class="btn btn-gold btn-sm" href="#waitlist">Join the waitlist</a>
   </div>
 </nav>
 
 <header class="hero" id="top">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-veil"></div>
   <div class="wrap">
-    <div class="h-grid">
-      <div class="h-text">
-        <div class="h-eye">The course &middot; build it with AI</div>
-        <h1 class="h-title">Build your own AI music channel <span class="am">&amp;</span> web player.</h1>
-        <p class="h-sub">Create AI songs about anything, turn them into your own animated player for home and on the go, and grow a YouTube channel that earns. No editing, no design, no code.</p>
-        <div class="h-cta">
-          <a class="btn btn-gold" href="#packages">Get the system</a>
-          <a class="btn btn-dark" href="#demo">Watch the demo &rarr;</a>
-        </div>
-        <div class="h-trust">One-time payment &middot; lifetime access &middot; learn AI by building</div>
-        <div class="h-logos">
-          <span class="hl-lab">Works with</span>
-          <span class="logo"><svg><use href="#lg-claude"/></svg></span>
-          <span class="logo"><svg><use href="#lg-openai"/></svg></span>
-          <span class="logo"><svg><use href="#lg-suno"/></svg></span>
-          <span class="logo"><svg><use href="#lg-gemini"/></svg></span>
-          <span class="logo"><svg><use href="#lg-eleven"/></svg></span>
-          <span class="logo"><svg><use href="#lg-youtube"/></svg></span>
-        </div>
-      </div>
-      <div class="h-visual">
-        <div class="h-glow"></div>
-        <div class="phone">
-          <div class="phone-scr" style="background-image:url('img/n-create.png')">
-            <div class="ps-top">Your Song</div>
-            <div class="ps-kar" id="psKar"><span>And</span> <span>every</span> <span>word</span> <span>you</span> <span>sing</span> <span>becomes</span> <span>a</span> <span>light</span></div>
-            <div class="ps-ctrl"><span class="ps-play">&#9654;</span><span class="ps-bar"><i></i></span></div>
-          </div>
-        </div>
-      </div>
+    <div class="eyebrow">AI songs that sound too good to be true</div>
+    <h1>You have never been able to launch an animated channel this fast.</h1>
+    <p class="sub">Build your own animated web player and create songs, lyrics and melodies you love in just a few clicks, then <span class="rot" data-words="share them with the world|grow a YouTube channel|give them as a gift|build a second income"><span class="w">share them with the world</span></span>.</p>
+    <div class="cta">
+      <a class="btn btn-gold" href="#waitlist">Join the waitlist</a>
+      <a class="btn btn-ghost" href="#demo">Watch the demo &rarr;</a>
+    </div>
+    <div class="micro">Pre-launch. Free to join the list. No spam, just the launch.</div>
+    <div class="hero-logos">
+      <span class="hl-lab">Works with</span>
+      <span class="logo"><svg><use href="#lg-claude"/></svg></span>
+      <span class="logo"><svg><use href="#lg-openai"/></svg></span>
+      <span class="logo"><svg><use href="#lg-suno"/></svg></span>
+      <span class="logo"><svg><use href="#lg-gemini"/></svg></span>
+      <span class="logo"><svg><use href="#lg-eleven"/></svg></span>
+      <span class="logo"><svg><use href="#lg-youtube"/></svg></span>
     </div>
   </div>
-  <a class="scrolldown" href="#concept">Scroll</a>
+  <a class="scrolldown" href="#niches">Scroll</a>
 </header>
 
 <!-- concept -->
@@ -723,7 +572,7 @@ section.dark .step p,section.dark .tile p,section.dark .who div{color:#9fb0c6}
     <div class="sec-head center reveal">
       <div class="eyebrow">The concept</div>
       <h2 class="gold-text">Turn <span class="rot" data-words="any idea|a memory|a love story|your lessons|a whole world"><span class="w">any idea</span></span> into a song the world remembers <span class="earn">- and earn money with it.</span></h2>
-      <p class="mx">If you can feel it, you can sing it. Bring an idea, a memory or a moment, and in a few clicks the system writes the lyrics, composes a melody you love and animates a finished video. Keep it in your own web player at home and on the go, or build a YouTube channel and a second income around it.</p>
+      <p class="mx">Bring an idea, a memory or a moment. In a few clicks the system writes the lyrics, composes a melody you love, paints the visuals and animates it into a finished, bilingual music video. Share it with the people you love, or build a whole YouTube channel and a second income around it.</p>
     </div>
   </div>
 </section>
@@ -732,6 +581,27 @@ section.dark .step p,section.dark .tile p,section.dark .who div{color:#9fb0c6}
 <div class="marquee" aria-hidden="true">
   <div class="mrow" id="mrowA"></div>
 </div>
+
+<!-- showcase: any idea becomes a song -->
+<section id="niches">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">One system, every niche</div>
+      <h2 class="gold-text">If you can feel it, you can sing it</h2>
+      <p>This is the whole point. The system does not care what your topic is. Travel, love, learning, fantasy, your own imagination. You bring the idea, it builds the video.</p>
+    </div>
+    <div class="show reveal">
+      <div class="show-media" id="showMedia"></div>
+      <div class="show-panel">
+        <div class="tabs" id="tabs"></div>
+        <div class="st">
+          <h3 id="stTitle"></h3>
+          <p id="stText"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- differentiator -->
 <section id="more">
@@ -756,7 +626,7 @@ section.dark .step p,section.dark .tile p,section.dark .who div{color:#9fb0c6}
 </section>
 
 <!-- live demo -->
-<section id="demo" class="dark">
+<section id="demo">
   <div class="wrap">
     <div class="sec-head center reveal">
       <div class="eyebrow">See it live</div>
@@ -800,7 +670,7 @@ section.dark .step p,section.dark .tile p,section.dark .who div{color:#9fb0c6}
 </section>
 
 <!-- solution -->
-<section id="solution" class="dark">
+<section id="solution">
   <div class="wrap">
     <div class="band reveal">
       <div class="bg" id="bandBg"></div>
@@ -838,7 +708,7 @@ section.dark .step p,section.dark .tile p,section.dark .who div{color:#9fb0c6}
 </section>
 
 <!-- power / claude code -->
-<section id="power" class="dark">
+<section id="power">
   <div class="wrap">
     <div class="sec-head center reveal">
       <div class="eyebrow">Powered by Claude Code</div>
@@ -896,7 +766,7 @@ section.dark .step p,section.dark .tile p,section.dark .who div{color:#9fb0c6}
 </section>
 
 <!-- youtube channel -->
-<section id="channel" class="yt dark">
+<section id="channel" class="yt">
   <div class="wrap">
     <div class="sec-head center reveal">
       <div class="sec-badge">A complete system, not just a video</div>
@@ -943,10 +813,11 @@ section.dark .step p,section.dark .tile p,section.dark .who div{color:#9fb0c6}
       <p class="mx">Set the system up once and it keeps launching videos for you, all built with Claude. A real side income that can grow while you sleep, in any niche, with a YouTube growth and monetization strategy included in the course.</p>
     </div>
     <div class="grow-stats reveal">
-      <div class="gstat"><div class="num" data-to="8">0</div><div class="lab">videos a month, comfortably</div></div>
+      <div class="gstat"><div class="num" data-to="28">0</div><div class="lab">videos a month, auto-published</div></div>
+      <div class="gstat"><div class="num" data-to="240" data-suffix="K">0</div><div class="lab">monthly views</div></div>
+      <div class="gstat"><div class="num" data-to="12.4" data-suffix="K" data-dec="1">0</div><div class="lab">subscribers</div></div>
+      <div class="gstat"><div class="num" data-prefix="&euro;" data-to="1850">0</div><div class="lab">est. monthly income</div></div>
       <div class="gstat"><div class="num" data-to="2" data-suffix="h">0</div><div class="lab">of your time a week</div></div>
-      <div class="gstat"><div class="num" data-to="20" data-suffix=" min">0</div><div class="lab">from idea to finished video</div></div>
-      <div class="gstat"><div class="num" data-to="0">0</div><div class="lab">editing, design or code</div></div>
     </div>
     <div class="calc reveal">
       <div class="calc-top">
@@ -1008,19 +879,18 @@ section.dark .step p,section.dark .tile p,section.dark .who div{color:#9fb0c6}
   </div>
 </section>
 
-<!-- audiences -->
-<section id="audiences">
+<!-- who -->
+<section id="who">
   <div class="wrap">
-    <div class="sec-head center reveal">
-      <div class="eyebrow">Who it is for</div>
-      <h2 class="gold-text">Built for anyone with something to say</h2>
-      <p class="mx">You do not need to sing, edit, design or code. If you can describe it, the system builds it.</p>
+    <div class="sec-head reveal">
+      <div class="eyebrow">Made for you</div>
+      <h2 class="gold-text">Who this is for</h2>
     </div>
-    <div class="auds reveal">
-      <div class="aud"><div class="abg" style="background-image:url('img/aud-creator.png')"></div><div class="ac"><div class="at">Side-income creators</div><h3>Start a channel that earns</h3><p>Build a monetized YouTube channel in any niche, in one or two hours a week, with no prior skills.</p></div></div>
-      <div class="aud"><div class="abg" style="background-image:url('img/aud-music.png')"></div><div class="ac"><div class="at">Musicians and writers</div><h3>Finally get your songs out</h3><p>Turn the songs and ideas in your head into finished, animated videos people actually watch.</p></div></div>
-      <div class="aud"><div class="abg" style="background-image:url('img/aud-family.png')"></div><div class="ac"><div class="at">Gifts and family</div><h3>A song for the people you love</h3><p>Make a personal song and player for a birthday, a wedding or a memory, at home and on the go.</p></div></div>
-      <div class="aud"><div class="abg" style="background-image:url('img/aud-learn.png')"></div><div class="ac"><div class="at">AI learners</div><h3>Learn to build with AI</h3><p>Pick up real, hands-on AI skills by building something complex and beautiful from start to finish.</p></div></div>
+    <div class="who reveal">
+      <div><span class="ck">&check;</span> Creators and storytellers who want reach without a studio or a film crew.</div>
+      <div><span class="ck">&check;</span> Musicians and songwriters sitting on songs nobody has heard yet.</div>
+      <div><span class="ck">&check;</span> Teachers and coaches who want their message to actually stick.</div>
+      <div><span class="ck">&check;</span> Beginners who want a finished channel, not a hard drive full of tutorials.</div>
     </div>
   </div>
 </section>
@@ -1062,50 +932,50 @@ section.dark .step p,section.dark .tile p,section.dark .who div{color:#9fb0c6}
 <section id="packages">
   <div class="wrap">
     <div class="sec-head center reveal">
-      <div class="eyebrow">Pricing</div>
-      <h2 class="gold-text">Two programs. Take one, or take both.</h2>
-      <p class="mx">Get the web player, the YouTube channel, or both as a bundle and save. One-time payment, lifetime access, free updates. Learn to build it all with AI.</p>
+      <div class="eyebrow">Pick your path</div>
+      <h2 class="gold-text">Two skills. Take one, or take everything.</h2>
+      <p class="mx">Learn just the part you need, or get the complete plug-and-play system. Founding members on the waitlist lock the best price we will ever offer.</p>
     </div>
     <div class="pkgs reveal">
       <div class="pkg">
-        <div class="ptag">Program one</div>
-        <div class="pname">The Web Player</div>
-        <div class="pdesc">Create AI songs about anything and build your own animated player, on desktop and mobile. Your personal playlist, or a gift for the people you love.</div>
+        <div class="ptag">Skill one</div>
+        <div class="pname">The Player</div>
+        <div class="pdesc">Create AI songs, lyrics and melodies, then turn them into your own animated, bilingual web and HTML player.</div>
         <ul>
-          <li><span class="ck">&check;</span> Create AI songs, lyrics and melodies</li>
-          <li><span class="ck">&check;</span> Your own animated player, works on mobile</li>
-          <li><span class="ck">&check;</span> Bilingual, word by word, your branding</li>
-          <li><span class="ck">&check;</span> For home, on the go, or as a gift</li>
+          <li><span class="ck">&check;</span> AI songs, lyrics and melodies you love</li>
+          <li><span class="ck">&check;</span> Your own animated web / HTML player</li>
+          <li><span class="ck">&check;</span> Bilingual, word by word, fully on brand</li>
+          <li><span class="ck">&check;</span> Perfect to share, to gift, or to sell</li>
         </ul>
-        <div class="price"><span class="amt">&euro;99</span> <small>one-time, lifetime access</small></div>
-        <a class="btn btn-ghost" href="#waitlist">Get The Web Player</a>
+        <div class="price">Founding price at launch</div>
+        <a class="btn btn-ghost" href="#waitlist">Join the waitlist</a>
       </div>
       <div class="pkg best">
-        <div class="pkg-flag">Best value &middot; save &euro;49</div>
-        <div class="ptag">Both programs</div>
+        <div class="pkg-flag">Best value</div>
+        <div class="ptag">Both skills</div>
         <div class="pname">Everything</div>
-        <div class="pdesc">The complete system. Make the songs and the player, build the whole monetized YouTube channel, and learn to do it all with AI.</div>
+        <div class="pdesc">The complete system. Make the songs and the player, and build the whole monetized YouTube channel around them.</div>
         <ul>
-          <li><span class="ck">&check;</span> Everything in The Web Player</li>
-          <li><span class="ck">&check;</span> Everything in The YouTube Channel</li>
-          <li><span class="ck">&check;</span> Learn to build complex things with AI</li>
+          <li><span class="ck">&check;</span> Everything in The Player</li>
+          <li><span class="ck">&check;</span> Everything in The Channel</li>
+          <li><span class="ck">&check;</span> One click from idea to finished video</li>
           <li><span class="ck">&check;</span> The fastest path to a real side income</li>
         </ul>
-        <div class="price"><span class="was">&euro;248</span> <span class="amt">&euro;199</span> <small>one-time, lifetime access</small></div>
-        <a class="btn btn-gold" href="#waitlist">Get Everything</a>
+        <div class="price">Best founding price at launch</div>
+        <a class="btn btn-gold" href="#waitlist">Join the waitlist</a>
       </div>
       <div class="pkg">
-        <div class="ptag">Program two</div>
-        <div class="pname">The YouTube Channel</div>
-        <div class="pdesc">Turn it into a monetized YouTube channel, and learn to use AI for real along the way: research, branding, content plan, automation.</div>
+        <div class="ptag">Skill two</div>
+        <div class="pname">The Channel</div>
+        <div class="pdesc">Turn it into a YouTube channel: research, branding, thumbnails, a content plan, monetization and automation.</div>
         <ul>
-          <li><span class="ck">&check;</span> Niche research and channel branding</li>
-          <li><span class="ck">&check;</span> Thumbnails, titles, SEO and a content plan</li>
+          <li><span class="ck">&check;</span> Deep research and niche selection</li>
+          <li><span class="ck">&check;</span> Logo, channel art and thumbnails</li>
+          <li><span class="ck">&check;</span> Content plan, SEO and descriptions</li>
           <li><span class="ck">&check;</span> Growth, monetization and automation</li>
-          <li><span class="ck">&check;</span> Learn to use AI to build complex systems</li>
         </ul>
-        <div class="price"><span class="amt">&euro;149</span> <small>one-time, lifetime access</small></div>
-        <a class="btn btn-ghost" href="#waitlist">Get The YouTube Channel</a>
+        <div class="price">Founding price at launch</div>
+        <a class="btn btn-ghost" href="#waitlist">Join the waitlist</a>
       </div>
     </div>
   </div>
@@ -1167,12 +1037,12 @@ section.dark .step p,section.dark .tile p,section.dark .who div{color:#9fb0c6}
 <!-- final -->
 <section class="final">
   <div class="wrap reveal">
-    <div class="eyebrow">Ready when you are</div>
-    <h2 class="gold-text" style="margin-top:.5rem">Your songs. Your channel.<br>Starting this week.</h2>
-    <div class="kicker" style="margin-top:1rem">From any idea to a channel that earns.</div>
+    <div class="eyebrow">The fields are ready</div>
+    <h2 class="gold-text" style="margin-top:.5rem">The world is waiting<br>for your songs.</h2>
+    <div class="kicker" style="margin-top:1rem">Scatter the seed. Reap the channel.</div>
     <div class="cta" style="display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin-top:2rem">
-      <a class="btn btn-gold" href="#packages">Get the system</a>
-      <a class="btn btn-ghost" href="#demo">Watch the demo &rarr;</a>
+      <a class="btn btn-gold" href="#waitlist">Join the waitlist</a>
+      <a class="btn btn-ghost" href="../index.html">See it live &rarr;</a>
     </div>
   </div>
 </section>
@@ -1182,22 +1052,23 @@ section.dark .step p,section.dark .tile p,section.dark .who div{color:#9fb0c6}
     <div class="ft-grid">
       <div class="ft-brand">
         <div class="serif gold-text">The Sower System</div>
-        <span class="kicker">From any idea to a channel that earns.</span>
-        <p>Learn to create AI songs, build your own animated web player, and grow a monetized YouTube channel, in any niche.</p>
+        <span class="kicker">Scatter the seed. Reap the channel.</span>
+        <p>The plug-and-play system to turn any idea into a cinematic music video and grow a YouTube channel in any niche.</p>
       </div>
       <div>
-        <h4>The course</h4>
+        <h4>The system</h4>
+        <a href="#niches">Any niche</a>
         <a href="#how">How it works</a>
-        <a href="#channel">Your channel</a>
-        <a href="#packages">Pricing</a>
+        <a href="#inside">What's inside</a>
         <a href="#faq">FAQ</a>
+        <a href="#waitlist">Join the waitlist</a>
       </div>
       <div>
-        <h4>Try it</h4>
-        <a href="#demo">Live demo</a>
-        <a href="#audiences">Who it is for</a>
-        <a href="#grow">Income calculator</a>
-        <a href="#packages">Get the system</a>
+        <h4>See it live</h4>
+        <a href="../index.html">The dashboard</a>
+        <a href="../songs/the-sower/index.html?play=1">The Sower</a>
+        <a href="../songs/mustard-seed/index.html?play=1">Mustard Seed</a>
+        <a href="../songs/the-word-that-found-me/index.html?play=1">The Word That Found Me</a>
       </div>
     </div>
     <div class="ft-bottom">
@@ -1249,6 +1120,39 @@ var REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
   var items=['Travel','Love & Relationships','Learning','Fantasy','Kids','History','Mindfulness','Healing','Memories','Brand Stories','Poetry','Nature','Motivation','Language Learning'];
   function fill(el){var h='';for(var k=0;k<2;k++){items.forEach(function(t){h+='<span class="it">'+t+'</span>';});}el.innerHTML=h;}
   fill(document.getElementById('mrowA'));
+})();
+
+/* niche showcase */
+(function(){
+  var data=[
+    {key:'Travel',img:'img/n-travel.png',title:'A journey you never want to forget',text:'That summer abroad. The places, the people, the feeling. Pour it into one song and give every traveler who finds it the same shiver you had.'},
+    {key:'Love',img:'img/n-love.png',title:'The wisdom of a real relationship',text:'How you met. What kept you together. Turn it into a song that teaches people to listen, to be kind, to stay. A message that outlives a thousand posts.'},
+    {key:'Learning',img:'img/n-learn.png',title:'Knowledge that actually sticks',text:'Hard things are easier to remember when they rhyme. Turn study material or one big idea into a song people finish, and remember long after.'},
+    {key:'Fantasy',img:'img/n-fantasy.png',title:'Build a whole world',text:'Dragons, heroes, places that never existed. A saga people come back to, episode after episode, a universe that is unmistakably yours.'},
+    {key:'Imagination',img:'img/n-create.png',title:'Anything you can picture',text:'If you can imagine it, you can release it. The only real limit is the world inside your head, and now it has a way out.'}
+  ];
+  var tabs=document.getElementById('tabs'),media=document.getElementById('showMedia'),
+      tEl=document.getElementById('stTitle'),pEl=document.getElementById('stText');
+  data.forEach(function(d,idx){
+    var b=document.createElement('button');b.className='tab'+(idx===0?' on':'');b.textContent=d.key;
+    b.onclick=function(){go(idx,true);};tabs.appendChild(b);
+    var im=document.createElement('div');im.className='im'+(idx===0?' on':'');im.style.backgroundImage="url('"+d.img+"')";media.appendChild(im);
+  });
+  var cap=document.createElement('div');cap.className='cap';media.appendChild(cap);
+  var ims=media.querySelectorAll('.im'),btns=tabs.querySelectorAll('.tab'),cur=0,timer;
+  function go(idx,manual){
+    cur=idx;
+    btns.forEach(function(b,i){b.classList.toggle('on',i===idx);});
+    ims.forEach(function(m,i){m.classList.toggle('on',i===idx);});
+    var d=data[idx];cap.textContent=d.key;
+    pEl.style.opacity=0;
+    setTimeout(function(){tEl.textContent=d.title;pEl.textContent=d.text;pEl.style.opacity=1;},220);
+    if(manual){clearInterval(timer);start();}
+  }
+  function start(){if(REDUCED)return;timer=setInterval(function(){go((cur+1)%data.length);},5000);}
+  go(0);start();
+  media.addEventListener('mouseenter',function(){clearInterval(timer);});
+  media.addEventListener('mouseleave',start);
 })();
 
 /* karaoke demo loop */
@@ -1358,9 +1262,9 @@ var REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
   function eur(v){return '€'+Math.round(v).toLocaleString('en-US');}
   function upd(){
     var v=+r.value;
-    var a=v/1000*1.8;   // YouTube ad revenue, conservative ~1.8 EUR RPM
-    var f=v/1000*0.8;   // affiliate income, only a small share of viewers click and convert
-    var o=v/1000*0.6;   // memberships, tips and the occasional sponsor
+    var a=v/1000*3.0;   // YouTube ad revenue, ~3 EUR per 1000 views
+    var f=v/1000*2.4;   // affiliate income from the tools you recommend
+    var o=v/1000*1.4;   // memberships, sponsors and more
     V.textContent=n(v);ads.textContent=eur(a);aff.textContent=eur(f);oth.textContent=eur(o);tot.textContent=eur(a+f+o);
     var pct=(v-r.min)/(r.max-r.min)*100;r.style.setProperty('--p',pct+'%');
   }
@@ -1376,15 +1280,7 @@ var REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
     var io=new IntersectionObserver(function(es){if(es[0].isIntersecting){go();io.disconnect();}},{threshold:.4});
     io.observe(m);
   } else go();
-})();
-
-/* hero phone karaoke */
-(function(){
-  var box=document.getElementById('psKar');if(!box)return;
-  var ws=[].slice.call(box.querySelectorAll('span'));
-  if(REDUCED){ws.forEach(function(w){w.classList.add('on');});return;}
-  var i=0;
-  setInterval(function(){ws.forEach(function(w,k){w.classList.toggle('on',k<=i);});i=(i+1)%(ws.length+2);},430);
+  setTimeout(go,12000); /* safety: never leave the menu stuck if the observer does not fire */
 })();
 
 /* scroll reveal, robust: works without GSAP, never leaves content hidden */
