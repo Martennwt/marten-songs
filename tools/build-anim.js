@@ -177,7 +177,7 @@ function songCSS() {
     '.about-btn:hover{transform:translateY(-1px);background:linear-gradient(180deg,rgba(255,231,173,.28),rgba(233,184,92,.2));border-color:rgba(243,196,108,.85)}',
     '.about-btn .spark{color:#ffd87a}',
     /* embed/demo mode: hide links to the hub and the full booklet (idea panel + full lyrics) */
-    'html.embed #home,html.embed .gate-x,html.embed #aboutBtn,html.embed #lyricsBtn{display:none!important}',
+    'html.embed #home,html.embed .gate-x,html.embed #lyricsBtn{display:none!important}',
     /* countdown ring before the singing starts */
     '#countdown{position:fixed;top:66px;left:50%;transform:translateX(-50%);z-index:40;width:64px;height:64px;display:grid;place-items:center}',
     '#countdown[hidden]{display:none}',

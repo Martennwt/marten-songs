@@ -1,0 +1,18 @@
+{
+  "name": "martens-songs",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Bilingual karaoke Bible-song site: English lyrics light up word by word, ES/DE translation underneath, painted backgrounds, idea-behind-the-song panel. Static site + Node build scripts.",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "node tools/build-anim.js --all",
+    "song": "node tools/build-anim.js",
+    "retime": "node tools/retime.js",
+    "verify": "node tools/verify-song.js"
+  },
+  "comment": "No npm dependencies on purpose (only Node built-ins + global fetch, needs Node >=18). External tools and APIs (image generator, OpenAI/Whisper, ElevenLabs, Gemini) live outside this repo by design, see BRANDING.md. Per-song commands take an id, e.g. `npm run verify -- the-sower` or `node tools/build-anim.js the-sower`.",
+  "license": "UNLICENSED"
+}

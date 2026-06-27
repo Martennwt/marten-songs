@@ -61,6 +61,7 @@ the-sower-system/                 <- DAS ist der Ordner, den der Kunde hochlädt
   profile/
     profile.md                    wird pro Person gefüllt (Name, Nische, Marke, Fortschritt)
   modules/
+    00-setup.md                   Node + API-Keys (OpenAI/ElevenLabs/Gemini) + Bild-Generator (Video-Guide)
     01-onboarding.md              wer bist du, Interessen, Hobbys
     02-niche.md                   Nischen- + Konkurrenz-Recherche (nutzt das SEO-Playbook)
     03-branding.md                Kanalname, Logo, Banner (richtige Größe), Fonts, Beschreibung,

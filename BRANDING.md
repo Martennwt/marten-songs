@@ -10,6 +10,26 @@ translation (ES/DE) sits underneath, atmospheric painted backgrounds drift behin
 and an "idea behind the song" panel can be read or listened to. Live:
 https://martennwt.github.io/marten-songs/
 
+## Setup & external tools (by design)
+- **Run it:** Node **>= 18** (the scripts use the built-in `fetch`), **no npm dependencies**. `package.json`
+  declares the version + scripts: `npm run build` (all songs + hub), and per-song `npm run verify -- <id>`,
+  `npm run retime -- <id>`, `npm run song -- <id>`. Commands also run directly: `node tools/build-anim.js <id>`.
+- **Why package.json matters (even with zero deps):** it is the project's "front door". It pins the required
+  Node version (`fetch` breaks on Node < 18, a silent trap otherwise), gives one obvious place to run the
+  build (`npm run build`), and makes the folder **self-describing and clonable** — essential for the goal of
+  selling it as a drop-in ZIP. Without it a new person (or a buyer) has to reverse-engineer how to start.
+- **External tools & APIs are intentionally NOT bundled in this repo (decision).** They stay our external
+  tools/APIs: the **image generator** lives in the shared `Documents/Claude/tools/images/generate-image.js`,
+  the **song read-aloud** helper likewise, and the **APIs** (OpenAI/Whisper for timing, ElevenLabs for
+  narration, Gemini / Nano Banana Pro for images) are external services. Keys live in
+  `Documents/Claude/API keys/` and are read by the scripts, never hardcoded. For the **sellable product**
+  these become **documented prerequisites the buyer sets up** (their own API keys + the generator), not files
+  we ship. The **customer video guide** walks this step by step (create the accounts, copy each API key,
+  paste it in). Keep this boundary clean; do not try to vendor them into the repo.
+- **WhisperX (local forced alignment): documented below, but NOT yet installed.** Marten intends to install
+  it as a separate step for perfect word-sync on soft vocals. Until then the cloud Whisper path (`retime.js`)
+  + the intro knobs are used. (Step-by-step in "Forced alignment with WhisperX" below; ask before the ~GB install.)
+
 ## Visual identity
 - **Mood:** reverent, cinematic, warm. Deep night-blue with gold light. Quiet, not flashy.
 - **Colors:**
