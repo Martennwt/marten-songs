@@ -26,9 +26,13 @@ https://martennwt.github.io/marten-songs/
   these become **documented prerequisites the buyer sets up** (their own API keys + the generator), not files
   we ship. The **customer video guide** walks this step by step (create the accounts, copy each API key,
   paste it in). Keep this boundary clean; do not try to vendor them into the repo.
-- **WhisperX (local forced alignment): documented below, but NOT yet installed.** Marten intends to install
-  it as a separate step for perfect word-sync on soft vocals. Until then the cloud Whisper path (`retime.js`)
-  + the intro knobs are used. (Step-by-step in "Forced alignment with WhisperX" below; ask before the ~GB install.)
+- **WhisperX (local forced alignment) is INSTALLED and is now the DEFAULT timing path (2026-06-27).** Songs are
+  timed 100% locally, no cloud: `tools/whisperx-align.py` (local voice pre-scan + forced alignment) ->
+  `tools/whisperx-import.js` -> `timing.json`. The OpenAI cloud path (`retime.js`) is kept only as a dormant
+  fallback. Setup + how-to in `docs/whisperx.md`; pipeline detail in "Forced alignment with WhisperX" below.
+  **Key fix (do not lose this):** the local voice pre-scan finds where the singing actually starts/stops, so an
+  instrumental/soft intro no longer makes the gold light up too early. Without it WhisperX glued the first words
+  onto the intro (e.g. The Sower Remastered: vocals at ~10s, else gold from 0.9s). Auto, per song.
 
 ## Visual identity
 - **Mood:** reverent, cinematic, warm. Deep night-blue with gold light. Quiet, not flashy.
@@ -136,7 +140,20 @@ json.dump(aligned, open("aligned.json","w"))    # aligned["word_segments"] = exa
 5. In the skill, the rule becomes: **if WhisperX is installed, use it; else fall back to OpenAI Whisper + the
    intro knobs.** (`retime.js` stays the cloud path; `whisperx-import.js` is the local forced-alignment path.)
 
-> Note: this is documented, NOT yet installed in this repo. Ask Marten before running the install (downloads ~GB).
+> **Status: INSTALLED + DEFAULT (2026-06-27). The method is a HYBRID, local first, cloud only for hard songs.**
+> - **Default (local, free):** `tools/whisperx-align.py` = VAD finds the sung region (trims instrumental intro)
+>   + ONE whole-song CTC forced alignment of the full lyrics → measured word times in `.whisper.json`. Then
+>   `node tools/retime.js <id>` (finds the cache, NO cloud call) does the proven Needleman-Wunsch + interpolation
+>   → `timing.json`. CTC is monotonic so repeated choruses + soft a-cappella intros work. Proven: The Sower
+>   Remastered, The Word That Found Me.
+> - **Hum-/held-note-heavy songs** (long held outro, "oh-oh", drawn-out words): CTC CRAMS them. The `verify`
+>   drift-check flags this automatically. Then switch THAT song to **cloud Whisper**: `node tools/retime.js <id>
+>   --fresh` (seconds, ~2 cents) — it anchors real word onsets so held notes/hums become gaps (held word stays
+>   gold, next line waits). Add `introStart: <VAD sung-start>` (e.g. Mustard `11`) if the cloud intro lights early.
+>   Proven: Mustard Seed (the "to rest inside that love...ooo" hold + humming outro).
+> - **Critical:** cloud is NOT the default — OpenAI is deaf on very soft a-cappella intros, which need the local
+>   path. `tools/whisperx-import.js` is legacy (older per-line-window adapter, superseded). Local-large-v3 ASR
+>   also works but is ~25 min/song on CPU (too slow).
 
 ## Costs (rough)
 - Images: Gemini 3 Pro ~ a few cents to ~15 cents each; flash-image ~4 cents each. ~6-8 images/song.

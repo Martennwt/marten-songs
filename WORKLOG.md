@@ -2,6 +2,47 @@
 
 ---
 
+## 2026-06-27 (2): WhisperX-Timing-Pipeline scharf gemacht, alle 4 Songs lokal getimt + Hybrid + Drift-Check
+
+**Ziel:** Karaoke-Timing pro Song makellos UND automatisch (kein Handarbeit-Tuning), für den Video-Launch.
+
+**Die Methode (REPRODUZIERBAR, so machen wir ab jetzt jeden Song):**
+1. **Lokal (Standard, gratis):** `tools/whisperx-align.py <id>` = VAD findet die Gesangs-Region (trimmt
+   Instrumental-Intro) + EINE durchgehende CTC-Forced-Alignment der GANZEN Lyrics → gemessene Wortzeiten in
+   `.whisper.json`. Dann `node tools/retime.js <id>` (liest den lokalen Cache, KEIN Cloud-Call) → NW-Alignment
+   unserer Lyrics + Interpolation + Monotonie → `timing.json`. CTC ist monoton → wiederholte Refrains + weiche
+   A-cappella-Intros sitzen.
+2. **Harte (hum-/halteton-lastige) Songs:** CTC quetscht den Outro zusammen. Der `verify`-**Drift-Check meldet
+   das automatisch**. Dann für DIESEN Song auf **OpenAI Cloud** umschalten: `node tools/retime.js <id> --fresh`
+   (Sekunden, ~2 Cent). Cloud ankert echte Wort-Einsätze → Summen/gehaltene Noten werden zu LÜCKEN (gehaltenes
+   Wort bleibt gold, nächste Zeile wartet). Bei zu frühem Intro `introStart:<VAD-Gesangsstart>` (z. B. Mustard 11).
+3. **Kritisch:** Cloud ist NICHT Standard (OpenAI ist bei sehr leisen A-cappella-Intros taub → die brauchen lokal).
+
+**Erledigt (alle 4 Songs spielen sauber, von Marten bestätigt):**
+- **The Sower (Remastered)** NEU gebaut (Version 2, MP3 von Marten): Lyrics aus dem Original abgeleitet (25 Zeilen),
+  eigenes neues Cover (`img/cover-remastered.png`, Gemini). Lokal getimt.
+- **The Word That Found Me** auf WhisperX-Timing umgestellt (leiser A-cappella-Intro wird automatisch gemessen,
+  „There" @ 15,57s), Intro-Handregler entfernt, **alte geratene Version gelöscht** (V2 ist jetzt die echte).
+- **Mustard Seed** neu getimt: lokal quetschte den hum-/halteton-lastigen Outro → auf **Cloud** umgeschaltet
+  (Outro + „love…ooo"-Halteton + Summ-Pause sitzen) + `introStart:11`.
+- **The Sower** (Original) unverändert gut.
+- **Neue Tools:** `tools/whisperx-align.py` (CTC), `tools/whisperx-words.py` (lokaler ASR-Weg), `tools/whisperx-import.js`
+  (Legacy-Adapter). **Drift-Check** in `verify-song.js` (meldet Cramming + unplausible Sprünge automatisch).
+  **Zeiten in der Textansicht** in `build-anim.js` (zum Prüfen).
+- **Doku/Guide** ehrlich aktualisiert: `/neuer-song`-Skill, `BRANDING.md`, `docs/whisperx.md`, und in der externen
+  KI-Medien-Guide die Datei `whisperx-breakthrough.html` (Problem/Fix/VAD+ASR/Hybrid/Prompt/Code) + Querschnitt
+  in `ki-medien-guide.html`. Memories: `whisperx-installed`, `be-a-critical-partner`, `open-results-in-browser`.
+
+**Offen / als Nächstes (Marten will, Reihenfolge):**
+1. UI: Playlist-Sidebar + Home-Button + Auto-Next (Desktop+mobil) + Songdauer anzeigen.
+2. MP4-Renderer (Player ohne Bedien-UI → YouTube-Video) + Beschreibungen.
+3. Auto-Ordner: Song reinlegen → automatisch alles (Konzept im Chat besprochen, Bau offen).
+4. Automatische lokal→Cloud-Umschaltung in die Pipeline gießen (jetzt noch manuell pro Song).
+
+**Kurs-Seite v3 bleibt lokal/ungepusht** (Marten noch nicht zufrieden).
+
+---
+
 ## 2026-06-27 (1): WhisperX installiert (lokale Forced-Alignment) + Skript + getestet + Guide
 
 **Ziel:** Der dokumentierte naechste Schritt fuer **perfekte Wort-Sync ohne Intro-Gefummel**. WhisperX

@@ -2,37 +2,29 @@
 # ============================================================================
 # whisperx-align.py - local forced alignment of OUR lyrics to the audio.
 #
-# Cloud Whisper (retime.js) is great at SEGMENT windows but its per-word
-# timestamps are approximate and it goes DEAF on very soft intros (then it just
-# spreads the words evenly across a window - a guess, not a measurement).
-# WhisperX runs locally and does *forced alignment*: it takes our KNOWN lyrics
-# and locks each word onto the audio at phoneme level (wav2vec2). Even a quiet
-# a-cappella intro gets a real onset. No introStart/introLines fiddling.
+# Method (robust, handles repeated choruses, no per-line window guessing):
+#   1. A quick local VAD pre-scan finds the SUNG REGION (so an instrumental
+#      intro/outro is trimmed and the first words don't get glued onto silence).
+#   2. ONE whole-song CTC forced alignment of the full lyrics against that
+#      region (wav2vec2). CTC alignment is MONOTONIC over the entire word
+#      sequence, so a chorus that repeats 3x lines up at its 3 real times - the
+#      thing that broke the proportional/ per-line approaches mid-song.
+#   3. Writes the measured per-word times to songs/<id>/.whisper.json, the exact
+#      cache shape tools/retime.js reads. Then `node tools/retime.js <id>`
+#      (which finds the cache and makes NO network call) does the proven
+#      Needleman-Wunsch of OUR lyrics onto these times + interpolation + the
+#      monotonic, per-segment timing.json. So we reuse the battle-tested timer
+#      and only swap its clock source from the OpenAI cloud to local WhisperX.
 #
-# What it does:
-#   1. Reads songs/<id>/lyrics.txt and segments it the canonical way
-#      (one lyric line = one segment - same rule as tools/lib/lyrics.js).
-#   2. Seeds rough [start,end] windows per line. If songs/<id>/timing.json
-#      exists it reuses those windows (cloud Whisper finds segment windows
-#      well); otherwise it spreads the lines evenly across the song duration.
-#   3. Runs WhisperX forced alignment -> exact per-word start/end.
-#   4. Writes songs/<id>/whisperx-aligned.json (segments + flat word_segments)
-#      and prints a summary (incl. the first sung words = the soft-intro proof).
+# Fully local, free, no cloud. After this run: `node tools/retime.js <id>`.
 #
-# This is the *local, precise* path. Convert it to our timing.json with the
-# JS adapter (tools/whisperx-import.js, the documented next step), then the
-# normal verify-song.js + build-anim.js run unchanged.
-#
-# Run (from the project root, inside the venv):
-#   .venv\Scripts\python.exe tools\whisperx-align.py <song-id>
+# Run:  .venv\Scripts\python.exe tools\whisperx-align.py <song-id>
 # ============================================================================
 import sys, os, re, json, glob
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 def ensure_ffmpeg_on_path():
-    """WhisperX shells out to ffmpeg; make sure it's reachable even before a
-    shell restart picks up the PATH change winget made."""
     from shutil import which
     if which("ffmpeg"):
         return
@@ -44,8 +36,7 @@ def ensure_ffmpeg_on_path():
             return
 
 def parse_segments(raw):
-    """One lyric line = one segment. Drops blank lines and [section] headers,
-    collapses inner whitespace. Mirrors tools/lib/lyrics.js parseSegments()."""
+    """One lyric line = one segment. Mirrors tools/lib/lyrics.js parseSegments()."""
     out = []
     for ln in raw.replace("\r", "").split("\n"):
         t = ln.strip()
@@ -54,18 +45,19 @@ def parse_segments(raw):
         out.append(re.sub(r"\s+", " ", t))
     return out
 
-def rough_windows(n, duration, timing_path):
-    """Return n [start,end] windows to seed alignment. Prefer the cloud
-    timing.json windows; fall back to an even split across the song."""
-    if os.path.exists(timing_path):
-        try:
-            segs = json.load(open(timing_path, encoding="utf-8")).get("segments", [])
-            if len(segs) == n:
-                return [[float(s["start"]), float(s["end"])] for s in segs], "timing.json"
-        except Exception:
-            pass
-    step = duration / max(n, 1)
-    return [[i * step, (i + 1) * step] for i in range(n)], "even-split"
+def vocal_bounds(audio, duration):
+    """VAD pre-scan: return (start, end) of the sung region so an instrumental
+    intro/outro is trimmed. Falls back to the whole file."""
+    try:
+        from faster_whisper import WhisperModel
+        m = WhisperModel("base", device="cpu", compute_type="int8")
+        segs, _ = m.transcribe(audio, vad_filter=True, language="en")
+        spans = [(float(s.start), float(s.end)) for s in segs if s.end > s.start]
+        if spans:
+            return min(s for s, _ in spans), max(e for _, e in spans)
+    except Exception as e:
+        print("[whisperx] VAD pre-scan failed, using whole file:", repr(e))
+    return 0.0, duration
 
 def main():
     if len(sys.argv) < 2:
@@ -76,7 +68,6 @@ def main():
     song_json = os.path.join(sdir, "song.json")
     if not os.path.exists(lyrics_path):
         sys.exit("no lyrics.txt in " + sdir)
-
     mp3 = sid + ".mp3"
     if os.path.exists(song_json):
         mp3 = json.load(open(song_json, encoding="utf-8")).get("mp3", mp3)
@@ -88,44 +79,44 @@ def main():
     import whisperx
 
     lines = parse_segments(open(lyrics_path, encoding="utf-8").read())
-    print(f"[whisperx] {sid}: {len(lines)} lyric lines, loading audio...")
-
+    full_text = " ".join(lines)
     device = "cpu"
+    print(f"[whisperx] {sid}: {len(lines)} lyric lines, loading audio...")
     audio = whisperx.load_audio(mp3_path)
     duration = len(audio) / 16000.0
-    windows, src = rough_windows(len(lines), duration, os.path.join(sdir, "timing.json"))
-    print(f"[whisperx] duration {duration:.1f}s, rough windows from: {src}")
 
-    segments = [{"text": t, "start": w[0], "end": w[1]} for t, w in zip(lines, windows)]
+    print("[whisperx] local VAD pre-scan (finding the sung region)...")
+    vs, ve = vocal_bounds(audio, duration)
+    lo, hi = max(0.0, vs - 1.0), min(duration, ve + 1.0)
+    print(f"[whisperx] sung region {vs:.1f}-{ve:.1f}s of {duration:.1f}s")
 
     print("[whisperx] loading alignment model (wav2vec2, English)...")
     model_a, meta = whisperx.load_align_model(language_code="en", device=device)
-    print("[whisperx] forced-aligning...")
-    result = whisperx.align(segments, model_a, meta, audio, device,
-                            return_char_alignments=False)
+    print("[whisperx] forced-aligning the whole song (one pass)...")
+    # one segment = the full lyrics over the sung region; align() chunks the
+    # audio internally, so a long segment is fine.
+    result = whisperx.align([{"text": full_text, "start": lo, "end": hi}],
+                            model_a, meta, audio, device, return_char_alignments=False)
+    words = [w for w in result.get("word_segments", []) if w.get("start") is not None]
+    if not words:
+        sys.exit("[whisperx] alignment produced no words")
 
-    out_segs = []
-    for i, seg in enumerate(result["segments"]):
-        words = [{"t": w["word"], "s": round(w["start"], 2), "e": round(w["end"], 2)}
-                 for w in seg.get("words", []) if "start" in w]
-        out_segs.append({"seg": i, "text": lines[i],
-                         "start": round(seg.get("start", 0.0), 2),
-                         "end": round(seg.get("end", 0.0), 2), "w": words})
+    # cache for retime.js (it reads songs/<id>/.whisper.json and makes NO network call)
+    cache = {
+        "words": [{"word": w["word"], "start": round(float(w["start"]), 3),
+                   "end": round(float(w.get("end", w["start"])), 3)} for w in words],
+        "segments": [], "duration": round(duration, 3),
+        "_source": "whisperx-local-ctc",
+    }
+    json.dump(cache, open(os.path.join(sdir, ".whisper.json"), "w", encoding="utf-8"),
+              ensure_ascii=False)
 
-    out = {"engine": "whisperx", "precise": True, "duration": round(duration, 2),
-           "segments": out_segs}
-    out_path = os.path.join(sdir, "whisperx-aligned.json")
-    json.dump(out, open(out_path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-
-    total = sum(len(s["w"]) for s in out_segs)
-    aligned_segs = sum(1 for s in out_segs if s["w"])
-    print(f"[whisperx] wrote {out_path}")
-    print(f"[whisperx] {total} words aligned across {aligned_segs}/{len(out_segs)} lines")
-    if out_segs and out_segs[0]["w"]:
-        first = out_segs[0]["w"][:8]
-        print("[whisperx] first sung line, MEASURED onsets:")
-        for w in first:
-            print(f"            {w['s']:6.2f}s  {w['t']}")
+    print(f"[whisperx] {len(words)} words measured over {ve - vs:.1f}s of singing")
+    print("[whisperx] first measured words:")
+    for w in words[:8]:
+        print(f"            {float(w['start']):6.2f}s  {w['word']}")
+    print(f"[whisperx] wrote {os.path.join(sdir, '.whisper.json')}")
+    print("[whisperx] NEXT: node tools/retime.js " + sid + "  (uses this cache, no cloud)")
 
 if __name__ == "__main__":
     main()

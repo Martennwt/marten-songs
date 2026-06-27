@@ -78,6 +78,27 @@ function main(id) {
     if (first < segs[i].start - 0.001 || last > segs[i].end + 0.001) warn(`segment ${i} words sit outside [start,end]`);
   }
 
+  // [drift] self-flag mis-timed songs so you don't have to ear-check every one:
+  //   - "cram": a multi-word line whose words are squeezed into a tiny span
+  //     (the classic symptom of a window/anchor that landed in the wrong place)
+  //   - "jump": a line that starts far later than the song's typical line gap
+  //     (a real instrumental break is fine; this only fires on extreme outliers)
+  const lineStarts = segs.map(s => (s.w && s.w[0]) ? s.w[0].s : 0);
+  const gaps = [];
+  for (let i = 1; i < segs.length; i++) gaps.push(lineStarts[i] - lineStarts[i - 1]);
+  const medGap = gaps.length ? [...gaps].sort((a, b) => a - b)[Math.floor(gaps.length / 2)] : 0;
+  segs.forEach((s, i) => {
+    const ws = s.w || [];
+    if (ws.length >= 4) {
+      const span = ws[ws.length - 1].s - ws[0].s;
+      if (span < 0.6) warn(`segment ${i} words crammed into ${span.toFixed(2)}s (likely misaligned): "${(s.text || '').slice(0, 40)}"`);
+    }
+  });
+  if (medGap > 0) for (let i = 1; i < segs.length; i++) {
+    const g = lineStarts[i] - lineStarts[i - 1];
+    if (g > Math.max(medGap * 4, 9)) warn(`big jump before segment ${i} (+${g.toFixed(1)}s vs ~${medGap.toFixed(1)}s typical) — check for drift: "${(segs[i].text || '').slice(0, 40)}"`);
+  }
+
   // [images]
   const nImg = (meta.images || []).length;
   im.forEach((ix, i) => { if (ix < 0 || ix >= nImg) fail(`imageMap[${i}]=${ix} but only ${nImg} images`); });

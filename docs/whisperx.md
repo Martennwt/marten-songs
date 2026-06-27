@@ -158,21 +158,20 @@ pushen wir nur, was fertig ist. (Die Kurs-Seite z. B. ist noch nicht fertig -> c
 lyrics.txt + mp3
       |
       v
-[ grobe Struktur ]   retime.js (Cloud-Whisper)  ->  timing.json   (welche Zeile ungefähr wann)
+[ Voice-Vorscan + Messen ]   tools/whisperx-align.py  ->  whisperx-aligned.json
+        (findet ZUERST lokal, wo der Gesang anfängt/aufhört, dann misst es jedes Wort)
       |
       v
-[ exakte Wort-Zeiten ]   whisperx-align.py  ->  whisperx-aligned.json   (gemessen, auch im leisen Intro)
-      |
-      v
-[ in unser Format ]   tools/whisperx-import.js  ->  timing.json (precise:true)   <-- NÄCHSTER SCHRITT, offen
+[ in unser Format ]   tools/whisperx-import.js  ->  timing.json (precise:true)
       |
       v
 verify-song.js (Prüfung)  ->  build-anim.js  ->  fertiger Player
 ```
 
-**Noch offen (bewusst):** Der Adapter `tools/whisperx-import.js`, der `whisperx-aligned.json` in unsere
-`timing.json` umschreibt, ist noch nicht gebaut. Erst danach laufen `verify-song.js` + `build-anim.js`
-unverändert auf den WhisperX-Zeiten, und wir können einen Live-Song umstellen - **nach deiner Sichtung**.
+**Komplett lokal, kein Cloud-Schritt mehr.** Beide Bausteine sind gebaut und erprobt (The Sower Remastered +
+The Word That Found Me V2). Der **Voice-Vorscan** in `whisperx-align.py` ist der Fix gegen das Intro-Problem:
+ohne ihn klebt WhisperX die ersten Wörter auf ein Instrumental-Intro (Gold leuchtet zu früh). Mit ihm wird
+der echte Gesang-Start automatisch erkannt, pro Song. `retime.js` (OpenAI-Cloud) bleibt nur ruhender Fallback.
 
 ---
 
