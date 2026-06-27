@@ -1,1280 +1,1280 @@
 {
   "precise": true,
-  "duration": 243.83999633789062,
+  "duration": 243.84,
   "words": [
     {
       "word": "There",
-      "start": 2.16,
-      "end": 4.01
+      "start": 15.57,
+      "end": 15.79
     },
     {
       "word": "was",
-      "start": 4.01,
-      "end": 5.87
+      "start": 15.79,
+      "end": 15.99
     },
     {
       "word": "nothing",
-      "start": 5.87,
-      "end": 7.72
+      "start": 15.99,
+      "end": 16.91
     },
     {
       "word": "in",
-      "start": 7.72,
-      "end": 9.58
+      "start": 16.91,
+      "end": 17.17
     },
     {
       "word": "my",
-      "start": 9.58,
-      "end": 11.43
+      "start": 17.17,
+      "end": 17.69
     },
     {
       "word": "hands",
-      "start": 11.43,
-      "end": 13.29
+      "start": 17.69,
+      "end": 18.85
     },
     {
       "word": "and",
-      "start": 13.29,
-      "end": 15.15
+      "start": 18.85,
+      "end": 18.97
     },
     {
       "word": "there",
-      "start": 15.15,
-      "end": 17
+      "start": 18.97,
+      "end": 19.19
     },
     {
       "word": "was",
-      "start": 17,
-      "end": 18.86
+      "start": 19.19,
+      "end": 19.39
     },
     {
       "word": "nothing",
-      "start": 18.86,
-      "end": 20.71
+      "start": 19.39,
+      "end": 19.99
     },
     {
       "word": "left",
-      "start": 20.71,
-      "end": 22.57
+      "start": 19.99,
+      "end": 20.35
     },
     {
       "word": "to",
-      "start": 22.57,
-      "end": 24.42
+      "start": 20.35,
+      "end": 20.55
     },
     {
       "word": "say,",
-      "start": 24.42,
-      "end": 25.08
+      "start": 20.55,
+      "end": 22.09
     },
     {
       "word": "I",
-      "start": 25.08,
-      "end": 25.45
+      "start": 22.09,
+      "end": 22.19
     },
     {
       "word": "was",
-      "start": 25.45,
-      "end": 25.81
+      "start": 22.19,
+      "end": 22.41
     },
     {
       "word": "tired",
-      "start": 25.81,
-      "end": 26.17
+      "start": 22.41,
+      "end": 23.11
     },
     {
       "word": "of",
-      "start": 26.17,
-      "end": 26.53
+      "start": 23.11,
+      "end": 23.27
     },
     {
       "word": "my",
-      "start": 26.53,
-      "end": 26.9
+      "start": 23.27,
+      "end": 23.61
     },
     {
       "word": "own",
-      "start": 26.9,
-      "end": 27.26
+      "start": 23.61,
+      "end": 24.05
     },
     {
       "word": "questions",
-      "start": 27.26,
-      "end": 27.62
+      "start": 24.05,
+      "end": 25.13
     },
     {
       "word": "and",
-      "start": 27.62,
-      "end": 27.99
+      "start": 25.13,
+      "end": 25.27
     },
     {
       "word": "the",
-      "start": 27.99,
-      "end": 28.35
+      "start": 25.27,
+      "end": 25.47
     },
     {
       "word": "fear",
-      "start": 28.35,
-      "end": 28.71
+      "start": 25.47,
+      "end": 26.29
     },
     {
       "word": "that",
-      "start": 28.71,
-      "end": 29.07
+      "start": 26.29,
+      "end": 26.69
     },
     {
       "word": "wouldn't",
-      "start": 29.07,
-      "end": 29.44
+      "start": 26.69,
+      "end": 27.13
     },
     {
       "word": "fade.",
-      "start": 29.44,
-      "end": 30
+      "start": 27.13,
+      "end": 27.53
     },
     {
       "word": "I",
-      "start": 30,
-      "end": 30.04
+      "start": 27.47,
+      "end": 28.55
     },
     {
       "word": "had",
-      "start": 30.04,
-      "end": 30.08
+      "start": 28.55,
+      "end": 28.95
     },
     {
       "word": "carried",
-      "start": 30.08,
-      "end": 30.12
+      "start": 28.95,
+      "end": 29.95
     },
     {
       "word": "all",
-      "start": 30.12,
-      "end": 30.16
+      "start": 29.95,
+      "end": 30.17
     },
     {
       "word": "my",
-      "start": 30.16,
-      "end": 30.52
+      "start": 30.17,
+      "end": 30.47
     },
     {
       "word": "worry",
-      "start": 30.52,
-      "end": 31.32
+      "start": 30.47,
+      "end": 31.75
     },
     {
       "word": "till",
-      "start": 31.32,
-      "end": 31.88
+      "start": 31.75,
+      "end": 31.95
     },
     {
       "word": "my",
-      "start": 31.88,
-      "end": 32.98
+      "start": 31.95,
+      "end": 32.19
     },
     {
       "word": "shoulders",
-      "start": 32.98,
-      "end": 33.02
+      "start": 32.19,
+      "end": 33.03
     },
     {
       "word": "nearly",
-      "start": 33.02,
-      "end": 33.78
+      "start": 33.03,
+      "end": 33.79
     },
     {
       "word": "broke,",
-      "start": 33.78,
-      "end": 34.42
+      "start": 33.79,
+      "end": 35.13
     },
     {
       "word": "and",
-      "start": 34.42,
-      "end": 35.26
+      "start": 35.13,
+      "end": 35.33
     },
     {
       "word": "I",
-      "start": 35.26,
-      "end": 35.74
+      "start": 35.33,
+      "end": 35.45
     },
     {
       "word": "whispered",
-      "start": 35.74,
-      "end": 36.38
+      "start": 35.45,
+      "end": 36.41
     },
     {
       "word": "to",
-      "start": 36.38,
-      "end": 36.7
+      "start": 36.41,
+      "end": 36.83
     },
     {
       "word": "the",
-      "start": 36.7,
-      "end": 37.06
+      "start": 36.83,
+      "end": 37.01
     },
     {
       "word": "silence",
-      "start": 37.06,
-      "end": 37.92
+      "start": 37.01,
+      "end": 38.03
     },
     {
       "word": "with",
-      "start": 37.92,
-      "end": 38.24
+      "start": 38.03,
+      "end": 38.29
     },
     {
       "word": "the",
-      "start": 38.24,
-      "end": 38.7
+      "start": 38.29,
+      "end": 38.47
     },
     {
       "word": "little",
-      "start": 38.7,
-      "end": 39.44
+      "start": 38.47,
+      "end": 39.45
     },
     {
       "word": "faith",
-      "start": 39.44,
-      "end": 39.8
+      "start": 39.45,
+      "end": 39.99
     },
     {
       "word": "I",
-      "start": 39.8,
-      "end": 40.72
+      "start": 39.99,
+      "end": 40.17
     },
     {
       "word": "spoke.",
-      "start": 40.72,
-      "end": 41.54
+      "start": 40.17,
+      "end": 41.57
     },
     {
       "word": "It",
-      "start": 41.54,
-      "end": 41.66
+      "start": 41.57,
+      "end": 41.67
     },
     {
       "word": "was",
-      "start": 41.66,
-      "end": 41.92
+      "start": 41.67,
+      "end": 41.85
     },
     {
       "word": "smaller",
-      "start": 41.92,
-      "end": 42.6
+      "start": 41.85,
+      "end": 42.77
     },
     {
       "word": "than",
-      "start": 42.6,
-      "end": 43.36
+      "start": 42.77,
+      "end": 43.41
     },
     {
       "word": "a",
-      "start": 43.36,
-      "end": 44.1
+      "start": 43.41,
+      "end": 43.55
     },
     {
       "word": "mustard",
-      "start": 44.1,
-      "end": 44.12
+      "start": 43.55,
+      "end": 44.31
     },
     {
       "word": "seed,",
-      "start": 44.12,
-      "end": 44.86
+      "start": 44.31,
+      "end": 44.83
     },
     {
       "word": "it",
-      "start": 44.86,
-      "end": 44.96
+      "start": 44.83,
+      "end": 44.93
     },
     {
       "word": "was",
-      "start": 44.96,
-      "end": 45.18
+      "start": 44.93,
+      "end": 45.15
     },
     {
       "word": "barely",
-      "start": 45.18,
-      "end": 45.94
+      "start": 45.15,
+      "end": 46.11
     },
     {
       "word": "even",
-      "start": 45.94,
-      "end": 46.84
+      "start": 46.11,
+      "end": 46.81
     },
     {
       "word": "there,",
-      "start": 46.84,
-      "end": 47.82
+      "start": 46.81,
+      "end": 48.01
     },
     {
       "word": "but",
-      "start": 47.82,
-      "end": 48.22
+      "start": 48.01,
+      "end": 48.27
     },
     {
       "word": "it",
-      "start": 48.22,
-      "end": 48.96
+      "start": 48.27,
+      "end": 48.39
     },
     {
       "word": "turned",
-      "start": 48.96,
-      "end": 49
+      "start": 48.39,
+      "end": 49.03
     },
     {
       "word": "me",
-      "start": 49,
-      "end": 49.74
+      "start": 49.03,
+      "end": 49.19
     },
     {
       "word": "toward",
-      "start": 49.74,
-      "end": 49.78
+      "start": 49.19,
+      "end": 49.83
     },
     {
       "word": "the",
-      "start": 49.78,
-      "end": 50.08
+      "start": 49.83,
+      "end": 50.19
     },
     {
       "word": "only",
-      "start": 50.08,
-      "end": 50.8
+      "start": 50.19,
+      "end": 50.87
     },
     {
       "word": "light",
-      "start": 50.8,
-      "end": 51.32
+      "start": 50.87,
+      "end": 51.35
     },
     {
       "word": "still",
-      "start": 51.32,
-      "end": 51.86
+      "start": 51.35,
+      "end": 51.85
     },
     {
       "word": "burning",
-      "start": 51.86,
-      "end": 52.6
+      "start": 51.85,
+      "end": 52.85
     },
     {
       "word": "anywhere.",
-      "start": 52.6,
-      "end": 53.6
+      "start": 52.85,
+      "end": 54.61
     },
     {
       "word": "I",
-      "start": 53.6,
-      "end": 54.56
+      "start": 54.61,
+      "end": 54.71
     },
     {
       "word": "was",
-      "start": 54.56,
-      "end": 54.92
+      "start": 54.71,
+      "end": 55.07
     },
     {
       "word": "empty,",
-      "start": 54.92,
-      "end": 55.86
+      "start": 55.07,
+      "end": 56.44
     },
     {
       "word": "I",
-      "start": 55.86,
-      "end": 56.36
+      "start": 56.44,
+      "end": 56.49
     },
     {
       "word": "was",
-      "start": 56.36,
-      "end": 56.6
+      "start": 56.49,
+      "end": 56.91
     },
     {
       "word": "lonely,",
-      "start": 56.6,
-      "end": 57.8
+      "start": 56.91,
+      "end": 57.76
     },
     {
       "word": "with",
-      "start": 57.8,
-      "end": 57.98
+      "start": 57.76,
+      "end": 57.99
     },
     {
       "word": "the",
-      "start": 57.98,
-      "end": 58.22
+      "start": 57.99,
+      "end": 58.16
     },
     {
       "word": "dark",
-      "start": 58.22,
-      "end": 58.8
+      "start": 58.16,
+      "end": 59.03
     },
     {
       "word": "on",
-      "start": 58.8,
-      "end": 59.28
+      "start": 59.03,
+      "end": 59.31
     },
     {
       "word": "every",
-      "start": 59.28,
-      "end": 59.78
+      "start": 59.31,
+      "end": 59.76
     },
     {
       "word": "side,",
-      "start": 59.78,
-      "end": 60.74
+      "start": 59.76,
+      "end": 60.99
     },
     {
       "word": "when",
-      "start": 60.74,
-      "end": 61.24
+      "start": 60.99,
+      "end": 61.3
     },
     {
       "word": "a",
-      "start": 61.24,
-      "end": 61.52
+      "start": 61.3,
+      "end": 61.44
     },
     {
       "word": "voice",
-      "start": 61.52,
-      "end": 62
+      "start": 61.44,
+      "end": 62.03
     },
     {
       "word": "said",
-      "start": 62,
-      "end": 62.84
+      "start": 62.03,
+      "end": 62.7
     },
     {
       "word": "\"open",
-      "start": 62.84,
-      "end": 63.06
+      "start": 62.7,
+      "end": 63.4
     },
     {
       "word": "up",
-      "start": 63.06,
-      "end": 63.62
+      "start": 63.4,
+      "end": 63.66
     },
     {
       "word": "the",
-      "start": 63.62,
-      "end": 64.08
+      "start": 63.66,
+      "end": 63.8
     },
     {
       "word": "Word,\"",
-      "start": 64.08,
-      "end": 64.34
+      "start": 63.8,
+      "end": 64.23
     },
     {
       "word": "and",
-      "start": 64.34,
-      "end": 64.52
+      "start": 64.23,
+      "end": 64.64
     },
     {
       "word": "I",
-      "start": 64.52,
-      "end": 64.74
+      "start": 64.64,
+      "end": 64.97
     },
     {
       "word": "had",
-      "start": 64.74,
-      "end": 65
+      "start": 64.97,
+      "end": 65.25
     },
     {
       "word": "nowhere",
-      "start": 65,
-      "end": 65.58
+      "start": 65.25,
+      "end": 65.5
     },
     {
       "word": "left",
-      "start": 65.58,
-      "end": 66.06
+      "start": 65.5,
+      "end": 65.72
     },
     {
       "word": "to",
-      "start": 66.06,
-      "end": 66.76
+      "start": 65.72,
+      "end": 66.14
     },
     {
       "word": "hide.",
-      "start": 66.76,
-      "end": 67.5
+      "start": 66.14,
+      "end": 67.47
     },
     {
       "word": "So",
-      "start": 67.5,
-      "end": 67.68
+      "start": 67.47,
+      "end": 67.78
     },
     {
       "word": "I",
-      "start": 67.68,
-      "end": 68.22
+      "start": 67.78,
+      "end": 67.89
     },
     {
       "word": "read",
-      "start": 68.22,
-      "end": 68.4
+      "start": 67.89,
+      "end": 69.46
     },
     {
       "word": "it",
-      "start": 68.4,
-      "end": 68.98
+      "start": 69.46,
+      "end": 69.84
     },
     {
       "word": "in",
-      "start": 68.98,
-      "end": 69.36
+      "start": 69.84,
+      "end": 69.96
     },
     {
       "word": "the",
-      "start": 69.36,
-      "end": 69.58
+      "start": 69.96,
+      "end": 70.04
     },
     {
       "word": "silence",
-      "start": 69.58,
-      "end": 70.36
+      "start": 70.04,
+      "end": 70.82
     },
     {
       "word": "and",
-      "start": 70.36,
-      "end": 70.92
+      "start": 70.82,
+      "end": 70.96
     },
     {
       "word": "the",
-      "start": 70.92,
-      "end": 71.36
+      "start": 70.96,
+      "end": 71.12
     },
     {
       "word": "words",
-      "start": 71.36,
-      "end": 71.72
+      "start": 71.12,
+      "end": 71.48
     },
     {
       "word": "began",
-      "start": 71.72,
-      "end": 72.04
+      "start": 71.48,
+      "end": 72.6
     },
     {
       "word": "to",
-      "start": 72.04,
-      "end": 73.26
+      "start": 72.6,
+      "end": 72.74
     },
     {
       "word": "shine,",
-      "start": 73.26,
-      "end": 73.92
+      "start": 72.74,
+      "end": 74.08
     },
     {
       "word": "and",
-      "start": 73.92,
+      "start": 74.08,
       "end": 74.2
     },
     {
       "word": "the",
       "start": 74.2,
-      "end": 74.52
+      "end": 74.7
     },
     {
       "word": "fear",
-      "start": 74.52,
-      "end": 74.8
+      "start": 74.7,
+      "end": 75.38
     },
     {
       "word": "I",
-      "start": 74.8,
-      "end": 75.62
+      "start": 75.38,
+      "end": 75.48
     },
     {
       "word": "couldn't",
-      "start": 75.62,
-      "end": 75.86
+      "start": 75.48,
+      "end": 75.98
     },
     {
       "word": "carry,",
-      "start": 75.86,
-      "end": 77.22
+      "start": 75.98,
+      "end": 77.14
     },
     {
       "word": "He",
-      "start": 77.22,
-      "end": 77.66
+      "start": 77.14,
+      "end": 77.42
     },
     {
       "word": "was",
-      "start": 77.66,
-      "end": 77.76
+      "start": 77.42,
+      "end": 77.82
     },
     {
       "word": "trading",
-      "start": 77.76,
-      "end": 78.34
+      "start": 77.82,
+      "end": 78.48
     },
     {
       "word": "line",
-      "start": 78.34,
+      "start": 78.48,
       "end": 78.86
     },
     {
       "word": "by",
       "start": 78.86,
-      "end": 79.26
+      "end": 79.24
     },
     {
       "word": "line.",
-      "start": 79.26,
-      "end": 79.98
+      "start": 79.24,
+      "end": 80.46
     },
     {
       "word": "Now",
-      "start": 79.98,
-      "end": 80.6
+      "start": 80.46,
+      "end": 80.64
     },
     {
       "word": "there's",
-      "start": 80.6,
+      "start": 80.64,
       "end": 80.86
     },
     {
       "word": "peace",
       "start": 80.86,
-      "end": 81.3
+      "end": 81.4
     },
     {
       "word": "I",
-      "start": 81.3,
-      "end": 82.14
+      "start": 81.4,
+      "end": 81.9
     },
     {
       "word": "cannot",
-      "start": 82.14,
-      "end": 82.34
+      "start": 81.9,
+      "end": 82.36
     },
     {
       "word": "explain",
-      "start": 82.34,
-      "end": 83.16
+      "start": 82.36,
+      "end": 83.64
     },
     {
       "word": "where",
-      "start": 83.16,
-      "end": 83.9
+      "start": 83.64,
+      "end": 83.92
     },
     {
       "word": "the",
-      "start": 83.9,
-      "end": 84.3
+      "start": 83.92,
+      "end": 84.44
     },
     {
       "word": "worry",
-      "start": 84.3,
-      "end": 84.76
+      "start": 84.44,
+      "end": 85.3
     },
     {
       "word": "used",
-      "start": 84.76,
-      "end": 85.48
+      "start": 85.3,
+      "end": 85.56
     },
     {
       "word": "to",
-      "start": 85.48,
-      "end": 85.82
+      "start": 85.56,
+      "end": 85.72
     },
     {
       "word": "be,",
-      "start": 85.82,
-      "end": 86.6
+      "start": 85.72,
+      "end": 86.96
     },
     {
       "word": "He",
-      "start": 86.6,
-      "end": 87.1
+      "start": 86.96,
+      "end": 87.16
     },
     {
       "word": "took",
-      "start": 87.1,
-      "end": 87.34
+      "start": 87.16,
+      "end": 87.4
     },
     {
       "word": "the",
-      "start": 87.34,
-      "end": 87.6
+      "start": 87.4,
+      "end": 87.58
     },
     {
       "word": "weight",
-      "start": 87.6,
-      "end": 88
+      "start": 87.58,
+      "end": 88.38
     },
     {
       "word": "I",
-      "start": 88,
-      "end": 88.8
+      "start": 88.38,
+      "end": 88.58
     },
     {
       "word": "couldn't",
-      "start": 88.8,
-      "end": 88.92
+      "start": 88.58,
+      "end": 89
     },
     {
       "word": "hold",
-      "start": 88.92,
-      "end": 89.58
+      "start": 89,
+      "end": 90.06
     },
     {
       "word": "and",
-      "start": 89.58,
-      "end": 90.22
+      "start": 90.06,
+      "end": 90.28
     },
     {
       "word": "He",
-      "start": 90.22,
-      "end": 91.22
+      "start": 90.28,
+      "end": 90.78
     },
     {
       "word": "carried",
-      "start": 91.22,
-      "end": 91.38
+      "start": 90.78,
+      "end": 91.58
     },
     {
       "word": "it",
-      "start": 91.38,
+      "start": 91.58,
       "end": 91.78
     },
     {
       "word": "for",
       "start": 91.78,
-      "end": 92.8
+      "end": 92.6
     },
     {
       "word": "me.",
-      "start": 92.8,
-      "end": 94.66
+      "start": 92.6,
+      "end": 95.04
     },
     {
       "word": "So",
-      "start": 94.66,
-      "end": 95.12
+      "start": 95.04,
+      "end": 95.36
     },
     {
       "word": "I",
-      "start": 95.12,
+      "start": 95.36,
       "end": 95.5
     },
     {
       "word": "read",
       "start": 95.5,
-      "end": 95.92
+      "end": 96.1
     },
     {
       "word": "it",
-      "start": 95.92,
-      "end": 96.48
+      "start": 96.1,
+      "end": 96.4
     },
     {
       "word": "in",
-      "start": 96.48,
-      "end": 96.86
+      "start": 96.4,
+      "end": 96.88
     },
     {
       "word": "the",
-      "start": 96.86,
-      "end": 97.26
+      "start": 96.88,
+      "end": 97.08
     },
     {
       "word": "morning",
-      "start": 97.26,
-      "end": 97.84
+      "start": 97.08,
+      "end": 98.34
     },
     {
       "word": "and",
-      "start": 97.84,
-      "end": 98.5
+      "start": 98.34,
+      "end": 98.72
     },
     {
       "word": "I",
-      "start": 98.5,
-      "end": 98.94
+      "start": 98.72,
+      "end": 98.92
     },
     {
       "word": "read",
-      "start": 98.94,
-      "end": 99.16
+      "start": 98.92,
+      "end": 99.34
     },
     {
       "word": "it",
-      "start": 99.16,
-      "end": 99.66
+      "start": 99.34,
+      "end": 99.82
     },
     {
       "word": "in",
-      "start": 99.66,
-      "end": 100.14
+      "start": 99.82,
+      "end": 99.92
     },
     {
       "word": "the",
-      "start": 100.14,
-      "end": 100.34
+      "start": 99.92,
+      "end": 100.1
     },
     {
       "word": "night,",
-      "start": 100.34,
-      "end": 101.18
+      "start": 100.1,
+      "end": 101.6
     },
     {
       "word": "and",
-      "start": 101.18,
-      "end": 101.72
+      "start": 101.6,
+      "end": 101.74
     },
     {
       "word": "the",
-      "start": 101.72,
-      "end": 101.96
+      "start": 101.74,
+      "end": 101.92
     },
     {
       "word": "words",
-      "start": 101.96,
-      "end": 102.32
+      "start": 101.92,
+      "end": 102.76
     },
     {
       "word": "I",
-      "start": 102.32,
-      "end": 102.92
+      "start": 102.76,
+      "end": 103.04
     },
     {
       "word": "almost",
-      "start": 102.92,
-      "end": 103.54
+      "start": 103.04,
+      "end": 103.56
     },
     {
       "word": "gave",
-      "start": 103.54,
-      "end": 104
+      "start": 103.56,
+      "end": 104.5
     },
     {
       "word": "up",
-      "start": 104,
-      "end": 104.66
+      "start": 104.5,
+      "end": 104.76
     },
     {
       "word": "on",
-      "start": 104.66,
-      "end": 105.04
+      "start": 104.76,
+      "end": 105
     },
     {
       "word": "began",
-      "start": 105.04,
-      "end": 105.46
+      "start": 105,
+      "end": 105.76
     },
     {
       "word": "to",
-      "start": 105.46,
-      "end": 106.26
+      "start": 105.76,
+      "end": 105.98
     },
     {
       "word": "set",
-      "start": 106.26,
-      "end": 106.3
+      "start": 105.98,
+      "end": 106.4
     },
     {
       "word": "me",
-      "start": 106.3,
-      "end": 106.84
+      "start": 106.4,
+      "end": 106.78
     },
     {
       "word": "right.",
-      "start": 106.84,
-      "end": 108
+      "start": 106.78,
+      "end": 108.1
     },
     {
       "word": "Every",
-      "start": 108,
-      "end": 108.38
+      "start": 108.1,
+      "end": 108.42
     },
     {
       "word": "promise",
-      "start": 108.38,
-      "end": 109.12
+      "start": 108.42,
+      "end": 109.22
     },
     {
       "word": "like",
-      "start": 109.12,
-      "end": 109.84
+      "start": 109.22,
+      "end": 109.78
     },
     {
       "word": "a",
-      "start": 109.84,
-      "end": 110.42
+      "start": 109.78,
+      "end": 109.82
     },
     {
       "word": "hand",
-      "start": 110.42,
-      "end": 110.5
+      "start": 109.82,
+      "end": 110.48
     },
     {
       "word": "held",
-      "start": 110.5,
-      "end": 110.84
+      "start": 110.48,
+      "end": 110.86
     },
     {
       "word": "out",
-      "start": 110.84,
+      "start": 110.86,
       "end": 111.44
     },
     {
       "word": "to",
       "start": 111.44,
-      "end": 111.66
+      "end": 111.62
     },
     {
       "word": "pull",
-      "start": 111.66,
-      "end": 111.98
+      "start": 111.62,
+      "end": 112.06
     },
     {
       "word": "me",
-      "start": 111.98,
+      "start": 112.06,
       "end": 112.44
     },
     {
       "word": "from",
       "start": 112.44,
-      "end": 113.04
+      "end": 113.1
     },
     {
       "word": "the",
-      "start": 113.04,
-      "end": 113.7
+      "start": 113.1,
+      "end": 113.26
     },
     {
       "word": "deep,",
-      "start": 113.7,
-      "end": 114.54
+      "start": 113.26,
+      "end": 113.74
     },
     {
       "word": "\"come",
-      "start": 114.54,
-      "end": 114.7
+      "start": 113.74,
+      "end": 114.72
     },
     {
       "word": "to",
-      "start": 114.7,
-      "end": 115
+      "start": 114.72,
+      "end": 114.9
     },
     {
       "word": "me,",
-      "start": 115,
-      "end": 115.72
+      "start": 114.9,
+      "end": 115.08
     },
     {
       "word": "you",
-      "start": 115.72,
-      "end": 115.8
+      "start": 115.08,
+      "end": 115.76
     },
     {
       "word": "weary",
-      "start": 115.8,
-      "end": 116.32
+      "start": 115.76,
+      "end": 116.78
     },
     {
       "word": "one,\"",
-      "start": 116.32,
-      "end": 117.38
+      "start": 116.78,
+      "end": 117.64
     },
     {
       "word": "and",
-      "start": 117.38,
-      "end": 117.78
+      "start": 117.64,
+      "end": 117.8
     },
     {
       "word": "He",
-      "start": 117.78,
-      "end": 118.14
+      "start": 117.8,
+      "end": 118.12
     },
     {
       "word": "gave",
-      "start": 118.14,
-      "end": 118.5
+      "start": 118.12,
+      "end": 118.54
     },
     {
       "word": "me",
-      "start": 118.5,
-      "end": 118.98
+      "start": 118.54,
+      "end": 118.92
     },
     {
       "word": "rest",
-      "start": 118.98,
-      "end": 119.52
+      "start": 118.92,
+      "end": 119.54
     },
     {
       "word": "to",
-      "start": 119.52,
-      "end": 120.14
+      "start": 119.54,
+      "end": 119.74
     },
     {
       "word": "keep.",
-      "start": 120.14,
-      "end": 120.54
+      "start": 119.74,
+      "end": 121.12
     },
     {
       "word": "I",
-      "start": 120.18,
-      "end": 121
+      "start": 121.12,
+      "end": 121.36
     },
     {
       "word": "was",
-      "start": 121,
-      "end": 121.38
+      "start": 121.36,
+      "end": 122.08
     },
     {
       "word": "empty,",
-      "start": 121.38,
-      "end": 122.28
+      "start": 122.08,
+      "end": 122.94
     },
     {
       "word": "I",
-      "start": 122.28,
-      "end": 122.8
+      "start": 122.94,
+      "end": 122.98
     },
     {
       "word": "was",
-      "start": 122.8,
-      "end": 123
+      "start": 122.98,
+      "end": 123.38
     },
     {
       "word": "lonely,",
-      "start": 123,
-      "end": 123.92
+      "start": 123.38,
+      "end": 123.62
     },
     {
       "word": "with",
-      "start": 123.92,
-      "end": 124.38
+      "start": 123.62,
+      "end": 124.4
     },
     {
       "word": "the",
-      "start": 124.38,
-      "end": 124.66
+      "start": 124.4,
+      "end": 124.6
     },
     {
       "word": "dark",
-      "start": 124.66,
-      "end": 125.2
+      "start": 124.6,
+      "end": 125.44
     },
     {
       "word": "on",
-      "start": 125.2,
-      "end": 125.7
+      "start": 125.44,
+      "end": 125.92
     },
     {
       "word": "every",
-      "start": 125.7,
-      "end": 126.18
+      "start": 125.92,
+      "end": 126.16
     },
     {
       "word": "side,",
-      "start": 126.18,
-      "end": 127.18
+      "start": 126.16,
+      "end": 127.42
     },
     {
       "word": "when",
-      "start": 127.18,
-      "end": 127.66
+      "start": 127.42,
+      "end": 127.7
     },
     {
       "word": "a",
-      "start": 127.66,
-      "end": 128.14
+      "start": 127.7,
+      "end": 127.82
     },
     {
       "word": "voice",
-      "start": 128.14,
-      "end": 128.42
+      "start": 127.82,
+      "end": 128.44
     },
     {
       "word": "said",
-      "start": 128.42,
-      "end": 129.24
+      "start": 128.44,
+      "end": 129
     },
     {
       "word": "\"open",
-      "start": 129.24,
-      "end": 129.48
+      "start": 129,
+      "end": 129.9
     },
     {
       "word": "up",
-      "start": 129.48,
-      "end": 130.04
+      "start": 129.9,
+      "end": 130.08
     },
     {
       "word": "the",
-      "start": 130.04,
-      "end": 130.46
+      "start": 130.08,
+      "end": 130.26
     },
     {
       "word": "Word,\"",
-      "start": 130.46,
-      "end": 130.8
-    },
-    {
-      "word": "and",
-      "start": 130.8,
-      "end": 130.94
-    },
-    {
-      "word": "I",
-      "start": 130.94,
+      "start": 130.26,
       "end": 131.14
     },
     {
-      "word": "had",
+      "word": "and",
       "start": 131.14,
-      "end": 131.44
-    },
-    {
-      "word": "nowhere",
-      "start": 131.44,
-      "end": 131.96
-    },
-    {
-      "word": "left",
-      "start": 131.96,
-      "end": 132.46
-    },
-    {
-      "word": "to",
-      "start": 132.46,
-      "end": 133.02
-    },
-    {
-      "word": "hide.",
-      "start": 133.02,
-      "end": 133.88
-    },
-    {
-      "word": "So",
-      "start": 133.88,
-      "end": 134.08
+      "end": 131.28
     },
     {
       "word": "I",
-      "start": 134.08,
-      "end": 134.88
+      "start": 131.28,
+      "end": 131.4
     },
     {
-      "word": "read",
-      "start": 134.88,
-      "end": 134.96
+      "word": "had",
+      "start": 131.4,
+      "end": 131.72
     },
     {
-      "word": "it",
-      "start": 134.96,
-      "end": 135.38
+      "word": "nowhere",
+      "start": 131.72,
+      "end": 132.12
     },
     {
-      "word": "in",
-      "start": 135.38,
-      "end": 135.74
-    },
-    {
-      "word": "the",
-      "start": 135.74,
-      "end": 135.98
-    },
-    {
-      "word": "silence",
-      "start": 135.98,
-      "end": 136.82
-    },
-    {
-      "word": "and",
-      "start": 136.82,
-      "end": 137.34
-    },
-    {
-      "word": "the",
-      "start": 137.34,
-      "end": 137.86
-    },
-    {
-      "word": "words",
-      "start": 137.86,
-      "end": 138.14
-    },
-    {
-      "word": "began",
-      "start": 138.14,
-      "end": 138.54
+      "word": "left",
+      "start": 132.12,
+      "end": 132.5
     },
     {
       "word": "to",
-      "start": 138.54,
-      "end": 139.72
+      "start": 132.5,
+      "end": 132.74
     },
     {
-      "word": "shine,",
-      "start": 139.72,
-      "end": 140.32
+      "word": "hide.",
+      "start": 132.74,
+      "end": 133.9
+    },
+    {
+      "word": "So",
+      "start": 133.9,
+      "end": 134.22
+    },
+    {
+      "word": "I",
+      "start": 134.22,
+      "end": 134.3
+    },
+    {
+      "word": "read",
+      "start": 134.3,
+      "end": 135.2
+    },
+    {
+      "word": "it",
+      "start": 135.2,
+      "end": 135.7
+    },
+    {
+      "word": "in",
+      "start": 135.7,
+      "end": 135.94
+    },
+    {
+      "word": "the",
+      "start": 135.94,
+      "end": 136.34
+    },
+    {
+      "word": "silence",
+      "start": 136.34,
+      "end": 137.26
     },
     {
       "word": "and",
-      "start": 140.32,
+      "start": 137.26,
+      "end": 137.38
+    },
+    {
+      "word": "the",
+      "start": 137.38,
+      "end": 137.5
+    },
+    {
+      "word": "words",
+      "start": 137.5,
+      "end": 138.16
+    },
+    {
+      "word": "began",
+      "start": 138.16,
+      "end": 138.98
+    },
+    {
+      "word": "to",
+      "start": 138.98,
+      "end": 139.14
+    },
+    {
+      "word": "shine,",
+      "start": 139.14,
+      "end": 140.48
+    },
+    {
+      "word": "and",
+      "start": 140.48,
       "end": 140.6
     },
     {
       "word": "the",
       "start": 140.6,
-      "end": 140.82
+      "end": 140.8
     },
     {
       "word": "fear",
-      "start": 140.82,
-      "end": 141.24
+      "start": 140.8,
+      "end": 141.72
     },
     {
       "word": "I",
-      "start": 141.24,
-      "end": 142.26
+      "start": 141.72,
+      "end": 141.86
     },
     {
       "word": "couldn't",
-      "start": 142.26,
-      "end": 142.3
+      "start": 141.86,
+      "end": 142.38
     },
     {
       "word": "carry,",
-      "start": 142.3,
-      "end": 143.46
+      "start": 142.38,
+      "end": 143.56
     },
     {
       "word": "He",
-      "start": 143.46,
-      "end": 144.02
+      "start": 143.56,
+      "end": 143.82
     },
     {
       "word": "was",
-      "start": 144.02,
-      "end": 144.18
+      "start": 143.82,
+      "end": 144.2
     },
     {
       "word": "trading",
-      "start": 144.18,
-      "end": 144.74
+      "start": 144.2,
+      "end": 144.86
     },
     {
       "word": "line",
-      "start": 144.74,
-      "end": 145.24
+      "start": 144.86,
+      "end": 145.22
     },
     {
       "word": "by",
-      "start": 145.24,
-      "end": 145.66
+      "start": 145.22,
+      "end": 145.62
     },
     {
       "word": "line.",
-      "start": 145.66,
-      "end": 146.5
+      "start": 145.62,
+      "end": 146.82
     },
     {
       "word": "Now",
-      "start": 146.5,
+      "start": 146.82,
       "end": 147.02
     },
     {
@@ -1285,891 +1285,891 @@
     {
       "word": "peace",
       "start": 147.26,
-      "end": 147.72
+      "end": 147.9
     },
     {
       "word": "I",
-      "start": 147.72,
-      "end": 148.68
+      "start": 147.9,
+      "end": 148.3
     },
     {
       "word": "cannot",
-      "start": 148.68,
-      "end": 148.72
+      "start": 148.3,
+      "end": 148.82
     },
     {
       "word": "explain",
-      "start": 148.72,
-      "end": 149.54
+      "start": 148.82,
+      "end": 150.06
     },
     {
       "word": "where",
-      "start": 149.54,
-      "end": 150.28
+      "start": 150.06,
+      "end": 150.32
     },
     {
       "word": "the",
-      "start": 150.28,
-      "end": 150.64
+      "start": 150.32,
+      "end": 150.88
     },
     {
       "word": "worry",
-      "start": 150.64,
-      "end": 151.22
+      "start": 150.88,
+      "end": 151.68
     },
     {
       "word": "used",
-      "start": 151.22,
-      "end": 151.86
+      "start": 151.68,
+      "end": 151.9
     },
     {
       "word": "to",
-      "start": 151.86,
-      "end": 152.18
+      "start": 151.9,
+      "end": 152.1
     },
     {
       "word": "be,",
-      "start": 152.18,
-      "end": 153.06
+      "start": 152.1,
+      "end": 153.32
     },
     {
       "word": "He",
-      "start": 153.06,
-      "end": 153.48
+      "start": 153.32,
+      "end": 153.52
     },
     {
       "word": "took",
-      "start": 153.48,
-      "end": 153.7
+      "start": 153.52,
+      "end": 153.76
     },
     {
       "word": "the",
-      "start": 153.7,
-      "end": 153.96
+      "start": 153.76,
+      "end": 153.94
     },
     {
       "word": "weight",
-      "start": 153.96,
-      "end": 154.36
+      "start": 153.94,
+      "end": 154.74
     },
     {
       "word": "I",
-      "start": 154.36,
-      "end": 155.16
+      "start": 154.74,
+      "end": 154.94
     },
     {
       "word": "couldn't",
-      "start": 155.16,
-      "end": 155.28
+      "start": 154.94,
+      "end": 155.36
     },
     {
       "word": "hold",
-      "start": 155.28,
-      "end": 155.98
+      "start": 155.36,
+      "end": 156.46
     },
     {
       "word": "and",
-      "start": 155.98,
-      "end": 156.6
+      "start": 156.46,
+      "end": 156.64
     },
     {
       "word": "He",
-      "start": 156.6,
-      "end": 157.58
+      "start": 156.64,
+      "end": 157.16
     },
     {
       "word": "carried",
-      "start": 157.58,
-      "end": 157.74
+      "start": 157.16,
+      "end": 157.94
     },
     {
       "word": "it",
-      "start": 157.74,
-      "end": 158.14
+      "start": 157.94,
+      "end": 158.16
     },
     {
       "word": "for",
-      "start": 158.14,
-      "end": 158.76
+      "start": 158.16,
+      "end": 158.78
     },
     {
       "word": "me.",
-      "start": 158.76,
-      "end": 160.56
+      "start": 158.78,
+      "end": 161.28
     },
     {
       "word": "I",
-      "start": 160.56,
-      "end": 161.48
+      "start": 161.5,
+      "end": 161.62
     },
     {
       "word": "don't",
-      "start": 161.48,
-      "end": 161.8
+      "start": 161.62,
+      "end": 162
     },
     {
       "word": "have",
-      "start": 161.8,
-      "end": 162.44
+      "start": 162,
+      "end": 162.52
     },
     {
       "word": "a",
-      "start": 162.44,
-      "end": 162.84
+      "start": 162.52,
+      "end": 162.64
     },
     {
       "word": "faith",
-      "start": 162.84,
-      "end": 162.9
+      "start": 162.64,
+      "end": 163.34
     },
     {
       "word": "of",
-      "start": 162.9,
-      "end": 164.62
+      "start": 163.34,
+      "end": 163.46
     },
     {
       "word": "mountains,",
-      "start": 164.62,
-      "end": 164.68
+      "start": 163.46,
+      "end": 164.76
     },
     {
       "word": "I",
-      "start": 164.68,
-      "end": 164.86
+      "start": 164.76,
+      "end": 164.88
     },
     {
       "word": "just",
-      "start": 164.86,
+      "start": 164.88,
       "end": 165.08
     },
     {
       "word": "have",
       "start": 165.08,
-      "end": 165.66
+      "end": 165.72
     },
     {
       "word": "a",
-      "start": 165.66,
-      "end": 166.2
+      "start": 165.72,
+      "end": 165.88
     },
     {
       "word": "faith",
-      "start": 166.2,
-      "end": 166.24
+      "start": 165.88,
+      "end": 166.28
     },
     {
       "word": "of",
-      "start": 166.24,
-      "end": 167.09
+      "start": 166.28,
+      "end": 166.48
     },
     {
       "word": "seeds,",
-      "start": 167.09,
-      "end": 167.98
+      "start": 166.48,
+      "end": 167.92
     },
     {
       "word": "but",
-      "start": 167.98,
-      "end": 168.12
+      "start": 167.92,
+      "end": 168.16
     },
     {
       "word": "it",
-      "start": 168.12,
-      "end": 168.36
+      "start": 168.16,
+      "end": 168.32
     },
     {
       "word": "found",
-      "start": 168.36,
-      "end": 168.86
+      "start": 168.32,
+      "end": 168.98
     },
     {
       "word": "me",
-      "start": 168.86,
+      "start": 168.98,
       "end": 169.62
     },
     {
       "word": "in",
       "start": 169.62,
-      "end": 169.76
+      "end": 169.78
     },
     {
       "word": "the",
-      "start": 169.76,
-      "end": 170.02
+      "start": 169.78,
+      "end": 170
     },
     {
       "word": "wreckage",
-      "start": 170.02,
-      "end": 170.9
+      "start": 170,
+      "end": 171.06
     },
     {
       "word": "and",
-      "start": 170.9,
-      "end": 171.16
+      "start": 171.06,
+      "end": 171.2
     },
     {
       "word": "it",
-      "start": 171.16,
-      "end": 171.72
+      "start": 171.2,
+      "end": 171.32
     },
     {
       "word": "gave",
-      "start": 171.72,
-      "end": 171.76
+      "start": 171.32,
+      "end": 172.2
     },
     {
       "word": "me",
-      "start": 171.76,
-      "end": 172.58
+      "start": 172.2,
+      "end": 172.6
     },
     {
       "word": "what",
-      "start": 172.58,
-      "end": 172.82
+      "start": 172.6,
+      "end": 173.02
     },
     {
       "word": "I",
-      "start": 172.82,
-      "end": 173.38
+      "start": 173.02,
+      "end": 173.2
     },
     {
       "word": "need.",
-      "start": 173.38,
-      "end": 174.24
+      "start": 173.2,
+      "end": 174.52
     },
     {
       "word": "And",
-      "start": 174.24,
+      "start": 174.52,
       "end": 174.7
     },
     {
       "word": "I'm",
       "start": 174.7,
-      "end": 174.9
+      "end": 174.84
     },
     {
       "word": "grateful",
-      "start": 174.9,
-      "end": 175.32
+      "start": 174.84,
+      "end": 175.62
     },
     {
       "word": "for",
-      "start": 175.32,
-      "end": 176.16
+      "start": 175.62,
+      "end": 176.26
     },
     {
       "word": "the",
-      "start": 176.16,
-      "end": 176.42
+      "start": 176.26,
+      "end": 176.44
     },
     {
       "word": "morning,",
-      "start": 176.42,
-      "end": 177.8
+      "start": 176.44,
+      "end": 177.91
     },
     {
       "word": "I'm",
-      "start": 177.8,
-      "end": 178.16
+      "start": 177.91,
+      "end": 178.09
     },
     {
       "word": "grateful",
-      "start": 178.16,
-      "end": 178.56
+      "start": 178.09,
+      "end": 178.88
     },
     {
       "word": "for",
-      "start": 178.56,
-      "end": 179.44
+      "start": 178.88,
+      "end": 179.53
     },
     {
       "word": "the",
-      "start": 179.44,
-      "end": 179.72
+      "start": 179.53,
+      "end": 179.71
     },
     {
       "word": "gift,",
-      "start": 179.72,
-      "end": 180.96
+      "start": 179.71,
+      "end": 180.88
     },
     {
       "word": "for",
-      "start": 180.96,
-      "end": 181.1
+      "start": 180.88,
+      "end": 181.15
     },
     {
       "word": "the",
-      "start": 181.1,
-      "end": 181.36
+      "start": 181.15,
+      "end": 181.34
     },
     {
       "word": "hand",
-      "start": 181.36,
-      "end": 181.92
+      "start": 181.34,
+      "end": 181.97
     },
     {
       "word": "that",
-      "start": 181.92,
-      "end": 182.2
+      "start": 181.97,
+      "end": 182.16
     },
     {
       "word": "took",
-      "start": 182.2,
-      "end": 182.52
+      "start": 182.16,
+      "end": 182.59
     },
     {
       "word": "my",
-      "start": 182.52,
-      "end": 183
+      "start": 182.59,
+      "end": 182.97
     },
     {
       "word": "fear",
-      "start": 183,
-      "end": 183.56
+      "start": 182.97,
+      "end": 183.66
     },
     {
       "word": "away",
-      "start": 183.56,
-      "end": 184.22
+      "start": 183.66,
+      "end": 184.21
     },
     {
       "word": "and",
-      "start": 184.22,
-      "end": 184.68
+      "start": 184.21,
+      "end": 184.59
     },
     {
       "word": "gave",
-      "start": 184.68,
-      "end": 184.96
+      "start": 184.59,
+      "end": 185.03
     },
     {
       "word": "me",
-      "start": 184.96,
-      "end": 185.58
+      "start": 185.03,
+      "end": 185.59
     },
     {
       "word": "peace",
-      "start": 185.58,
-      "end": 185.98
+      "start": 185.59,
+      "end": 186
     },
     {
       "word": "to",
-      "start": 185.98,
-      "end": 186.28
+      "start": 186,
+      "end": 186.22
     },
     {
       "word": "live.",
-      "start": 186.28,
-      "end": 186.86
+      "start": 186.22,
+      "end": 188.72
     },
     {
       "word": "I",
-      "start": 186.86,
-      "end": 187.68
+      "start": 189.15,
+      "end": 189.27
     },
     {
       "word": "was",
-      "start": 187.68,
-      "end": 189.46
+      "start": 189.27,
+      "end": 189.85
     },
     {
       "word": "empty,",
-      "start": 189.46,
-      "end": 190.44
+      "start": 189.85,
+      "end": 190.79
     },
     {
       "word": "I",
-      "start": 190.44,
-      "end": 190.88
+      "start": 190.79,
+      "end": 190.91
     },
     {
       "word": "was",
-      "start": 190.88,
-      "end": 191.1
+      "start": 190.91,
+      "end": 191.13
     },
     {
       "word": "lonely,",
-      "start": 191.1,
-      "end": 192.12
+      "start": 191.13,
+      "end": 192.31
     },
     {
       "word": "with",
-      "start": 192.12,
-      "end": 192.52
+      "start": 192.31,
+      "end": 192.55
     },
     {
       "word": "the",
-      "start": 192.52,
-      "end": 192.76
+      "start": 192.55,
+      "end": 192.73
     },
     {
       "word": "dark",
-      "start": 192.76,
-      "end": 193.32
+      "start": 192.73,
+      "end": 193.37
     },
     {
       "word": "on",
-      "start": 193.32,
-      "end": 193.78
+      "start": 193.37,
+      "end": 193.85
     },
     {
       "word": "every",
-      "start": 193.78,
-      "end": 194.24
+      "start": 193.85,
+      "end": 194.27
     },
     {
       "word": "side,",
-      "start": 194.24,
-      "end": 195.3
+      "start": 194.27,
+      "end": 195.55
     },
     {
       "word": "when",
-      "start": 195.3,
-      "end": 195.76
+      "start": 195.55,
+      "end": 195.87
     },
     {
       "word": "a",
-      "start": 195.76,
-      "end": 196.04
+      "start": 195.87,
+      "end": 195.99
     },
     {
       "word": "voice",
-      "start": 196.04,
-      "end": 196.56
+      "start": 195.99,
+      "end": 196.59
     },
     {
       "word": "said",
-      "start": 196.56,
-      "end": 197.58
+      "start": 196.59,
+      "end": 196.83
     },
     {
       "word": "\"open",
-      "start": 197.58,
-      "end": 197.62
+      "start": 196.83,
+      "end": 197.97
     },
     {
       "word": "up",
-      "start": 197.62,
-      "end": 198.2
+      "start": 197.97,
+      "end": 198.23
     },
     {
       "word": "the",
-      "start": 198.2,
-      "end": 198.4
+      "start": 198.23,
+      "end": 198.41
     },
     {
       "word": "Word,\"",
-      "start": 198.4,
-      "end": 198.86
+      "start": 198.41,
+      "end": 198.93
     },
     {
       "word": "and",
-      "start": 198.86,
-      "end": 199.06
+      "start": 198.93,
+      "end": 199.03
     },
     {
       "word": "I",
-      "start": 199.06,
-      "end": 199.3
+      "start": 199.03,
+      "end": 199.27
     },
     {
       "word": "had",
-      "start": 199.3,
-      "end": 199.6
+      "start": 199.27,
+      "end": 199.47
     },
     {
       "word": "nowhere",
-      "start": 199.6,
-      "end": 200.2
+      "start": 199.47,
+      "end": 200.25
     },
     {
       "word": "left",
-      "start": 200.2,
-      "end": 200.54
+      "start": 200.25,
+      "end": 200.65
     },
     {
       "word": "to",
-      "start": 200.54,
-      "end": 201.18
+      "start": 200.65,
+      "end": 200.87
     },
     {
       "word": "hide.",
-      "start": 201.18,
-      "end": 201.58
+      "start": 200.87,
+      "end": 202.01
     },
     {
       "word": "So",
-      "start": 201.46,
-      "end": 202.12
+      "start": 202.01,
+      "end": 202.35
     },
     {
       "word": "I",
-      "start": 202.12,
-      "end": 202.5
+      "start": 202.35,
+      "end": 202.47
     },
     {
       "word": "read",
-      "start": 202.5,
-      "end": 203.1
+      "start": 202.47,
+      "end": 203.77
     },
     {
       "word": "it",
-      "start": 203.1,
-      "end": 203.56
+      "start": 203.77,
+      "end": 203.89
     },
     {
       "word": "in",
-      "start": 203.56,
-      "end": 203.88
+      "start": 203.89,
+      "end": 204.07
     },
     {
       "word": "the",
-      "start": 203.88,
-      "end": 204.12
+      "start": 204.07,
+      "end": 204.49
     },
     {
       "word": "silence",
-      "start": 204.12,
-      "end": 204.92
+      "start": 204.49,
+      "end": 205.37
     },
     {
       "word": "and",
-      "start": 204.92,
-      "end": 205.46
+      "start": 205.37,
+      "end": 205.51
     },
     {
       "word": "the",
-      "start": 205.46,
-      "end": 205.72
+      "start": 205.51,
+      "end": 205.79
     },
     {
       "word": "words",
-      "start": 205.72,
-      "end": 206.24
+      "start": 205.79,
+      "end": 206.31
     },
     {
       "word": "began",
-      "start": 206.24,
-      "end": 206.76
+      "start": 206.31,
+      "end": 207.29
     },
     {
       "word": "to",
-      "start": 206.76,
-      "end": 207.84
+      "start": 207.29,
+      "end": 208.45
     },
     {
       "word": "shine,",
-      "start": 207.84,
-      "end": 208.24
+      "start": 208.45,
+      "end": 208.85
     },
     {
       "word": "and",
-      "start": 207.92,
-      "end": 208.7
+      "start": 208.77,
+      "end": 208.91
     },
     {
       "word": "the",
-      "start": 208.7,
-      "end": 208.92
+      "start": 208.91,
+      "end": 209.73
     },
     {
       "word": "fear",
-      "start": 208.92,
-      "end": 209.38
+      "start": 209.73,
+      "end": 211.81
     },
     {
       "word": "I",
-      "start": 209.38,
-      "end": 210.48
+      "start": 211.81,
+      "end": 211.91
     },
     {
       "word": "couldn't",
-      "start": 210.48,
-      "end": 210.52
+      "start": 211.91,
+      "end": 212.33
     },
     {
       "word": "carry,",
-      "start": 210.52,
-      "end": 211.96
+      "start": 212.33,
+      "end": 212.63
     },
     {
       "word": "He",
-      "start": 211.96,
-      "end": 212
+      "start": 212.63,
+      "end": 212.81
     },
     {
       "word": "was",
-      "start": 212,
-      "end": 212.3
+      "start": 212.81,
+      "end": 212.91
     },
     {
       "word": "trading",
-      "start": 212.3,
-      "end": 212.9
+      "start": 212.91,
+      "end": 213.41
     },
     {
       "word": "line",
-      "start": 212.9,
-      "end": 213.4
+      "start": 213.41,
+      "end": 213.75
     },
     {
       "word": "by",
-      "start": 213.4,
-      "end": 213.8
+      "start": 213.75,
+      "end": 213.87
     },
     {
       "word": "line.",
-      "start": 213.8,
-      "end": 214.84
+      "start": 213.87,
+      "end": 214.95
     },
     {
       "word": "Now",
-      "start": 214.84,
-      "end": 215.16
+      "start": 214.95,
+      "end": 215.17
     },
     {
       "word": "there's",
-      "start": 215.16,
-      "end": 215.36
+      "start": 215.17,
+      "end": 215.41
     },
     {
       "word": "peace",
-      "start": 215.36,
-      "end": 215.82
+      "start": 215.41,
+      "end": 215.71
     },
     {
       "word": "I",
-      "start": 215.82,
-      "end": 216.86
+      "start": 215.71,
+      "end": 215.81
     },
     {
       "word": "cannot",
-      "start": 216.86,
-      "end": 216.9
+      "start": 215.81,
+      "end": 216.89
     },
     {
       "word": "explain",
-      "start": 216.9,
-      "end": 217.64
+      "start": 216.89,
+      "end": 218.19
     },
     {
       "word": "where",
-      "start": 217.64,
-      "end": 218.4
+      "start": 218.19,
+      "end": 218.43
     },
     {
       "word": "the",
-      "start": 218.4,
-      "end": 218.66
+      "start": 218.43,
+      "end": 218.55
     },
     {
       "word": "worry",
-      "start": 218.66,
-      "end": 219.22
+      "start": 218.55,
+      "end": 219.55
     },
     {
       "word": "used",
-      "start": 219.22,
-      "end": 219.98
+      "start": 219.55,
+      "end": 220.03
     },
     {
       "word": "to",
-      "start": 219.98,
-      "end": 220.34
+      "start": 220.03,
+      "end": 220.23
     },
     {
       "word": "be,",
-      "start": 220.34,
-      "end": 221.18
+      "start": 220.23,
+      "end": 221.43
     },
     {
       "word": "He",
-      "start": 221.18,
-      "end": 221.62
+      "start": 221.43,
+      "end": 221.65
     },
     {
       "word": "took",
-      "start": 221.62,
-      "end": 221.84
+      "start": 221.65,
+      "end": 221.91
     },
     {
       "word": "the",
-      "start": 221.84,
-      "end": 222.08
+      "start": 221.91,
+      "end": 222.07
     },
     {
       "word": "weight",
-      "start": 222.08,
-      "end": 222.48
+      "start": 222.07,
+      "end": 222.89
     },
     {
       "word": "I",
-      "start": 222.48,
-      "end": 223.16
+      "start": 222.89,
+      "end": 223.07
     },
     {
       "word": "couldn't",
-      "start": 223.16,
-      "end": 223.42
+      "start": 223.07,
+      "end": 223.51
     },
     {
       "word": "hold",
-      "start": 223.42,
-      "end": 224.06
+      "start": 223.51,
+      "end": 224.51
     },
     {
       "word": "and",
-      "start": 224.06,
-      "end": 224.72
+      "start": 224.51,
+      "end": 224.77
     },
     {
       "word": "He",
-      "start": 224.72,
-      "end": 225.66
+      "start": 224.77,
+      "end": 225.27
     },
     {
       "word": "carried",
-      "start": 225.66,
-      "end": 225.82
+      "start": 225.27,
+      "end": 226.05
     },
     {
       "word": "it",
-      "start": 225.82,
-      "end": 226.28
+      "start": 226.05,
+      "end": 226.27
     },
     {
       "word": "for",
-      "start": 226.28,
-      "end": 227.16
+      "start": 226.27,
+      "end": 227.31
     },
     {
       "word": "me.",
-      "start": 227.16,
-      "end": 228.72
+      "start": 227.31,
+      "end": 229.51
     },
     {
       "word": "So",
-      "start": 228.72,
-      "end": 229.64
+      "start": 229.51,
+      "end": 229.79
     },
     {
       "word": "I'll",
-      "start": 229.64,
-      "end": 229.98
+      "start": 229.79,
+      "end": 229.97
     },
     {
       "word": "drive",
-      "start": 229.98,
-      "end": 230.4
+      "start": 229.97,
+      "end": 230.59
     },
     {
       "word": "into",
-      "start": 230.4,
-      "end": 231.18
+      "start": 230.59,
+      "end": 231.37
     },
     {
       "word": "the",
-      "start": 231.18,
-      "end": 231.54
+      "start": 231.37,
+      "end": 231.55
     },
     {
       "word": "daylight",
-      "start": 231.54,
-      "end": 232.26
+      "start": 231.55,
+      "end": 232.59
     },
     {
       "word": "with",
-      "start": 232.26,
-      "end": 232.76
+      "start": 232.59,
+      "end": 232.79
     },
     {
       "word": "the",
-      "start": 232.76,
-      "end": 233.4
+      "start": 232.79,
+      "end": 233.01
     },
     {
       "word": "windows",
-      "start": 233.4,
-      "end": 233.92
+      "start": 233.01,
+      "end": 234.21
     },
     {
       "word": "rolling",
-      "start": 233.92,
-      "end": 234.7
+      "start": 234.21,
+      "end": 234.81
     },
     {
       "word": "down,",
-      "start": 234.7,
-      "end": 236.1
+      "start": 234.81,
+      "end": 236.09
     },
     {
       "word": "and",
-      "start": 236.1,
-      "end": 236.2
+      "start": 236.09,
+      "end": 236.25
     },
     {
       "word": "the",
-      "start": 236.2,
-      "end": 236.42
+      "start": 236.25,
+      "end": 236.43
     },
     {
       "word": "Word",
-      "start": 236.42,
-      "end": 237.04
+      "start": 236.43,
+      "end": 237.09
     },
     {
       "word": "that",
-      "start": 237.04,
-      "end": 237.44
+      "start": 237.09,
+      "end": 237.25
     },
     {
       "word": "came",
-      "start": 237.44,
-      "end": 237.76
+      "start": 237.25,
+      "end": 237.85
     },
     {
       "word": "to",
-      "start": 237.76,
-      "end": 238.04
+      "start": 237.85,
+      "end": 238.05
     },
     {
       "word": "find",
-      "start": 238.04,
-      "end": 238.5
+      "start": 238.05,
+      "end": 238.55
     },
     {
       "word": "me",
-      "start": 238.5,
-      "end": 239.1
+      "start": 238.55,
+      "end": 239.21
     },
     {
       "word": "is",
-      "start": 239.1,
-      "end": 239.32
+      "start": 239.21,
+      "end": 239.35
     },
     {
       "word": "the",
-      "start": 239.32,
-      "end": 239.52
+      "start": 239.35,
+      "end": 239.51
     },
     {
       "word": "peace",
-      "start": 239.52,
-      "end": 240.23
+      "start": 239.51,
+      "end": 240.47
     },
     {
       "word": "I've",
-      "start": 240.23,
-      "end": 240.94
+      "start": 240.47,
+      "end": 240.79
     },
     {
       "word": "finally",
-      "start": 240.94,
-      "end": 241.54
+      "start": 240.79,
+      "end": 241.91
     },
     {
       "word": "found.",
-      "start": 241.54,
+      "start": 241.91,
       "end": 243.84
     }
   ],
@@ -2177,532 +2177,532 @@
     {
       "seg": 0,
       "text": "There was nothing in my hands and there was nothing left to say,",
-      "start": 2.16,
-      "end": 25.08,
+      "start": 15.57,
+      "end": 22.09,
       "w": [
         {
           "t": "There",
-          "s": 2.16
+          "s": 15.57
         },
         {
           "t": "was",
-          "s": 4.01
+          "s": 15.79
         },
         {
           "t": "nothing",
-          "s": 5.87
+          "s": 15.99
         },
         {
           "t": "in",
-          "s": 7.72
+          "s": 16.91
         },
         {
           "t": "my",
-          "s": 9.58
+          "s": 17.17
         },
         {
           "t": "hands",
-          "s": 11.43
+          "s": 17.69
         },
         {
           "t": "and",
-          "s": 13.29
+          "s": 18.85
         },
         {
           "t": "there",
-          "s": 15.15
+          "s": 18.97
         },
         {
           "t": "was",
-          "s": 17
+          "s": 19.19
         },
         {
           "t": "nothing",
-          "s": 18.86
+          "s": 19.39
         },
         {
           "t": "left",
-          "s": 20.71
+          "s": 19.99
         },
         {
           "t": "to",
-          "s": 22.57
+          "s": 20.35
         },
         {
           "t": "say,",
-          "s": 24.42
+          "s": 20.55
         }
       ]
     },
     {
       "seg": 1,
       "text": "I was tired of my own questions and the fear that wouldn't fade.",
-      "start": 25.08,
-      "end": 30,
+      "start": 22.09,
+      "end": 27.53,
       "w": [
         {
           "t": "I",
-          "s": 25.08
+          "s": 22.09
         },
         {
           "t": "was",
-          "s": 25.45
+          "s": 22.19
         },
         {
           "t": "tired",
-          "s": 25.81
+          "s": 22.41
         },
         {
           "t": "of",
-          "s": 26.17
+          "s": 23.11
         },
         {
           "t": "my",
-          "s": 26.53
+          "s": 23.27
         },
         {
           "t": "own",
-          "s": 26.9
+          "s": 23.61
         },
         {
           "t": "questions",
-          "s": 27.26
+          "s": 24.05
         },
         {
           "t": "and",
-          "s": 27.62
+          "s": 25.13
         },
         {
           "t": "the",
-          "s": 27.99
+          "s": 25.27
         },
         {
           "t": "fear",
-          "s": 28.35
+          "s": 25.47
         },
         {
           "t": "that",
-          "s": 28.71
+          "s": 26.29
         },
         {
           "t": "wouldn't",
-          "s": 29.07
+          "s": 26.69
         },
         {
           "t": "fade.",
-          "s": 29.44
+          "s": 27.13
         }
       ]
     },
     {
       "seg": 2,
       "text": "I had carried all my worry till my shoulders nearly broke,",
-      "start": 30,
-      "end": 34.42,
+      "start": 27.47,
+      "end": 35.13,
       "w": [
         {
           "t": "I",
-          "s": 30
+          "s": 27.47
         },
         {
           "t": "had",
-          "s": 30.04
+          "s": 28.55
         },
         {
           "t": "carried",
-          "s": 30.08
+          "s": 28.95
         },
         {
           "t": "all",
-          "s": 30.12
+          "s": 29.95
         },
         {
           "t": "my",
-          "s": 30.16
+          "s": 30.17
         },
         {
           "t": "worry",
-          "s": 30.52
+          "s": 30.47
         },
         {
           "t": "till",
-          "s": 31.32
+          "s": 31.75
         },
         {
           "t": "my",
-          "s": 31.88
+          "s": 31.95
         },
         {
           "t": "shoulders",
-          "s": 32.98
+          "s": 32.19
         },
         {
           "t": "nearly",
-          "s": 33.02
+          "s": 33.03
         },
         {
           "t": "broke,",
-          "s": 33.78
+          "s": 33.79
         }
       ]
     },
     {
       "seg": 3,
       "text": "and I whispered to the silence with the little faith I spoke.",
-      "start": 34.42,
-      "end": 41.54,
+      "start": 35.13,
+      "end": 41.57,
       "w": [
         {
           "t": "and",
-          "s": 34.42
+          "s": 35.13
         },
         {
           "t": "I",
-          "s": 35.26
+          "s": 35.33
         },
         {
           "t": "whispered",
-          "s": 35.74
+          "s": 35.45
         },
         {
           "t": "to",
-          "s": 36.38
+          "s": 36.41
         },
         {
           "t": "the",
-          "s": 36.7
+          "s": 36.83
         },
         {
           "t": "silence",
-          "s": 37.06
+          "s": 37.01
         },
         {
           "t": "with",
-          "s": 37.92
+          "s": 38.03
         },
         {
           "t": "the",
-          "s": 38.24
+          "s": 38.29
         },
         {
           "t": "little",
-          "s": 38.7
+          "s": 38.47
         },
         {
           "t": "faith",
-          "s": 39.44
+          "s": 39.45
         },
         {
           "t": "I",
-          "s": 39.8
+          "s": 39.99
         },
         {
           "t": "spoke.",
-          "s": 40.72
+          "s": 40.17
         }
       ]
     },
     {
       "seg": 4,
       "text": "It was smaller than a mustard seed, it was barely even there,",
-      "start": 41.54,
-      "end": 47.82,
+      "start": 41.57,
+      "end": 48.01,
       "w": [
         {
           "t": "It",
-          "s": 41.54
+          "s": 41.57
         },
         {
           "t": "was",
-          "s": 41.66
+          "s": 41.67
         },
         {
           "t": "smaller",
-          "s": 41.92
+          "s": 41.85
         },
         {
           "t": "than",
-          "s": 42.6
+          "s": 42.77
         },
         {
           "t": "a",
-          "s": 43.36
+          "s": 43.41
         },
         {
           "t": "mustard",
-          "s": 44.1
+          "s": 43.55
         },
         {
           "t": "seed,",
-          "s": 44.12
+          "s": 44.31
         },
         {
           "t": "it",
-          "s": 44.86
+          "s": 44.83
         },
         {
           "t": "was",
-          "s": 44.96
+          "s": 44.93
         },
         {
           "t": "barely",
-          "s": 45.18
+          "s": 45.15
         },
         {
           "t": "even",
-          "s": 45.94
+          "s": 46.11
         },
         {
           "t": "there,",
-          "s": 46.84
+          "s": 46.81
         }
       ]
     },
     {
       "seg": 5,
       "text": "but it turned me toward the only light still burning anywhere.",
-      "start": 47.82,
-      "end": 53.6,
+      "start": 48.01,
+      "end": 54.61,
       "w": [
         {
           "t": "but",
-          "s": 47.82
+          "s": 48.01
         },
         {
           "t": "it",
-          "s": 48.22
+          "s": 48.27
         },
         {
           "t": "turned",
-          "s": 48.96
+          "s": 48.39
         },
         {
           "t": "me",
-          "s": 49
+          "s": 49.03
         },
         {
           "t": "toward",
-          "s": 49.74
+          "s": 49.19
         },
         {
           "t": "the",
-          "s": 49.78
+          "s": 49.83
         },
         {
           "t": "only",
-          "s": 50.08
+          "s": 50.19
         },
         {
           "t": "light",
-          "s": 50.8
+          "s": 50.87
         },
         {
           "t": "still",
-          "s": 51.32
+          "s": 51.35
         },
         {
           "t": "burning",
-          "s": 51.86
+          "s": 51.85
         },
         {
           "t": "anywhere.",
-          "s": 52.6
+          "s": 52.85
         }
       ]
     },
     {
       "seg": 6,
       "text": "I was empty, I was lonely, with the dark on every side,",
-      "start": 53.6,
-      "end": 60.74,
+      "start": 54.61,
+      "end": 60.99,
       "w": [
         {
           "t": "I",
-          "s": 53.6
+          "s": 54.61
         },
         {
           "t": "was",
-          "s": 54.56
+          "s": 54.71
         },
         {
           "t": "empty,",
-          "s": 54.92
+          "s": 55.07
         },
         {
           "t": "I",
-          "s": 55.86
+          "s": 56.44
         },
         {
           "t": "was",
-          "s": 56.36
+          "s": 56.49
         },
         {
           "t": "lonely,",
-          "s": 56.6
+          "s": 56.91
         },
         {
           "t": "with",
-          "s": 57.8
+          "s": 57.76
         },
         {
           "t": "the",
-          "s": 57.98
+          "s": 57.99
         },
         {
           "t": "dark",
-          "s": 58.22
+          "s": 58.16
         },
         {
           "t": "on",
-          "s": 58.8
+          "s": 59.03
         },
         {
           "t": "every",
-          "s": 59.28
+          "s": 59.31
         },
         {
           "t": "side,",
-          "s": 59.78
+          "s": 59.76
         }
       ]
     },
     {
       "seg": 7,
       "text": "when a voice said \"open up the Word,\" and I had nowhere left to hide.",
-      "start": 60.74,
-      "end": 67.5,
+      "start": 60.99,
+      "end": 67.47,
       "w": [
         {
           "t": "when",
-          "s": 60.74
+          "s": 60.99
         },
         {
           "t": "a",
-          "s": 61.24
+          "s": 61.3
         },
         {
           "t": "voice",
-          "s": 61.52
+          "s": 61.44
         },
         {
           "t": "said",
-          "s": 62
+          "s": 62.03
         },
         {
           "t": "\"open",
-          "s": 62.84
+          "s": 62.7
         },
         {
           "t": "up",
-          "s": 63.06
+          "s": 63.4
         },
         {
           "t": "the",
-          "s": 63.62
+          "s": 63.66
         },
         {
           "t": "Word,\"",
-          "s": 64.08
+          "s": 63.8
         },
         {
           "t": "and",
-          "s": 64.34
+          "s": 64.23
         },
         {
           "t": "I",
-          "s": 64.52
+          "s": 64.64
         },
         {
           "t": "had",
-          "s": 64.74
+          "s": 64.97
         },
         {
           "t": "nowhere",
-          "s": 65
+          "s": 65.25
         },
         {
           "t": "left",
-          "s": 65.58
+          "s": 65.5
         },
         {
           "t": "to",
-          "s": 66.06
+          "s": 65.72
         },
         {
           "t": "hide.",
-          "s": 66.76
+          "s": 66.14
         }
       ]
     },
     {
       "seg": 8,
       "text": "So I read it in the silence and the words began to shine,",
-      "start": 67.5,
-      "end": 73.92,
+      "start": 67.47,
+      "end": 74.08,
       "w": [
         {
           "t": "So",
-          "s": 67.5
+          "s": 67.47
         },
         {
           "t": "I",
-          "s": 67.68
+          "s": 67.78
         },
         {
           "t": "read",
-          "s": 68.22
+          "s": 67.89
         },
         {
           "t": "it",
-          "s": 68.4
+          "s": 69.46
         },
         {
           "t": "in",
-          "s": 68.98
+          "s": 69.84
         },
         {
           "t": "the",
-          "s": 69.36
+          "s": 69.96
         },
         {
           "t": "silence",
-          "s": 69.58
+          "s": 70.04
         },
         {
           "t": "and",
-          "s": 70.36
+          "s": 70.82
         },
         {
           "t": "the",
-          "s": 70.92
+          "s": 70.96
         },
         {
           "t": "words",
-          "s": 71.36
+          "s": 71.12
         },
         {
           "t": "began",
-          "s": 71.72
+          "s": 71.48
         },
         {
           "t": "to",
-          "s": 72.04
+          "s": 72.6
         },
         {
           "t": "shine,",
-          "s": 73.26
+          "s": 72.74
         }
       ]
     },
     {
       "seg": 9,
       "text": "and the fear I couldn't carry, He was trading line by line.",
-      "start": 73.92,
-      "end": 79.98,
+      "start": 74.08,
+      "end": 80.46,
       "w": [
         {
           "t": "and",
-          "s": 73.92
+          "s": 74.08
         },
         {
           "t": "the",
@@ -2710,35 +2710,35 @@
         },
         {
           "t": "fear",
-          "s": 74.52
+          "s": 74.7
         },
         {
           "t": "I",
-          "s": 74.8
+          "s": 75.38
         },
         {
           "t": "couldn't",
-          "s": 75.62
+          "s": 75.48
         },
         {
           "t": "carry,",
-          "s": 75.86
+          "s": 75.98
         },
         {
           "t": "He",
-          "s": 77.22
+          "s": 77.14
         },
         {
           "t": "was",
-          "s": 77.66
+          "s": 77.42
         },
         {
           "t": "trading",
-          "s": 77.76
+          "s": 77.82
         },
         {
           "t": "line",
-          "s": 78.34
+          "s": 78.48
         },
         {
           "t": "by",
@@ -2746,23 +2746,23 @@
         },
         {
           "t": "line.",
-          "s": 79.26
+          "s": 79.24
         }
       ]
     },
     {
       "seg": 10,
       "text": "Now there's peace I cannot explain",
-      "start": 79.98,
-      "end": 83.16,
+      "start": 80.46,
+      "end": 83.64,
       "w": [
         {
           "t": "Now",
-          "s": 79.98
+          "s": 80.46
         },
         {
           "t": "there's",
-          "s": 80.6
+          "s": 80.64
         },
         {
           "t": "peace",
@@ -2770,107 +2770,107 @@
         },
         {
           "t": "I",
-          "s": 81.3
+          "s": 81.4
         },
         {
           "t": "cannot",
-          "s": 82.14
+          "s": 81.9
         },
         {
           "t": "explain",
-          "s": 82.34
+          "s": 82.36
         }
       ]
     },
     {
       "seg": 11,
       "text": "where the worry used to be,",
-      "start": 83.16,
-      "end": 86.6,
+      "start": 83.64,
+      "end": 86.96,
       "w": [
         {
           "t": "where",
-          "s": 83.16
+          "s": 83.64
         },
         {
           "t": "the",
-          "s": 83.9
+          "s": 83.92
         },
         {
           "t": "worry",
-          "s": 84.3
+          "s": 84.44
         },
         {
           "t": "used",
-          "s": 84.76
+          "s": 85.3
         },
         {
           "t": "to",
-          "s": 85.48
+          "s": 85.56
         },
         {
           "t": "be,",
-          "s": 85.82
+          "s": 85.72
         }
       ]
     },
     {
       "seg": 12,
       "text": "He took the weight I couldn't hold",
-      "start": 86.6,
-      "end": 89.58,
+      "start": 86.96,
+      "end": 90.06,
       "w": [
         {
           "t": "He",
-          "s": 86.6
+          "s": 86.96
         },
         {
           "t": "took",
-          "s": 87.1
+          "s": 87.16
         },
         {
           "t": "the",
-          "s": 87.34
+          "s": 87.4
         },
         {
           "t": "weight",
-          "s": 87.6
+          "s": 87.58
         },
         {
           "t": "I",
-          "s": 88
+          "s": 88.38
         },
         {
           "t": "couldn't",
-          "s": 88.8
+          "s": 88.58
         },
         {
           "t": "hold",
-          "s": 88.92
+          "s": 89
         }
       ]
     },
     {
       "seg": 13,
       "text": "and He carried it for me.",
-      "start": 89.58,
-      "end": 94.66,
+      "start": 90.06,
+      "end": 95.04,
       "w": [
         {
           "t": "and",
-          "s": 89.58
+          "s": 90.06
         },
         {
           "t": "He",
-          "s": 90.22
+          "s": 90.28
         },
         {
           "t": "carried",
-          "s": 91.22
+          "s": 90.78
         },
         {
           "t": "it",
-          "s": 91.38
+          "s": 91.58
         },
         {
           "t": "for",
@@ -2878,23 +2878,23 @@
         },
         {
           "t": "me.",
-          "s": 92.8
+          "s": 92.6
         }
       ]
     },
     {
       "seg": 14,
       "text": "So I read it in the morning and I read it in the night,",
-      "start": 94.66,
-      "end": 101.18,
+      "start": 95.04,
+      "end": 101.6,
       "w": [
         {
           "t": "So",
-          "s": 94.66
+          "s": 95.04
         },
         {
           "t": "I",
-          "s": 95.12
+          "s": 95.36
         },
         {
           "t": "read",
@@ -2902,143 +2902,143 @@
         },
         {
           "t": "it",
-          "s": 95.92
+          "s": 96.1
         },
         {
           "t": "in",
-          "s": 96.48
+          "s": 96.4
         },
         {
           "t": "the",
-          "s": 96.86
+          "s": 96.88
         },
         {
           "t": "morning",
-          "s": 97.26
+          "s": 97.08
         },
         {
           "t": "and",
-          "s": 97.84
+          "s": 98.34
         },
         {
           "t": "I",
-          "s": 98.5
+          "s": 98.72
         },
         {
           "t": "read",
-          "s": 98.94
+          "s": 98.92
         },
         {
           "t": "it",
-          "s": 99.16
+          "s": 99.34
         },
         {
           "t": "in",
-          "s": 99.66
+          "s": 99.82
         },
         {
           "t": "the",
-          "s": 100.14
+          "s": 99.92
         },
         {
           "t": "night,",
-          "s": 100.34
+          "s": 100.1
         }
       ]
     },
     {
       "seg": 15,
       "text": "and the words I almost gave up on began to set me right.",
-      "start": 101.18,
-      "end": 108,
+      "start": 101.6,
+      "end": 108.1,
       "w": [
         {
           "t": "and",
-          "s": 101.18
+          "s": 101.6
         },
         {
           "t": "the",
-          "s": 101.72
+          "s": 101.74
         },
         {
           "t": "words",
-          "s": 101.96
+          "s": 101.92
         },
         {
           "t": "I",
-          "s": 102.32
+          "s": 102.76
         },
         {
           "t": "almost",
-          "s": 102.92
+          "s": 103.04
         },
         {
           "t": "gave",
-          "s": 103.54
+          "s": 103.56
         },
         {
           "t": "up",
-          "s": 104
+          "s": 104.5
         },
         {
           "t": "on",
-          "s": 104.66
+          "s": 104.76
         },
         {
           "t": "began",
-          "s": 105.04
+          "s": 105
         },
         {
           "t": "to",
-          "s": 105.46
+          "s": 105.76
         },
         {
           "t": "set",
-          "s": 106.26
+          "s": 105.98
         },
         {
           "t": "me",
-          "s": 106.3
+          "s": 106.4
         },
         {
           "t": "right.",
-          "s": 106.84
+          "s": 106.78
         }
       ]
     },
     {
       "seg": 16,
       "text": "Every promise like a hand held out to pull me from the deep,",
-      "start": 108,
-      "end": 114.54,
+      "start": 108.1,
+      "end": 113.74,
       "w": [
         {
           "t": "Every",
-          "s": 108
+          "s": 108.1
         },
         {
           "t": "promise",
-          "s": 108.38
+          "s": 108.42
         },
         {
           "t": "like",
-          "s": 109.12
+          "s": 109.22
         },
         {
           "t": "a",
-          "s": 109.84
+          "s": 109.78
         },
         {
           "t": "hand",
-          "s": 110.42
+          "s": 109.82
         },
         {
           "t": "held",
-          "s": 110.5
+          "s": 110.48
         },
         {
           "t": "out",
-          "s": 110.84
+          "s": 110.86
         },
         {
           "t": "to",
@@ -3046,11 +3046,11 @@
         },
         {
           "t": "pull",
-          "s": 111.66
+          "s": 111.62
         },
         {
           "t": "me",
-          "s": 111.98
+          "s": 112.06
         },
         {
           "t": "from",
@@ -3058,267 +3058,267 @@
         },
         {
           "t": "the",
-          "s": 113.04
+          "s": 113.1
         },
         {
           "t": "deep,",
-          "s": 113.7
+          "s": 113.26
         }
       ]
     },
     {
       "seg": 17,
       "text": "\"come to me, you weary one,\" and He gave me rest to keep.",
-      "start": 114.54,
-      "end": 120.54,
+      "start": 113.74,
+      "end": 121.12,
       "w": [
         {
           "t": "\"come",
-          "s": 114.54
+          "s": 113.74
         },
         {
           "t": "to",
-          "s": 114.7
+          "s": 114.72
         },
         {
           "t": "me,",
-          "s": 115
+          "s": 114.9
         },
         {
           "t": "you",
-          "s": 115.72
+          "s": 115.08
         },
         {
           "t": "weary",
-          "s": 115.8
+          "s": 115.76
         },
         {
           "t": "one,\"",
-          "s": 116.32
+          "s": 116.78
         },
         {
           "t": "and",
-          "s": 117.38
+          "s": 117.64
         },
         {
           "t": "He",
-          "s": 117.78
+          "s": 117.8
         },
         {
           "t": "gave",
-          "s": 118.14
+          "s": 118.12
         },
         {
           "t": "me",
-          "s": 118.5
+          "s": 118.54
         },
         {
           "t": "rest",
-          "s": 118.98
+          "s": 118.92
         },
         {
           "t": "to",
-          "s": 119.52
+          "s": 119.54
         },
         {
           "t": "keep.",
-          "s": 120.14
+          "s": 119.74
         }
       ]
     },
     {
       "seg": 18,
       "text": "I was empty, I was lonely, with the dark on every side,",
-      "start": 120.18,
-      "end": 127.18,
+      "start": 121.12,
+      "end": 127.42,
       "w": [
         {
           "t": "I",
-          "s": 120.18
+          "s": 121.12
         },
         {
           "t": "was",
-          "s": 121
+          "s": 121.36
         },
         {
           "t": "empty,",
-          "s": 121.38
+          "s": 122.08
         },
         {
           "t": "I",
-          "s": 122.28
+          "s": 122.94
         },
         {
           "t": "was",
-          "s": 122.8
+          "s": 122.98
         },
         {
           "t": "lonely,",
-          "s": 123
+          "s": 123.38
         },
         {
           "t": "with",
-          "s": 123.92
+          "s": 123.62
         },
         {
           "t": "the",
-          "s": 124.38
+          "s": 124.4
         },
         {
           "t": "dark",
-          "s": 124.66
+          "s": 124.6
         },
         {
           "t": "on",
-          "s": 125.2
+          "s": 125.44
         },
         {
           "t": "every",
-          "s": 125.7
+          "s": 125.92
         },
         {
           "t": "side,",
-          "s": 126.18
+          "s": 126.16
         }
       ]
     },
     {
       "seg": 19,
       "text": "when a voice said \"open up the Word,\" and I had nowhere left to hide.",
-      "start": 127.18,
-      "end": 133.88,
+      "start": 127.42,
+      "end": 133.9,
       "w": [
         {
           "t": "when",
-          "s": 127.18
+          "s": 127.42
         },
         {
           "t": "a",
-          "s": 127.66
+          "s": 127.7
         },
         {
           "t": "voice",
-          "s": 128.14
+          "s": 127.82
         },
         {
           "t": "said",
-          "s": 128.42
+          "s": 128.44
         },
         {
           "t": "\"open",
-          "s": 129.24
+          "s": 129
         },
         {
           "t": "up",
-          "s": 129.48
+          "s": 129.9
         },
         {
           "t": "the",
-          "s": 130.04
+          "s": 130.08
         },
         {
           "t": "Word,\"",
-          "s": 130.46
+          "s": 130.26
         },
         {
           "t": "and",
-          "s": 130.8
-        },
-        {
-          "t": "I",
-          "s": 130.94
-        },
-        {
-          "t": "had",
           "s": 131.14
         },
         {
+          "t": "I",
+          "s": 131.28
+        },
+        {
+          "t": "had",
+          "s": 131.4
+        },
+        {
           "t": "nowhere",
-          "s": 131.44
+          "s": 131.72
         },
         {
           "t": "left",
-          "s": 131.96
+          "s": 132.12
         },
         {
           "t": "to",
-          "s": 132.46
+          "s": 132.5
         },
         {
           "t": "hide.",
-          "s": 133.02
+          "s": 132.74
         }
       ]
     },
     {
       "seg": 20,
       "text": "So I read it in the silence and the words began to shine,",
-      "start": 133.88,
-      "end": 140.32,
+      "start": 133.9,
+      "end": 140.48,
       "w": [
         {
           "t": "So",
-          "s": 133.88
+          "s": 133.9
         },
         {
           "t": "I",
-          "s": 134.08
+          "s": 134.22
         },
         {
           "t": "read",
-          "s": 134.88
+          "s": 134.3
         },
         {
           "t": "it",
-          "s": 134.96
+          "s": 135.2
         },
         {
           "t": "in",
-          "s": 135.38
+          "s": 135.7
         },
         {
           "t": "the",
-          "s": 135.74
+          "s": 135.94
         },
         {
           "t": "silence",
-          "s": 135.98
+          "s": 136.34
         },
         {
           "t": "and",
-          "s": 136.82
+          "s": 137.26
         },
         {
           "t": "the",
-          "s": 137.34
+          "s": 137.38
         },
         {
           "t": "words",
-          "s": 137.86
+          "s": 137.5
         },
         {
           "t": "began",
-          "s": 138.14
+          "s": 138.16
         },
         {
           "t": "to",
-          "s": 138.54
+          "s": 138.98
         },
         {
           "t": "shine,",
-          "s": 139.72
+          "s": 139.14
         }
       ]
     },
     {
       "seg": 21,
       "text": "and the fear I couldn't carry, He was trading line by line.",
-      "start": 140.32,
-      "end": 146.5,
+      "start": 140.48,
+      "end": 146.82,
       "w": [
         {
           "t": "and",
-          "s": 140.32
+          "s": 140.48
         },
         {
           "t": "the",
@@ -3326,55 +3326,55 @@
         },
         {
           "t": "fear",
-          "s": 140.82
+          "s": 140.8
         },
         {
           "t": "I",
-          "s": 141.24
+          "s": 141.72
         },
         {
           "t": "couldn't",
-          "s": 142.26
+          "s": 141.86
         },
         {
           "t": "carry,",
-          "s": 142.3
+          "s": 142.38
         },
         {
           "t": "He",
-          "s": 143.46
+          "s": 143.56
         },
         {
           "t": "was",
-          "s": 144.02
+          "s": 143.82
         },
         {
           "t": "trading",
-          "s": 144.18
+          "s": 144.2
         },
         {
           "t": "line",
-          "s": 144.74
+          "s": 144.86
         },
         {
           "t": "by",
-          "s": 145.24
+          "s": 145.22
         },
         {
           "t": "line.",
-          "s": 145.66
+          "s": 145.62
         }
       ]
     },
     {
       "seg": 22,
       "text": "Now there's peace I cannot explain",
-      "start": 146.5,
-      "end": 149.54,
+      "start": 146.82,
+      "end": 150.06,
       "w": [
         {
           "t": "Now",
-          "s": 146.5
+          "s": 146.82
         },
         {
           "t": "there's",
@@ -3386,159 +3386,159 @@
         },
         {
           "t": "I",
-          "s": 147.72
+          "s": 147.9
         },
         {
           "t": "cannot",
-          "s": 148.68
+          "s": 148.3
         },
         {
           "t": "explain",
-          "s": 148.72
+          "s": 148.82
         }
       ]
     },
     {
       "seg": 23,
       "text": "where the worry used to be,",
-      "start": 149.54,
-      "end": 153.06,
+      "start": 150.06,
+      "end": 153.32,
       "w": [
         {
           "t": "where",
-          "s": 149.54
+          "s": 150.06
         },
         {
           "t": "the",
-          "s": 150.28
+          "s": 150.32
         },
         {
           "t": "worry",
-          "s": 150.64
+          "s": 150.88
         },
         {
           "t": "used",
-          "s": 151.22
+          "s": 151.68
         },
         {
           "t": "to",
-          "s": 151.86
+          "s": 151.9
         },
         {
           "t": "be,",
-          "s": 152.18
+          "s": 152.1
         }
       ]
     },
     {
       "seg": 24,
       "text": "He took the weight I couldn't hold",
-      "start": 153.06,
-      "end": 155.98,
+      "start": 153.32,
+      "end": 156.46,
       "w": [
         {
           "t": "He",
-          "s": 153.06
+          "s": 153.32
         },
         {
           "t": "took",
-          "s": 153.48
+          "s": 153.52
         },
         {
           "t": "the",
-          "s": 153.7
+          "s": 153.76
         },
         {
           "t": "weight",
-          "s": 153.96
+          "s": 153.94
         },
         {
           "t": "I",
-          "s": 154.36
+          "s": 154.74
         },
         {
           "t": "couldn't",
-          "s": 155.16
+          "s": 154.94
         },
         {
           "t": "hold",
-          "s": 155.28
+          "s": 155.36
         }
       ]
     },
     {
       "seg": 25,
       "text": "and He carried it for me.",
-      "start": 155.98,
-      "end": 160.56,
+      "start": 156.46,
+      "end": 161.28,
       "w": [
         {
           "t": "and",
-          "s": 155.98
+          "s": 156.46
         },
         {
           "t": "He",
-          "s": 156.6
+          "s": 156.64
         },
         {
           "t": "carried",
-          "s": 157.58
+          "s": 157.16
         },
         {
           "t": "it",
-          "s": 157.74
+          "s": 157.94
         },
         {
           "t": "for",
-          "s": 158.14
+          "s": 158.16
         },
         {
           "t": "me.",
-          "s": 158.76
+          "s": 158.78
         }
       ]
     },
     {
       "seg": 26,
       "text": "I don't have a faith of mountains, I just have a faith of seeds,",
-      "start": 160.56,
-      "end": 167.98,
+      "start": 161.5,
+      "end": 167.92,
       "w": [
         {
           "t": "I",
-          "s": 160.56
+          "s": 161.5
         },
         {
           "t": "don't",
-          "s": 161.48
+          "s": 161.62
         },
         {
           "t": "have",
-          "s": 161.8
+          "s": 162
         },
         {
           "t": "a",
-          "s": 162.44
+          "s": 162.52
         },
         {
           "t": "faith",
-          "s": 162.84
+          "s": 162.64
         },
         {
           "t": "of",
-          "s": 162.9
+          "s": 163.34
         },
         {
           "t": "mountains,",
-          "s": 164.62
+          "s": 163.46
         },
         {
           "t": "I",
-          "s": 164.68
+          "s": 164.76
         },
         {
           "t": "just",
-          "s": 164.86
+          "s": 164.88
         },
         {
           "t": "have",
@@ -3546,43 +3546,43 @@
         },
         {
           "t": "a",
-          "s": 165.66
+          "s": 165.72
         },
         {
           "t": "faith",
-          "s": 166.2
+          "s": 165.88
         },
         {
           "t": "of",
-          "s": 166.24
+          "s": 166.28
         },
         {
           "t": "seeds,",
-          "s": 167.09
+          "s": 166.48
         }
       ]
     },
     {
       "seg": 27,
       "text": "but it found me in the wreckage and it gave me what I need.",
-      "start": 167.98,
-      "end": 174.24,
+      "start": 167.92,
+      "end": 174.52,
       "w": [
         {
           "t": "but",
-          "s": 167.98
+          "s": 167.92
         },
         {
           "t": "it",
-          "s": 168.12
+          "s": 168.16
         },
         {
           "t": "found",
-          "s": 168.36
+          "s": 168.32
         },
         {
           "t": "me",
-          "s": 168.86
+          "s": 168.98
         },
         {
           "t": "in",
@@ -3590,51 +3590,51 @@
         },
         {
           "t": "the",
-          "s": 169.76
+          "s": 169.78
         },
         {
           "t": "wreckage",
-          "s": 170.02
+          "s": 170
         },
         {
           "t": "and",
-          "s": 170.9
+          "s": 171.06
         },
         {
           "t": "it",
-          "s": 171.16
+          "s": 171.2
         },
         {
           "t": "gave",
-          "s": 171.72
+          "s": 171.32
         },
         {
           "t": "me",
-          "s": 171.76
+          "s": 172.2
         },
         {
           "t": "what",
-          "s": 172.58
+          "s": 172.6
         },
         {
           "t": "I",
-          "s": 172.82
+          "s": 173.02
         },
         {
           "t": "need.",
-          "s": 173.38
+          "s": 173.2
         }
       ]
     },
     {
       "seg": 28,
       "text": "And I'm grateful for the morning, I'm grateful for the gift,",
-      "start": 174.24,
-      "end": 180.96,
+      "start": 174.52,
+      "end": 180.88,
       "w": [
         {
           "t": "And",
-          "s": 174.24
+          "s": 174.52
         },
         {
           "t": "I'm",
@@ -3642,603 +3642,601 @@
         },
         {
           "t": "grateful",
-          "s": 174.9
+          "s": 174.84
         },
         {
           "t": "for",
-          "s": 175.32
+          "s": 175.62
         },
         {
           "t": "the",
-          "s": 176.16
+          "s": 176.26
         },
         {
           "t": "morning,",
-          "s": 176.42
+          "s": 176.44
         },
         {
           "t": "I'm",
-          "s": 177.8
+          "s": 177.91
         },
         {
           "t": "grateful",
-          "s": 178.16
+          "s": 178.09
         },
         {
           "t": "for",
-          "s": 178.56
+          "s": 178.88
         },
         {
           "t": "the",
-          "s": 179.44
+          "s": 179.53
         },
         {
           "t": "gift,",
-          "s": 179.72
+          "s": 179.71
         }
       ]
     },
     {
       "seg": 29,
       "text": "for the hand that took my fear away and gave me peace to live.",
-      "start": 180.96,
-      "end": 186.86,
+      "start": 180.88,
+      "end": 188.72,
       "w": [
         {
           "t": "for",
-          "s": 180.96
+          "s": 180.88
         },
         {
           "t": "the",
-          "s": 181.1
+          "s": 181.15
         },
         {
           "t": "hand",
-          "s": 181.36
+          "s": 181.34
         },
         {
           "t": "that",
-          "s": 181.92
+          "s": 181.97
         },
         {
           "t": "took",
-          "s": 182.2
+          "s": 182.16
         },
         {
           "t": "my",
-          "s": 182.52
+          "s": 182.59
         },
         {
           "t": "fear",
-          "s": 183
+          "s": 182.97
         },
         {
           "t": "away",
-          "s": 183.56
+          "s": 183.66
         },
         {
           "t": "and",
-          "s": 184.22
+          "s": 184.21
         },
         {
           "t": "gave",
-          "s": 184.68
+          "s": 184.59
         },
         {
           "t": "me",
-          "s": 184.96
+          "s": 185.03
         },
         {
           "t": "peace",
-          "s": 185.58
+          "s": 185.59
         },
         {
           "t": "to",
-          "s": 185.98
+          "s": 186
         },
         {
           "t": "live.",
-          "s": 186.28
+          "s": 186.22
         }
       ]
     },
     {
       "seg": 30,
       "text": "I was empty, I was lonely, with the dark on every side,",
-      "start": 186.86,
-      "end": 195.3,
+      "start": 189.15,
+      "end": 195.55,
       "w": [
         {
           "t": "I",
-          "s": 186.86
+          "s": 189.15
         },
         {
           "t": "was",
-          "s": 187.68
+          "s": 189.27
         },
         {
           "t": "empty,",
-          "s": 189.46
+          "s": 189.85
         },
         {
           "t": "I",
-          "s": 190.44
+          "s": 190.79
         },
         {
           "t": "was",
-          "s": 190.88
+          "s": 190.91
         },
         {
           "t": "lonely,",
-          "s": 191.1
+          "s": 191.13
         },
         {
           "t": "with",
-          "s": 192.12
+          "s": 192.31
         },
         {
           "t": "the",
-          "s": 192.52
+          "s": 192.55
         },
         {
           "t": "dark",
-          "s": 192.76
+          "s": 192.73
         },
         {
           "t": "on",
-          "s": 193.32
+          "s": 193.37
         },
         {
           "t": "every",
-          "s": 193.78
+          "s": 193.85
         },
         {
           "t": "side,",
-          "s": 194.24
+          "s": 194.27
         }
       ]
     },
     {
       "seg": 31,
       "text": "when a voice said \"open up the Word,\" and I had nowhere left to hide.",
-      "start": 195.3,
-      "end": 201.58,
+      "start": 195.55,
+      "end": 202.01,
       "w": [
         {
           "t": "when",
-          "s": 195.3
+          "s": 195.55
         },
         {
           "t": "a",
-          "s": 195.76
+          "s": 195.87
         },
         {
           "t": "voice",
-          "s": 196.04
+          "s": 195.99
         },
         {
           "t": "said",
-          "s": 196.56
+          "s": 196.59
         },
         {
           "t": "\"open",
-          "s": 197.58
+          "s": 196.83
         },
         {
           "t": "up",
-          "s": 197.62
+          "s": 197.97
         },
         {
           "t": "the",
-          "s": 198.2
+          "s": 198.23
         },
         {
           "t": "Word,\"",
-          "s": 198.4
+          "s": 198.41
         },
         {
           "t": "and",
-          "s": 198.86
+          "s": 198.93
         },
         {
           "t": "I",
-          "s": 199.06
+          "s": 199.03
         },
         {
           "t": "had",
-          "s": 199.3
+          "s": 199.27
         },
         {
           "t": "nowhere",
-          "s": 199.6
+          "s": 199.47
         },
         {
           "t": "left",
-          "s": 200.2
+          "s": 200.25
         },
         {
           "t": "to",
-          "s": 200.54
+          "s": 200.65
         },
         {
           "t": "hide.",
-          "s": 201.18
+          "s": 200.87
         }
       ]
     },
     {
       "seg": 32,
       "text": "So I read it in the silence and the words began to shine,",
-      "start": 201.46,
-      "end": 208.24,
+      "start": 202.01,
+      "end": 208.85,
       "w": [
         {
           "t": "So",
-          "s": 201.46
+          "s": 202.01
         },
         {
           "t": "I",
-          "s": 202.12
+          "s": 202.35
         },
         {
           "t": "read",
-          "s": 202.5
+          "s": 202.47
         },
         {
           "t": "it",
-          "s": 203.1
+          "s": 203.77
         },
         {
           "t": "in",
-          "s": 203.56
+          "s": 203.89
         },
         {
           "t": "the",
-          "s": 203.88
+          "s": 204.07
         },
         {
           "t": "silence",
-          "s": 204.12
+          "s": 204.49
         },
         {
           "t": "and",
-          "s": 204.92
+          "s": 205.37
         },
         {
           "t": "the",
-          "s": 205.46
+          "s": 205.51
         },
         {
           "t": "words",
-          "s": 205.72
+          "s": 205.79
         },
         {
           "t": "began",
-          "s": 206.24
+          "s": 206.31
         },
         {
           "t": "to",
-          "s": 206.76
+          "s": 207.29
         },
         {
           "t": "shine,",
-          "s": 207.84
+          "s": 208.45
         }
       ]
     },
     {
       "seg": 33,
       "text": "and the fear I couldn't carry, He was trading line by line.",
-      "start": 207.92,
-      "end": 214.84,
+      "start": 208.77,
+      "end": 214.95,
       "w": [
         {
           "t": "and",
-          "s": 207.92
+          "s": 208.77
         },
         {
           "t": "the",
-          "s": 208.7
+          "s": 208.91
         },
         {
           "t": "fear",
-          "s": 208.92
+          "s": 209.73
         },
         {
           "t": "I",
-          "s": 209.38
+          "s": 211.81
         },
         {
           "t": "couldn't",
-          "s": 210.48
+          "s": 211.91
         },
         {
           "t": "carry,",
-          "s": 210.52
+          "s": 212.33
         },
         {
           "t": "He",
-          "s": 211.96
+          "s": 212.63
         },
         {
           "t": "was",
-          "s": 212
+          "s": 212.81
         },
         {
           "t": "trading",
-          "s": 212.3
+          "s": 212.91
         },
         {
           "t": "line",
-          "s": 212.9
+          "s": 213.41
         },
         {
           "t": "by",
-          "s": 213.4
+          "s": 213.75
         },
         {
           "t": "line.",
-          "s": 213.8
+          "s": 213.87
         }
       ]
     },
     {
       "seg": 34,
       "text": "Now there's peace I cannot explain",
-      "start": 214.84,
-      "end": 217.64,
+      "start": 214.95,
+      "end": 218.19,
       "w": [
         {
           "t": "Now",
-          "s": 214.84
+          "s": 214.95
         },
         {
           "t": "there's",
-          "s": 215.16
+          "s": 215.17
         },
         {
           "t": "peace",
-          "s": 215.36
+          "s": 215.41
         },
         {
           "t": "I",
-          "s": 215.82
+          "s": 215.71
         },
         {
           "t": "cannot",
-          "s": 216.86
+          "s": 215.81
         },
         {
           "t": "explain",
-          "s": 216.9
+          "s": 216.89
         }
       ]
     },
     {
       "seg": 35,
       "text": "where the worry used to be,",
-      "start": 217.64,
-      "end": 221.18,
+      "start": 218.19,
+      "end": 221.43,
       "w": [
         {
           "t": "where",
-          "s": 217.64
+          "s": 218.19
         },
         {
           "t": "the",
-          "s": 218.4
+          "s": 218.43
         },
         {
           "t": "worry",
-          "s": 218.66
+          "s": 218.55
         },
         {
           "t": "used",
-          "s": 219.22
+          "s": 219.55
         },
         {
           "t": "to",
-          "s": 219.98
+          "s": 220.03
         },
         {
           "t": "be,",
-          "s": 220.34
+          "s": 220.23
         }
       ]
     },
     {
       "seg": 36,
       "text": "He took the weight I couldn't hold",
-      "start": 221.18,
-      "end": 224.06,
+      "start": 221.43,
+      "end": 224.51,
       "w": [
         {
           "t": "He",
-          "s": 221.18
+          "s": 221.43
         },
         {
           "t": "took",
-          "s": 221.62
+          "s": 221.65
         },
         {
           "t": "the",
-          "s": 221.84
+          "s": 221.91
         },
         {
           "t": "weight",
-          "s": 222.08
+          "s": 222.07
         },
         {
           "t": "I",
-          "s": 222.48
+          "s": 222.89
         },
         {
           "t": "couldn't",
-          "s": 223.16
+          "s": 223.07
         },
         {
           "t": "hold",
-          "s": 223.42
+          "s": 223.51
         }
       ]
     },
     {
       "seg": 37,
       "text": "and He carried it for me.",
-      "start": 224.06,
-      "end": 228.72,
+      "start": 224.51,
+      "end": 229.51,
       "w": [
         {
           "t": "and",
-          "s": 224.06
+          "s": 224.51
         },
         {
           "t": "He",
-          "s": 224.72
+          "s": 224.77
         },
         {
           "t": "carried",
-          "s": 225.66
+          "s": 225.27
         },
         {
           "t": "it",
-          "s": 225.82
+          "s": 226.05
         },
         {
           "t": "for",
-          "s": 226.28
+          "s": 226.27
         },
         {
           "t": "me.",
-          "s": 227.16
+          "s": 227.31
         }
       ]
     },
     {
       "seg": 38,
       "text": "So I'll drive into the daylight with the windows rolling down,",
-      "start": 228.72,
-      "end": 236.1,
+      "start": 229.51,
+      "end": 236.09,
       "w": [
         {
           "t": "So",
-          "s": 228.72
+          "s": 229.51
         },
         {
           "t": "I'll",
-          "s": 229.64
+          "s": 229.79
         },
         {
           "t": "drive",
-          "s": 229.98
+          "s": 229.97
         },
         {
           "t": "into",
-          "s": 230.4
+          "s": 230.59
         },
         {
           "t": "the",
-          "s": 231.18
+          "s": 231.37
         },
         {
           "t": "daylight",
-          "s": 231.54
+          "s": 231.55
         },
         {
           "t": "with",
-          "s": 232.26
+          "s": 232.59
         },
         {
           "t": "the",
-          "s": 232.76
+          "s": 232.79
         },
         {
           "t": "windows",
-          "s": 233.4
+          "s": 233.01
         },
         {
           "t": "rolling",
-          "s": 233.92
+          "s": 234.21
         },
         {
           "t": "down,",
-          "s": 234.7
+          "s": 234.81
         }
       ]
     },
     {
       "seg": 39,
       "text": "and the Word that came to find me is the peace I've finally found.",
-      "start": 236.1,
+      "start": 236.09,
       "end": 243.84,
       "w": [
         {
           "t": "and",
-          "s": 236.1
+          "s": 236.09
         },
         {
           "t": "the",
-          "s": 236.2
+          "s": 236.25
         },
         {
           "t": "Word",
-          "s": 236.42
+          "s": 236.43
         },
         {
           "t": "that",
-          "s": 237.04
+          "s": 237.09
         },
         {
           "t": "came",
-          "s": 237.44
+          "s": 237.25
         },
         {
           "t": "to",
-          "s": 237.76
+          "s": 237.85
         },
         {
           "t": "find",
-          "s": 238.04
+          "s": 238.05
         },
         {
           "t": "me",
-          "s": 238.5
+          "s": 238.55
         },
         {
           "t": "is",
-          "s": 239.1
+          "s": 239.21
         },
         {
           "t": "the",
-          "s": 239.32
+          "s": 239.35
         },
         {
           "t": "peace",
-          "s": 239.52
+          "s": 239.51
         },
         {
           "t": "I've",
-          "s": 240.23
+          "s": 240.47
         },
         {
           "t": "finally",
-          "s": 240.94
+          "s": 240.79
         },
         {
           "t": "found.",
-          "s": 241.54
+          "s": 241.91
         }
       ]
     }
   ],
   "_retime": {
-    "anchors": 408,
+    "anchors": 434,
     "total": 434,
-    "coverage": 0.94,
+    "coverage": 1,
     "segments": 40,
     "segCoverage": [
-      0.08,
-      0.08,
       1,
       1,
       1,
@@ -4263,7 +4261,6 @@
       1,
       1,
       1,
-      0.93,
       1,
       1,
       1,
@@ -4276,11 +4273,11 @@
       1,
       1,
       1,
-      0.93
-    ],
-    "weakSegments": [
-      0,
+      1,
+      1,
+      1,
       1
-    ]
+    ],
+    "weakSegments": []
   }
 }

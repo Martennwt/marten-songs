@@ -1,0 +1,2852 @@
+{
+  "precise": true,
+  "duration": 154.68,
+  "words": [
+    {
+      "word": "So",
+      "start": 10.88,
+      "end": 11.28
+    },
+    {
+      "word": "he",
+      "start": 11.28,
+      "end": 11.54
+    },
+    {
+      "word": "walked",
+      "start": 11.54,
+      "end": 11.88
+    },
+    {
+      "word": "one",
+      "start": 11.88,
+      "end": 12.06
+    },
+    {
+      "word": "morning",
+      "start": 12.06,
+      "end": 13.02
+    },
+    {
+      "word": "with",
+      "start": 13.02,
+      "end": 13.32
+    },
+    {
+      "word": "seed",
+      "start": 13.32,
+      "end": 13.82
+    },
+    {
+      "word": "held",
+      "start": 13.82,
+      "end": 14.26
+    },
+    {
+      "word": "in",
+      "start": 14.26,
+      "end": 14.38
+    },
+    {
+      "word": "his",
+      "start": 14.38,
+      "end": 14.6
+    },
+    {
+      "word": "hand.",
+      "start": 14.6,
+      "end": 15.6
+    },
+    {
+      "word": "Some",
+      "start": 15.6,
+      "end": 16.04
+    },
+    {
+      "word": "fell",
+      "start": 16.04,
+      "end": 16.5
+    },
+    {
+      "word": "upon",
+      "start": 16.5,
+      "end": 17.08
+    },
+    {
+      "word": "the",
+      "start": 17.08,
+      "end": 17.22
+    },
+    {
+      "word": "pathway,",
+      "start": 17.22,
+      "end": 18.14
+    },
+    {
+      "word": "some",
+      "start": 18.14,
+      "end": 18.74
+    },
+    {
+      "word": "on",
+      "start": 18.74,
+      "end": 19.02
+    },
+    {
+      "word": "the",
+      "start": 19.02,
+      "end": 19.3
+    },
+    {
+      "word": "rocky",
+      "start": 19.3,
+      "end": 19.8
+    },
+    {
+      "word": "land.",
+      "start": 19.8,
+      "end": 21.24
+    },
+    {
+      "word": "Birds",
+      "start": 21.24,
+      "end": 21.58
+    },
+    {
+      "word": "came",
+      "start": 21.58,
+      "end": 21.9
+    },
+    {
+      "word": "down",
+      "start": 21.9,
+      "end": 22.24
+    },
+    {
+      "word": "and",
+      "start": 22.24,
+      "end": 22.38
+    },
+    {
+      "word": "took",
+      "start": 22.38,
+      "end": 22.7
+    },
+    {
+      "word": "them",
+      "start": 22.7,
+      "end": 23.18
+    },
+    {
+      "word": "before",
+      "start": 23.18,
+      "end": 23.68
+    },
+    {
+      "word": "they",
+      "start": 23.68,
+      "end": 24.3
+    },
+    {
+      "word": "could",
+      "start": 24.3,
+      "end": 24.6
+    },
+    {
+      "word": "take",
+      "start": 24.6,
+      "end": 24.96
+    },
+    {
+      "word": "hold.",
+      "start": 24.96,
+      "end": 25.98
+    },
+    {
+      "word": "On",
+      "start": 25.98,
+      "end": 26.16
+    },
+    {
+      "word": "stone",
+      "start": 26.16,
+      "end": 26.74
+    },
+    {
+      "word": "they",
+      "start": 26.74,
+      "end": 26.94
+    },
+    {
+      "word": "sprang",
+      "start": 26.94,
+      "end": 27.32
+    },
+    {
+      "word": "up",
+      "start": 27.32,
+      "end": 27.52
+    },
+    {
+      "word": "quickly,",
+      "start": 27.52,
+      "end": 28.66
+    },
+    {
+      "word": "then",
+      "start": 28.66,
+      "end": 29
+    },
+    {
+      "word": "withered",
+      "start": 29,
+      "end": 29.62
+    },
+    {
+      "word": "in",
+      "start": 29.62,
+      "end": 29.8
+    },
+    {
+      "word": "the",
+      "start": 29.8,
+      "end": 30.12
+    },
+    {
+      "word": "cold.",
+      "start": 30.12,
+      "end": 31.18
+    },
+    {
+      "word": "The",
+      "start": 31.18,
+      "end": 31.4
+    },
+    {
+      "word": "thorns",
+      "start": 31.4,
+      "end": 31.9
+    },
+    {
+      "word": "rose",
+      "start": 31.9,
+      "end": 32.3
+    },
+    {
+      "word": "up",
+      "start": 32.3,
+      "end": 32.48
+    },
+    {
+      "word": "and",
+      "start": 32.48,
+      "end": 32.64
+    },
+    {
+      "word": "choked",
+      "start": 32.64,
+      "end": 33.04
+    },
+    {
+      "word": "them,",
+      "start": 33.04,
+      "end": 33.66
+    },
+    {
+      "word": "no",
+      "start": 33.66,
+      "end": 33.98
+    },
+    {
+      "word": "fruit",
+      "start": 33.98,
+      "end": 34.38
+    },
+    {
+      "word": "was",
+      "start": 34.38,
+      "end": 34.9
+    },
+    {
+      "word": "ever",
+      "start": 34.9,
+      "end": 35.26
+    },
+    {
+      "word": "found.",
+      "start": 35.26,
+      "end": 35.92
+    },
+    {
+      "word": "But",
+      "start": 35.92,
+      "end": 36.1
+    },
+    {
+      "word": "seed",
+      "start": 36.1,
+      "end": 36.4
+    },
+    {
+      "word": "that",
+      "start": 36.4,
+      "end": 36.72
+    },
+    {
+      "word": "fell",
+      "start": 36.72,
+      "end": 37.18
+    },
+    {
+      "word": "on",
+      "start": 37.18,
+      "end": 37.4
+    },
+    {
+      "word": "good",
+      "start": 37.4,
+      "end": 37.7
+    },
+    {
+      "word": "earth",
+      "start": 37.7,
+      "end": 38.02
+    },
+    {
+      "word": "bore",
+      "start": 38.02,
+      "end": 39.04
+    },
+    {
+      "word": "a",
+      "start": 39.04,
+      "end": 39.18
+    },
+    {
+      "word": "hundred",
+      "start": 39.18,
+      "end": 39.94
+    },
+    {
+      "word": "from",
+      "start": 39.94,
+      "end": 40.3
+    },
+    {
+      "word": "the",
+      "start": 40.3,
+      "end": 40.44
+    },
+    {
+      "word": "ground.",
+      "start": 40.44,
+      "end": 41.26
+    },
+    {
+      "word": "Don't",
+      "start": 41.26,
+      "end": 41.58
+    },
+    {
+      "word": "you",
+      "start": 41.58,
+      "end": 41.9
+    },
+    {
+      "word": "worry",
+      "start": 41.9,
+      "end": 42.54
+    },
+    {
+      "word": "for",
+      "start": 42.54,
+      "end": 42.82
+    },
+    {
+      "word": "your",
+      "start": 42.82,
+      "end": 43.04
+    },
+    {
+      "word": "life,",
+      "start": 43.04,
+      "end": 43.84
+    },
+    {
+      "word": "for",
+      "start": 43.84,
+      "end": 44.14
+    },
+    {
+      "word": "the",
+      "start": 44.14,
+      "end": 44.34
+    },
+    {
+      "word": "things",
+      "start": 44.34,
+      "end": 44.84
+    },
+    {
+      "word": "that",
+      "start": 44.84,
+      "end": 45.1
+    },
+    {
+      "word": "come",
+      "start": 45.1,
+      "end": 45.38
+    },
+    {
+      "word": "and",
+      "start": 45.38,
+      "end": 45.64
+    },
+    {
+      "word": "go.",
+      "start": 45.64,
+      "end": 46.4
+    },
+    {
+      "word": "See",
+      "start": 46.4,
+      "end": 46.66
+    },
+    {
+      "word": "the",
+      "start": 46.66,
+      "end": 46.9
+    },
+    {
+      "word": "birds",
+      "start": 46.9,
+      "end": 47.5
+    },
+    {
+      "word": "up",
+      "start": 47.5,
+      "end": 47.82
+    },
+    {
+      "word": "in",
+      "start": 47.82,
+      "end": 48
+    },
+    {
+      "word": "the",
+      "start": 48,
+      "end": 48.14
+    },
+    {
+      "word": "sky,",
+      "start": 48.14,
+      "end": 48.84
+    },
+    {
+      "word": "they",
+      "start": 48.84,
+      "end": 49.16
+    },
+    {
+      "word": "don't",
+      "start": 49.16,
+      "end": 49.7
+    },
+    {
+      "word": "reap",
+      "start": 49.7,
+      "end": 50.04
+    },
+    {
+      "word": "and",
+      "start": 50.04,
+      "end": 50.18
+    },
+    {
+      "word": "they",
+      "start": 50.18,
+      "end": 50.44
+    },
+    {
+      "word": "don't",
+      "start": 50.44,
+      "end": 50.88
+    },
+    {
+      "word": "sow.",
+      "start": 50.88,
+      "end": 51.54
+    },
+    {
+      "word": "Seek",
+      "start": 51.54,
+      "end": 51.92
+    },
+    {
+      "word": "you",
+      "start": 51.92,
+      "end": 52.22
+    },
+    {
+      "word": "first",
+      "start": 52.22,
+      "end": 52.88
+    },
+    {
+      "word": "for",
+      "start": 52.88,
+      "end": 53.18
+    },
+    {
+      "word": "the",
+      "start": 53.18,
+      "end": 53.34
+    },
+    {
+      "word": "kingdom",
+      "start": 53.34,
+      "end": 54.28
+    },
+    {
+      "word": "and",
+      "start": 54.28,
+      "end": 54.52
+    },
+    {
+      "word": "the",
+      "start": 54.52,
+      "end": 54.64
+    },
+    {
+      "word": "rest",
+      "start": 54.64,
+      "end": 54.98
+    },
+    {
+      "word": "will",
+      "start": 54.98,
+      "end": 55.3
+    },
+    {
+      "word": "find",
+      "start": 55.3,
+      "end": 55.86
+    },
+    {
+      "word": "its",
+      "start": 55.86,
+      "end": 56.12
+    },
+    {
+      "word": "way.",
+      "start": 56.12,
+      "end": 56.74
+    },
+    {
+      "word": "Knock",
+      "start": 56.74,
+      "end": 57.08
+    },
+    {
+      "word": "upon",
+      "start": 57.08,
+      "end": 57.58
+    },
+    {
+      "word": "the",
+      "start": 57.58,
+      "end": 57.88
+    },
+    {
+      "word": "door",
+      "start": 57.88,
+      "end": 58.48
+    },
+    {
+      "word": "it",
+      "start": 58.48,
+      "end": 58.64
+    },
+    {
+      "word": "opens,",
+      "start": 58.64,
+      "end": 59.34
+    },
+    {
+      "word": "ask",
+      "start": 59.34,
+      "end": 59.74
+    },
+    {
+      "word": "and",
+      "start": 59.74,
+      "end": 59.92
+    },
+    {
+      "word": "you'll",
+      "start": 59.92,
+      "end": 60.28
+    },
+    {
+      "word": "receive",
+      "start": 60.28,
+      "end": 62.2
+    },
+    {
+      "word": "today.",
+      "start": 62.2,
+      "end": 64.7
+    },
+    {
+      "word": "You",
+      "start": 67.08,
+      "end": 67.22
+    },
+    {
+      "word": "can",
+      "start": 67.22,
+      "end": 67.64
+    },
+    {
+      "word": "worry",
+      "start": 67.64,
+      "end": 68.2
+    },
+    {
+      "word": "night",
+      "start": 68.2,
+      "end": 68.54
+    },
+    {
+      "word": "and",
+      "start": 68.54,
+      "end": 68.82
+    },
+    {
+      "word": "day,",
+      "start": 68.82,
+      "end": 69.83
+    },
+    {
+      "word": "but",
+      "start": 69.83,
+      "end": 70.13
+    },
+    {
+      "word": "tell",
+      "start": 70.13,
+      "end": 70.64
+    },
+    {
+      "word": "me",
+      "start": 70.64,
+      "end": 70.92
+    },
+    {
+      "word": "what",
+      "start": 70.92,
+      "end": 71.19
+    },
+    {
+      "word": "it's",
+      "start": 71.19,
+      "end": 71.39
+    },
+    {
+      "word": "worth.",
+      "start": 71.39,
+      "end": 72.06
+    },
+    {
+      "word": "You",
+      "start": 72.06,
+      "end": 72.2
+    },
+    {
+      "word": "cannot",
+      "start": 72.2,
+      "end": 73.03
+    },
+    {
+      "word": "add",
+      "start": 73.03,
+      "end": 73.28
+    },
+    {
+      "word": "a",
+      "start": 73.28,
+      "end": 73.47
+    },
+    {
+      "word": "single",
+      "start": 73.47,
+      "end": 74.03
+    },
+    {
+      "word": "hour",
+      "start": 74.03,
+      "end": 74.77
+    },
+    {
+      "word": "to",
+      "start": 74.77,
+      "end": 74.98
+    },
+    {
+      "word": "your",
+      "start": 74.98,
+      "end": 75.28
+    },
+    {
+      "word": "time",
+      "start": 75.28,
+      "end": 75.81
+    },
+    {
+      "word": "here",
+      "start": 75.81,
+      "end": 76.17
+    },
+    {
+      "word": "on",
+      "start": 76.17,
+      "end": 76.41
+    },
+    {
+      "word": "the",
+      "start": 76.41,
+      "end": 76.94
+    },
+    {
+      "word": "earth.",
+      "start": 76.94,
+      "end": 77.89
+    },
+    {
+      "word": "The",
+      "start": 77.89,
+      "end": 78.05
+    },
+    {
+      "word": "lilies",
+      "start": 78.05,
+      "end": 78.7
+    },
+    {
+      "word": "in",
+      "start": 78.7,
+      "end": 79.05
+    },
+    {
+      "word": "the",
+      "start": 79.05,
+      "end": 79.19
+    },
+    {
+      "word": "meadow,",
+      "start": 79.19,
+      "end": 80.13
+    },
+    {
+      "word": "they",
+      "start": 80.13,
+      "end": 80.44
+    },
+    {
+      "word": "do",
+      "start": 80.44,
+      "end": 80.78
+    },
+    {
+      "word": "not",
+      "start": 80.78,
+      "end": 81.11
+    },
+    {
+      "word": "weave",
+      "start": 81.11,
+      "end": 81.56
+    },
+    {
+      "word": "or",
+      "start": 81.56,
+      "end": 81.86
+    },
+    {
+      "word": "sow.",
+      "start": 81.86,
+      "end": 82.33
+    },
+    {
+      "word": "Yet",
+      "start": 82.33,
+      "end": 82.7
+    },
+    {
+      "word": "no",
+      "start": 82.7,
+      "end": 83
+    },
+    {
+      "word": "king",
+      "start": 83,
+      "end": 83.61
+    },
+    {
+      "word": "in",
+      "start": 83.61,
+      "end": 83.73
+    },
+    {
+      "word": "all",
+      "start": 83.73,
+      "end": 84.05
+    },
+    {
+      "word": "his",
+      "start": 84.05,
+      "end": 84.23
+    },
+    {
+      "word": "splendor",
+      "start": 84.23,
+      "end": 85.29
+    },
+    {
+      "word": "was",
+      "start": 85.29,
+      "end": 85.89
+    },
+    {
+      "word": "ever",
+      "start": 85.89,
+      "end": 86.23
+    },
+    {
+      "word": "dressed",
+      "start": 86.23,
+      "end": 86.59
+    },
+    {
+      "word": "just",
+      "start": 86.59,
+      "end": 87.01
+    },
+    {
+      "word": "so.",
+      "start": 87.01,
+      "end": 87.73
+    },
+    {
+      "word": "Don't",
+      "start": 87.73,
+      "end": 88.05
+    },
+    {
+      "word": "you",
+      "start": 88.05,
+      "end": 88.33
+    },
+    {
+      "word": "worry",
+      "start": 88.33,
+      "end": 89.01
+    },
+    {
+      "word": "for",
+      "start": 89.01,
+      "end": 89.27
+    },
+    {
+      "word": "your",
+      "start": 89.27,
+      "end": 89.49
+    },
+    {
+      "word": "life,",
+      "start": 89.49,
+      "end": 90.27
+    },
+    {
+      "word": "for",
+      "start": 90.27,
+      "end": 90.59
+    },
+    {
+      "word": "the",
+      "start": 90.59,
+      "end": 90.79
+    },
+    {
+      "word": "things",
+      "start": 90.79,
+      "end": 91.29
+    },
+    {
+      "word": "that",
+      "start": 91.29,
+      "end": 91.55
+    },
+    {
+      "word": "come",
+      "start": 91.55,
+      "end": 91.83
+    },
+    {
+      "word": "and",
+      "start": 91.83,
+      "end": 92.07
+    },
+    {
+      "word": "go.",
+      "start": 92.07,
+      "end": 92.83
+    },
+    {
+      "word": "See",
+      "start": 92.83,
+      "end": 93.17
+    },
+    {
+      "word": "the",
+      "start": 93.17,
+      "end": 93.35
+    },
+    {
+      "word": "birds",
+      "start": 93.35,
+      "end": 93.97
+    },
+    {
+      "word": "up",
+      "start": 93.97,
+      "end": 94.27
+    },
+    {
+      "word": "in",
+      "start": 94.27,
+      "end": 94.45
+    },
+    {
+      "word": "the",
+      "start": 94.45,
+      "end": 94.57
+    },
+    {
+      "word": "sky,",
+      "start": 94.57,
+      "end": 95.29
+    },
+    {
+      "word": "they",
+      "start": 95.29,
+      "end": 95.61
+    },
+    {
+      "word": "don't",
+      "start": 95.61,
+      "end": 96.11
+    },
+    {
+      "word": "reap",
+      "start": 96.11,
+      "end": 96.51
+    },
+    {
+      "word": "and",
+      "start": 96.51,
+      "end": 96.61
+    },
+    {
+      "word": "they",
+      "start": 96.61,
+      "end": 96.87
+    },
+    {
+      "word": "don't",
+      "start": 96.87,
+      "end": 97.33
+    },
+    {
+      "word": "sow.",
+      "start": 97.33,
+      "end": 97.97
+    },
+    {
+      "word": "Seek",
+      "start": 97.97,
+      "end": 98.33
+    },
+    {
+      "word": "you",
+      "start": 98.33,
+      "end": 98.65
+    },
+    {
+      "word": "first",
+      "start": 98.65,
+      "end": 99.31
+    },
+    {
+      "word": "for",
+      "start": 99.31,
+      "end": 99.63
+    },
+    {
+      "word": "the",
+      "start": 99.63,
+      "end": 99.81
+    },
+    {
+      "word": "kingdom",
+      "start": 99.81,
+      "end": 100.71
+    },
+    {
+      "word": "and",
+      "start": 100.71,
+      "end": 100.97
+    },
+    {
+      "word": "the",
+      "start": 100.97,
+      "end": 101.09
+    },
+    {
+      "word": "rest",
+      "start": 101.09,
+      "end": 101.43
+    },
+    {
+      "word": "will",
+      "start": 101.43,
+      "end": 101.73
+    },
+    {
+      "word": "find",
+      "start": 101.73,
+      "end": 102.29
+    },
+    {
+      "word": "its",
+      "start": 102.29,
+      "end": 102.55
+    },
+    {
+      "word": "way.",
+      "start": 102.55,
+      "end": 103.19
+    },
+    {
+      "word": "Knock",
+      "start": 103.19,
+      "end": 103.63
+    },
+    {
+      "word": "upon",
+      "start": 103.63,
+      "end": 104.11
+    },
+    {
+      "word": "the",
+      "start": 104.11,
+      "end": 104.29
+    },
+    {
+      "word": "door",
+      "start": 104.29,
+      "end": 104.91
+    },
+    {
+      "word": "it",
+      "start": 104.91,
+      "end": 105.07
+    },
+    {
+      "word": "opens,",
+      "start": 105.07,
+      "end": 105.77
+    },
+    {
+      "word": "ask",
+      "start": 105.77,
+      "end": 106.19
+    },
+    {
+      "word": "and",
+      "start": 106.19,
+      "end": 106.37
+    },
+    {
+      "word": "you'll",
+      "start": 106.37,
+      "end": 106.81
+    },
+    {
+      "word": "receive",
+      "start": 106.81,
+      "end": 108.65
+    },
+    {
+      "word": "today.",
+      "start": 108.65,
+      "end": 109.47
+    },
+    {
+      "word": "Ask",
+      "start": 109.47,
+      "end": 109.89
+    },
+    {
+      "word": "and",
+      "start": 109.89,
+      "end": 110.21
+    },
+    {
+      "word": "you'll",
+      "start": 110.21,
+      "end": 110.63
+    },
+    {
+      "word": "be",
+      "start": 110.63,
+      "end": 110.91
+    },
+    {
+      "word": "given,",
+      "start": 110.91,
+      "end": 111.85
+    },
+    {
+      "word": "seek",
+      "start": 111.85,
+      "end": 112.51
+    },
+    {
+      "word": "and",
+      "start": 112.51,
+      "end": 112.81
+    },
+    {
+      "word": "you",
+      "start": 112.81,
+      "end": 113.21
+    },
+    {
+      "word": "will",
+      "start": 113.21,
+      "end": 113.47
+    },
+    {
+      "word": "see.",
+      "start": 113.47,
+      "end": 114.43
+    },
+    {
+      "word": "Knock",
+      "start": 114.43,
+      "end": 115.17
+    },
+    {
+      "word": "against",
+      "start": 115.17,
+      "end": 115.91
+    },
+    {
+      "word": "the",
+      "start": 115.91,
+      "end": 116.13
+    },
+    {
+      "word": "dark",
+      "start": 116.13,
+      "end": 116.47
+    },
+    {
+      "word": "and",
+      "start": 116.47,
+      "end": 116.59
+    },
+    {
+      "word": "the",
+      "start": 116.59,
+      "end": 116.73
+    },
+    {
+      "word": "door",
+      "start": 116.73,
+      "end": 117.41
+    },
+    {
+      "word": "will",
+      "start": 117.41,
+      "end": 117.99
+    },
+    {
+      "word": "set",
+      "start": 117.99,
+      "end": 118.51
+    },
+    {
+      "word": "you",
+      "start": 118.51,
+      "end": 118.97
+    },
+    {
+      "word": "free.",
+      "start": 118.97,
+      "end": 119.57
+    },
+    {
+      "word": "So",
+      "start": 119.57,
+      "end": 119.93
+    },
+    {
+      "word": "great",
+      "start": 119.93,
+      "end": 120.29
+    },
+    {
+      "word": "was",
+      "start": 120.29,
+      "end": 120.63
+    },
+    {
+      "word": "all",
+      "start": 120.63,
+      "end": 120.81
+    },
+    {
+      "word": "his",
+      "start": 120.81,
+      "end": 121.05
+    },
+    {
+      "word": "love",
+      "start": 121.05,
+      "end": 121.41
+    },
+    {
+      "word": "that",
+      "start": 121.41,
+      "end": 121.63
+    },
+    {
+      "word": "he",
+      "start": 121.63,
+      "end": 121.73
+    },
+    {
+      "word": "gave",
+      "start": 121.73,
+      "end": 122.27
+    },
+    {
+      "word": "his",
+      "start": 122.27,
+      "end": 122.51
+    },
+    {
+      "word": "only",
+      "start": 122.51,
+      "end": 122.99
+    },
+    {
+      "word": "son.",
+      "start": 122.99,
+      "end": 123.65
+    },
+    {
+      "word": "Whoever",
+      "start": 123.65,
+      "end": 124.17
+    },
+    {
+      "word": "believes",
+      "start": 124.17,
+      "end": 125.09
+    },
+    {
+      "word": "lives",
+      "start": 125.09,
+      "end": 125.57
+    },
+    {
+      "word": "forever,",
+      "start": 125.57,
+      "end": 126.71
+    },
+    {
+      "word": "the",
+      "start": 126.71,
+      "end": 126.85
+    },
+    {
+      "word": "grave",
+      "start": 126.85,
+      "end": 127.37
+    },
+    {
+      "word": "will",
+      "start": 127.37,
+      "end": 127.69
+    },
+    {
+      "word": "hold",
+      "start": 127.69,
+      "end": 128.03
+    },
+    {
+      "word": "no",
+      "start": 128.03,
+      "end": 128.79
+    },
+    {
+      "word": "one.",
+      "start": 128.79,
+      "end": 130.25
+    },
+    {
+      "word": "Don't",
+      "start": 130.25,
+      "end": 130.59
+    },
+    {
+      "word": "you",
+      "start": 130.59,
+      "end": 130.87
+    },
+    {
+      "word": "worry,",
+      "start": 130.87,
+      "end": 132.67
+    },
+    {
+      "word": "don't",
+      "start": 132.67,
+      "end": 133.33
+    },
+    {
+      "word": "you",
+      "start": 133.33,
+      "end": 133.55
+    },
+    {
+      "word": "worry,",
+      "start": 133.55,
+      "end": 134.71
+    },
+    {
+      "word": "set",
+      "start": 134.71,
+      "end": 134.93
+    },
+    {
+      "word": "the",
+      "start": 134.93,
+      "end": 135.25
+    },
+    {
+      "word": "burden",
+      "start": 135.25,
+      "end": 135.89
+    },
+    {
+      "word": "down.",
+      "start": 135.89,
+      "end": 137.71
+    },
+    {
+      "word": "The",
+      "start": 137.71,
+      "end": 137.97
+    },
+    {
+      "word": "seed",
+      "start": 137.97,
+      "end": 138.43
+    },
+    {
+      "word": "in",
+      "start": 138.43,
+      "end": 138.59
+    },
+    {
+      "word": "you",
+      "start": 138.59,
+      "end": 139.03
+    },
+    {
+      "word": "is",
+      "start": 139.03,
+      "end": 139.31
+    },
+    {
+      "word": "rising",
+      "start": 139.31,
+      "end": 140.07
+    },
+    {
+      "word": "on",
+      "start": 140.07,
+      "end": 140.27
+    },
+    {
+      "word": "the",
+      "start": 140.27,
+      "end": 140.43
+    },
+    {
+      "word": "good",
+      "start": 140.43,
+      "end": 141.15
+    },
+    {
+      "word": "and",
+      "start": 141.15,
+      "end": 141.77
+    },
+    {
+      "word": "solid",
+      "start": 141.77,
+      "end": 142.11
+    },
+    {
+      "word": "ground.",
+      "start": 142.11,
+      "end": 142.51
+    },
+    {
+      "word": "Oh,",
+      "start": 142.35,
+      "end": 142.43
+    },
+    {
+      "word": "oh,",
+      "start": 142.43,
+      "end": 142.55
+    },
+    {
+      "word": "oh,",
+      "start": 142.55,
+      "end": 142.63
+    },
+    {
+      "word": "oh,",
+      "start": 142.63,
+      "end": 142.87
+    },
+    {
+      "word": "oh,",
+      "start": 142.87,
+      "end": 142.97
+    },
+    {
+      "word": "oh,",
+      "start": 142.97,
+      "end": 143.07
+    },
+    {
+      "word": "oh.",
+      "start": 143.07,
+      "end": 145.57
+    }
+  ],
+  "segments": [
+    {
+      "seg": 0,
+      "text": "So he walked one morning with seed held in his hand.",
+      "start": 10.88,
+      "end": 15.6,
+      "w": [
+        {
+          "t": "So",
+          "s": 10.88
+        },
+        {
+          "t": "he",
+          "s": 11.28
+        },
+        {
+          "t": "walked",
+          "s": 11.54
+        },
+        {
+          "t": "one",
+          "s": 11.88
+        },
+        {
+          "t": "morning",
+          "s": 12.06
+        },
+        {
+          "t": "with",
+          "s": 13.02
+        },
+        {
+          "t": "seed",
+          "s": 13.32
+        },
+        {
+          "t": "held",
+          "s": 13.82
+        },
+        {
+          "t": "in",
+          "s": 14.26
+        },
+        {
+          "t": "his",
+          "s": 14.38
+        },
+        {
+          "t": "hand.",
+          "s": 14.6
+        }
+      ]
+    },
+    {
+      "seg": 1,
+      "text": "Some fell upon the pathway, some on the rocky land.",
+      "start": 15.6,
+      "end": 21.24,
+      "w": [
+        {
+          "t": "Some",
+          "s": 15.6
+        },
+        {
+          "t": "fell",
+          "s": 16.04
+        },
+        {
+          "t": "upon",
+          "s": 16.5
+        },
+        {
+          "t": "the",
+          "s": 17.08
+        },
+        {
+          "t": "pathway,",
+          "s": 17.22
+        },
+        {
+          "t": "some",
+          "s": 18.14
+        },
+        {
+          "t": "on",
+          "s": 18.74
+        },
+        {
+          "t": "the",
+          "s": 19.02
+        },
+        {
+          "t": "rocky",
+          "s": 19.3
+        },
+        {
+          "t": "land.",
+          "s": 19.8
+        }
+      ]
+    },
+    {
+      "seg": 2,
+      "text": "Birds came down and took them before they could take hold.",
+      "start": 21.24,
+      "end": 25.98,
+      "w": [
+        {
+          "t": "Birds",
+          "s": 21.24
+        },
+        {
+          "t": "came",
+          "s": 21.58
+        },
+        {
+          "t": "down",
+          "s": 21.9
+        },
+        {
+          "t": "and",
+          "s": 22.24
+        },
+        {
+          "t": "took",
+          "s": 22.38
+        },
+        {
+          "t": "them",
+          "s": 22.7
+        },
+        {
+          "t": "before",
+          "s": 23.18
+        },
+        {
+          "t": "they",
+          "s": 23.68
+        },
+        {
+          "t": "could",
+          "s": 24.3
+        },
+        {
+          "t": "take",
+          "s": 24.6
+        },
+        {
+          "t": "hold.",
+          "s": 24.96
+        }
+      ]
+    },
+    {
+      "seg": 3,
+      "text": "On stone they sprang up quickly, then withered in the cold.",
+      "start": 25.98,
+      "end": 31.18,
+      "w": [
+        {
+          "t": "On",
+          "s": 25.98
+        },
+        {
+          "t": "stone",
+          "s": 26.16
+        },
+        {
+          "t": "they",
+          "s": 26.74
+        },
+        {
+          "t": "sprang",
+          "s": 26.94
+        },
+        {
+          "t": "up",
+          "s": 27.32
+        },
+        {
+          "t": "quickly,",
+          "s": 27.52
+        },
+        {
+          "t": "then",
+          "s": 28.66
+        },
+        {
+          "t": "withered",
+          "s": 29
+        },
+        {
+          "t": "in",
+          "s": 29.62
+        },
+        {
+          "t": "the",
+          "s": 29.8
+        },
+        {
+          "t": "cold.",
+          "s": 30.12
+        }
+      ]
+    },
+    {
+      "seg": 4,
+      "text": "The thorns rose up and choked them, no fruit was ever found.",
+      "start": 31.18,
+      "end": 35.92,
+      "w": [
+        {
+          "t": "The",
+          "s": 31.18
+        },
+        {
+          "t": "thorns",
+          "s": 31.4
+        },
+        {
+          "t": "rose",
+          "s": 31.9
+        },
+        {
+          "t": "up",
+          "s": 32.3
+        },
+        {
+          "t": "and",
+          "s": 32.48
+        },
+        {
+          "t": "choked",
+          "s": 32.64
+        },
+        {
+          "t": "them,",
+          "s": 33.04
+        },
+        {
+          "t": "no",
+          "s": 33.66
+        },
+        {
+          "t": "fruit",
+          "s": 33.98
+        },
+        {
+          "t": "was",
+          "s": 34.38
+        },
+        {
+          "t": "ever",
+          "s": 34.9
+        },
+        {
+          "t": "found.",
+          "s": 35.26
+        }
+      ]
+    },
+    {
+      "seg": 5,
+      "text": "But seed that fell on good earth bore a hundred from the ground.",
+      "start": 35.92,
+      "end": 41.26,
+      "w": [
+        {
+          "t": "But",
+          "s": 35.92
+        },
+        {
+          "t": "seed",
+          "s": 36.1
+        },
+        {
+          "t": "that",
+          "s": 36.4
+        },
+        {
+          "t": "fell",
+          "s": 36.72
+        },
+        {
+          "t": "on",
+          "s": 37.18
+        },
+        {
+          "t": "good",
+          "s": 37.4
+        },
+        {
+          "t": "earth",
+          "s": 37.7
+        },
+        {
+          "t": "bore",
+          "s": 38.02
+        },
+        {
+          "t": "a",
+          "s": 39.04
+        },
+        {
+          "t": "hundred",
+          "s": 39.18
+        },
+        {
+          "t": "from",
+          "s": 39.94
+        },
+        {
+          "t": "the",
+          "s": 40.3
+        },
+        {
+          "t": "ground.",
+          "s": 40.44
+        }
+      ]
+    },
+    {
+      "seg": 6,
+      "text": "Don't you worry for your life, for the things that come and go.",
+      "start": 41.26,
+      "end": 46.4,
+      "w": [
+        {
+          "t": "Don't",
+          "s": 41.26
+        },
+        {
+          "t": "you",
+          "s": 41.58
+        },
+        {
+          "t": "worry",
+          "s": 41.9
+        },
+        {
+          "t": "for",
+          "s": 42.54
+        },
+        {
+          "t": "your",
+          "s": 42.82
+        },
+        {
+          "t": "life,",
+          "s": 43.04
+        },
+        {
+          "t": "for",
+          "s": 43.84
+        },
+        {
+          "t": "the",
+          "s": 44.14
+        },
+        {
+          "t": "things",
+          "s": 44.34
+        },
+        {
+          "t": "that",
+          "s": 44.84
+        },
+        {
+          "t": "come",
+          "s": 45.1
+        },
+        {
+          "t": "and",
+          "s": 45.38
+        },
+        {
+          "t": "go.",
+          "s": 45.64
+        }
+      ]
+    },
+    {
+      "seg": 7,
+      "text": "See the birds up in the sky, they don't reap and they don't sow.",
+      "start": 46.4,
+      "end": 51.54,
+      "w": [
+        {
+          "t": "See",
+          "s": 46.4
+        },
+        {
+          "t": "the",
+          "s": 46.66
+        },
+        {
+          "t": "birds",
+          "s": 46.9
+        },
+        {
+          "t": "up",
+          "s": 47.5
+        },
+        {
+          "t": "in",
+          "s": 47.82
+        },
+        {
+          "t": "the",
+          "s": 48
+        },
+        {
+          "t": "sky,",
+          "s": 48.14
+        },
+        {
+          "t": "they",
+          "s": 48.84
+        },
+        {
+          "t": "don't",
+          "s": 49.16
+        },
+        {
+          "t": "reap",
+          "s": 49.7
+        },
+        {
+          "t": "and",
+          "s": 50.04
+        },
+        {
+          "t": "they",
+          "s": 50.18
+        },
+        {
+          "t": "don't",
+          "s": 50.44
+        },
+        {
+          "t": "sow.",
+          "s": 50.88
+        }
+      ]
+    },
+    {
+      "seg": 8,
+      "text": "Seek you first for the kingdom and the rest will find its way.",
+      "start": 51.54,
+      "end": 56.74,
+      "w": [
+        {
+          "t": "Seek",
+          "s": 51.54
+        },
+        {
+          "t": "you",
+          "s": 51.92
+        },
+        {
+          "t": "first",
+          "s": 52.22
+        },
+        {
+          "t": "for",
+          "s": 52.88
+        },
+        {
+          "t": "the",
+          "s": 53.18
+        },
+        {
+          "t": "kingdom",
+          "s": 53.34
+        },
+        {
+          "t": "and",
+          "s": 54.28
+        },
+        {
+          "t": "the",
+          "s": 54.52
+        },
+        {
+          "t": "rest",
+          "s": 54.64
+        },
+        {
+          "t": "will",
+          "s": 54.98
+        },
+        {
+          "t": "find",
+          "s": 55.3
+        },
+        {
+          "t": "its",
+          "s": 55.86
+        },
+        {
+          "t": "way.",
+          "s": 56.12
+        }
+      ]
+    },
+    {
+      "seg": 9,
+      "text": "Knock upon the door it opens, ask and you'll receive today.",
+      "start": 56.74,
+      "end": 64.7,
+      "w": [
+        {
+          "t": "Knock",
+          "s": 56.74
+        },
+        {
+          "t": "upon",
+          "s": 57.08
+        },
+        {
+          "t": "the",
+          "s": 57.58
+        },
+        {
+          "t": "door",
+          "s": 57.88
+        },
+        {
+          "t": "it",
+          "s": 58.48
+        },
+        {
+          "t": "opens,",
+          "s": 58.64
+        },
+        {
+          "t": "ask",
+          "s": 59.34
+        },
+        {
+          "t": "and",
+          "s": 59.74
+        },
+        {
+          "t": "you'll",
+          "s": 59.92
+        },
+        {
+          "t": "receive",
+          "s": 60.28
+        },
+        {
+          "t": "today.",
+          "s": 62.2
+        }
+      ]
+    },
+    {
+      "seg": 10,
+      "text": "You can worry night and day, but tell me what it's worth.",
+      "start": 67.08,
+      "end": 72.06,
+      "w": [
+        {
+          "t": "You",
+          "s": 67.08
+        },
+        {
+          "t": "can",
+          "s": 67.22
+        },
+        {
+          "t": "worry",
+          "s": 67.64
+        },
+        {
+          "t": "night",
+          "s": 68.2
+        },
+        {
+          "t": "and",
+          "s": 68.54
+        },
+        {
+          "t": "day,",
+          "s": 68.82
+        },
+        {
+          "t": "but",
+          "s": 69.83
+        },
+        {
+          "t": "tell",
+          "s": 70.13
+        },
+        {
+          "t": "me",
+          "s": 70.64
+        },
+        {
+          "t": "what",
+          "s": 70.92
+        },
+        {
+          "t": "it's",
+          "s": 71.19
+        },
+        {
+          "t": "worth.",
+          "s": 71.39
+        }
+      ]
+    },
+    {
+      "seg": 11,
+      "text": "You cannot add a single hour to your time here on the earth.",
+      "start": 72.06,
+      "end": 77.89,
+      "w": [
+        {
+          "t": "You",
+          "s": 72.06
+        },
+        {
+          "t": "cannot",
+          "s": 72.2
+        },
+        {
+          "t": "add",
+          "s": 73.03
+        },
+        {
+          "t": "a",
+          "s": 73.28
+        },
+        {
+          "t": "single",
+          "s": 73.47
+        },
+        {
+          "t": "hour",
+          "s": 74.03
+        },
+        {
+          "t": "to",
+          "s": 74.77
+        },
+        {
+          "t": "your",
+          "s": 74.98
+        },
+        {
+          "t": "time",
+          "s": 75.28
+        },
+        {
+          "t": "here",
+          "s": 75.81
+        },
+        {
+          "t": "on",
+          "s": 76.17
+        },
+        {
+          "t": "the",
+          "s": 76.41
+        },
+        {
+          "t": "earth.",
+          "s": 76.94
+        }
+      ]
+    },
+    {
+      "seg": 12,
+      "text": "The lilies in the meadow, they do not weave or sow.",
+      "start": 77.89,
+      "end": 82.33,
+      "w": [
+        {
+          "t": "The",
+          "s": 77.89
+        },
+        {
+          "t": "lilies",
+          "s": 78.05
+        },
+        {
+          "t": "in",
+          "s": 78.7
+        },
+        {
+          "t": "the",
+          "s": 79.05
+        },
+        {
+          "t": "meadow,",
+          "s": 79.19
+        },
+        {
+          "t": "they",
+          "s": 80.13
+        },
+        {
+          "t": "do",
+          "s": 80.44
+        },
+        {
+          "t": "not",
+          "s": 80.78
+        },
+        {
+          "t": "weave",
+          "s": 81.11
+        },
+        {
+          "t": "or",
+          "s": 81.56
+        },
+        {
+          "t": "sow.",
+          "s": 81.86
+        }
+      ]
+    },
+    {
+      "seg": 13,
+      "text": "Yet no king in all his splendor was ever dressed just so.",
+      "start": 82.33,
+      "end": 87.73,
+      "w": [
+        {
+          "t": "Yet",
+          "s": 82.33
+        },
+        {
+          "t": "no",
+          "s": 82.7
+        },
+        {
+          "t": "king",
+          "s": 83
+        },
+        {
+          "t": "in",
+          "s": 83.61
+        },
+        {
+          "t": "all",
+          "s": 83.73
+        },
+        {
+          "t": "his",
+          "s": 84.05
+        },
+        {
+          "t": "splendor",
+          "s": 84.23
+        },
+        {
+          "t": "was",
+          "s": 85.29
+        },
+        {
+          "t": "ever",
+          "s": 85.89
+        },
+        {
+          "t": "dressed",
+          "s": 86.23
+        },
+        {
+          "t": "just",
+          "s": 86.59
+        },
+        {
+          "t": "so.",
+          "s": 87.01
+        }
+      ]
+    },
+    {
+      "seg": 14,
+      "text": "Don't you worry for your life, for the things that come and go.",
+      "start": 87.73,
+      "end": 92.83,
+      "w": [
+        {
+          "t": "Don't",
+          "s": 87.73
+        },
+        {
+          "t": "you",
+          "s": 88.05
+        },
+        {
+          "t": "worry",
+          "s": 88.33
+        },
+        {
+          "t": "for",
+          "s": 89.01
+        },
+        {
+          "t": "your",
+          "s": 89.27
+        },
+        {
+          "t": "life,",
+          "s": 89.49
+        },
+        {
+          "t": "for",
+          "s": 90.27
+        },
+        {
+          "t": "the",
+          "s": 90.59
+        },
+        {
+          "t": "things",
+          "s": 90.79
+        },
+        {
+          "t": "that",
+          "s": 91.29
+        },
+        {
+          "t": "come",
+          "s": 91.55
+        },
+        {
+          "t": "and",
+          "s": 91.83
+        },
+        {
+          "t": "go.",
+          "s": 92.07
+        }
+      ]
+    },
+    {
+      "seg": 15,
+      "text": "See the birds up in the sky, they don't reap and they don't sow.",
+      "start": 92.83,
+      "end": 97.97,
+      "w": [
+        {
+          "t": "See",
+          "s": 92.83
+        },
+        {
+          "t": "the",
+          "s": 93.17
+        },
+        {
+          "t": "birds",
+          "s": 93.35
+        },
+        {
+          "t": "up",
+          "s": 93.97
+        },
+        {
+          "t": "in",
+          "s": 94.27
+        },
+        {
+          "t": "the",
+          "s": 94.45
+        },
+        {
+          "t": "sky,",
+          "s": 94.57
+        },
+        {
+          "t": "they",
+          "s": 95.29
+        },
+        {
+          "t": "don't",
+          "s": 95.61
+        },
+        {
+          "t": "reap",
+          "s": 96.11
+        },
+        {
+          "t": "and",
+          "s": 96.51
+        },
+        {
+          "t": "they",
+          "s": 96.61
+        },
+        {
+          "t": "don't",
+          "s": 96.87
+        },
+        {
+          "t": "sow.",
+          "s": 97.33
+        }
+      ]
+    },
+    {
+      "seg": 16,
+      "text": "Seek you first for the kingdom and the rest will find its way.",
+      "start": 97.97,
+      "end": 103.19,
+      "w": [
+        {
+          "t": "Seek",
+          "s": 97.97
+        },
+        {
+          "t": "you",
+          "s": 98.33
+        },
+        {
+          "t": "first",
+          "s": 98.65
+        },
+        {
+          "t": "for",
+          "s": 99.31
+        },
+        {
+          "t": "the",
+          "s": 99.63
+        },
+        {
+          "t": "kingdom",
+          "s": 99.81
+        },
+        {
+          "t": "and",
+          "s": 100.71
+        },
+        {
+          "t": "the",
+          "s": 100.97
+        },
+        {
+          "t": "rest",
+          "s": 101.09
+        },
+        {
+          "t": "will",
+          "s": 101.43
+        },
+        {
+          "t": "find",
+          "s": 101.73
+        },
+        {
+          "t": "its",
+          "s": 102.29
+        },
+        {
+          "t": "way.",
+          "s": 102.55
+        }
+      ]
+    },
+    {
+      "seg": 17,
+      "text": "Knock upon the door it opens, ask and you'll receive today.",
+      "start": 103.19,
+      "end": 109.47,
+      "w": [
+        {
+          "t": "Knock",
+          "s": 103.19
+        },
+        {
+          "t": "upon",
+          "s": 103.63
+        },
+        {
+          "t": "the",
+          "s": 104.11
+        },
+        {
+          "t": "door",
+          "s": 104.29
+        },
+        {
+          "t": "it",
+          "s": 104.91
+        },
+        {
+          "t": "opens,",
+          "s": 105.07
+        },
+        {
+          "t": "ask",
+          "s": 105.77
+        },
+        {
+          "t": "and",
+          "s": 106.19
+        },
+        {
+          "t": "you'll",
+          "s": 106.37
+        },
+        {
+          "t": "receive",
+          "s": 106.81
+        },
+        {
+          "t": "today.",
+          "s": 108.65
+        }
+      ]
+    },
+    {
+      "seg": 18,
+      "text": "Ask and you'll be given, seek and you will see.",
+      "start": 109.47,
+      "end": 114.43,
+      "w": [
+        {
+          "t": "Ask",
+          "s": 109.47
+        },
+        {
+          "t": "and",
+          "s": 109.89
+        },
+        {
+          "t": "you'll",
+          "s": 110.21
+        },
+        {
+          "t": "be",
+          "s": 110.63
+        },
+        {
+          "t": "given,",
+          "s": 110.91
+        },
+        {
+          "t": "seek",
+          "s": 111.85
+        },
+        {
+          "t": "and",
+          "s": 112.51
+        },
+        {
+          "t": "you",
+          "s": 112.81
+        },
+        {
+          "t": "will",
+          "s": 113.21
+        },
+        {
+          "t": "see.",
+          "s": 113.47
+        }
+      ]
+    },
+    {
+      "seg": 19,
+      "text": "Knock against the dark and the door will set you free.",
+      "start": 114.43,
+      "end": 119.57,
+      "w": [
+        {
+          "t": "Knock",
+          "s": 114.43
+        },
+        {
+          "t": "against",
+          "s": 115.17
+        },
+        {
+          "t": "the",
+          "s": 115.91
+        },
+        {
+          "t": "dark",
+          "s": 116.13
+        },
+        {
+          "t": "and",
+          "s": 116.47
+        },
+        {
+          "t": "the",
+          "s": 116.59
+        },
+        {
+          "t": "door",
+          "s": 116.73
+        },
+        {
+          "t": "will",
+          "s": 117.41
+        },
+        {
+          "t": "set",
+          "s": 117.99
+        },
+        {
+          "t": "you",
+          "s": 118.51
+        },
+        {
+          "t": "free.",
+          "s": 118.97
+        }
+      ]
+    },
+    {
+      "seg": 20,
+      "text": "So great was all his love that he gave his only son.",
+      "start": 119.57,
+      "end": 123.65,
+      "w": [
+        {
+          "t": "So",
+          "s": 119.57
+        },
+        {
+          "t": "great",
+          "s": 119.93
+        },
+        {
+          "t": "was",
+          "s": 120.29
+        },
+        {
+          "t": "all",
+          "s": 120.63
+        },
+        {
+          "t": "his",
+          "s": 120.81
+        },
+        {
+          "t": "love",
+          "s": 121.05
+        },
+        {
+          "t": "that",
+          "s": 121.41
+        },
+        {
+          "t": "he",
+          "s": 121.63
+        },
+        {
+          "t": "gave",
+          "s": 121.73
+        },
+        {
+          "t": "his",
+          "s": 122.27
+        },
+        {
+          "t": "only",
+          "s": 122.51
+        },
+        {
+          "t": "son.",
+          "s": 122.99
+        }
+      ]
+    },
+    {
+      "seg": 21,
+      "text": "Whoever believes lives forever, the grave will hold no one.",
+      "start": 123.65,
+      "end": 130.25,
+      "w": [
+        {
+          "t": "Whoever",
+          "s": 123.65
+        },
+        {
+          "t": "believes",
+          "s": 124.17
+        },
+        {
+          "t": "lives",
+          "s": 125.09
+        },
+        {
+          "t": "forever,",
+          "s": 125.57
+        },
+        {
+          "t": "the",
+          "s": 126.71
+        },
+        {
+          "t": "grave",
+          "s": 126.85
+        },
+        {
+          "t": "will",
+          "s": 127.37
+        },
+        {
+          "t": "hold",
+          "s": 127.69
+        },
+        {
+          "t": "no",
+          "s": 128.03
+        },
+        {
+          "t": "one.",
+          "s": 128.79
+        }
+      ]
+    },
+    {
+      "seg": 22,
+      "text": "Don't you worry, don't you worry, set the burden down.",
+      "start": 130.25,
+      "end": 137.71,
+      "w": [
+        {
+          "t": "Don't",
+          "s": 130.25
+        },
+        {
+          "t": "you",
+          "s": 130.59
+        },
+        {
+          "t": "worry,",
+          "s": 130.87
+        },
+        {
+          "t": "don't",
+          "s": 132.67
+        },
+        {
+          "t": "you",
+          "s": 133.33
+        },
+        {
+          "t": "worry,",
+          "s": 133.55
+        },
+        {
+          "t": "set",
+          "s": 134.71
+        },
+        {
+          "t": "the",
+          "s": 134.93
+        },
+        {
+          "t": "burden",
+          "s": 135.25
+        },
+        {
+          "t": "down.",
+          "s": 135.89
+        }
+      ]
+    },
+    {
+      "seg": 23,
+      "text": "The seed in you is rising on the good and solid ground.",
+      "start": 137.71,
+      "end": 142.51,
+      "w": [
+        {
+          "t": "The",
+          "s": 137.71
+        },
+        {
+          "t": "seed",
+          "s": 137.97
+        },
+        {
+          "t": "in",
+          "s": 138.43
+        },
+        {
+          "t": "you",
+          "s": 138.59
+        },
+        {
+          "t": "is",
+          "s": 139.03
+        },
+        {
+          "t": "rising",
+          "s": 139.31
+        },
+        {
+          "t": "on",
+          "s": 140.07
+        },
+        {
+          "t": "the",
+          "s": 140.27
+        },
+        {
+          "t": "good",
+          "s": 140.43
+        },
+        {
+          "t": "and",
+          "s": 141.15
+        },
+        {
+          "t": "solid",
+          "s": 141.77
+        },
+        {
+          "t": "ground.",
+          "s": 142.11
+        }
+      ]
+    },
+    {
+      "seg": 24,
+      "text": "Oh, oh, oh, oh, oh, oh, oh.",
+      "start": 142.35,
+      "end": 145.57,
+      "w": [
+        {
+          "t": "Oh,",
+          "s": 142.35
+        },
+        {
+          "t": "oh,",
+          "s": 142.43
+        },
+        {
+          "t": "oh,",
+          "s": 142.55
+        },
+        {
+          "t": "oh,",
+          "s": 142.63
+        },
+        {
+          "t": "oh,",
+          "s": 142.87
+        },
+        {
+          "t": "oh,",
+          "s": 142.97
+        },
+        {
+          "t": "oh.",
+          "s": 143.07
+        }
+      ]
+    }
+  ],
+  "_retime": {
+    "anchors": 290,
+    "total": 290,
+    "coverage": 1,
+    "segments": 25,
+    "segCoverage": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "weakSegments": []
+  }
+}

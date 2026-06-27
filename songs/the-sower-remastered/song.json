@@ -1,0 +1,193 @@
+{
+  "id": "the-sower-remastered",
+  "title": "The Sower (Remastered)",
+  "subtitle": "Matthew 6 & 13 · Luke 8 & 12 · John 3:16",
+  "names": {
+    "de": "Der Sämann (Remastered)",
+    "es": "El sembrador (Remastered)"
+  },
+  "theme": "faith",
+  "genre": "Indie Folk Pop",
+  "mp3": "the-sower-remastered.mp3",
+  "cover": "img/cover-remastered.png",
+  "order": 2,
+  "images": [
+    "img/1-sower.png",
+    "img/2-soils.png",
+    "img/3-birds.png",
+    "img/4-lilies.png",
+    "img/5-light.png",
+    "img/6-door.png",
+    "img/7-path.png",
+    "img/8-seed.png"
+  ],
+  "imageMap": [
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    2,
+    2,
+    5,
+    5,
+    6,
+    6,
+    3,
+    3,
+    2,
+    2,
+    5,
+    5,
+    5,
+    5,
+    4,
+    4,
+    7,
+    7,
+    4
+  ],
+  "es": [
+    "Un sembrador salió de mañana, semilla en mano.",
+    "Parte cayó junto al camino, parte en terreno pedregoso.",
+    "Vinieron las aves y se la llevaron antes de arraigar.",
+    "Sobre la piedra brotó deprisa, y con el frío se secó.",
+    "Los espinos crecieron y la ahogaron, y no dio fruto.",
+    "Pero la que cayó en buena tierra dio ciento por uno.",
+    "No te afanes por tu vida, por las cosas que van y vienen.",
+    "Mira las aves del cielo: no siembran ni siegan.",
+    "Busca primero el reino, y lo demás vendrá por añadidura.",
+    "Llama a la puerta y se abre; pide, y hoy recibirás.",
+    "Puedes afanarte noche y día, pero dime de qué sirve.",
+    "No puedes añadir una sola hora a tu vida en la tierra.",
+    "Los lirios del campo no trabajan ni hilan.",
+    "Y ni el rey en todo su esplendor se vistió como uno de ellos.",
+    "No te afanes por tu vida, por las cosas que van y vienen.",
+    "Mira las aves del cielo: no siembran ni siegan.",
+    "Busca primero el reino, y lo demás vendrá por añadidura.",
+    "Llama a la puerta y se abre; pide, y hoy recibirás.",
+    "Pide y se te dará, busca y hallarás.",
+    "Llama contra la oscuridad, y la puerta te hará libre.",
+    "Tan grande fue su amor que dio a su Hijo unigénito.",
+    "El que cree vive para siempre, y la tumba a nadie retendrá.",
+    "No te afanes, no te afanes, suelta la carga.",
+    "La semilla en ti germina en tierra buena y firme.",
+    ""
+  ],
+  "de": [
+    "Eines Morgens ging er hinaus, die Saat in der Hand.",
+    "Etwas fiel auf den Weg, etwas auf steinigen Grund.",
+    "Vögel kamen und nahmen es weg, eh es Wurzeln schlug.",
+    "Auf Stein ging es schnell auf und verdorrte in der Kälte.",
+    "Dornen wuchsen auf und erstickten es, keine Frucht war je zu sehen.",
+    "Doch die Saat auf gutem Boden trug hundertfach.",
+    "Sorge dich nicht um dein Leben, um die Dinge, die kommen und gehen.",
+    "Sieh die Vögel am Himmel: sie säen nicht und ernten nicht.",
+    "Such zuerst nach dem Reich, und das Übrige findet seinen Weg.",
+    "Klopf an, und es öffnet sich; bitte, und du wirst empfangen.",
+    "Du kannst dich Tag und Nacht sorgen, doch sag mir, was es bringt.",
+    "Du kannst deiner Zeit auf Erden keine einzige Stunde hinzufügen.",
+    "Die Lilien auf der Wiese, sie weben nicht und säen nicht.",
+    "Und kein König in all seiner Pracht war je so gekleidet.",
+    "Sorge dich nicht um dein Leben, um die Dinge, die kommen und gehen.",
+    "Sieh die Vögel am Himmel: sie säen nicht und ernten nicht.",
+    "Such zuerst nach dem Reich, und das Übrige findet seinen Weg.",
+    "Klopf an, und es öffnet sich; bitte, und du wirst empfangen.",
+    "Bitte, und es wird dir gegeben; suche, und du wirst sehen.",
+    "Klopf gegen das Dunkel, und die Tür macht dich frei.",
+    "So groß war seine Liebe, dass er seinen einzigen Sohn gab.",
+    "Wer glaubt, lebt für immer; das Grab hält niemanden fest.",
+    "Sorge dich nicht, sorge dich nicht, leg die Last ab.",
+    "Die Saat in dir wächst auf gutem, festem Boden.",
+    ""
+  ],
+  "about": {
+    "intro": {
+      "de": "„The Sower\" verbindet drei Worte von Jesus zu einem Bogen: das Gleichnis vom Sämann, den Aufruf, sich nicht zu sorgen, und das größte Geschenk aus Johannes 3,16. Der rote Faden: Lass die gute Nachricht tief Wurzeln schlagen, dann kannst du die Last loslassen, weil etwas in dir wächst, das hält.",
+      "es": "„The Sower\" une tres palabras de Jesús en un solo arco: la parábola del sembrador, la invitación a no angustiarse, y el regalo más grande de Juan 3,16. El hilo: deja que la buena noticia eche raíces hondas y podrás soltar la carga, porque algo crece en ti que sostiene."
+    },
+    "de": [
+      {
+        "h": "Strophe 1 · Das Gleichnis vom Sämann (Matthäus 13)",
+        "p": [
+          "Der Same steht für das Wort, die gute Nachricht. „Evangelium\" heißt übersetzt genau das: gute Nachricht. Jesus erzählt das Gleichnis (Mt 13,3-9) und erklärt es dann selbst (13,18-23). Es zeigt vier Arten, wie ein Mensch die gute Nachricht aufnimmt.",
+          "Der Weg, wo die Vögel den Samen wegnehmen: Jemand hört, versteht es aber nicht, und es wird ihm sofort wieder weggenommen, bevor es wirken kann. Heute sind das die Dinge, die den Glauben gleich wegschnappen: Menschen, die ihn kleinreden, oder die ständige Ablenkung.",
+          "Der felsige Boden: Jemand nimmt es mit Begeisterung an, aber ohne Wurzel. Kommen Druck und Schwierigkeiten, gibt er auf. Eine Begeisterung, die schnell auflodert und genauso schnell verschwindet.",
+          "Die Dornen: Die Wurzeln sind da, aber die Sorgen des Alltags und das Streben nach Besitz ersticken alles. Stress, das ständige Mehr-haben-wollen, Social Media. Der Glaube wird nicht weggenommen, er wird langsam zugewuchert.",
+          "Die gute Erde: Jemand hört, versteht und lässt es wachsen. Daraus wird echte Frucht, hundertfach. Ein Herz, das Raum gibt und dranbleibt, auch wenn es schwer wird.",
+          "Die Anwendung: Es geht nicht darum, ob du die gute Nachricht einmal gehört hast, sondern wie tief sie bei dir Wurzeln schlägt."
+        ]
+      },
+      {
+        "h": "Chorus · Sorgt euch nicht (Matthäus 6,25-33)",
+        "p": [
+          "„They don't reap and they don't sow\" zeigt auf die Vögel: Sie legen keine Vorräte an und werden doch versorgt. Wenn Gott schon die Vögel ernährt, bist du ihm umso mehr wert.",
+          "„Seek you first for the kingdom\" ist der Kern (Mt 6,33): Stell Gott und das Richtige an die erste Stelle, dann kommt das Übrige von selbst dazu.",
+          "„Knock upon the door, ask and you'll receive\" greift Mt 7,7 auf: bitten, suchen, anklopfen, nicht passiv warten."
+        ]
+      },
+      {
+        "h": "Strophe 2 · Die Sorge bringt nichts (Matthäus 6,27-29)",
+        "p": [
+          "„You cannot add a single hour to your time\" ist fast wörtlich aus Vers 27: Sorge verlängert dein Leben um keine einzige Stunde, sie raubt dir nur das Heute.",
+          "Die Lilien (V. 28-29): Die Blumen arbeiten nicht, und doch war selbst König Salomo in all seiner Pracht nicht so schön gekleidet. Ein Bild für Vertrauen statt Verkrampfung."
+        ]
+      },
+      {
+        "h": "Bridge · Das Geschenk (Matthäus 7 & Johannes 3,16)",
+        "p": [
+          "Die erste Hälfte wiederholt bitten, suchen, anklopfen.",
+          "Die zweite Hälfte ist der Kern des ganzen Songs: „So great was all His love that He gave His only Son, whoever believes lives forever.\" Das ist Johannes 3,16: das größte Geschenk, der Glaube an Jesus, und das Versprechen, dass der Tod nicht das letzte Wort hat („the grave will hold no one\")."
+        ]
+      },
+      {
+        "h": "Outro",
+        "p": [
+          "„The seed in you is rising on the good and solid ground\" führt alles zusammen: der gute Boden aus Strophe 1 trifft die Sorglosigkeit aus dem Chorus. Wenn die gute Nachricht bei dir Wurzeln geschlagen hat, kannst du die Last loslassen, weil etwas in dir wächst, das hält."
+        ]
+      }
+    ],
+    "es": [
+      {
+        "h": "Estrofa 1 · La parábola del sembrador (Mateo 13)",
+        "p": [
+          "La semilla es la palabra, la buena noticia. „Evangelio\" significa justamente eso: buena noticia. Jesús cuenta la parábola (Mt 13,3-9) y luego la explica él mismo (13,18-23). Muestra cuatro maneras de recibir la buena noticia.",
+          "El camino, donde las aves se llevan la semilla: alguien la oye pero no la entiende, y enseguida se la quitan antes de que pueda obrar. Hoy son las cosas que te arrebatan la fe: los que la minimizan, o la distracción constante.",
+          "El terreno pedregoso: alguien la recibe con entusiasmo, pero sin raíz. En cuanto llegan la presión y las dificultades, se rinde. Un entusiasmo que arde rápido y se apaga igual de rápido.",
+          "Los espinos: la raíz está, pero las preocupaciones del día a día y el afán de tener lo ahogan todo. El estrés, el querer siempre más, las redes. La fe no te la quitan: poco a poco la dejan sin espacio.",
+          "La buena tierra: alguien oye, entiende y la deja crecer. De ahí sale fruto de verdad, ciento por uno. Un corazón que da espacio y persevera, aunque cueste.",
+          "La aplicación: no se trata de si oíste la buena noticia una vez, sino de cuán hondo echa raíces en ti."
+        ]
+      },
+      {
+        "h": "Estribillo · No os angustiéis (Mateo 6,25-33)",
+        "p": [
+          "„They don't reap and they don't sow\" apunta a las aves: no hacen reservas y aun así son sostenidas. Si Dios alimenta a las aves, cuánto más vales tú.",
+          "„Seek you first for the kingdom\" es el corazón (Mt 6,33): pon a Dios y lo correcto en primer lugar, y lo demás vendrá por añadidura.",
+          "„Knock upon the door, ask and you'll receive\" recoge Mt 7,7: pedir, buscar, llamar; no esperar de forma pasiva."
+        ]
+      },
+      {
+        "h": "Estrofa 2 · La preocupación no sirve (Mateo 6,27-29)",
+        "p": [
+          "„You cannot add a single hour to your time\" es casi literal del versículo 27: la preocupación no alarga tu vida ni una hora, solo te roba el hoy.",
+          "Los lirios (v. 28-29): las flores no trabajan y, aun así, ni el rey Salomón en todo su esplendor vistió como ellas. Una imagen de confianza en lugar de tensión."
+        ]
+      },
+      {
+        "h": "Puente · El regalo (Mateo 7 y Juan 3,16)",
+        "p": [
+          "La primera mitad repite pedir, buscar, llamar.",
+          "La segunda mitad es el núcleo de toda la canción: „So great was all His love that He gave His only Son, whoever believes lives forever.\" Es Juan 3,16: el mayor regalo, la fe en Jesús, y la promesa de que la muerte no tiene la última palabra („the grave will hold no one\")."
+        ]
+      },
+      {
+        "h": "Final",
+        "p": [
+          "„The seed in you is rising on the good and solid ground\" lo reúne todo: la buena tierra de la estrofa 1 se une a la calma del estribillo. Cuando la buena noticia ha echado raíces en ti, puedes soltar la carga, porque algo crece en ti que sostiene."
+        ]
+      }
+    ]
+  }
+}
