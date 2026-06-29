@@ -230,7 +230,7 @@ function songCSS() {
     '.about-btn:hover{transform:translateY(-1px);background:linear-gradient(180deg,rgba(255,231,173,.28),rgba(233,184,92,.2));border-color:rgba(243,196,108,.85)}',
     '.about-btn .spark{color:#ffd87a}',
     /* embed/demo mode: hide links to the hub and the full booklet (idea panel + full lyrics) */
-    'html.embed #nav,html.embed .gate-x,html.embed #lyricsBtn{display:none!important}',
+    'html.embed #home,html.embed .pl-dhome,html.embed .gate-x,html.embed #lyricsBtn{display:none!important}',
     /* countdown ring before the singing starts */
     '#countdown{position:fixed;top:66px;left:50%;transform:translateX(-50%);z-index:40;width:64px;height:64px;display:grid;place-items:center}',
     '#countdown[hidden]{display:none}',
@@ -452,8 +452,8 @@ function buildHub() {
     '<style>' + hubCSS() + '</style></head><body><canvas id="bg"></canvas>' +
     '<div class="promo" id="promo"><div class="promo-in">' +
       '<span class="promo-eye">New</span>' +
-      '<span>Learn to build your own AI music channel and a dashboard like this, in any niche, with <b>The Sower System</b>.</span>' +
-      '<a class="promo-cta" href="course/index.html">Join the waitlist &rarr;</a>' +
+      '<span>Turn any idea into bilingual karaoke songs and a YouTube channel on autopilot, with <b>Lumora</b>.</span>' +
+      '<a class="promo-cta" href="course/v3.html">Join the waitlist &rarr;</a>' +
       '<button class="bar-x" onclick="closeBar(\'promo\')" aria-label="Dismiss">&times;</button>' +
     '</div></div>' +
     '<header><div class="eyebrow">AI songs about faith, love, life and God</div><h1>Marten\'s Songs</h1></header>' +
@@ -461,8 +461,8 @@ function buildHub() {
     '<main class="grid">' + cards + '</main>' +
     '<footer>Press a song, then Play. The words light up as they are sung, with a translation below.</footer>' +
     '<div class="ctabar" id="ctabar"><div class="ctabar-in">' +
-      '<div class="ctabar-txt"><b>The Sower System.</b> One skill file plus a short setup course. Your niche, YouTube 2026 compliance and the animations, handled for you.</div>' +
-      '<a class="ctabar-btn" href="course/index.html">See the course &rarr;</a>' +
+      '<div class="ctabar-txt"><b>Lumora.</b> AI karaoke songs for any topic, plus a YouTube channel that grows itself. One folder in, a finished video out.</div>' +
+      '<a class="ctabar-btn" href="course/v3.html">See the course &rarr;</a>' +
       '<button class="bar-x" onclick="closeBar(\'ctabar\')" aria-label="Dismiss">&times;</button>' +
     '</div></div>' +
     '<script>function filt(b){document.querySelectorAll(".filt").forEach(function(x){x.classList.toggle("on",x===b);});var g=b.getAttribute("data-g");document.querySelectorAll(".card").forEach(function(c){c.style.display=(g==="all"||c.getAttribute("data-genre")===g)?"":"none";});}' +
