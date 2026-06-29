@@ -1058,23 +1058,7 @@ section.bgsec .btn-ghost{color:#fff;border-color:rgba(255,255,255,.5);background
   </div>
 </section>
 
-<!-- differentiator -->
-<section id="more">
-  <div class="wrap">
-    <div class="sec-head center reveal">
-      <div class="eyebrow">Sing along, in any language</div>
-      <h2 class="gold-text">The words light up, word by word.</h2>
-    </div>
-    <div class="reveal" style="max-width:680px;margin:2.4rem auto 0">
-      <div class="kbox">
-        <div class="km-head"><span class="km-cover"></span><div class="km-t"><b>Worlds In My Head</b><span>Indie folk &middot; bilingual</span></div><span class="km-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span></div>
-        <div class="klines" id="klines"></div>
-        <div class="ksub" id="ksub">Y cada palabra que cantas se vuelve una luz que alguien sigue a casa.</div>
-        <div class="km-bar" aria-hidden="true"><i></i></div>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- differentiator / karaoke close-up section removed per Marten: explained enough -->
 
 <!-- live demo -->
 <section id="demo" class="dark">
@@ -1659,6 +1643,7 @@ if(/[?&]flipall=1/.test(location.search)){addEventListener('load',function(){doc
 (function(){
   var line='And every word you sing becomes a light that someone follows home';
   var box=document.getElementById('klines');
+  if(!box)return;
   box.innerHTML=line.split(' ').map(function(w){return '<span class="kw">'+w+'</span>';}).join(' ');
   var ws=box.querySelectorAll('.kw');if(REDUCED){ws.forEach(function(w){w.classList.add('done');});return;}
   var i=0;
