@@ -665,8 +665,11 @@ section.dark .gold-text{background:linear-gradient(180deg,#fff,#f3d79a);-webkit-
 .dropfile{position:absolute;left:50%;top:0;transform:translateX(-50%);z-index:2;display:inline-flex;align-items:center;gap:.5rem;background:#fffdf8;border:1px solid #e7dcc6;border-radius:10px;padding:.5rem .9rem;box-shadow:0 16px 32px rgba(120,90,40,.28);font-size:.85rem;color:#3a2f1a;font-weight:600;white-space:nowrap}
 .dropfile .df-ic{display:inline-flex;width:20px;height:20px;border-radius:5px;background:linear-gradient(180deg,#ffe7ad,#e9b85c);color:#3a2f1a;align-items:center;justify-content:center;font-size:.72rem}
 .chain{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin-top:2.6rem;max-width:760px;margin-left:auto;margin-right:auto}
-.chain-node{background:#fffdf8;border:1px solid #ebe1ce;border-radius:999px;padding:.45rem 1rem;font-size:.82rem;color:#9a9182;font-weight:600;opacity:.45;transition:opacity .45s,color .45s,border-color .45s,box-shadow .45s,transform .45s}
-.chain-node.lit{opacity:1;color:#9a6a16;border-color:rgba(200,144,46,.55);box-shadow:0 8px 20px rgba(200,144,46,.18);transform:translateY(-2px)}
+.chain-node{position:relative;background:#fffdf8;border:1px solid #ebe1ce;border-radius:999px;padding:.45rem 1rem;font-size:.82rem;color:#9a9182;font-weight:600;opacity:.45;transition:opacity .45s,color .45s,border-color .45s,box-shadow .45s,transform .45s}
+.chain-node::before{content:"\2713";display:inline-block;max-width:0;overflow:hidden;opacity:0;color:#c8902e;font-weight:800;vertical-align:middle;transition:max-width .35s ease,opacity .35s ease,margin .35s ease}
+.chain-node.done::before{max-width:1.3em;opacity:1;margin-right:.34rem}
+.chain-node.proc{opacity:1;color:#9a6a16;border-color:rgba(200,144,46,.45);box-shadow:0 0 0 3px rgba(200,144,46,.14);transform:translateY(-1px)}
+.chain-node.done{opacity:1;color:#9a6a16;border-color:rgba(200,144,46,.55);box-shadow:0 8px 20px rgba(200,144,46,.18);transform:translateY(-2px)}
 .turn-out{margin-top:2.4rem;text-align:center;font-family:'Cormorant Garamond',serif;font-size:clamp(1.3rem,3vw,1.9rem);color:#241f17}
 .turn-out b{color:#9a6a16}
 
@@ -783,6 +786,25 @@ section.dark .ask{color:#ffe39a}
 .ds-tab.on{background:linear-gradient(180deg,#f3c46c,#d9a441);color:#1a1205;box-shadow:0 4px 14px rgba(243,196,108,.3)}
 .ds-tab:not(.on):hover{color:#ffe39a}
 .ds-hint{align-self:center;font-size:.72rem;color:rgba(255,255,255,.4);margin-top:-.2rem}
+/* course section: A-Z lesson fan, install badge, niche map */
+.course-fan{display:flex;justify-content:center;align-items:flex-end;margin:2.8rem auto 1.9rem;max-width:840px;min-height:250px}
+.lesson{flex:0 0 auto;width:162px;min-height:208px;margin:0 -26px;background:linear-gradient(180deg,rgba(31,43,67,.92),rgba(13,20,34,.96));border:1px solid rgba(243,196,108,.28);border-radius:16px;padding:1.15rem 1rem;color:#cdd8e8;transform-origin:bottom center;transform:rotate(var(--r,0)) translateY(var(--y,0));transition:transform .4s cubic-bezier(.34,1.18,.4,1),box-shadow .3s,margin .4s,border-color .3s;box-shadow:0 18px 40px rgba(0,0,0,.45)}
+.lesson .ln{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:#f3c46c;font-weight:700;line-height:1}
+.lesson b{display:block;margin:.55rem 0 .35rem;font-size:1rem;color:#fff}
+.lesson .ls{font-size:.81rem;color:rgba(205,216,232,.72);line-height:1.35}
+@media(min-width:760px){.course-fan:hover .lesson{margin:0 9px;transform:rotate(0) translateY(0)}.lesson:hover{transform:translateY(-14px) scale(1.05)!important;z-index:5;box-shadow:0 26px 60px rgba(0,0,0,.6);border-color:rgba(243,196,108,.6)}}
+@media(max-width:759px){.course-fan{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;gap:.7rem;padding:0 1rem 1.1rem;max-width:none}.lesson{margin:0!important;transform:none!important;width:172px}}
+.install-row{display:flex;align-items:center;justify-content:center;gap:.85rem;flex-wrap:wrap;text-align:center;margin:0 auto 2.7rem;color:rgba(205,216,232,.85)}
+.ib-big{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:2.4rem;color:#ffe39a;text-shadow:0 0 24px rgba(243,196,108,.3)}
+.ib-txt{font-size:.95rem}
+.niche-wrap{max-width:900px;margin:0 auto;text-align:center}
+.nh{font-family:'Cormorant Garamond',serif;font-size:1.55rem;color:#fff;margin-bottom:1.3rem;font-weight:600}
+.niche-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:.9rem;text-align:left}
+.niche{background:rgba(255,255,255,.04);border:1px solid rgba(243,196,108,.2);border-radius:14px;padding:1rem 1.1rem;transition:.25s}
+.niche:hover{border-color:rgba(243,196,108,.5);background:rgba(243,196,108,.07);transform:translateY(-3px)}
+.niche b{display:block;color:#ffe39a;font-size:1rem;margin-bottom:.3rem}
+.niche span{font-size:.85rem;color:rgba(205,216,232,.74);line-height:1.4}
+.course-ask{margin-top:1.9rem;text-align:center}
 .ytwatch{height:100%;display:flex;flex-direction:column;background:#0a0f18;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.5)}
 .ytw-video{position:relative;height:54%;min-height:188px;background:#000;overflow:hidden;flex:none}
 .ytw-poster{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.3s ease}
@@ -1415,6 +1437,38 @@ section.bgsec .btn-ghost{color:#fff;border-color:rgba(255,255,255,.5);background
 
 <!-- how-it-works section removed per Marten: the flow is covered earlier (turn + power), and it pushed the CTA too far down -->
 
+<!-- course: video course, A-Z lesson fan, under 30 min, niche map -->
+<section id="course" class="dark">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="eyebrow">It comes with a video course</div>
+      <h2 class="gold-text">Everything, explained A to Z</h2>
+      <p class="mx">Short, watch-and-do videos take you from zero to your first published song and video - even if you have never opened a terminal.</p>
+    </div>
+    <div class="course-fan reveal" id="courseFan">
+      <div class="lesson" style="--r:-20deg;--y:26px"><span class="ln">01</span><b>Install once</b><span class="ls">One skill file and a short setup. No tech needed.</span></div>
+      <div class="lesson" style="--r:-12deg;--y:9px"><span class="ln">02</span><b>Drop your song</b><span class="ls">Your AI song goes into one folder. That is the work.</span></div>
+      <div class="lesson" style="--r:-4deg;--y:0"><span class="ln">03</span><b>Karaoke + translation</b><span class="ls">Word-perfect timing, lit up, in two languages.</span></div>
+      <div class="lesson" style="--r:4deg;--y:0"><span class="ln">04</span><b>Brand it</b><span class="ls">Your look, your voice, your thumbnails - any niche.</span></div>
+      <div class="lesson" style="--r:12deg;--y:9px"><span class="ln">05</span><b>Render the video</b><span class="ls">A finished, compliant YouTube video, ready to upload.</span></div>
+      <div class="lesson" style="--r:20deg;--y:26px"><span class="ln">06</span><b>Publish &amp; grow</b><span class="ls">Descriptions, SEO and a posting plan, done for you.</span></div>
+    </div>
+    <div class="install-row reveal"><span class="ib-big">&lt; 30 min</span><span class="ib-txt">to install everything, start to finish</span></div>
+    <div class="niche-wrap reveal">
+      <h3 class="nh">And a map of the niches that actually work</h3>
+      <div class="niche-grid">
+        <div class="niche"><b>Faith &amp; worship</b><span>Bible passages in your own style - new believers, deep study, kids' Bible, Psalms.</span></div>
+        <div class="niche"><b>Kids &amp; language</b><span>Sing to learn - counting, colours, first words, a whole new language.</span></div>
+        <div class="niche"><b>Sport &amp; motivation</b><span>Running, lifting, boxing, game-day discipline anthems.</span></div>
+        <div class="niche"><b>Love &amp; milestones</b><span>Weddings, anniversaries - songs people gift and keep.</span></div>
+        <div class="niche"><b>Language learning</b><span>Bilingual sing-along: the fastest-growing, wide-open lane.</span></div>
+        <div class="niche"><b>History &amp; story</b><span>Epic anthems about people, places and timeless wisdom.</span></div>
+      </div>
+      <p class="ask course-ask">The machine builds the pipeline. You bring the soul - your taste, your style, your message. That is what makes a channel yours, and impossible to copy.</p>
+    </div>
+  </div>
+</section>
+
 <!-- audiences -->
 <section id="audiences">
   <div class="wrap">
@@ -1865,15 +1919,28 @@ if(/[?&]flipall=1/.test(location.search)){addEventListener('load',function(){doc
 (function(){
   var chain=document.getElementById('chainEl'); if(!chain)return;
   var nodes=[].slice.call(chain.querySelectorAll('.chain-node'));
-  if(REDUCED){nodes.forEach(function(n){n.classList.add('lit');});return;}
+  if(REDUCED){nodes.forEach(function(n){n.classList.add('done');});return;}
   if(window.gsap&&window.ScrollTrigger){
     gsap.fromTo('#dropFile',{y:-46,opacity:0},{y:50,opacity:1,ease:'power1.in',
       scrollTrigger:{trigger:'#folderEl',start:'top 82%',end:'top 48%',scrub:true}});
   }
-  var io=new IntersectionObserver(function(e){
-    if(e[0].isIntersecting){nodes.forEach(function(n,i){setTimeout(function(){n.classList.add('lit');},300+i*200);});io.disconnect();}
-  },{threshold:.4});
-  io.observe(chain);
+  var timers=[],running=false;
+  function reset(){running=false;timers.forEach(clearTimeout);timers=[];nodes.forEach(function(n){n.classList.remove('proc','done');});}
+  function run(){
+    if(running)return;running=true;
+    nodes.forEach(function(n,i){
+      timers.push(setTimeout(function(){
+        n.classList.add('proc');
+        timers.push(setTimeout(function(){n.classList.remove('proc');n.classList.add('done');},430));
+      },250+i*440));
+    });
+  }
+  if(window.gsap&&window.ScrollTrigger){
+    ScrollTrigger.create({trigger:'#folderEl',start:'top 58%',onEnter:run,onEnterBack:run,onLeaveBack:reset});
+  }else{
+    var io=new IntersectionObserver(function(e){if(e[0].isIntersecting)run();else reset();},{threshold:.5});
+    io.observe(chain);
+  }
 })();
 
 /* brands: morph the stage through five brands, click to switch */
