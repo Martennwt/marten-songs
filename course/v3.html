@@ -656,7 +656,9 @@ section.dark .gold-text{background:linear-gradient(180deg,#fff,#f3d79a);-webkit-
 
 /* turn: the one folder */
 .folderwrap{position:relative;max-width:520px;margin:3rem auto 0;text-align:center;padding-top:3rem}
-.folder{position:relative;width:230px;height:150px;margin:0 auto}
+.folder{position:relative;width:230px;height:150px;margin:0 auto;transition:transform .3s ease;cursor:pointer}
+.folderwrap:hover .folder{animation:folderSway 1.3s ease-in-out infinite}
+@keyframes folderSway{0%,100%{transform:rotate(-3deg) translateX(-6px)}50%{transform:rotate(3deg) translateX(6px)}}
 .folder-tab{position:absolute;top:-16px;left:24px;width:104px;height:22px;border-radius:9px 14px 0 0;background:#e3b25a;color:#3a2f1a;font-family:'Inter',sans-serif;font-size:.7rem;font-weight:700;display:flex;align-items:center;justify-content:center;letter-spacing:.05em}
 .folder-back{position:absolute;inset:0;border-radius:6px 14px 14px 14px;background:linear-gradient(180deg,#f0c469,#e3a847);box-shadow:0 28px 54px rgba(180,130,40,.4)}
 .folder-front{position:absolute;left:0;right:0;bottom:0;height:120px;border-radius:12px;background:linear-gradient(180deg,#ffe7ad,#f2c873);box-shadow:inset 0 1px 0 rgba(255,255,255,.6),0 -2px 10px rgba(180,130,40,.15);z-index:3}
@@ -684,6 +686,27 @@ section.dark .gold-text{background:linear-gradient(180deg,#fff,#f3d79a);-webkit-
 .bkline span.on{color:#ffe6a6;text-shadow:0 0 16px rgba(243,196,108,.6)}
 .bkline span.done{color:#f6e4ad}
 .bktr{font-family:'Inter',sans-serif;font-style:italic;font-size:clamp(.72rem,1.5vw,.92rem);color:rgba(225,232,244,.62);margin-top:.12rem}
+/* per-brand karaoke typography + accent colour, so each branding reads differently (not all gold) */
+.bl-travel .bkline{font-family:'Cormorant Garamond',serif}
+.bl-travel .bkline span.on{color:#ffe6a6;text-shadow:0 0 16px rgba(243,196,108,.6)}
+.bl-love .bkline{font-family:'Cormorant Garamond',serif;font-style:italic}
+.bl-love .bkline span.on{color:#ffd0e2;text-shadow:0 0 16px rgba(255,150,190,.6)}
+.bl-love .bktr{color:rgba(255,224,234,.72)}
+.bl-kids .bkline{font-family:'Fredoka',sans-serif;font-weight:600;letter-spacing:-.01em}
+.bl-kids .bkline span.on{color:#bfe6ff;text-shadow:0 0 16px rgba(120,200,255,.7)}
+.bl-kids .bktr{color:rgba(210,235,255,.78)}
+.bl-faith .bkline{font-family:'Cormorant Garamond',serif;font-style:italic}
+.bl-faith .bkline span.on{color:#ffe6a6;text-shadow:0 0 18px rgba(243,196,108,.6)}
+.bl-history .bkline{font-family:'Cormorant Garamond',serif}
+.bl-history .bkline span.on{color:#f0d39a;text-shadow:0 0 16px rgba(220,180,120,.6)}
+/* sport / boxing: bold uppercase sans, white + red, on a dark backing bar */
+.bl-sport .bkstage{background:linear-gradient(180deg,transparent,rgba(0,0,0,.6) 28%,rgba(0,0,0,.6) 72%,transparent)}
+.bl-sport .bkline{font-family:'Inter',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.02em;font-size:clamp(1.05rem,2.5vw,1.8rem);color:rgba(255,255,255,.45)}
+.bl-sport .bkline span.on{color:#ff5a5a;text-shadow:0 0 16px rgba(255,70,70,.6)}
+.bl-sport .bkline span.done{color:#fff}
+.bl-sport .bktr{color:rgba(255,210,210,.72);font-style:normal}
+.bl-sport .bcap h3{font-family:'Inter',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.04em}
+.bl-sport .bcap .bg-tag{color:#ff9e9e}
 .bl .bcap{position:relative;z-index:2;padding:1.6rem 1.9rem;opacity:0;transition:opacity .35s ease}
 .bl.on .bcap{opacity:1;transition-delay:.25s}
 .bkara{font-family:'Cormorant Garamond',serif;font-size:clamp(1rem,2.1vw,1.35rem);line-height:1.42;color:rgba(255,255,255,.5);margin-top:.4rem;max-width:30rem;text-shadow:0 2px 10px rgba(0,0,0,.55)}
@@ -720,7 +743,9 @@ section.dark .gold-text{background:linear-gradient(180deg,#fff,#f3d79a);-webkit-
 .ythumb .pic{width:100%;height:0;padding-bottom:56.25%;aspect-ratio:auto}
 .ythumb .tt{font-size:1.18rem}
 /* dreamtales: banner slogan + bilingual sing-along lyric on each kids thumbnail */
-.yt-bannertext{position:absolute;left:1.4rem;bottom:1rem;z-index:2;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.5rem;color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.65);line-height:1.1}
+.yt-bannertext{position:absolute;left:1.4rem;top:1.1rem;z-index:2;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.5rem;color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.65);line-height:1.1}
+.ask{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.15rem,2.6vw,1.6rem);color:#b07d2a;margin-top:1.1rem}
+section.dark .ask{color:#ffe39a}
 .yt-bannertext span{display:block;font-family:'Inter',sans-serif;font-weight:500;font-size:.82rem;color:rgba(255,255,255,.88);margin-top:.25rem;text-shadow:0 1px 8px rgba(0,0,0,.6)}
 .yt-lyric{position:absolute;left:8px;right:8px;top:30%;z-index:2;text-align:center;pointer-events:none}
 .yt-lyric b{display:block;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.15rem;color:#ffe6a6;text-shadow:0 2px 10px rgba(0,0,0,.8);line-height:1.15}
@@ -737,11 +762,17 @@ section.dark .gold-text{background:linear-gradient(180deg,#fff,#f3d79a);-webkit-
 .dflip.flipped .dflip-back{opacity:1;pointer-events:auto}
 .ytwatch{height:100%;display:flex;flex-direction:column;background:#0a0f18;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.5)}
 .ytw-video{position:relative;height:54%;min-height:188px;background:#000;overflow:hidden;flex:none}
-.ytw-poster{position:absolute;inset:0;background-size:cover;background-position:center;animation:psKen 12s ease-in-out infinite alternate}
-.ytw-video::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.55))}
-.ytw-kara{position:absolute;left:0;right:0;bottom:2rem;z-index:2;text-align:center;font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,2.3vw,1.6rem);padding:0 1rem;line-height:1.3}
-.ytw-kara span{color:rgba(255,255,255,.42)}
-.ytw-kara span.on{color:#ffe6a6;text-shadow:0 0 14px rgba(243,196,108,.5)}
+.ytw-poster{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.3s ease}
+.ytw-poster.on{opacity:1;animation:psKen 8s ease-in-out infinite alternate}
+.ytw-video::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,.38),rgba(0,0,0,.32) 45%,rgba(0,0,0,.6))}
+.ytw-karawrap{position:absolute;left:0;right:0;top:50%;z-index:2;text-align:center;padding:0 1rem;transition:transform .6s cubic-bezier(.4,0,.2,1)}
+.ytw-kline{transition:opacity .4s ease;opacity:.3;margin:.25rem 0}
+.ytw-kline.active{opacity:1}
+.ytw-kline .kl{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(1.05rem,2.3vw,1.7rem);line-height:1.25;color:rgba(255,255,255,.5)}
+.ytw-kline .kl span{transition:color .2s,text-shadow .2s}
+.ytw-kline .kl span.on{color:#ffe6a6;text-shadow:0 0 14px rgba(243,196,108,.55)}
+.ytw-kline .kl span.done{color:#f6e4ad}
+.ytw-kline .kt{font-family:'Inter',sans-serif;font-style:italic;font-size:clamp(.66rem,1.4vw,.82rem);color:rgba(225,232,244,.55);margin-top:.05rem}
 .ytw-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:3;width:46px;height:46px;border-radius:50%;background:rgba(0,0,0,.5);border:2px solid rgba(255,255,255,.85);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.85rem}
 .ytw-tag{position:absolute;top:.55rem;left:.55rem;z-index:3;background:rgba(243,196,108,.94);color:#0c1626;font-size:.58rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;border-radius:5px;padding:.16rem .45rem}
 .ytw-time{position:absolute;right:.55rem;bottom:.6rem;z-index:3;color:#fff;font-size:.6rem;background:rgba(0,0,0,.6);border-radius:3px;padding:.05rem .3rem}
@@ -1028,22 +1059,16 @@ section.bgsec .btn-ghost{color:#fff;border-color:rgba(255,255,255,.5);background
 <!-- differentiator -->
 <section id="more">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="eyebrow">More than a lyric video</div>
-      <h2 class="gold-text">Every song carries a story. Every story carries wisdom.</h2>
-      <p>You are not just entertaining. The words light up in time with the music, in two languages, and each song comes with the idea behind it explained. People learn while they feel. That is the kind of video they replay and share.</p>
+    <div class="sec-head center reveal">
+      <div class="eyebrow">Sing along, in any language</div>
+      <h2 class="gold-text">The words light up, word by word.</h2>
     </div>
-    <div class="demo">
-      <div class="kbox reveal">
+    <div class="reveal" style="max-width:680px;margin:2.4rem auto 0">
+      <div class="kbox">
         <div class="km-head"><span class="km-cover"></span><div class="km-t"><b>Worlds In My Head</b><span>Indie folk &middot; bilingual</span></div><span class="km-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span></div>
         <div class="klines" id="klines"></div>
         <div class="ksub" id="ksub">Y cada palabra que cantas se vuelve una luz que alguien sigue a casa.</div>
         <div class="km-bar" aria-hidden="true"><i></i></div>
-      </div>
-      <div class="story-card reveal">
-        <div class="tag">The idea behind the song</div>
-        <h3>Teaching, through music</h3>
-        <p>Each song ships with a short, switchable panel: the story, the meaning, the lesson. How you met. What a journey taught you. Why a truth matters. Wisdom lands deeper when it is sung, and stays longer when it is explained.</p>
       </div>
     </div>
   </div>
@@ -1053,9 +1078,9 @@ section.bgsec .btn-ghost{color:#fff;border-color:rgba(255,255,255,.5);background
 <section id="demo" class="dark">
   <div class="wrap">
     <div class="sec-head center reveal">
-      <div class="eyebrow">See it live</div>
-      <h2 class="gold-text">A real song, running right here</h2>
-      <p class="mx">This is the system's output, live on the page. In 2026 raw AI uploads get buried, so the course includes the tips and tricks that keep your videos watchable, compliant and monetizable. Brand it any color, any style you want.</p>
+      <div class="eyebrow">More than a lyric video</div>
+      <h2 class="gold-text">Every song carries a story. Every story carries wisdom.</h2>
+      <p class="mx">You're not just entertaining. The words light up in time with the music, in two languages, and each song comes with the idea behind it explained. People learn while they feel - the kind of video they replay and share.</p>
     </div>
     <div class="demo-box reveal">
       <div class="democol">
@@ -1086,16 +1111,22 @@ section.bgsec .btn-ghost{color:#fff;border-color:rgba(255,255,255,.5);background
       <div class="dflip-face dflip-back">
         <div class="ytwatch">
           <div class="ytw-video">
+            <div class="ytw-poster on" style="background-image:url('img/bg-life1.webp')"></div>
+            <div class="ytw-poster" style="background-image:url('img/bg-life2.webp')"></div>
             <div class="ytw-poster" style="background-image:url('img/harvest.png')"></div>
-            <div class="ytw-kara" id="ytwKara"><span>And</span> <span>every</span> <span>word</span> <span>you</span> <span>sing</span> <span>becomes</span> <span>a</span> <span>light</span></div>
-            <span class="ytw-play">&#9654;</span>
+            <div class="ytw-karawrap" id="ytwKara">
+              <div class="ytw-kline"><div class="kl"><span>The</span> <span>storms</span> <span>will</span> <span>come</span> <span>and</span> <span>the</span> <span>storms</span> <span>will</span> <span>pass,</span></div><div class="kt">Las tormentas vienen y luego se van,</div></div>
+              <div class="ytw-kline"><div class="kl"><span>hold</span> <span>on,</span> <span>this</span> <span>too</span> <span>will</span> <span>not</span> <span>last.</span></div><div class="kt">resiste, esto tampoco durar&aacute;.</div></div>
+              <div class="ytw-kline"><div class="kl"><span>what</span> <span>breaks</span> <span>you</span> <span>slow</span> <span>will</span> <span>teach</span> <span>you</span> <span>most,</span></div><div class="kt">lo que te rompe te ense&ntilde;ar&aacute;,</div></div>
+              <div class="ytw-kline"><div class="kl"><span>the</span> <span>quiet</span> <span>strength</span> <span>you'll</span> <span>need</span> <span>the</span> <span>most.</span></div><div class="kt">la fuerza callada que hallar&aacute;s.</div></div>
+            </div>
             <span class="ytw-tag">Auto-rendered &middot; 1080p</span>
-            <span class="ytw-time">0:12 / 3:48</span>
+            <span class="ytw-time">1:12 / 3:48</span>
             <div class="ytw-prog"><i></i></div>
           </div>
-          <div class="ytw-title">The Sower (Official Bilingual Lyric Video)</div>
-          <div class="ytw-row"><span class="ytw-av"></span><span class="ytw-ch">Draw Near<br><small>412K subscribers</small></span><span class="ytw-subbtn">Subscribe</span></div>
-          <div class="ytw-desc"><b>128K views &middot; 2 days ago</b><br>A bilingual lyric video, created with AI. Chapters: 0:00 Intro &middot; 0:42 Verse &middot; 1:30 Chorus &middot; 2:50 Bridge. Made with Suno &amp; Claude.</div>
+          <div class="ytw-title">When the Storms Come (Official Lyric Video)</div>
+          <div class="ytw-row"><span class="ytw-av"></span><span class="ytw-ch">Draw Near<br><small>38K subscribers</small></span><span class="ytw-subbtn">Subscribe</span></div>
+          <div class="ytw-desc"><b>21K views &middot; 2 days ago</b><br>A bilingual lyric video, created with AI. Chapters: 0:00 Intro &middot; 0:42 Verse &middot; 1:30 Chorus &middot; 2:50 Bridge. Made with Suno &amp; Claude.</div>
           <div class="ytw-thumbs"><span class="ytwt" style="background-image:url('img/path.png')">A</span><span class="ytwt" style="background-image:url('img/hero2.png')">B</span><span class="ytw-tlabel">A/B thumbnails + description, done for you</span></div>
         </div>
       </div>
@@ -1259,7 +1290,7 @@ section.bgsec .btn-ghost{color:#fff;border-color:rgba(255,255,255,.5);background
         <div class="bl bl-kids"><div class="bl-bg" style="background-image:url('img/brand-kids.webp')"></div><div class="bkstage" aria-hidden="true"><div class="bkrow"><div class="bkline"><span>Clap</span> <span>your</span> <span>hands</span> <span>and</span> <span>sing</span> <span>with</span> <span>me,</span></div><div class="bktr">Aplaude y canta junto a mí,</div></div><div class="bkrow"><div class="bkline"><span>every</span> <span>word's</span> <span>a</span> <span>friend</span> <span>to</span> <span>keep.</span></div><div class="bktr">cada palabra es un amigo más.</div></div></div><div class="bcap"><div class="bg-tag">Kids &middot; sing-along &middot; learn a language</div><h3>Dreamtales</h3></div></div>
         <div class="bl bl-faith"><div class="bl-bg" style="background-image:url('img/brand-faith.webp')"></div><div class="bkstage" aria-hidden="true"><div class="bkrow"><div class="bkline"><span>Be</span> <span>still</span> <span>and</span> <span>know</span> <span>that</span> <span>He</span> <span>is</span> <span>near,</span></div><div class="bktr">Quédate quieto, Él está aquí,</div></div><div class="bkrow"><div class="bkline"><span>His</span> <span>light</span> <span>will</span> <span>lead</span> <span>me</span> <span>home.</span></div><div class="bktr">su luz me guiará a casa.</div></div></div><div class="bcap"><div class="bg-tag">Faith &middot; gold on slate</div><h3>Draw Near</h3></div></div>
         <div class="bl bl-history"><div class="bl-bg" style="background-image:url('img/brand-history.webp')"></div><div class="bkstage" aria-hidden="true"><div class="bkrow"><div class="bkline"><span>Stand</span> <span>up</span> <span>and</span> <span>raise</span> <span>your</span> <span>voice</span> <span>tonight,</span></div><div class="bktr">Levántate y alza tu voz,</div></div><div class="bkrow"><div class="bkline"><span>this</span> <span>is</span> <span>the</span> <span>moment</span> <span>we</span> <span>rise.</span></div><div class="bktr">este es el momento de brillar.</div></div></div><div class="bcap"><div class="bg-tag">Anthems &middot; oil painting</div><h3>Anthem</h3></div></div>
-        <div class="bl bl-hype"><div class="bl-bg" style="background-image:url('img/brand-hype.webp')"></div><div class="bkstage" aria-hidden="true"><div class="bkrow"><div class="bkline"><span>Push</span> <span>past</span> <span>the</span> <span>limit,</span> <span>don't</span> <span>you</span> <span>stop,</span></div><div class="bktr">Supera el límite, no te detengas,</div></div><div class="bkrow"><div class="bkline"><span>we</span> <span>were</span> <span>born</span> <span>to</span> <span>run.</span></div><div class="bktr">nacimos para correr.</div></div></div><div class="bcap"><div class="bg-tag">Workout &middot; hype</div><h3>Adrenaline</h3></div></div>
+        <div class="bl bl-sport"><div class="bl-bg" style="background-image:url('img/brand-sport.webp')"></div><div class="bkstage" aria-hidden="true"><div class="bkrow"><div class="bkline"><span>Get</span> <span>up,</span> <span>get</span> <span>up,</span> <span>one</span> <span>more</span> <span>round,</span></div><div class="bktr">Levántate, una ronda más,</div></div><div class="bkrow"><div class="bkline"><span>rise</span> <span>before</span> <span>they</span> <span>count</span> <span>you</span> <span>down.</span></div><div class="bktr">levántate antes del conteo final.</div></div></div><div class="bcap"><div class="bg-tag">Sport &middot; boxing</div><h3>Ringside</h3></div></div>
       </div>
       <div class="brand-chips" id="brandChips">
         <button class="bchip on" type="button">Travel</button>
@@ -1267,7 +1298,7 @@ section.bgsec .btn-ghost{color:#fff;border-color:rgba(255,255,255,.5);background
         <button class="bchip" type="button">Kids</button>
         <button class="bchip" type="button">Faith</button>
         <button class="bchip" type="button">Anthems</button>
-        <button class="bchip" type="button">Hype</button>
+        <button class="bchip" type="button">Sport</button>
       </div>
     </div>
   </div>
@@ -1281,6 +1312,7 @@ section.bgsec .btn-ghost{color:#fff;border-color:rgba(255,255,255,.5);background
       <div class="eyebrow">Not just videos</div>
       <h2 class="gold-text">A whole channel, built for you</h2>
       <p class="mx">A complete channel, system and niche you can run in an hour or two a week, with almost no work. Branding, thumbnails, descriptions, a posting plan and a growth strategy, all done. You look established from day one, the fastest anyone has ever launched an animated channel.</p>
+      <p class="ask mx">So what would yours be about? Faith, history, love, a new language, your own story - what message would you put into songs and share with the world?</p>
     </div>
     <div class="ytcard">
       <div class="yt-banner" style="background-image:url('img/ch-lull-banner.webp')"><div class="yt-bannertext">Sing along &middot; learn a language<span>A new kids song every week - every word lit up, in two languages</span></div></div>
@@ -1375,6 +1407,7 @@ section.bgsec .btn-ghost{color:#fff;border-color:rgba(255,255,255,.5);background
       <div class="eyebrow">Who it is for</div>
       <h2 class="gold-text">Built for anyone with something to say</h2>
       <p class="mx">You do not need to sing, edit, design or code. If you can describe it, the system builds it.</p>
+      <p class="ask mx">So what would you build? Your own AI-song channel, in your brand, on any theme you love - what idea, what message would you share with the world, and earn a second income on the side?</p>
     </div>
     <div class="auds reveal">
       <div class="aud"><div class="abg" style="background-image:url('img/aud-creator.png')"></div><div class="ac"><div class="at">Side-income creators</div><h3>Start a channel of your own</h3><p>Build a real YouTube channel in any niche, in an hour or two a week, with no prior skills. A possible second income, on your terms.</p></div></div>
@@ -1885,11 +1918,29 @@ if(/[?&]flipall=1/.test(location.search)){addEventListener('load',function(){doc
   var f=document.getElementById('demoFlip'),b=document.getElementById('demoFlipBtn'); if(!f)return;
   function set(on){f.classList.toggle('flipped',on);if(b)b.innerHTML=on?'See the web player &rarr;':'See the rendered YouTube video &rarr;';}
   if(b)b.addEventListener('click',function(){set(!f.classList.contains('flipped'));});
-  var kbox=document.getElementById('ytwKara');
-  if(kbox){var ws=[].slice.call(kbox.querySelectorAll('span'));
-    if(REDUCED){ws.forEach(function(w){w.classList.add('on');});}
-    else{var i=0;setInterval(function(){ws.forEach(function(w,k){w.classList.toggle('on',k<=i);});i=(i+1)%(ws.length+2);},430);}
+  var yk=document.getElementById('ytwKara');
+  if(yk){
+    var lines=[].slice.call(yk.querySelectorAll('.ytw-kline'));
+    function centerLine(n){var l=lines[n];if(l)yk.style.transform='translateY('+(-(l.offsetTop+l.offsetHeight/2))+'px)';}
+    if(REDUCED){lines.forEach(function(l){l.classList.add('active');[].forEach.call(l.querySelectorAll('.kl span'),function(s){s.classList.add('done');});});}
+    else if(lines.length){
+      var ln=0,t=null;
+      function playLine(){
+        lines.forEach(function(l,k){l.classList.toggle('active',k===ln);});
+        centerLine(ln);
+        var ws=[].slice.call(lines[ln].querySelectorAll('.kl span'));
+        ws.forEach(function(s){s.classList.remove('on','done');});
+        var wi=0;
+        (function word(){
+          if(wi<ws.length){ws.forEach(function(s,k){s.classList.toggle('on',k===wi);if(k<wi)s.classList.add('done');});wi++;t=setTimeout(word,300);}
+          else{ws.forEach(function(s){s.classList.remove('on');s.classList.add('done');});ln=(ln+1)%lines.length;t=setTimeout(playLine,950);}
+        })();
+      }
+      setTimeout(playLine,400);
+    }
   }
+  var posters=[].slice.call(document.querySelectorAll('.ytw-video .ytw-poster'));
+  if(posters.length>1&&!REDUCED){var pi=0;setInterval(function(){posters[pi].classList.remove('on');pi=(pi+1)%posters.length;posters[pi].classList.add('on');},4500);}
 })();
 </script>
 </body>
