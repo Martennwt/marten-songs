@@ -1020,13 +1020,7 @@ section.bgsec .btn-ghost{color:#fff;border-color:rgba(255,255,255,.5);background
 <div class="aurora"><b class="a1"></b><b class="a2"></b><b class="a3"></b></div>
 <canvas id="dots"></canvas>
 
-<div class="promo">
-  <div class="in">
-    <span>Now in <b>pre-launch</b>: a YouTube channel of AI karaoke songs, on autopilot. Founding members get in first.</span>
-    <a class="lk" href="#waitlist">Join the waitlist &rarr;</a>
-  </div>
-</div>
-
+<!-- top announcement bar removed: the pre-launch bar now lives as a dark sticky bar at the BOTTOM (#preBar) -->
 <nav class="nav" id="nav">
   <div class="row">
     <a class="brand" href="#top">
@@ -2096,7 +2090,7 @@ if(/[?&]flipall=1/.test(location.search)){addEventListener('load',function(){doc
   if(posters.length>1&&!REDUCED){var pi=0;setInterval(function(){posters[pi].classList.remove('on');pi=(pi+1)%posters.length;posters[pi].classList.add('on');},4500);}
 })();
 /* bottom pre-launch bar: show once the hero is scrolled past, hide near the waitlist; uses IntersectionObserver so it works with Lenis smooth-scroll (window scroll events are unreliable there) */
-(function(){var bar=document.getElementById('preBar');if(!bar)return;var closed=false;var x=document.getElementById('preClose');if(x)x.addEventListener('click',function(){closed=true;bar.classList.remove('show');});var hero=document.getElementById('top'),wl=document.getElementById('waitlist');var heroVis=true,wlVis=false;function upd(){bar.classList.toggle('show',!closed&&!heroVis&&!wlVis);}if(hero)new IntersectionObserver(function(e){heroVis=e[0].isIntersecting;upd();},{threshold:0}).observe(hero);if(wl)new IntersectionObserver(function(e){wlVis=e[0].isIntersecting;upd();},{threshold:0}).observe(wl);upd();})();
+(function(){var bar=document.getElementById('preBar');if(!bar)return;var closed=false;var x=document.getElementById('preClose');if(x)x.addEventListener('click',function(){closed=true;bar.classList.remove('show');});var hero=document.getElementById('top'),wl=document.getElementById('waitlist');var heroVis=true,wlVis=false;function upd(){bar.classList.toggle('show',!closed&&!heroVis&&!wlVis);}if(hero)new IntersectionObserver(function(e){heroVis=e[0].intersectionRatio>0.7;upd();},{threshold:[0,0.5,0.7,0.9,1]}).observe(hero);if(wl)new IntersectionObserver(function(e){wlVis=e[0].isIntersecting;upd();},{threshold:0}).observe(wl);upd();})();
 </script>
 <div class="prelaunch" id="preBar" aria-label="Pre-launch">
   <span class="pre-dot" aria-hidden="true">&#9834;</span>
