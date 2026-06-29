@@ -453,7 +453,7 @@ function buildHub() {
     '<div class="promo" id="promo"><div class="promo-in">' +
       '<span class="promo-eye">New</span>' +
       '<span>Turn any idea into bilingual karaoke songs and a YouTube channel on autopilot, with <b>Lumora</b>.</span>' +
-      '<a class="promo-cta" href="course/v3.html">Join the waitlist &rarr;</a>' +
+      '<a class="promo-cta" href="https://martennwt.github.io/lumora/">Join the waitlist &rarr;</a>' +
       '<button class="bar-x" onclick="closeBar(\'promo\')" aria-label="Dismiss">&times;</button>' +
     '</div></div>' +
     '<header><div class="eyebrow">AI songs about faith, love, life and God</div><h1>Marten\'s Songs</h1></header>' +
@@ -462,7 +462,7 @@ function buildHub() {
     '<footer>Press a song, then Play. The words light up as they are sung, with a translation below.</footer>' +
     '<div class="ctabar" id="ctabar"><div class="ctabar-in">' +
       '<div class="ctabar-txt"><b>Lumora.</b> AI karaoke songs for any topic, plus a YouTube channel that grows itself. One folder in, a finished video out.</div>' +
-      '<a class="ctabar-btn" href="course/v3.html">See the course &rarr;</a>' +
+      '<a class="ctabar-btn" href="https://martennwt.github.io/lumora/">See the course &rarr;</a>' +
       '<button class="bar-x" onclick="closeBar(\'ctabar\')" aria-label="Dismiss">&times;</button>' +
     '</div></div>' +
     '<script>function filt(b){document.querySelectorAll(".filt").forEach(function(x){x.classList.toggle("on",x===b);});var g=b.getAttribute("data-g");document.querySelectorAll(".card").forEach(function(c){c.style.display=(g==="all"||c.getAttribute("data-genre")===g)?"":"none";});}' +
