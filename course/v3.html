@@ -714,6 +714,22 @@ section.dark .gold-text{background:linear-gradient(180deg,#fff,#f3d79a);-webkit-
 .bl-sport .bktr{color:rgba(255,210,210,.72);font-style:normal}
 .bl-sport .bcap h3{font-family:'Inter',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.04em}
 .bl-sport .bcap .bg-tag{color:#ff9e9e}
+/* "yours" = the climax card at the end of the brand showcase (gold-shimmer invitation) */
+.bl-yours{background:radial-gradient(130% 120% at 50% 28%,rgba(243,196,108,.16),#0c1322 60%)}
+.bl-yours::after{display:none}
+.yours-stage{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:1.4rem 1.8rem;gap:.7rem}
+.ys-eyebrow{font-family:'Inter',sans-serif;text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;color:#f3c46c}
+.ys-q{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(1.6rem,4vw,2.7rem);color:#fff;line-height:1.1}
+.ys-q .am{font-size:inherit;display:inline;margin:0}
+.ys-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1rem,2.2vw,1.25rem);color:rgba(225,232,244,.78);margin-bottom:.35rem}
+.ys-ideas{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;max-width:580px}
+.ys-ideas span{border:1px solid rgba(243,196,108,.4);border-radius:999px;padding:.35rem .9rem;font-size:.85rem;color:#ffe39a;background:rgba(243,196,108,.08);opacity:0;transform:translateY(8px);transition:opacity .45s ease,transform .45s ease}
+.bl-yours.on .ys-ideas span{opacity:1;transform:none;transition-delay:var(--d,0s)}
+/* the "Yours?" chip: always gold-rimmed + a gentle shimmer sweep every ~3s */
+.bchip-yours{position:relative;overflow:hidden;border-color:rgba(243,196,108,.7)!important;color:#ffe39a}
+.bchip-yours::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 38%,rgba(255,231,173,.5) 50%,transparent 62%);transform:translateX(-130%);animation:chipShine 3.2s ease-in-out infinite;pointer-events:none}
+@keyframes chipShine{0%{transform:translateX(-130%)}26%{transform:translateX(130%)}100%{transform:translateX(130%)}}
+@media(prefers-reduced-motion:reduce){.bchip-yours::after{animation:none;opacity:0}}
 .bl .bcap{position:relative;z-index:2;padding:1.6rem 1.9rem;opacity:0;transition:opacity .35s ease}
 .bl.on .bcap{opacity:1;transition-delay:.25s}
 .bkara{font-family:'Cormorant Garamond',serif;font-size:clamp(1rem,2.1vw,1.35rem);line-height:1.42;color:rgba(255,255,255,.5);margin-top:.4rem;max-width:30rem;text-shadow:0 2px 10px rgba(0,0,0,.55)}
@@ -787,12 +803,13 @@ section.dark .ask{color:#ffe39a}
 .ds-tab:not(.on):hover{color:#ffe39a}
 .ds-hint{align-self:center;font-size:.72rem;color:rgba(255,255,255,.4);margin-top:-.2rem}
 /* course section: A-Z lesson fan, install badge, niche map */
-.course-fan{display:flex;justify-content:center;align-items:flex-end;margin:2.8rem auto 1.9rem;max-width:840px;min-height:250px}
-.lesson{flex:0 0 auto;width:162px;min-height:208px;margin:0 -26px;background:linear-gradient(180deg,rgba(31,43,67,.92),rgba(13,20,34,.96));border:1px solid rgba(243,196,108,.28);border-radius:16px;padding:1.15rem 1rem;color:#cdd8e8;transform-origin:bottom center;transform:rotate(var(--r,0)) translateY(var(--y,0));transition:transform .4s cubic-bezier(.34,1.18,.4,1),box-shadow .3s,margin .4s,border-color .3s;box-shadow:0 18px 40px rgba(0,0,0,.45)}
-.lesson .ln{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:#f3c46c;font-weight:700;line-height:1}
-.lesson b{display:block;margin:.55rem 0 .35rem;font-size:1rem;color:#fff}
-.lesson .ls{font-size:.81rem;color:rgba(205,216,232,.72);line-height:1.35}
-@media(min-width:760px){.course-fan:hover .lesson{margin:0 9px;transform:rotate(0) translateY(0)}.lesson:hover{transform:translateY(-14px) scale(1.05)!important;z-index:5;box-shadow:0 26px 60px rgba(0,0,0,.6);border-color:rgba(243,196,108,.6)}}
+.course-fan{display:flex;justify-content:center;align-items:flex-end;margin:2.8rem auto 1.9rem;max-width:940px;min-height:250px}
+.lesson{position:relative;flex:0 0 auto;width:156px;min-height:214px;margin:0 -6px;background:linear-gradient(180deg,rgba(31,43,67,.94),rgba(13,20,34,.97));border:1px solid rgba(243,196,108,.28);border-radius:16px;padding:1.15rem 1rem;color:#cdd8e8;transform-origin:bottom center;transform:rotate(var(--r,0)) translateY(var(--y,0));transition:transform .4s cubic-bezier(.34,1.18,.4,1),box-shadow .3s,margin .4s,border-color .3s;box-shadow:0 18px 40px rgba(0,0,0,.5)}
+.lesson .lv{position:absolute;top:11px;left:11px;display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:rgba(243,196,108,.16);border:1px solid rgba(243,196,108,.45);color:#f3c46c;font-size:.6rem;padding-left:2px}
+.lesson .ln{position:absolute;top:9px;right:13px;font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:#f3c46c;font-weight:700;opacity:.85;line-height:1}
+.lesson b{display:block;margin:2.45rem 0 .4rem;font-size:.97rem;color:#fff;line-height:1.2}
+.lesson .ls{font-size:.8rem;color:rgba(205,216,232,.74);line-height:1.34}
+@media(min-width:760px){.course-fan:hover .lesson{margin:0 10px;transform:rotate(0) translateY(0)}.lesson:hover{transform:translateY(-14px) scale(1.05)!important;z-index:5;box-shadow:0 26px 60px rgba(0,0,0,.6);border-color:rgba(243,196,108,.6)}}
 @media(max-width:759px){.course-fan{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;gap:.7rem;padding:0 1rem 1.1rem;max-width:none}.lesson{margin:0!important;transform:none!important;width:172px}}
 .install-row{display:flex;align-items:center;justify-content:center;gap:.85rem;flex-wrap:wrap;text-align:center;margin:0 auto 2.7rem;color:rgba(205,216,232,.85)}
 .ib-big{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:2.4rem;color:#ffe39a;text-shadow:0 0 24px rgba(243,196,108,.3)}
@@ -805,6 +822,37 @@ section.dark .ask{color:#ffe39a}
 .niche b{display:block;color:#ffe39a;font-size:1rem;margin-bottom:.3rem}
 .niche span{font-size:.85rem;color:rgba(205,216,232,.74);line-height:1.4}
 .course-ask{margin-top:1.9rem;text-align:center}
+/* locked niche map: blurred behind a "unlocked in the course" overlay */
+.niche-locked{position:relative;border-radius:16px;overflow:hidden}
+.niche-locked .niche-grid{filter:blur(7px) brightness(.62);opacity:.85;pointer-events:none;user-select:none}
+.lock-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:.55rem;padding:1.6rem;background:radial-gradient(circle at 50% 42%,rgba(13,20,34,.5),rgba(7,12,22,.8));border:1px solid rgba(243,196,108,.28);border-radius:16px}
+.lock-ic{width:54px;height:54px;border-radius:50%;background:linear-gradient(180deg,#f3c46c,#d9a441);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 26px rgba(243,196,108,.4);margin-bottom:.2rem}
+.lock-overlay b{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.55rem;color:#ffe39a}
+.lock-txt{max-width:480px;font-size:.92rem;color:rgba(225,232,244,.84);line-height:1.45}
+/* hero: floating notes + lyric snippets shimmering behind the phone */
+.hero-notes{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.hn{position:absolute;color:rgba(201,144,46,.92);font-family:'Cormorant Garamond',serif;white-space:nowrap;opacity:0;animation:hnFloat 10s ease-in-out infinite;text-shadow:0 2px 14px rgba(243,196,108,.3)}
+.hn.note{font-size:2.1rem}
+.hn.lyric{font-style:italic;font-size:1.12rem;color:rgba(201,144,46,.72)}
+@keyframes hnFloat{0%{opacity:0;transform:translateY(34px) scale(.92)}22%{opacity:.55}62%{opacity:.5}100%{opacity:0;transform:translateY(-70px) scale(1.06)}}
+@media(prefers-reduced-motion:reduce){.hero-notes{display:none}}
+/* bottom pre-launch sticky bar (dark glass: legible over light AND dark sections) */
+.prelaunch{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;padding:.7rem 1.2rem;background:rgba(10,15,26,.9);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-top:1px solid rgba(243,196,108,.4);color:#f3e9d6;transform:translateY(115%);transition:transform .5s cubic-bezier(.4,0,.2,1);box-shadow:0 -10px 40px rgba(0,0,0,.35)}
+.prelaunch.show{transform:translateY(0)}
+.pre-dot{color:#f3c46c;font-size:1.2rem}
+.pre-txt{font-size:.9rem}
+.pre-txt b{color:#ffe39a}
+.pre-em{color:#f3c46c;font-weight:600}
+.pre-btn{background:linear-gradient(180deg,#f3c46c,#d9a441);color:#1a1205;font-weight:700;font-size:.85rem;padding:.5rem 1.1rem;border-radius:999px;text-decoration:none;white-space:nowrap;transition:.2s}
+.pre-btn:hover{filter:brightness(1.07);transform:translateY(-1px)}
+.pre-x{background:none;border:0;color:rgba(255,255,255,.5);font-size:1.3rem;cursor:pointer;line-height:1;padding:0 .2rem}
+.pre-x:hover{color:#fff}
+@media(max-width:600px){.pre-txt{font-size:.8rem;flex:1 1 100%;text-align:center;order:-1}.prelaunch{gap:.55rem;padding:.6rem .8rem}}
+/* "your turn" bridge beat (gold-backed) between brands and the channel */
+.yours-card{max-width:760px;margin:0 auto;text-align:center;padding:3rem 2rem;border-radius:24px;background:radial-gradient(120% 130% at 50% 0%,rgba(243,196,108,.13),rgba(255,255,255,.03) 58%,transparent);border:1px solid rgba(243,196,108,.22);box-shadow:0 30px 80px rgba(0,0,0,.35)}
+.yours-q{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(2rem,5vw,3.1rem);line-height:1.12;color:#fff;margin:.5rem 0 1rem}
+.yours-q .am{font-size:inherit;display:inline;margin:0}
+.yours-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.1rem,2.4vw,1.45rem);color:rgba(225,232,244,.82);max-width:600px;margin:0 auto;line-height:1.4}
 .ytwatch{height:100%;display:flex;flex-direction:column;background:#0a0f18;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.5)}
 .ytw-video{position:relative;height:54%;min-height:188px;background:#000;overflow:hidden;flex:none}
 .ytw-poster{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.3s ease}
@@ -996,6 +1044,15 @@ section.bgsec .btn-ghost{color:#fff;border-color:rgba(255,255,255,.5);background
 </nav>
 
 <header class="hero" id="top">
+  <div class="hero-notes" aria-hidden="true">
+    <span class="hn note" style="left:60%;top:18%;animation-delay:0s">&#9834;</span>
+    <span class="hn lyric" style="left:53%;top:30%;animation-delay:1.4s">every word you sing</span>
+    <span class="hn note" style="left:90%;top:36%;animation-delay:2.6s">&#9835;</span>
+    <span class="hn lyric" style="left:71%;top:73%;animation-delay:3.8s">two languages, one song</span>
+    <span class="hn note" style="left:84%;top:58%;animation-delay:5s">&#9833;</span>
+    <span class="hn note" style="left:49%;top:80%;animation-delay:6.2s">&#9834;</span>
+    <span class="hn lyric" style="left:62%;top:50%;animation-delay:4.6s">any idea, any topic</span>
+  </div>
   <div class="wrap">
     <div class="h-grid">
       <div class="h-text">
@@ -1290,6 +1347,7 @@ section.bgsec .btn-ghost{color:#fff;border-color:rgba(255,255,255,.5);background
         <div class="bl bl-faith"><div class="bl-bg" style="background-image:url('img/brand-faith.webp')"></div><div class="bkstage" aria-hidden="true"><div class="bkrow"><div class="bkline"><span>Be</span> <span>still</span> <span>and</span> <span>know</span> <span>that</span> <span>He</span> <span>is</span> <span>near,</span></div><div class="bktr">Quédate quieto, Él está aquí,</div></div><div class="bkrow"><div class="bkline"><span>His</span> <span>light</span> <span>will</span> <span>lead</span> <span>me</span> <span>home.</span></div><div class="bktr">su luz me guiará a casa.</div></div></div><div class="bcap"><div class="bg-tag">Faith &middot; gold on slate</div><h3>Draw Near</h3></div></div>
         <div class="bl bl-history"><div class="bl-bg" style="background-image:url('img/brand-history.webp')"></div><div class="bkstage" aria-hidden="true"><div class="bkrow"><div class="bkline"><span>Stand</span> <span>up</span> <span>and</span> <span>raise</span> <span>your</span> <span>voice</span> <span>tonight,</span></div><div class="bktr">Levántate y alza tu voz,</div></div><div class="bkrow"><div class="bkline"><span>this</span> <span>is</span> <span>the</span> <span>moment</span> <span>we</span> <span>rise.</span></div><div class="bktr">este es el momento de brillar.</div></div></div><div class="bcap"><div class="bg-tag">Anthems &middot; oil painting</div><h3>Anthem</h3></div></div>
         <div class="bl bl-sport"><div class="bl-bg" style="background-image:url('img/brand-sport.webp')"></div><div class="bkstage" aria-hidden="true"><div class="bkrow"><div class="bkline"><span>Get</span> <span>up,</span> <span>get</span> <span>up,</span> <span>one</span> <span>more</span> <span>round,</span></div><div class="bktr">Levántate, una ronda más,</div></div><div class="bkrow"><div class="bkline"><span>rise</span> <span>before</span> <span>they</span> <span>count</span> <span>you</span> <span>down.</span></div><div class="bktr">levántate antes del conteo final.</div></div></div><div class="bcap"><div class="bg-tag">Sport &middot; boxing</div><h3>Ringside</h3></div></div>
+        <div class="bl bl-yours"><div class="yours-stage"><div class="ys-eyebrow">Your turn</div><h3 class="ys-q">What would <span class="am">yours</span> be about?</h3><p class="ys-sub">What message would you put into your songs?</p><div class="ys-ideas"><span style="--d:.12s">Any idea</span><span style="--d:.2s">A memory</span><span style="--d:.28s">Your lessons</span><span style="--d:.36s">A wedding</span><span style="--d:.44s">For a friend</span><span style="--d:.52s">For your family</span><span style="--d:.6s">Your own story</span><span style="--d:.68s">A whole world</span></div></div></div>
       </div>
       <div class="brand-chips" id="brandChips">
         <button class="bchip on" type="button">Travel</button>
@@ -1298,6 +1356,7 @@ section.bgsec .btn-ghost{color:#fff;border-color:rgba(255,255,255,.5);background
         <button class="bchip" type="button">Faith</button>
         <button class="bchip" type="button">Anthems</button>
         <button class="bchip" type="button">Sport</button>
+        <button class="bchip bchip-yours" type="button">Yours?</button>
       </div>
     </div>
   </div>
@@ -1311,7 +1370,6 @@ section.bgsec .btn-ghost{color:#fff;border-color:rgba(255,255,255,.5);background
       <div class="eyebrow">Not just videos</div>
       <h2 class="gold-text">A whole channel, built for you</h2>
       <p class="mx">A complete channel, system and niche you can run in an hour or two a week, with almost no work. Branding, thumbnails, descriptions, a posting plan and a growth strategy, all done. You look established from day one, the fastest anyone has ever launched an animated channel.</p>
-      <p class="ask mx">So what would yours be about? Faith, history, love, a new language, your own story - what message would you put into songs and share with the world?</p>
     </div>
     <div class="ytcard">
       <div class="yt-banner" style="background-image:url('img/ch-lull-banner.webp')"><div class="yt-bannertext">Sing along &middot; learn a language<span>A new kids song every week - every word lit up, in two languages</span></div></div>
@@ -1446,23 +1504,30 @@ section.bgsec .btn-ghost{color:#fff;border-color:rgba(255,255,255,.5);background
       <p class="mx">Short, watch-and-do videos take you from zero to your first published song and video - even if you have never opened a terminal.</p>
     </div>
     <div class="course-fan reveal" id="courseFan">
-      <div class="lesson" style="--r:-20deg;--y:26px"><span class="ln">01</span><b>Install once</b><span class="ls">One skill file and a short setup. No tech needed.</span></div>
-      <div class="lesson" style="--r:-12deg;--y:9px"><span class="ln">02</span><b>Drop your song</b><span class="ls">Your AI song goes into one folder. That is the work.</span></div>
-      <div class="lesson" style="--r:-4deg;--y:0"><span class="ln">03</span><b>Karaoke + translation</b><span class="ls">Word-perfect timing, lit up, in two languages.</span></div>
-      <div class="lesson" style="--r:4deg;--y:0"><span class="ln">04</span><b>Brand it</b><span class="ls">Your look, your voice, your thumbnails - any niche.</span></div>
-      <div class="lesson" style="--r:12deg;--y:9px"><span class="ln">05</span><b>Render the video</b><span class="ls">A finished, compliant YouTube video, ready to upload.</span></div>
-      <div class="lesson" style="--r:20deg;--y:26px"><span class="ln">06</span><b>Publish &amp; grow</b><span class="ls">Descriptions, SEO and a posting plan, done for you.</span></div>
+      <div class="lesson" style="--r:-15deg;--y:18px"><span class="lv">&#9654;</span><span class="ln">01</span><b>Install Claude</b><span class="ls">Set up in minutes. No coding, no tech background.</span></div>
+      <div class="lesson" style="--r:-9deg;--y:6px"><span class="lv">&#9654;</span><span class="ln">02</span><b>Add the skill</b><span class="ls">One file turns Claude into your music and video studio.</span></div>
+      <div class="lesson" style="--r:-3deg;--y:0"><span class="lv">&#9654;</span><span class="ln">03</span><b>The concept</b><span class="ls">How the whole system works - explained dead simple.</span></div>
+      <div class="lesson" style="--r:3deg;--y:0"><span class="lv">&#9654;</span><span class="ln">04</span><b>Your first song</b><span class="ls">Make a finished, bilingual karaoke song, step by step.</span></div>
+      <div class="lesson" style="--r:9deg;--y:6px"><span class="lv">&#9654;</span><span class="ln">05</span><b>Channel on autopilot</b><span class="ls">It builds the videos and the channel for you.</span></div>
+      <div class="lesson" style="--r:15deg;--y:18px"><span class="lv">&#9654;</span><span class="ln">06</span><b>Pro-level branding</b><span class="ls">Make it look professional and unmistakably yours.</span></div>
     </div>
     <div class="install-row reveal"><span class="ib-big">&lt; 30 min</span><span class="ib-txt">to install everything, start to finish</span></div>
     <div class="niche-wrap reveal">
       <h3 class="nh">And a map of the niches that actually work</h3>
-      <div class="niche-grid">
-        <div class="niche"><b>Faith &amp; worship</b><span>Bible passages in your own style - new believers, deep study, kids' Bible, Psalms.</span></div>
-        <div class="niche"><b>Kids &amp; language</b><span>Sing to learn - counting, colours, first words, a whole new language.</span></div>
-        <div class="niche"><b>Sport &amp; motivation</b><span>Running, lifting, boxing, game-day discipline anthems.</span></div>
-        <div class="niche"><b>Love &amp; milestones</b><span>Weddings, anniversaries - songs people gift and keep.</span></div>
-        <div class="niche"><b>Language learning</b><span>Bilingual sing-along: the fastest-growing, wide-open lane.</span></div>
-        <div class="niche"><b>History &amp; story</b><span>Epic anthems about people, places and timeless wisdom.</span></div>
+      <div class="niche-locked">
+        <div class="niche-grid" aria-hidden="true">
+          <div class="niche"><b>Faith &amp; worship</b><span>Bible passages in your own style - new believers, deep study, kids' Bible, Psalms.</span></div>
+          <div class="niche"><b>Kids &amp; language</b><span>Sing to learn - counting, colours, first words, a whole new language.</span></div>
+          <div class="niche"><b>Sport &amp; motivation</b><span>Running, lifting, boxing, game-day discipline anthems.</span></div>
+          <div class="niche"><b>Love &amp; milestones</b><span>Weddings, anniversaries - songs people gift and keep.</span></div>
+          <div class="niche"><b>Language learning</b><span>Bilingual sing-along: the fastest-growing, wide-open lane.</span></div>
+          <div class="niche"><b>History &amp; story</b><span>Epic anthems about people, places and timeless wisdom.</span></div>
+        </div>
+        <div class="lock-overlay">
+          <span class="lock-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="5" y="10.5" width="14" height="9.6" rx="2" fill="#15203a"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3" stroke="#15203a" stroke-width="2.2" fill="none" stroke-linecap="round"/></svg></span>
+          <b>Unlocked inside the course</b>
+          <span class="lock-txt">The full niche map - the research, the sub-niches and ready-to-use angles - is already prepared and revealed step by step in the course.</span>
+        </div>
       </div>
       <p class="ask course-ask">The machine builds the pipeline. You bring the soul - your taste, your style, your message. That is what makes a channel yours, and impossible to copy.</p>
     </div>
@@ -2030,6 +2095,14 @@ if(/[?&]flipall=1/.test(location.search)){addEventListener('load',function(){doc
   var posters=[].slice.call(document.querySelectorAll('.ytw-video .ytw-poster'));
   if(posters.length>1&&!REDUCED){var pi=0;setInterval(function(){posters[pi].classList.remove('on');pi=(pi+1)%posters.length;posters[pi].classList.add('on');},4500);}
 })();
+/* bottom pre-launch bar: show after the hero, hide near the waitlist, dismissible */
+(function(){var bar=document.getElementById('preBar');if(!bar)return;var closed=false;var x=document.getElementById('preClose');if(x)x.addEventListener('click',function(){closed=true;bar.classList.remove('show');});function upd(){if(closed)return;var y=window.pageYOffset||document.documentElement.scrollTop;var nearWl=false;var wl=document.getElementById('waitlist');if(wl){var r=wl.getBoundingClientRect();if(r.top<window.innerHeight&&r.bottom>0)nearWl=true;}bar.classList.toggle('show',y>640&&!nearWl);}window.addEventListener('scroll',upd,{passive:true});upd();})();
 </script>
+<div class="prelaunch" id="preBar" aria-label="Pre-launch">
+  <span class="pre-dot" aria-hidden="true">&#9834;</span>
+  <span class="pre-txt"><b>Now in pre-launch</b> &middot; AI karaoke songs on autopilot - <span class="pre-em">founding members get in first</span></span>
+  <a class="pre-btn" href="#waitlist">Join the waitlist &rarr;</a>
+  <button class="pre-x" id="preClose" type="button" aria-label="Dismiss">&times;</button>
+</div>
 </body>
 </html>
