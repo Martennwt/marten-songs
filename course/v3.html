@@ -666,8 +666,8 @@ section.dark .gold-text{background:linear-gradient(180deg,#fff,#f3d79a);-webkit-
 .dropfile .df-ic{display:inline-flex;width:20px;height:20px;border-radius:5px;background:linear-gradient(180deg,#ffe7ad,#e9b85c);color:#3a2f1a;align-items:center;justify-content:center;font-size:.72rem}
 .chain{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin-top:2.6rem;max-width:760px;margin-left:auto;margin-right:auto}
 .chain-node{position:relative;background:#fffdf8;border:1px solid #ebe1ce;border-radius:999px;padding:.45rem 1rem;font-size:.82rem;color:#9a9182;font-weight:600;opacity:.45;transition:opacity .45s,color .45s,border-color .45s,box-shadow .45s,transform .45s}
-.chain-node::before{content:"\2713";display:inline-block;max-width:0;overflow:hidden;opacity:0;color:#c8902e;font-weight:800;vertical-align:middle;transition:max-width .35s ease,opacity .35s ease,margin .35s ease}
-.chain-node.done::before{max-width:1.3em;opacity:1;margin-right:.34rem}
+.chain-node::before{content:"\2713";display:inline-block;width:1em;margin-right:.32rem;opacity:0;color:#c8902e;font-weight:800;vertical-align:middle;text-align:left;transition:opacity .35s ease}
+.chain-node.done::before{opacity:1}
 .chain-node.proc{opacity:1;color:#9a6a16;border-color:rgba(200,144,46,.45);box-shadow:0 0 0 3px rgba(200,144,46,.14);transform:translateY(-1px)}
 .chain-node.done{opacity:1;color:#9a6a16;border-color:rgba(200,144,46,.55);box-shadow:0 8px 20px rgba(200,144,46,.18);transform:translateY(-2px)}
 .turn-out{margin-top:2.4rem;text-align:center;font-family:'Cormorant Garamond',serif;font-size:clamp(1.3rem,3vw,1.9rem);color:#241f17}
